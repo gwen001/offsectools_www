@@ -6,6 +6,7 @@
 
 
 <script>
+definePageMeta({ layout: 'maintenance' })
 export default {
     name: 'maintenance_layout',
 }

@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxi dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/sitemap": "^2.4.0",
-    "bootstrap": "^4.6.2",
-    "bootstrap-vue": "^2.22.0",
+    "@funken-studio/sitemap-nuxt-3": "^4.0.4",
+    "@pinia/nuxt": "^0.4.6",
+    "@popperjs/core": "^2.11.6",
+    "axios": "^1.2.1",
+    "bootstrap": "^5.2.3",
+    "bootstrap-vue-3": "^0.4.13",
     "core-js": "^3.25.3",
     "nuxt": "^3.0.0",
+    "pinia": "^2.0.27",
     "vue": "^3.2.45",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
