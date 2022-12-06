@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid vh-100">
-        <Nuxt />
+        <slot />
     </div>
 </template>
 
