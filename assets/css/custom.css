@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(30 41 59);
+    color: #FFF;
+    font-size: 0.95em;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+a {
+    color: #4ADE80;
+}
+a:hover {
+    color: #4ADE80;
+}
+
+.btn {
+    color: #fff;
+}
+.btn:hover {
+    color: #fff;
+}
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.hashtag {
+    color: #4ADE80;
+    font-size: 0.85em;
+}
+
+.uneedbest {
+    color: rgb(248 186 116);
+}
+.uneedbest:hover {
+    color: rgb(248 186 116);
+}

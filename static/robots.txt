@@ -1,0 +1,4 @@
+Sitemap: https://offsec.tools/sitemap.xml
+
+User-agent: *
+Disallow: /_nuxt/
