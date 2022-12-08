@@ -31,6 +31,9 @@
 import ToolCard from "~/components/ToolCard.vue";
 import FakeToolCard from "~/components/FakeToolCard.vue";
 import NotFound from "~/components/NotFound.vue";
+import { useTagStore } from '@/store/tags'
+import { useToolStore } from '@/store/tools'
+import { mapStores } from 'pinia'
 
 export default {
   name: "TagPage",
@@ -57,16 +60,14 @@ export default {
         tags: ["recon", "subdomains"],
       };
     },
+    ...mapStores(useTagStore, useToolStore),
   },
   async mounted() {
-    var tag = this.$store.getters["tags/getTagFromSlug"](
-      this.$route.params.slug
-    );
+    var tag = this.tagStore.getTagFromSlug(this.$route.params.slug);
+
     if (tag) {
       this.tag = tag;
-      this.tools = this.$store.getters["tools/getToolsFromTag"](
-        this.$route.params.slug
-      );
+      this.tools = this.toolStore.getToolsFromTag(this.$route.params.slug);
     } else {
       this.notfound = 1;
     }

@@ -31,13 +31,19 @@
 </template>
 
 <script>
+import { useTagStore } from '@/store/tags'
+import { mapStores } from 'pinia'
+
 export default {
   name: "Tagbar",
   data() {
     return {
-      tags: [{ slug: "test1" }], // tags: this.$store.getters["tags/getTags"]
+      tags: [{ slug: "test1" }], // tags: this.tagStore.getTags();
     };
   },
+  computed:{
+    ...mapStores(useTagStore)
+  }
 };
 </script>
 

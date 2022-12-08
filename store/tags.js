@@ -1,24 +1,12 @@
 import { defineStore } from "pinia";
 
-export const tagStore = defineStore({
-  id: "TagStore",
+export const useTagStore = defineStore("tag", {
   state: () => ({
     api_response: null,
     loading: false,
     tags: [],
   }),
   getters: {
-    // common
-    getApiResponse(state) {
-      return state.api_response;
-    },
-    isLoading(state) {
-      return state.loading;
-    },
-    getTags(state) {
-      // alert(1);
-      return state.tags;
-    },
     getTagFromSlug: (state) => (slug) => {
       // return null;
       for (var i = 0; i < state.tags.length; i++) {
@@ -36,20 +24,21 @@ export const tagStore = defineStore({
     getTags() {
       // context.commit('resetState');
       console.log("reload tags");
-      if (!this.state.tags.length) {
+      if (!this.tags.length) {
         console.log("really reload tags");
         // if( localStorage.tags && localStorage.tags.length ) {
         //     console.log('tags from localstorage');
         //     context.commit('setTags',JSON.parse(localStorage.tags));
         // } else {
-        this.$axios
-          .get("/tags/export?from=store")
+        useFetch("/tags/export?from=store")
           .then((response) => {
             this.commit("setApiResponse", response);
             this.commit("setTags", response.data);
             localStorage.tags = JSON.stringify(response.data);
           })
-          .catch((error) => {});
+          .catch((error) => {
+            console.log("there is an issue");
+          });
         // }
       }
     },

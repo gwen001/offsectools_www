@@ -58,6 +58,8 @@
 
 <script>
 import NotFound from "~/components/NotFound.vue";
+import { useToolStore } from '@/store/tools'
+import { mapStores } from 'pinia'
 
 export default {
   name: "ToolPage",
@@ -70,10 +72,12 @@ export default {
       notfound: 0,
     };
   },
+  computed: {
+    ...mapStores(useToolStore)
+  },
   async mounted() {
-    var tool = this.$store.getters["tools/getToolFromSlug"](
-      this.$route.params.slug
-    );
+    var tool = this.toolStore.getToolFromSlug(this.$route.params.slug);
+
     if (tool) {
       this.tool = tool;
     } else {

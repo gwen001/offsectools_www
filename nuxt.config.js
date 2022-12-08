@@ -83,8 +83,7 @@ export default defineNuxtConfig({
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@pinia/nuxt",
-
-
+    "@nuxt/image-edge",
     // https://go.nuxtjs.dev/axios
     // https://go.nuxtjs.dev/bootstrap
     "bootstrap-vue-3/nuxt",

@@ -17,15 +17,20 @@
 </template>
 
 <script>
-import { tagStore } from '@/store/tags'
+import { useTagStore } from '@/store/tags'
+import { useToolStore } from '@/store/tools'
+import { mapStores } from 'pinia'
 
 export default {
   name: "Topbar",
-  async mounted() {
-    const tag_store = tagStore()
-    tag_store.getTags();
+ mounted() {
+    this.tagStore.getTags();
+    this.toolStore.getTools();
     // store.dispatch("tools/getTools");
   },
+  computed: {
+    ...mapStores(useTagStore, useToolStore)
+  }
 };
 </script>
 

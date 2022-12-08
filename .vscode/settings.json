@@ -1,0 +1,16 @@
+{
+    "[vue]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": false
+    },
+    
+    "diffEditor.codeLens": true,
+    "editor.codeLens": true,
+    "search.useGlobalIgnoreFiles": true,
+    "search.useParentIgnoreFiles": true,
+    "search.useIgnoreFiles": true
+  }
+  
