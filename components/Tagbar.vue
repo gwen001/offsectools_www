@@ -32,6 +32,9 @@
                 return this.$store.getters['tags/getTags'];
             },
         },
+        async mounted() {
+            this.$store.dispatch( 'tags/getTags' );
+        }
     }
 </script>
 

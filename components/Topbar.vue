@@ -18,8 +18,8 @@
     export default {
         name: 'Topbar',
         async mounted() {
-            this.$store.dispatch( 'tags/getTags' );
-            this.$store.dispatch( 'tools/getTools' );
+            // this.$store.dispatch( 'tags/getTags' );
+            // this.$store.dispatch( 'tools/getTools' );
         }
     }
 </script>

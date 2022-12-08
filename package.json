@@ -1,26 +1,28 @@
 {
-  "name": "offsectools_www",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/sitemap": "^2.4.0",
-    "bootstrap": "^4.6.2",
-    "bootstrap-vue": "^2.22.0",
-    "core-js": "^3.25.3",
-    "nuxt": "^2.15.8",
-    "vue": "^2.7.10",
-    "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
-  },
-  "devDependencies": {
-    "@nuxt/image": "^0.7.1"
-  }
+    "name": "offsectools_www",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate"
+    },
+    "dependencies": {
+        "@nuxtjs/axios": "^5.13.6",
+        "@nuxtjs/dotenv": "^1.4.1",
+        "@nuxtjs/sitemap": "^2.4.0",
+        "axios": "^1.2.1",
+        "bootstrap": "^4.6.2",
+        "bootstrap-vue": "^2.22.0",
+        "core-js": "^3.25.3",
+        "nuxt": "^2.15.8",
+        "ufo": "^1.0.1",
+        "vue": "^2.7.10",
+        "vue-server-renderer": "^2.7.10",
+        "vue-template-compiler": "^2.7.10"
+    },
+    "devDependencies": {
+        "@nuxt/image": "^0.7.1"
+    }
 }

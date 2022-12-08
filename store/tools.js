@@ -77,6 +77,7 @@ export const actions = {
             //     context.commit('setTools',JSON.parse(localStorage.tools));
             // } else {
                 console.log('tools from api');
+                useFetch("/tools/export?from=store")
                 this.$axios.get('/tools/export?from=store')
                     .then(response => {
                         context.commit('setApiResponse',response);

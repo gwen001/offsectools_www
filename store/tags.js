@@ -64,6 +64,7 @@ export const actions = {
             //     console.log('tags from localstorage');
             //     context.commit('setTags',JSON.parse(localStorage.tags));
             // } else {
+                // useFetch("/tags/export?from=store")
                 this.$axios.get('/tags/export?from=store')
                     .then(response => {
                         context.commit('setApiResponse',response);

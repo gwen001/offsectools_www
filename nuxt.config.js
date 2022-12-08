@@ -1,6 +1,6 @@
 // NODE_OPTIONS=--openssl-legacy-provider
 
-import dotenv from "dotenv"; dotenv.config();
+// import dotenv from "dotenv"; dotenv.config();
 
 // import axios from 'axios';
 
@@ -90,7 +90,7 @@ export default {
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
         '@nuxt/image',
-        '@nuxtjs/dotenv'
+        // '@nuxtjs/dotenv'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
