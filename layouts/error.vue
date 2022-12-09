@@ -20,10 +20,7 @@
 <script>
 export default {
     name: 'error',
-    props: ['error'],
-    async mounted() {
-        console.log('errrrrrrrrr');
-    }
+    props: ['error']
 }
 </script>
 

@@ -7,16 +7,9 @@
 </template>
 
 <script>
-    export default {
-        name: 'MainContent',
-        computed: {
-            cssVars() {
-                return {
-                    '--bg-color': this.$config.CSS1
-                }
-            }
-        }
-    }
+export default {
+    name: 'MainContent'
+}
 </script>
 
 <style scoped>

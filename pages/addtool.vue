@@ -35,7 +35,8 @@
                             </ul>
                         </p>
                         <p>
-                            <nuxt-img src="/assets/img/addtool-issue-example.png" sizes="sm:100vw md:50vw lg:500px" />
+                            <!-- <nuxt-img src="/assets/img/addtool-issue-example.png" sizes="sm:100vw md:50vw lg:500px" /> -->
+                            <img src="/assets/img/addtool-issue-example.png" class="img-fluid" />
                         </p>
                         <p>
                             5/ Submit the issue.

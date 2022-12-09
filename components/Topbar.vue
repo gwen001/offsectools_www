@@ -15,13 +15,9 @@
 </template>
 
 <script>
-    export default {
-        name: 'Topbar',
-        async mounted() {
-            // this.$store.dispatch( 'tags/getTags' );
-            // this.$store.dispatch( 'tools/getTools' );
-        }
-    }
+export default {
+    name: 'Topbar',
+}
 </script>
 
 <style scoped>

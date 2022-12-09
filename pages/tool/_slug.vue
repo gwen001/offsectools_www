@@ -54,19 +54,10 @@ export default {
     components: {
         NotFound
     },
-    data() {
-        return {
-            tool: null,
-            notfound: 0,
-        }
-    },
-    async mounted() {
-        var tool = this.$store.getters['tools/getToolFromSlug'](this.$route.params.slug);
-        if( tool ) {
-            this.tool = tool;
-        } else {
-            this.notfound = 1;
-        }
+    computed: {
+        tool() {
+            return this.$store.getters['getToolFromSlug'](this.$route.params.slug);
+        },
     },
 }
 </script>

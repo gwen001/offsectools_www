@@ -1,39 +1,38 @@
 // NODE_OPTIONS=--openssl-legacy-provider
 
-// import dotenv from "dotenv"; dotenv.config();
+import axios from 'axios';
 
-// import axios from 'axios';
+const dynamicRoutes = async () => {
+    const r_tags = await axios.get(process.env.API_URL+'/tags/export?from=config.js');
+    const t_tags = r_tags.data.map((obj) => {
+                        // return {
+                        //     route: '/tag/' + obj.slug,
+                        //     payload: tagtag,
+                        // };
+                        return '/tag/' + obj.slug   ;
+                        // return '/tag/' + obj.slug + '/';
+                    });
+    const r_tools = await axios.get(process.env.API_URL+'/tools/export?from=config.js');
+    const t_tools = r_tools.data.map((obj) => {
+                        // return {
+                        //     route: '/tool/' + obj.slug,
+                        //     payload: tooltool,
+                        // };
+                        return '/tool/' + obj.slug;
+                        // return '/tool/' + obj.slug + '/';
+                    });
+    const t_routes = t_tags.concat(t_tools);
+    // console.log(t_routes);
+    return t_routes;
+}
 
-// const dynamicRoutes = async () => {
-//     const r_tags = await axios.get(process.env.API_URL+'/tags/export?from=config.js');
-//     const t_tags = r_tags.data.map((obj) => {
-//                         // return {
-//                         //     route: '/tag/' + obj.slug,
-//                         //     payload: tagtag,
-//                         // };
-//                         return '/tag/' + obj.slug   ;
-//                         // return '/tag/' + obj.slug + '/';
-//                     });
-//     const r_tools = await axios.get(process.env.API_URL+'/tools/export?from=config.js');
-//     const t_tools = r_tools.data.map((obj) => {
-//                         // return {
-//                         //     route: '/tool/' + obj.slug,
-//                         //     payload: tooltool,
-//                         // };
-//                         return '/tool/' + obj.slug;
-//                         return '/tool/' + obj.slug + '/';
-//                     });
-//     const t_routes = t_tags.concat(t_tools);
-//     // console.log(t_routes);
-//     return t_routes;
-// }
 
 export default {
     // https://nuxtjs.org/docs/concepts/server-side-rendering
     ssr: true,
 
     // Target: https://go.nuxtjs.dev/config-target
-    target: 'static',
+    target: 'server',
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -81,7 +80,6 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        // '~/plugins/foo.js',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -90,14 +88,12 @@ export default {
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
         '@nuxt/image',
-        // '@nuxtjs/dotenv'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
-        // https://go.nuxtjs.dev/axios
-        '@nuxtjs/axios',
         // https://go.nuxtjs.dev/bootstrap
+        '@nuxtjs/axios',
         'bootstrap-vue/nuxt',
         '@nuxtjs/sitemap',
     ],
@@ -111,10 +107,6 @@ export default {
         baseURL: process.env.API_URL,
     },
 
-    // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {
-    },
-
     // public vars
     publicRuntimeConfig: {
         APP_NAME: process.env.APP_NAME,
@@ -122,13 +114,12 @@ export default {
         APP_ENV: process.env.APP_ENV,
     },
 
+    // Build Configuration: https://go.nuxtjs.dev/config-build
+    build: {
+    },
+
     generate: {
         fallback: "404.html",
-        // trailingSlash: true,
-        // shallow: true,
-        // mode: 'history',
-        // crawler: true,
-        // subFolders: true,
-        // routes: dynamicRoutes,
+        routes: dynamicRoutes,
     },
 }

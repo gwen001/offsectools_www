@@ -19,53 +19,32 @@
                         <ToolCard :tool="tool"></ToolCard>
                     </div>
                 </template>
-                <template v-if="$config.APP_ENV == 'local'">
-                    <div class="col-4 mb-3">
-                        <FakeToolCard :tool="faketool"></FakeToolCard>
-                    </div>
-                </template>
             </div>
+        </template>
+        <template v-else>
+            <NotFound from="tags"></NotFound>
         </template>
     </div>
 </template>
 
 <script>
-import ToolCard from '~/components/ToolCard.vue'
-import FakeToolCard from '~/components/FakeToolCard.vue'
 import NotFound from '~/components/NotFound.vue'
+import ToolCard from '~/components/ToolCard.vue'
 
 export default {
     name: 'TagPage',
     components: {
-        ToolCard, FakeToolCard, NotFound
-    },
-    data() {
-        return {
-            tag: [],
-            tools: [],
-            notfound: 0,
-        }
+        NotFound, ToolCard
     },
     computed: {
-        // tag() {
-        //     return this.$store.getters['tags/getTagFromSlug'](this.$route.params.slug);
-        // },
-        faketool() {
-            return {slug:'faketool',nicename:'faketool',link:'https://10degres.net',picture:'default.png',short_descr:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',tags:['recon','subdomains']};
+        tag() {
+            return this.$store.getters['getTagFromSlug'](this.$route.params.slug);
+        },
+        tools() {
+            return this.$store.getters['getToolsFromTag'](this.$route.params.slug);
         },
     },
-    async mounted() {
-        var tag = this.$store.getters['tags/getTagFromSlug'](this.$route.params.slug);
-        if( !tag ) {
-            var a=1;
-        } else {
-            this.tag = tag;
-        }
-            // this.tools = this.$store.getters['tools/getToolsFromTag'](this.$route.params.slug);
-        // } else {
-        //     this.notfound = 1;
-        // }
-    },
+
 }
 </script>
 
