@@ -5,7 +5,7 @@
                 <div class="col-8">
                     <div class="row">
                         <div class="col">
-                            <nuxt-img :src="'/assets/img/tools/'+tool.picture" class="rounded tool-picture" sizes="sm:100vw md:50vw lg:500px" />
+                            <img :src="'/assets/img/tools/'+tool.picture" class="rounded tool-picture" />
                         </div>
                     </div>
                     <div class="row">
@@ -68,7 +68,8 @@ h1 {
 }
 .tool-picture {
     border: 2px solid #162033;
-    max-height: 400px !important;
+    max-height: 300px !important;
+    max-width: 500px !important;
 }
 .tool-short-descr {
     /* font-size: 1.2em; */

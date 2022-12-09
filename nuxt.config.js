@@ -87,7 +87,6 @@ export default {
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
-        '@nuxt/image',
         '@nuxtjs/google-analytics'
     ],
 
@@ -101,6 +100,7 @@ export default {
         '@nuxtjs/axios',
         'bootstrap-vue/nuxt',
         '@nuxtjs/sitemap',
+        '@nuxt/image'
     ],
 
     sitemap: {
