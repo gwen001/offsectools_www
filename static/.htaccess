@@ -5,7 +5,7 @@ ErrorDocument 403 /404.html
 ErrorDocument 404 /404.html
 ErrorDocument 500 /404.html
 
+AuthUserFile /var/www/html/offsectools_www/static/.htpasswd
+AuthGroupFile /dev/null
 AuthType Basic
-AuthUserFile .htpasswd
-Require user bob
-Satisfy All
+require valid-user
