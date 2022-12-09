@@ -88,7 +88,12 @@ export default {
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
         '@nuxt/image',
+        '@nuxtjs/google-analytics'
     ],
+
+    googleAnalytics: {
+        id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    },
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -112,6 +117,9 @@ export default {
         APP_NAME: process.env.APP_NAME,
         APP_URL: process.env.APP_URL,
         APP_ENV: process.env.APP_ENV,
+        googleAnalytics: {
+            id: process.env.GOOGLE_ANALYTICS_ID
+        }
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
