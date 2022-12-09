@@ -99,8 +99,7 @@ export default {
         // https://go.nuxtjs.dev/bootstrap
         '@nuxtjs/axios',
         'bootstrap-vue/nuxt',
-        '@nuxtjs/sitemap',
-        '@nuxt/image'
+        '@nuxtjs/sitemap'
     ],
 
     sitemap: {
