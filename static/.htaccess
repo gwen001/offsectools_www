@@ -4,3 +4,8 @@ ErrorDocument 401 /404.html
 ErrorDocument 403 /404.html
 ErrorDocument 404 /404.html
 ErrorDocument 500 /404.html
+
+AuthType Basic
+AuthUserFile .htpasswd
+Require user bob
+Satisfy All
