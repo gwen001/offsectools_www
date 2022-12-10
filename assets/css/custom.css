@@ -1,23 +1,36 @@
 body {
-    background-color: rgb(30 41 59);
-    color: #FFF;
+    background-color: #1E293B;
+    color: #fff;
     font-size: 0.95em;
     overflow: hidden;
 }
 
 h1 {
-    font-size: 2em;
+    /* font-size: 2em; */
 }
 
 a {
-    color: #4ADE80;
+    color: #fff;
 }
 a:hover {
     color: #4ADE80;
+    text-decoration: none;
+}
+a.highlight {
+    color: #4ADE80;
+}
+a.highlight:hover {
+    color: #4ADE80;
+}
+
+
+.rounded {
+    border-radius: 0.5rem !important;
 }
 
 .btn {
     color: #fff;
+    /* font-size: 0.92em; */
 }
 .btn:hover {
     color: #fff;
@@ -27,10 +40,108 @@ a:hover {
     box-shadow: none;
 }
 
-.hashtag {
-    color: #4ADE80;
-    font-size: 0.85em;
+.form-control {
+    color: #e2e8f0;
+    background-color: #2f3a4c;
+    border-color: #162033;
+    font-size: 0.95em;
+    padding: 0.3rem 0.5rem;
 }
+.form-control:focus {
+    /* outline: none; */
+    background-color: #2f3a4c;
+    border-color: #28a745;
+    box-shadow: inset 0 1px 1px rgba(77, 222, 128, 0.075), 0 0 8px rgba(77, 222, 128, 0.6);
+    color: #e2e8f0;
+}
+
+
+
+
+#topbar {
+    border-bottom: 2px solid #0f172a;
+}
+
+
+
+#tagbar {
+    background-color: #162033;
+    overflow-y: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* padding-top: 10px; */
+    width: 200px;
+    border-right: 2px solid #0f172a;
+}
+#tagbar nav a {
+    font-size: 2em;
+}
+#tagbar nav a:hover {
+    text-decoration: none;
+}
+#tagbar ul {
+    list-style-type: none;
+}
+#tagbar li {
+    /* border-left: 3px solid transparent; */
+    margin-bottom: 2px;
+
+    /* padding: 2px 10px 2px 10px; */
+}
+#tagbar .list-group-item {
+    background-color: transparent;
+    border: 0px;
+    font-size: 0.95em;
+    padding: 6px;
+}
+#tagbar li.active {
+    background-color: #1E293B;
+}
+#tagbar li:hover {
+    background-color: #1E293B;
+    /* border-left: 3px solid #4ADE80; */
+}
+#tagbar li:hover .hashtag {
+    color: #4ADE80;
+    /* border-left: 3px solid #4ADE80; */
+}
+#tagbar .badge {
+    color: #162033;
+    background-color: #FFF;
+}
+#tagbar li:hover .badge {
+    background-color: #4ADE80;
+    color: #fff;
+    /* border-left: 3px solid #4ADE80; */
+}
+
+#contributors img {
+    /* border-radius: 50px; */
+}
+
+
+
+#tool-details .tool-picture {
+    /* border: 2px solid #162033; */
+    /* max-height: 300px !important;
+    max-width: 500px !important; */
+}
+
+
+
+.hashtag {
+    /* color: #4ADE80; */
+    color: #fff;
+    /* font-size: 0.85em; */
+    margin-right: 2px;
+}
+
+.subtitle {
+    color: #eee;
+    font-size: 1.2em;
+}
+
+
 
 .uneedbest {
     color: rgb(248 186 116);

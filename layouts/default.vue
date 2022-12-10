@@ -29,6 +29,7 @@ export default {
     async mounted() {
         this.$store.dispatch( 'getTags' );
         this.$store.dispatch( 'getTools' );
+        this.$store.dispatch( 'getContributors' );
     }
 }
 </script>

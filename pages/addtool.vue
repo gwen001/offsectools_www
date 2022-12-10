@@ -1,11 +1,11 @@
 <template>
-    <div class="container h-100 p-3">
+    <div id="addtool" class="container h-100 p-3">
         <div class="row">
             <div class="col-8">
                 <div class="row">
                     <div class="col">
                         <h1>
-                            <span class="hashtag">#</span>addtool
+                            Add a tool
                         </h1>
                     </div>
                 </div>
@@ -16,10 +16,10 @@
                             If you want to register a tool to be listed in {{ $config.APP_NAME }}, please use the following process so it could be easily automated:
                         </p>
                         <p>
-                            1/ Be sure to carefully read the <a href="https://github.com/gwen001/offsectools_www/issues/1" target="_blank">guidelines</a> first.
+                            1/ Be sure to carefully read the <a href="https://github.com/gwen001/offsectools_www/issues/1" class="highlight" target="_blank">guidelines</a> first.
                         </p>
                         <p>
-                            2/ Open a <a href="https://github.com/gwen001/offsectools_www/issues" target="_blank">new issue</a> on GitHub.
+                            2/ Open a <a href="https://github.com/gwen001/offsectools_www/issues" class="highlight" target="_blank">new issue</a> on GitHub.
                         </p>
                         <p>
                             3/ The title of the issue is the name of the tool as it will be displayed in {{ $config.APP_NAME }} with the prefix [addtool]
@@ -34,9 +34,15 @@
                                 <li>optional: [long_descr]a bigger description[/long_descr]</li>
                             </ul>
                         </p>
-                        <p>
-                            <img src="/assets/img/addtool-issue-example.png" class="img-fluid" />
-                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-9">
+                        <img src="/assets/img/addtool-issue-example.png" class="rounded img-fluid" />
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
                         <p>
                             5/ Submit the issue.
                         </p>
@@ -54,13 +60,13 @@
 
 <script>
 export default {
-    name: 'addtool'
+    name: 'addtool',
+    mounted() {
+        this.$store.commit( 'resetSearchTerm' );
+    }
 }
 </script>
 
 <style scoped>
-h1 {
-    font-size: 3em;
-}
 </style>
 

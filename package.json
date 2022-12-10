@@ -10,16 +10,14 @@
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.13.6",
+        "@nuxtjs/google-analytics": "^2.4.0",
         "@nuxtjs/sitemap": "^2.4.0",
         "bootstrap": "^4.6.2",
-        "bootstrap-vue": "^2.22.0",
+        "bootstrap-vue": "^2.23.1",
         "core-js": "^3.25.3",
         "nuxt": "^2.15.8",
         "vue": "^2.7.10",
         "vue-server-renderer": "^2.7.10",
-        "vue-template-compiler": "^2.7.10",
-        "@nuxtjs/google-analytics": "^2.4.0"
-    },
-    "devDependencies": {
+        "vue-template-compiler": "^2.7.10"
     }
 }

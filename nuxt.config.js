@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 
+
 const dynamicRoutes = async () => {
     const r_tags = await axios.get(process.env.API_URL+'/tags/export?from=config.js');
     const t_tags = r_tags.data.map((obj) => {
@@ -70,6 +71,7 @@ export default {
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/css/custom.css',
+        // '@/assets/scss/custom.scss',
     ],
 
     // Loading bar https://nuxtjs.org/docs/2.x/features/loading
@@ -98,8 +100,8 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/bootstrap
         '@nuxtjs/axios',
+        '@nuxtjs/sitemap',
         'bootstrap-vue/nuxt',
-        '@nuxtjs/sitemap'
     ],
 
     sitemap: {

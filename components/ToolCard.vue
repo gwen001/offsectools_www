@@ -3,14 +3,14 @@
         <img :src="'/assets/img/tools/'+tool.picture" class="card-img-top tool-picture" />
         <div class="card-body">
             <h6 class="card-title tool-name">
-                <nuxt-link :to="'/tool/'+tool.slug" class="stretched-link">{{ tool.nicename }}</nuxt-link>
+                <nuxt-link :to="'/tool/'+tool.slug" class="highlight stretched-link">{{ tool.nicename }}</nuxt-link>
             </h6>
             <p class="card-text tool-descr">{{ tool.short_descr }}</p>
         </div>
         <div class="tool-tags">
             <p class="card-text tool-tags">
                 <template v-for="tag,index in tool.tags">
-                    <nuxt-link :to="'/tag/'+tag" class="tag-link">#{{ tag }}</nuxt-link>&nbsp;
+                    <a href="javascript:;" class="tag-link" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
                 </template>
             </p>
         </div>
@@ -23,10 +23,16 @@
 </template>
 
 <script>
-    export default {
-        name: 'ToolCard',
-        props: ['tool']
+export default {
+    name: 'ToolCard',
+    props: ['tool'],
+    methods: {
+        setSearchTerm: function (slug) {
+            this.$store.commit( 'setSearchTerm', slug );
+            this.$router.push( '/' );
+        }
     }
+}
 </script>
 
 <style scoped>
@@ -75,5 +81,8 @@
 }
 .tag-link {
     position :relative;
+}
+.tag-link:hover {
+    text-decoration: underline;
 }
 </style>
