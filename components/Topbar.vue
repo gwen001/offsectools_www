@@ -3,7 +3,7 @@
         <nav class="navbar">
             <div class="container-fluid p-0">
                 <div class="">
-                    <nuxt-link to="/addtool" class="">This week</nuxt-link>
+                    <!-- <nuxt-link to="/addtool" class="">This week</nuxt-link> -->
                     <a href="javascript:;" class="ml-3" v-on:click="randomtool">Random tool</a>
                     <nuxt-link to="/contributors" class="ml-3">Contributors</nuxt-link>
                 </div>
@@ -74,6 +74,9 @@ input {
     z-index: 100;
 }
 .reset-search-term {
-    color: #e2e8f0;
+    color: #fff;
+}
+.reset-search-term:hover {
+    color: #ddd;
 }
 </style>
