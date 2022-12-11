@@ -8,10 +8,10 @@
                 <h2>{{ error.message }}</h2>
             </div>
             <div class="mt-5">
-                <a href="/" class="btn btn-outline-success">Back to home</a>
+                <a href="/" class="btn btn-outline-custom2">Go back home</a>
             </div>
             <div class="mt-5">
-                if the error persist, feel free to <nuxt-link to="/about">reach us</nuxt-link>
+                if the error persist, feel free to <nuxt-link to="/about" class="highlight1">reach us</nuxt-link>
             </div>
         </div>
     </div>

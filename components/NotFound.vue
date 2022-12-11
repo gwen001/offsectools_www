@@ -2,15 +2,16 @@
     <div id="error">
         <div class="content h-100">
             <div class="title">
-                <h1>
-                    <span class="hashtag">#</span><span>notfound</span>
-                </h1>
+                <h1>An error occurred</h1>
             </div>
             <div class="mt-5">
-                <h2>{{ from }}</h2>
+                <h2>This page could not be found</h2>
             </div>
             <div class="mt-5">
-                <nuxt-link to="/">back home</nuxt-link>
+                <a href="/" class="btn btn-outline-custom2">Go back home</a>
+            </div>
+            <div class="mt-5">
+                if the error persist, feel free to <nuxt-link to="/about" class="highlight1">reach us</nuxt-link>
             </div>
         </div>
     </div>
