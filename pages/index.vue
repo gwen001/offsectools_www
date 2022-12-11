@@ -1,17 +1,22 @@
 <template>
     <div id="home" class="w-100 h-100">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-3 mb-0">
             <div class="p-relative text-center">
                 <span class="logo">{{ $config.APP_NAME }}</span>
                 <!-- <span class="logo2">{{ $config.APP_NAME }}</span>
                 <span class="logo3">{{ $config.APP_NAME }}</span> -->
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-0">
             <div class="col text-center">
                 <h1>
                     A vast collection of security tools
                 </h1>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col text-center">
+                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
             </div>
         </div>
         <template v-if="tools.length > 0">
@@ -23,9 +28,9 @@
                 </template>
             </div>
         </template>
-        <template v-else>
+        <!-- <template v-else>
             Nuthing :/
-        </template>
+        </template> -->
     </div>
 </template>
 
@@ -50,7 +55,7 @@ export default {
     position: relative;
 }
 .logo, .logo2, .logo3 {
-    font-size: 4em !important;
+    font-size: 5em !important;
     font-weight: 500;
 }
 /* .logo {
