@@ -18,7 +18,7 @@
                             The list is feeded by the author and the community.
                         </p>
                         <p>
-                          Feel free to check the <a href="https://github.com/gwen001/offsectools/issues" class="highlight" target="_blank">GitHub repository</a>.
+                          Feel free to check the <a :href="$config.GITHUB_URL" class="highlight1" target="_blank">GitHub repository</a>.
                         </p>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="row mt-3">
                     <div class="col">
                         <p>
-                            <a href="https://twitter.com/gwendallecoguic" class="highlight" target="_blank">Gwendal Le Coguic</a>
+                            <a href="https://twitter.com/gwendallecoguic" class="highlight1" target="_blank">Gwendal Le Coguic</a>
                         </p>
                     </div>
                 </div>
@@ -46,14 +46,14 @@
                 <div class="row mt-3">
                     <div class="col">
                         <p>
-                            Thanks to all <nuxt-link to="/contributors" class="highlight">Contributors</nuxt-link>.
+                            Thanks to all <nuxt-link to="/contributors" class="highlight1">Contributors</nuxt-link>.
                         </p>
                         <p>
                             Give back to Caesar what's belongs to Caesar, {{ $config.APP_NAME }} is very inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
                         </p>
                         <ul>
-                            <li>Site built with <a href="https://nuxtjs.org/" target="_blank">NuxtJS</a></li>
-                            <li>API built with <a href="https://laravel.com/" target="_blank">Laravel</a></li>
+                            <li>Site built with <a href="https://nuxtjs.org/" class="highlight2" target="_blank">NuxtJS</a></li>
+                            <li>API built with <a href="https://laravel.com/" class="highlight2" target="_blank">Laravel</a></li>
                         </ul>
                     </div>
                 </div>

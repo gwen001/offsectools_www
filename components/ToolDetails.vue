@@ -23,19 +23,19 @@
             </div>
             <div class="row">
                 <div class="tool-descr col mt-5">
-                    {{ tool.descr }}
+                    <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>
                 </div>
             </div>
             <div class="row">
                 <div class="tool-tags col mt-5">
                     <template v-for="tag,index in tool.tags">
-                        <a href="javascript:;" class="tag-link highlight" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
+                        <a href="javascript:;" class="tag-link highlight1" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
                     </template>
                 </div>
             </div>
             <div class="row">
                 <div class="tool-link col mt-5">
-                    <a :href="tool.link" class="btn btn-outline-success" target="_blank">Try it</a>
+                    <a :href="tool.link" class="btn btn-outline-custom2" target="_blank">Try it</a>
                 </div>
             </div>
         </div>
@@ -47,6 +47,12 @@ export default {
     name: 'ToolDetails',
     props: [ 'tool' ],
     methods: {
+        keyboardEvent (e) {
+            // console.log(e.which);
+            if( e.which === 27 ) {
+                this.$router.push( '/' );
+            }
+        },
         doSearch() {
             // alert('doSearch');
             this.$router.push( '/' );
@@ -55,14 +61,17 @@ export default {
             this.$store.commit( 'setSearchTerm', slug );
             this.$router.push( '/' );
         }
+    },
+    created() {
+        window.addEventListener('keyup', this.keyboardEvent);
+    },
+    beforeDestroy() {
+        window.removeEventListener('keyup', this.keyboardEvent);
     }
 }
 </script>
 
 <style scoped>
-.tag-link:hover {
-    text-decoration: underline;
-}
 .link-close:hover {
     color: #ddd;
 }

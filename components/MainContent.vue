@@ -13,10 +13,4 @@ export default {
 </script>
 
 <style scoped>
-#main {
-    background-color: #1E293B;
-    overflow-y: auto;
-    padding-bottom: 100px;
-    padding-top: 10px;
-}
 </style>
