@@ -40,7 +40,7 @@ export const getters = {
         return state.tools;
     },
     searchTools( state ) {
-        console.log('searchTools');
+        // console.log('searchTools');
         console.log(state.search_term);
         if( state.search_term.length == 0 ){
             return state.tools;
