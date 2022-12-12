@@ -63,7 +63,7 @@ export const getters = {
             var r = new RegExp(state.search_term,'i');
             for( var i=0 ; i<state.tools.length ; i++ ) {
                 // console.log(state.tools[i].slug.search(state.search_term));
-                if( state.tools[i].slug.search(r) >= 0 || state.tools[i].nicename.search(r) >= 0 || state.tools[i].short_descr.search(r) >= 0 || state.tools[i].descr.search(r) >= 0 ) {
+                if( state.tools[i].slug.search(r) >= 0 || state.tools[i].nicename.search(r) >= 0 || state.tools[i].short_descr.search(r) >= 0 || (state.tools[i].descr && state.tools[i].descr.search(r) >= 0) ) {
                     t_tools[k++] = state.tools[i];
                 }
             }
