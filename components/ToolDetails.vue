@@ -21,7 +21,7 @@
                     {{ tool.short_descr }}
                 </div>
             </div>
-            <div class="row">
+            <div class="row" v-if="tool.descr">
                 <div class="tool-descr col mt-5">
                     <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>
                 </div>
