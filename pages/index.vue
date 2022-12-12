@@ -16,7 +16,7 @@
         </div>
         <div class="row mt-1">
             <div class="col text-center">
-                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
+                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
             </div>
         </div>
         <template v-if="tools.length > 0">
