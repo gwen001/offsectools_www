@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="tool-link col mt-5">
+                <div class="tool-link col mt-3">
                     <a :href="tool.link" class="btn btn-outline-custom2" target="_blank">Try it</a>
                 </div>
             </div>
