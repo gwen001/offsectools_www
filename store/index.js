@@ -84,7 +84,7 @@ export const getters = {
 
         if( state.sort_by == 'date' ) {
             t_tools = t_tools.sort(
-                (a, b) => (a.created_at < b.created_at ? -1 : 1)
+                (a, b) => (a.created_at > b.created_at ? -1 : 1)
             );
         }
         // for( var i=0 ; i<t_tools.length ; i++ ) {
