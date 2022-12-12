@@ -3,6 +3,7 @@ const getDefaultState = () => {
     return {
         loading: false,
         search_term: '',
+        sort_by: 'date',
         tags: [],
         tools: [],
         contributors: []
@@ -17,6 +18,9 @@ export const getters = {
     },
     getSearchTerm( state ) {
         return state.search_term;
+    },
+    getSortBy( state ) {
+        return state.sort_by;
     },
     getContributors( state ) {
         return state.contributors;
@@ -41,33 +45,51 @@ export const getters = {
     },
     searchTools( state ) {
         // console.log('searchTools');
-        console.log(state.search_term);
-        if( state.search_term.length == 0 ){
-            return state.tools;
-        }
-
-        var k = 0;
+        // console.log(state.search_term);
         var t_tools = [];
 
-        if( state.search_term[0] == '#' ) {
-            var st = state.search_term.replace('#','');
-            for( var i=0 ; i<state.tools.length ; i++ ) {
-                for( var j=0 ; j<state.tools[i].tags.length ; j++ ) {
-                    if( state.tools[i].tags[j].startsWith(st) ) {
+        if( state.search_term.length == 0 )
+        {
+            t_tools = [...state.tools];
+        }
+        else
+        {
+            var k = 0;
+
+            if( state.search_term[0] == '#' ) {
+                var st = state.search_term.replace('#','');
+                for( var i=0 ; i<state.tools.length ; i++ ) {
+                    for( var j=0 ; j<state.tools[i].tags.length ; j++ ) {
+                        if( state.tools[i].tags[j].startsWith(st) ) {
+                            t_tools[k++] = state.tools[i];
+                        }
+                    }
+                }
+            }
+            else {
+                var r = new RegExp(state.search_term,'i');
+                for( var i=0 ; i<state.tools.length ; i++ ) {
+                    // console.log(state.tools[i].slug.search(state.search_term));
+                    if( state.tools[i].slug.search(r) >= 0 || state.tools[i].nicename.search(r) >= 0 || state.tools[i].short_descr.search(r) >= 0 || (state.tools[i].descr && state.tools[i].descr.search(r) >= 0) ) {
                         t_tools[k++] = state.tools[i];
                     }
                 }
             }
         }
-        else {
-            var r = new RegExp(state.search_term,'i');
-            for( var i=0 ; i<state.tools.length ; i++ ) {
-                // console.log(state.tools[i].slug.search(state.search_term));
-                if( state.tools[i].slug.search(r) >= 0 || state.tools[i].nicename.search(r) >= 0 || state.tools[i].short_descr.search(r) >= 0 || (state.tools[i].descr && state.tools[i].descr.search(r) >= 0) ) {
-                    t_tools[k++] = state.tools[i];
-                }
-            }
+
+        // t_tools = t_tools.sort();
+        // for( var i=0 ; i<t_tools.length ; i++ ) {
+        //     console.log(t_tools[i].slug+" "+t_tools[i].created_at);
+        // }
+
+        if( state.sort_by == 'date' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.created_at < b.created_at ? -1 : 1)
+            );
         }
+        // for( var i=0 ; i<t_tools.length ; i++ ) {
+        //     console.log(t_tools[i].slug+" "+t_tools[i].created_at);
+        // }
 
         return t_tools;
     },
@@ -112,6 +134,10 @@ export const mutations = {
     setSearchTerm( state, value ) {
         // console.log('setSearchTerm');
         return state.search_term = value.trim();
+    },
+    setSortBy( state, value ) {
+        // console.log('setSearchTerm');
+        return state.sort_by = value;
     },
     setContributors( state, data ) {
         return state.contributors = data;
