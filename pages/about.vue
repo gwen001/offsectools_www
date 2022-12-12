@@ -49,7 +49,7 @@
                             Thanks to all <nuxt-link to="/contributors" class="highlight1">Contributors</nuxt-link>.
                         </p>
                         <p>
-                            Give back to Caesar what's belongs to Caesar, {{ $config.APP_NAME }} is very inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
+                            Give back to Caesar what's belong to Caesar, {{ $config.APP_NAME }} is very inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
                         </p>
                         <ul>
                             <li>Site built with <a href="https://nuxtjs.org/" class="highlight2" target="_blank">NuxtJS</a></li>
