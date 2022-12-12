@@ -3,7 +3,7 @@ const getDefaultState = () => {
     return {
         loading: false,
         search_term: '',
-        sort_by: 'date',
+        sort_by: 'name',
         tags: [],
         tools: [],
         contributors: []

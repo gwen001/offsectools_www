@@ -5,8 +5,8 @@
                 <a href="javascript:;" v-on:click="resetSearchTerm()">{{ $config.APP_NAME }}</a>
             </div>
         </nav> -->
-        <a href="javascript:;" v-on:click="setSortBy('date')" v-bind:class="[ isSortByDate ? 'btn-custom1' : 'btn-outline-custom1', 'btn w-100']" style="margin-top:0.5rem;">sort by last</a>
-        <a href="javascript:;" v-on:click="setSortBy('name')" v-bind:class="[ isSortByName ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100 mt-1']">sort by name</a>
+        <a href="javascript:;" v-on:click="setSortBy('name')" v-bind:class="[ isSortByName ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']" style="margin-top:0.5rem;">sort by name</a>
+        <a href="javascript:;" v-on:click="setSortBy('date')" v-bind:class="[ isSortByDate ? 'btn-custom1' : 'btn-outline-custom1', 'btn w-100 mt-1']">sort by last</a>
         <ul class="list-group mt-3">
             <li>
                 <a href="javascript:;" v-on:click="resetSearchTerm()" class="list-group-item btn text-left d-flex justify-content-between align-items-center">
