@@ -4,15 +4,15 @@ import axios from 'axios';
 
 
 const dynamicRoutes = async () => {
-    const r_tags = await axios.get(process.env.API_URL+'/tags/export?from=config.js');
-    const t_tags = r_tags.data.map((obj) => {
-                        // return {
-                        //     route: '/tag/' + obj.slug,
-                        //     payload: tagtag,
-                        // };
-                        return '/tag/' + obj.slug   ;
-                        // return '/tag/' + obj.slug + '/';
-                    });
+    // const r_tags = await axios.get(process.env.API_URL+'/tags/export?from=config.js');
+    // const t_tags = r_tags.data.map((obj) => {
+    //                     // return {
+    //                     //     route: '/tag/' + obj.slug,
+    //                     //     payload: tagtag,
+    //                     // };
+    //                     return '/tag/' + obj.slug   ;
+    //                     // return '/tag/' + obj.slug + '/';
+    //                 });
     const r_tools = await axios.get(process.env.API_URL+'/tools/export?from=config.js');
     const t_tools = r_tools.data.map((obj) => {
                         // return {
@@ -22,7 +22,8 @@ const dynamicRoutes = async () => {
                         return '/tool/' + obj.slug;
                         // return '/tool/' + obj.slug + '/';
                     });
-    const t_routes = t_tags.concat(t_tools);
+    const t_routes = t_tools;
+    // const t_routes = t_tags.concat(t_tools);
     // console.log(t_routes);
     return t_routes;
 }
