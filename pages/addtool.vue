@@ -27,7 +27,7 @@
                         <p>
                             4/ The issue should provide the following informations:
                             <ul>
-                                <li>required: [short_descr]short description of the tool (max:80)[/short_descr]</li>
+                                <li>required: [short_descr]short description of the tool (max:100)[/short_descr]</li>
                                 <li>required: [link]link to the tool[/link]</li>
                                 <li>required: [tags]list of tags separated by comma[/tags]</li>
                                 <li>required: an image attached used as a preview OR [image]a link[/image]</li>

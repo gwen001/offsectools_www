@@ -180,7 +180,7 @@ a.text-custom2:hover {
 }
 #tagbar li {
     /* border-left: 3px solid transparent; */
-    margin-bottom: 2px;
+    margin-bottom: 0px;
 
     /* padding: 2px 10px 2px 10px; */
 }
