@@ -13,14 +13,14 @@ a {
     color: #fff;
 }
 a:hover {
-    color: #ea445a;
+    color: #f9205a;
     text-decoration: none;
 }
 a.highlight1 {
-    color: #ea445a;
+    color: #f9205a;
 }
 a.highlight1:hover {
-    color: #ea445a;
+    color: #f9205a;
     text-decoration: underline;
 }
 a.highlight2 {
@@ -64,34 +64,34 @@ a.highlight2:hover {
 }
 
 .color-custom1 {
-    color: #ea445a;
+    color: #f9205a;
 }
 .bgcolor-custom1 {
-    color: #ea445a;
+    color: #f9205a;
 }
 .text-custom1 {
-    color: #ea445a;
+    color: #f9205a;
 }
 a.text-custom1:hover {
-    color: #ea445a;
+    color: #f9205a;
 }
 .btn-custom1 {
     color: #fff;
-    background-color: #ea445a;
-    border-color: #ea445a;
+    background-color: #f9205a;
+    border-color: #f9205a;
 }
 .btn-custom1:hover {
     color: #fff;
-    background-color: #ea445a;
-    border-color: #ea445a;
+    background-color: #f9205a;
+    border-color: #f9205a;
 }
 .btn-outline-custom1 {
-    border-color: #ea445a;
+    border-color: #f9205a;
 }
 .btn-outline-custom1:hover {
     color: #fff;
-    background-color: #ea445a;
-    border-color: #ea445a;
+    background-color: #f9205a;
+    border-color: #f9205a;
 }
 
 .color-custom2 {
@@ -138,7 +138,26 @@ a.text-custom2:hover {
 #topbar {
     border-bottom: 2px solid #141729;
 }
-
+#topbar input {
+    padding-left: 40px;
+}
+#topbar .go-search {
+    color: #65d2e9;
+    position: absolute;
+    padding: 5px 0px 5px 10px;
+    z-index: 100;
+}
+#topbar .reset-search-term {
+    margin-left: -25px;
+    padding-top: 5px;
+    z-index: 100;
+}
+#topbar .reset-search-term {
+    color: #fff;
+}
+#topbar .reset-search-term:hover {
+    color: #ddd;
+}
 
 
 #tagbar {
@@ -176,11 +195,11 @@ a.text-custom2:hover {
 } */
 #tagbar li:hover {
     background-color: #232536;
-    /* border-left: 3px solid #ea445a; */
+    /* border-left: 3px solid #f9205a; */
 }
 #tagbar li:hover .hashtag {
     color: #65d2e9;
-    /* border-left: 3px solid #ea445a; */
+    /* border-left: 3px solid #f9205a; */
 }
 #tagbar .badge {
     color: #0a0c1f;
@@ -189,7 +208,7 @@ a.text-custom2:hover {
 #tagbar li:hover .badge {
     background-color: #65d2e9;
     color: #fff;
-    /* border-left: 3px solid #ea445a; */
+    /* border-left: 3px solid #f9205a; */
 }
 
 #contributors img {
@@ -262,7 +281,7 @@ a.text-custom2:hover {
 
 
 .hashtag {
-    /* color: #ea445a; */
+    /* color: #f9205a; */
     color: #fff;
     /* font-size: 0.85em; */
     margin-right: 2px;

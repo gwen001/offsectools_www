@@ -62,24 +62,5 @@ export default {
 </script>
 
 <style scoped>
-input {
-    padding-left: 40px;
-}
-.go-search {
-    color: #65d2e9;
-    position: absolute;
-    padding: 5px 0px 5px 10px;
-    z-index: 100;
-}
-.reset-search-term {
-    margin-left: -25px;
-    padding-top: 5px;
-    z-index: 100;
-}
-.reset-search-term {
-    color: #fff;
-}
-.reset-search-term:hover {
-    color: #ddd;
-}
+
 </style>
