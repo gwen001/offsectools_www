@@ -16,7 +16,7 @@
                 </a>
             </li>
             <template v-for="tag,index in tags">
-                <li v-if="tag.tools_count > 0">
+                <li v-if="tag.tools_count > 0 && tag.status == 1">
                     <a href="javascript:;" v-on:click="setSearchTerm('#'+tag.slug)" class="list-group-item btn text-left d-flex justify-content-between align-items-center">
                         <span class="hashtag">#</span>
                         <span class="nicename w-100">{{ tag.nicename }}</span>
