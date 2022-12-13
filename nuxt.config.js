@@ -64,6 +64,10 @@ export default {
             { hid: 'canonical', rel: 'canonical', href: process.env.APP_URL },
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
         ],
+        script: [
+            { src: "https://www.googletagmanager.com/gtag/js?id=G-36B73TFMYT", async: true, },
+            { src: "js/ga.js" }
+        ]
     },
 
     basePath: '/',
@@ -89,7 +93,6 @@ export default {
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
-        '@nuxtjs/google-analytics'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
