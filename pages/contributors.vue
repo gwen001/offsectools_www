@@ -15,7 +15,7 @@
                             <a :href="'https://github.com/'+contributor.github_contributor" target="_blank"><img :src="'https://github.com/'+contributor.github_contributor+'.png?size=48'" class="rounded-circle" /></a>
                         </div>
                         <div class="col text-left align-middle">
-                            <a href="https://github.com/gwen001" target="_blank">{{ contributor.github_contributor }}</a>
+                            <a :href="'https://github.com/'+contributor.github_contributor" target="_blank">{{ contributor.github_contributor }}</a>
                         </div>
                         <div class="col-3 text-right align-middle">
                             {{ contributor.tools_count }}
