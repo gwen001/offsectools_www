@@ -21,20 +21,20 @@
                     {{ tool.short_descr }}
                 </div>
             </div>
-            <div class="row" v-if="tool.descr">
-                <div class="tool-descr col mt-5">
+            <div class="row mt-4" v-if="tool.descr">
+                <div class="tool-descr col">
                     <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>
                 </div>
             </div>
-            <div class="row">
-                <div class="tool-tags col mt-5">
+            <div class="row mt-4">
+                <div class="tool-tags col">
                     <template v-for="tag,index in tool.tags">
                         <a href="javascript:;" class="tag-link highlight1" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
                     </template>
                 </div>
             </div>
-            <div class="row">
-                <div class="tool-link col mt-3">
+            <div class="row mt-5">
+                <div class="tool-link col">
                     <a :href="tool.link" class="btn btn-outline-custom2" target="_blank">Try it</a>
                 </div>
             </div>
