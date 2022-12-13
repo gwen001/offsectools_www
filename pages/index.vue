@@ -28,9 +28,15 @@
                 </template>
             </div>
         </template>
-        <!-- <template v-else>
-            Nuthing :/
-        </template> -->
+        <template v-else>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    Nothing there, but feel free to
+                    <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
+                    if you think something is missing :)
+                </div>
+            </div>
+        </template>
     </div>
 </template>
 

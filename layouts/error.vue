@@ -11,7 +11,7 @@
                 <a href="/" class="btn btn-outline-custom2">Go back home</a>
             </div>
             <div class="mt-5">
-                if the error persist, feel free to <nuxt-link to="/about" class="highlight1">reach us</nuxt-link>
+                If the error persist, feel free to <nuxt-link to="/about" class="highlight1">reach us</nuxt-link>.
             </div>
         </div>
     </div>
