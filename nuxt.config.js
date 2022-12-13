@@ -1,4 +1,3 @@
-// NODE_OPTIONS=--openssl-legacy-provider
 
 import axios from 'axios';
 
@@ -93,10 +92,6 @@ export default {
         '@nuxtjs/google-analytics'
     ],
 
-    googleAnalytics: {
-        id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
-    },
-
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         // https://go.nuxtjs.dev/bootstrap
@@ -120,9 +115,6 @@ export default {
         APP_URL: process.env.APP_URL,
         APP_ENV: process.env.APP_ENV,
         GITHUB_URL: process.env.GITHUB_URL,
-        googleAnalytics: {
-            id: process.env.GOOGLE_ANALYTICS_ID
-        }
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
