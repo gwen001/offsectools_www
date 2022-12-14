@@ -3,8 +3,6 @@
         <div class="row justify-content-center mt-3 mb-0">
             <div class="p-relative text-center">
                 <span class="logo">{{ $config.APP_NAME }}</span>
-                <!-- <span class="logo2">{{ $config.APP_NAME }}</span>
-                <span class="logo3">{{ $config.APP_NAME }}</span> -->
             </div>
         </div>
         <div class="row mt-0">
@@ -19,10 +17,18 @@
                 {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
             </div>
         </div>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-xl-2 col-lg-4 col-sm-6 col-12 mb-1">
+                <a href="javascript:;" v-on:click="setSortBy('name')" v-bind:class="[ isSortByName ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']">sort by name</a>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-sm-6 col-12 mb-1">
+                <a href="javascript:;" v-on:click="setSortBy('date')" v-bind:class="[ isSortByDate ? 'btn-custom1' : 'btn-outline-custom1', 'btn w-100']">sort by last</a>
+            </div>
+        </div>
         <template v-if="tools.length > 0">
-            <div class="row row-cols-1 row-cols-md-4 g-4 mt-5">
+            <div class="row mt-5">
                 <template v-for="tool,index in tools">
-                    <div class="col-4 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                         <ToolCard :tool="tool"></ToolCard>
                     </div>
                 </template>
@@ -51,6 +57,17 @@ export default {
     computed: {
         tools() {
             return this.$store.getters['searchTools'];
+        },
+        isSortByName() {
+            return (this.$store.getters['getSortBy'] == 'name');
+        },
+        isSortByDate() {
+            return (this.$store.getters['getSortBy'] == 'date');
+        },
+    },
+    methods: {
+        setSortBy: function (sort_by) {
+            this.$store.commit( 'setSortBy', sort_by );
         },
     },
 }

@@ -1,23 +1,24 @@
 <template>
-    <div id="topbar" class="">
+    <div id="topbar" class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
         <nav class="navbar">
-            <div class="container-fluid p-0">
+            <div class="container-fluid">
                 <div class="">
-                    <!-- <nuxt-link to="/addtool" class="">This week</nuxt-link> -->
-                    <a href="javascript:;" v-on:click="randomtool">Random tool</a>
-                    <nuxt-link to="/contributors" class="ml-3">Contributors</nuxt-link>
-                    <a :href="$config.GITHUB_URL" target="_blank" class="ml-3">
+                    <RandomTool></RandomTool>
+                    <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
+                    <a :href="$config.GITHUB_URL" target="_blank" class="ms-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 50 50" enable-background="new 0 0 50 50"><path fill="currentColor" d="M25 10c-8.3 0-15 6.7-15 15 0 6.6 4.3 12.2 10.3 14.2.8.1 1-.3 1-.7v-2.6c-4.2.9-5.1-2-5.1-2-.7-1.7-1.7-2.2-1.7-2.2-1.4-.9.1-.9.1-.9 1.5.1 2.3 1.5 2.3 1.5 1.3 2.3 3.5 1.6 4.4 1.2.1-1 .5-1.6 1-2-3.3-.4-6.8-1.7-6.8-7.4 0-1.6.6-3 1.5-4-.2-.4-.7-1.9.1-4 0 0 1.3-.4 4.1 1.5 1.2-.3 2.5-.5 3.8-.5 1.3 0 2.6.2 3.8.5 2.9-1.9 4.1-1.5 4.1-1.5.8 2.1.3 3.6.1 4 1 1 1.5 2.4 1.5 4 0 5.8-3.5 7-6.8 7.4.5.5 1 1.4 1 2.8v4.1c0 .4.3.9 1 .7 6-2 10.2-7.6 10.2-14.2C40 16.7 33.3 10 25 10z"/></svg>
                     </a>
                 </div>
-                <div class="col-3 input-group">
-                    <div class="go-search"><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" viewBox="0 0 20 20"><path d="M14.2 12.8c2.3-2.9 2.1-7.1-.5-9.8C10.8.1 6.1.1 3.2 3 1.8 4.4 1 6.2 1 8.2s.8 3.8 2.2 5.2c1.4 1.4 3.2 2.2 5.2 2.2 1.4 0 2.8-.4 4-1.2L17 19l1.7-1.7-4.5-4.5zm-9.3-1.1c-.9-.9-1.5-2.2-1.5-3.5S4 5.6 4.9 4.7c1-1 2.2-1.5 3.5-1.5 1.3 0 2.6.5 3.5 1.5 1.9 1.9 1.9 5.1 0 7-.9.9-2.2 1.5-3.5 1.5-1.3-.1-2.6-.6-3.5-1.5z"/></svg></div>
-                    <input type="text" class="form-control" name="search" placeholder="search..." v-model="search_term" v-on:keyup.13="doSearch()" />
-                    <a href="javascript:;" v-on:click="resetSearchTerm()" class="reset-search-term"><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"/></svg></a>
+                <div class="col-4">
+                    <div class="input-group">
+                        <div class="go-search"><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" viewBox="0 0 20 20"><path d="M14.2 12.8c2.3-2.9 2.1-7.1-.5-9.8C10.8.1 6.1.1 3.2 3 1.8 4.4 1 6.2 1 8.2s.8 3.8 2.2 5.2c1.4 1.4 3.2 2.2 5.2 2.2 1.4 0 2.8-.4 4-1.2L17 19l1.7-1.7-4.5-4.5zm-9.3-1.1c-.9-.9-1.5-2.2-1.5-3.5S4 5.6 4.9 4.7c1-1 2.2-1.5 3.5-1.5 1.3 0 2.6.5 3.5 1.5 1.9 1.9 1.9 5.1 0 7-.9.9-2.2 1.5-3.5 1.5-1.3-.1-2.6-.6-3.5-1.5z"/></svg></div>
+                        <input type="text" class="form-control" name="search" placeholder="search..." v-model="search_term" v-on:keyup.13="doSearch()" />
+                        <a href="javascript:;" v-on:click="resetSearchTerm()" class="reset-search-term"><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"/></svg></a>
+                    </div>
                 </div>
                 <div class="d-flex">
-                    <nuxt-link to="/addtool" class="btn btn-outline-custom2 ml-2">Add tool</nuxt-link>
-                    <nuxt-link to="/about" class="btn btn-custom2 ml-2">?</nuxt-link>
+                    <nuxt-link to="/addtool" class="btn btn-outline-custom2">Add tool</nuxt-link>
+                    <nuxt-link to="/about" class="btn btn-custom2 ms-1">?</nuxt-link>
                 </div>
             </div>
         </nav>
@@ -25,8 +26,13 @@
 </template>
 
 <script>
+import RandomTool from '~/components/RandomTool.vue';
+
 export default {
     name: 'Topbar',
+    components: [
+        RandomTool
+    ],
     methods: {
         doSearch() {
             // alert('doSearch');
