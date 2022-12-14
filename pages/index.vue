@@ -77,31 +77,10 @@ export default {
 .p-relative {
     position: relative;
 }
-.logo, .logo2, .logo3 {
-    font-size: 5em !important;
+.logo {
+    font-size: 4.5em !important;
     font-weight: 500;
 }
-/* .logo {
-    color: #65d2e9;
-    right: 3px;
-    top: -3px;
-    position: absolute;
-    z-index: 4;
-}
-.logo2 {
-    color: #ea445a;
-    position: absolute;
-    right: -3px;
-    top: 3px;
-    z-index: 5;
-}
-.logo3 {
-    color: #0a0c1f;
-    position: inherit;
-    right: 0px;
-    top: 0px;
-    z-index:5;
-} */
 h1 {
     font-size: 1.8em !important;
 }
