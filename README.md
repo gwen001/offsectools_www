@@ -6,9 +6,9 @@ https://offsec.tools
 # Todo
 
 - newsletter  
-- mobile version  
 
 
 # Changelog
 
+- 2022-12-14: mobile version  
 - 2022-12-10: first version  

@@ -38,7 +38,4 @@ export default {
 </script>
 
 <style scope>
-.logo {
-    font-size: 1.9em;
-}
 </style>

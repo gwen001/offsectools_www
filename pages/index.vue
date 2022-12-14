@@ -1,7 +1,7 @@
 <template>
     <div id="home" class="w-100 h-100">
         <div class="row justify-content-center mt-3 mb-0">
-            <div class="p-relative text-center">
+            <div class="text-center">
                 <span class="logo">{{ $config.APP_NAME }}</span>
             </div>
         </div>
@@ -74,14 +74,11 @@ export default {
 </script>
 
 <style scoped>
-.p-relative {
-    position: relative;
+h1 {
+    font-size: 1.8em !important;
 }
 .logo {
     font-size: 4.5em !important;
     font-weight: 500;
-}
-h1 {
-    font-size: 1.8em !important;
 }
 </style>
