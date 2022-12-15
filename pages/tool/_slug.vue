@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import NotFound from '~/components/NotFound.vue'
-import ToolDetails from '~/components/ToolDetails.vue'
+import NotFound from '~/components/NotFound.vue';
+import ToolDetails from '~/components/ToolDetails.vue';
 
 export default {
     name: 'ToolPage',

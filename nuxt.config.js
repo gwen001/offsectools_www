@@ -54,11 +54,11 @@ export default {
             { property: 'og:site_name', content: process.env.APP_NAME },
             { property: 'og:description', content: 'A vast collection of security tools' },
             { property: 'og:url', content: process.env.APP_URL },
+            { property: 'og:image', content: process.env.APP_URL+'/assets/img/preview.png' },
             { name: 'twitter:card', content: 'summary_large_image' },
             { name: 'twitter:title', content: process.env.APP_NAME },
             { name: 'twitter:description', content: 'A vast collection of security tools' },
-            // { name: 'twitter:image', content: process.env.CDN_STATIC+'/img/banner.png' },
-            // { property: 'og:image', content: process.env.CDN_STATIC+'/img/banner.png' },
+            { name: 'twitter:image', content: process.env.APP_URL+'/assets/img/preview.png' },
         ],
         link: [
             { hid: 'canonical', rel: 'canonical', href: process.env.APP_URL },

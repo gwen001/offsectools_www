@@ -30,9 +30,9 @@ import RandomTool from '~/components/RandomTool.vue';
 
 export default {
     name: 'Topbar',
-    components: [
+    components: {
         RandomTool
-    ],
+    },
     methods: {
         doSearch() {
             // alert('doSearch');

@@ -25,9 +25,9 @@ import RandomTool from '~/components/RandomTool.vue';
 
 export default {
     name: 'MobileMenu',
-    components: [
+    components: {
         RandomTool
-    ],
+    },
     methods: {
         hideMobileTarbar() {
             // alert(3);
