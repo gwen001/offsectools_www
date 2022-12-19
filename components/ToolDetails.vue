@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="tool-name col mt-3">
                     <h1>
-                        <span class="nicename">{{ tool.nicename }}</span>
+                        <a :href="tool.link" class="nicename" target="_blank">{{ tool.nicename }}</a>
                     </h1>
                 </div>
             </div>
@@ -72,6 +72,9 @@ export default {
 </script>
 
 <style scoped>
+a.nicename:hover {
+    color: #ddd;
+}
 .link-close:hover {
     color: #ddd;
 }

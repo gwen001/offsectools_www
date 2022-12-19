@@ -65,7 +65,7 @@ export const getters = {
         return state.tools;
     },
     searchTools: (state) => (period='') => {
-        console.log(period);
+        // console.log(period);
         // console.log('searchTools');
         // console.log(state.search_term);
         var k = 0;
