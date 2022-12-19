@@ -4,7 +4,7 @@ const getDefaultState = () => {
         loading: false,
         search_term: '',
         sort_by: 'name', // 'name' or 'date'
-        tags_display: 'all', // 'all' or 'top'
+        tags_display: 'top', // 'all' or 'top'
         tags: [],
         tools: [],
         contributors: []
