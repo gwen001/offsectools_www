@@ -3,6 +3,7 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="">
+                    <nuxt-link to="/?p=last7days">Last 7 days</nuxt-link>
                     <RandomTool></RandomTool>
                     <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
                     <a :href="$config.GITHUB_URL" target="_blank" class="ms-3">

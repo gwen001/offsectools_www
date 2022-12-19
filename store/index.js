@@ -64,10 +64,27 @@ export const getters = {
         // console.log('getTools');
         return state.tools;
     },
-    searchTools( state ) {
+    searchTools: (state) => (period='') => {
+        console.log(period);
         // console.log('searchTools');
         // console.log(state.search_term);
+        var k = 0;
         var t_tools = [];
+
+        if( period == 'last7days' ) {
+            var d_current = new Date();
+            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+            // var d7 = new Date( 2022, 11, 10 );
+            // console.log(d7);
+            for( var i=0 ; i<state.tools.length ; i++ ) {
+                var td = new Date(state.tools[i].created_at);
+                // console.log(td);
+                if( td > d7 ) {
+                    t_tools[k++] = state.tools[i];
+                }
+            }
+            return t_tools;
+        }
 
         if( state.search_term.length == 0 )
         {
@@ -75,8 +92,6 @@ export const getters = {
         }
         else
         {
-            var k = 0;
-
             if( state.search_term[0] == '#' ) {
                 var st = state.search_term.replace('#','');
                 for( var i=0 ; i<state.tools.length ; i++ ) {

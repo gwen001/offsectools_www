@@ -56,7 +56,11 @@ export default {
     },
     computed: {
         tools() {
-            return this.$store.getters['searchTools'];
+            var p = '';
+            if( this.$route.query.p != undefined ) {
+                p = this.$route.query.p;
+            }
+            return this.$store.getters['searchTools'](p);
         },
         isSortByName() {
             return (this.$store.getters['getSortBy'] == 'name');
