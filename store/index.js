@@ -83,10 +83,8 @@ export const getters = {
                     t_tools[k++] = state.tools[i];
                 }
             }
-            return t_tools;
         }
-
-        if( state.search_term.length == 0 )
+        else if( state.search_term.length == 0 )
         {
             t_tools = [...state.tools];
         }
