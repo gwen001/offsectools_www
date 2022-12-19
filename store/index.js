@@ -62,6 +62,7 @@ export const getters = {
                     for( var j=0 ; j<state.tools[i].tags.length ; j++ ) {
                         if( state.tools[i].tags[j].startsWith(st) ) {
                             t_tools[k++] = state.tools[i];
+                            break;
                         }
                     }
                 }
