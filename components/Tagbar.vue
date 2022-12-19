@@ -1,6 +1,7 @@
 <template>
     <div id="tagbar" ref="tagbar" class="vh-100">
         <MobileMenu></MobileMenu>
+        <TagsMenu></TagsMenu>
         <ul class="list-group mt-3">
             <li>
                 <a href="javascript:;" v-on:click="resetSearchTerm()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
@@ -10,7 +11,7 @@
                 </a>
             </li>
             <template v-for="tag,index in tags">
-                <li v-if="tag.tools_count > 0 && tag.status == 1">
+                <li>
                     <a href="javascript:;" v-on:click="setSearchTerm('#'+tag.slug)" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
                         <span class="hashtag">#</span>
                         <span class="nicename w-100">{{ tag.nicename }}</span>
@@ -24,11 +25,12 @@
 
 <script>
 import MobileMenu from '~/components/MobileMenu.vue';
+import TagsMenu from '~/components/TagsMenu.vue';
 
 export default {
     name: 'Tagbar',
     components: {
-        MobileMenu
+        MobileMenu, TagsMenu
     },
     computed: {
         tags() {

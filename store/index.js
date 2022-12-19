@@ -3,7 +3,8 @@ const getDefaultState = () => {
     return {
         loading: false,
         search_term: '',
-        sort_by: 'name',
+        sort_by: 'name', // 'name' or 'date'
+        tags_display: 'all', // 'all' or 'top'
         tags: [],
         tools: [],
         contributors: []
@@ -25,9 +26,29 @@ export const getters = {
     getContributors( state ) {
         return state.contributors;
     },
+    getTagsDisplay( state ) {
+        return state.tags_display;
+    },
     getTags( state ) {
         // console.log('getTags');
-        return state.tags;
+        var k = 0;
+        var t_tags = [];
+
+        for( var i=0 ; i<state.tags.length ; i++ ) {
+            if( state.tags[i].tools_count == 0 ) {
+                continue;
+            }
+            if( state.tags_display == 'all' || (state.tags_display == 'top' && state.tags[i].status == 1) ) {
+                t_tags[k++] = state.tags[i];
+            }
+        }
+
+        if( state.tags_display == 'top' ) {
+            t_tags = t_tags.sort(
+                (a, b) => (a.tools_count > b.tools_count ? -1 : 1)
+            );
+        }
+        return t_tags;
     },
     getTagFromSlug: (state) => (slug) => {
         // console.log('getTagFromSlug');
@@ -145,6 +166,9 @@ export const mutations = {
     },
     setTags( state, data ) {
         return state.tags = data;
+    },
+    setTagsDisplay( state, data ) {
+        return state.tags_display = data;
     },
     setTools( state, data ) {
         return state.tools = data;

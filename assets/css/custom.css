@@ -125,6 +125,37 @@ a.text-custom2:hover {
     border-color: #65d2e9;
 }
 
+.color-custom3 {
+    color: #facc15;
+}
+.bgcolor-custom3 {
+    color: #facc15;
+}
+.text-custom3 {
+    color: #facc15;
+}
+a.text-custom3:hover {
+    color: #facc15;
+}
+.btn-custom3 {
+    color: #fff;
+    background-color: #facc15;
+    border-color: #facc15;
+}
+.btn-custom3:hover {
+    color: #fff;
+    background-color: #facc15;
+    border-color: #facc15;
+}
+.btn-outline-custom3 {
+    border-color: #facc15;
+}
+.btn-outline-custom3:hover {
+    color: #fff;
+    background-color: #facc15;
+    border-color: #facc15;
+}
+
 
 #main {
     background-color: #0a0c1f;
@@ -373,8 +404,8 @@ $grid-breakpoints: (
 
 
 .uneedbest {
-    color: rgb(248 186 116);
+    color: #f8ba74;
 }
 .uneedbest:hover {
-    color: rgb(248 186 116);
+color: #f8ba74;
 }
