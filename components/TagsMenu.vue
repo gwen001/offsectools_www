@@ -1,13 +1,13 @@
 <template>
     <div id="mobile-menu" class="mb-3">
-        <div class="row mt-1">
+        <div class="row m-0 mt-1">
             <!-- <div class="col">
                 <a href="javascript:;" v-on:click="showTagsCategories" v-bind:class="[ isTagsCategories ? 'btn-custom3' : 'btn-outline-custom3', 'btn w-100']">By categories</a>
             </div> -->
         </div>
         <div class="row mt-1">
             <div class="col">
-                <a href="javascript:;" v-on:click="showTopTags" v-bind:class="[ isTopTags ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']">Top tags</a>
+                <a href="javascript:;" v-on:click="showTopTags" v-bind:class="[ isTopTags ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']">Tops tags</a>
             </div>
         </div>
         <div class="row mt-1">
