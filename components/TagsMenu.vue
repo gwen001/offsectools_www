@@ -7,7 +7,7 @@
         </div>
         <div class="row mt-1">
             <div class="col">
-                <a href="javascript:;" v-on:click="showTopTags" v-bind:class="[ isTopTags ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']">Tops tags</a>
+                <a href="javascript:;" v-on:click="showTopTags" v-bind:class="[ isTopTags ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']">Top tags</a>
             </div>
         </div>
         <div class="row mt-1">
