@@ -74,7 +74,7 @@ export const getters = {
         if( period == 'last7days' ) {
             var k = 0;
             var d_current = new Date();
-            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-20);
+            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
             // var d7 = new Date( 2022, 11, 10 );
             // console.log(d7);
             for( var i=0 ; i<state.tools.length ; i++ ) {
