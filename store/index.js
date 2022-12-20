@@ -68,45 +68,53 @@ export const getters = {
         // console.log(period);
         // console.log('searchTools');
         // console.log(state.search_term);
-        var k = 0;
         var t_tools = [];
+        var t_tmp = [];
 
         if( period == 'last7days' ) {
+            var k = 0;
             var d_current = new Date();
-            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-20);
             // var d7 = new Date( 2022, 11, 10 );
             // console.log(d7);
             for( var i=0 ; i<state.tools.length ; i++ ) {
                 var td = new Date(state.tools[i].created_at);
                 // console.log(td);
                 if( td > d7 ) {
-                    t_tools[k++] = state.tools[i];
+                    t_tmp[k++] = state.tools[i];
                 }
             }
         }
-        else if( state.search_term.length == 0 )
+        else
         {
-            t_tools = [...state.tools];
+            t_tmp = [...state.tools];
+        }
+
+        if( state.search_term.length == 0 )
+        {
+            t_tools = [...t_tmp];
         }
         else
         {
+            var k = 0;
             if( state.search_term[0] == '#' ) {
                 var st = state.search_term.replace('#','');
-                for( var i=0 ; i<state.tools.length ; i++ ) {
-                    for( var j=0 ; j<state.tools[i].tags.length ; j++ ) {
-                        if( state.tools[i].tags[j].startsWith(st) ) {
-                            t_tools[k++] = state.tools[i];
+                for( var i=0 ; i<t_tmp.length ; i++ ) {
+                    for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
+                        if( t_tmp[i].tags[j].startsWith(st) ) {
+                            t_tools[k++] = t_tmp[i];
                             break;
                         }
                     }
                 }
             }
             else {
+                var k = 0;
                 var r = new RegExp(state.search_term,'i');
-                for( var i=0 ; i<state.tools.length ; i++ ) {
+                for( var i=0 ; i<t_tmp.length ; i++ ) {
                     // console.log(state.tools[i].slug.search(state.search_term));
-                    if( state.tools[i].slug.search(r) >= 0 || state.tools[i].nicename.search(r) >= 0 || state.tools[i].short_descr.search(r) >= 0 || (state.tools[i].descr && state.tools[i].descr.search(r) >= 0) ) {
-                        t_tools[k++] = state.tools[i];
+                    if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+                        t_tools[k++] = t_tmp[i];
                     }
                 }
             }
