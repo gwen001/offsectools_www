@@ -43,7 +43,7 @@ a.highlight2:hover {
 .btn:hover {
     color: #fff;
 }
-.btn:focus {
+.accordion-button, .btn:focus {
     outline: none;
     box-shadow: none;
 }
@@ -54,6 +54,10 @@ a.highlight2:hover {
     border-color: #162033;
     font-size: 0.95em;
     padding: 0.3rem 0.5rem;
+}
+button, button:focus:not(.focus-visible) {
+    outline: none;
+    box-shadow: none;
 }
 .form-control:focus {
     color: #fff;

@@ -4,10 +4,11 @@ const getDefaultState = () => {
         loading: false,
         search_term: '',
         sort_by: 'name', // 'name' or 'date'
-        tags_display: 'top', // 'all' or 'top'
+        tags_display: 'categories', // 'all' or 'top' or 'categories'
         tags: [],
         tools: [],
-        contributors: []
+        contributors: [],
+        categories: []
     }
 }
 
@@ -23,6 +24,9 @@ export const getters = {
     getSortBy( state ) {
         return state.sort_by;
     },
+    getCategories( state ) {
+        return state.categories;
+    },
     getContributors( state ) {
         return state.contributors;
     },
@@ -30,7 +34,6 @@ export const getters = {
         return state.tags_display;
     },
     getTags( state ) {
-        // console.log('getTags');
         var k = 0;
         var t_tags = [];
 
@@ -51,23 +54,17 @@ export const getters = {
         return t_tags;
     },
     getTagFromSlug: (state) => (slug) => {
-        // console.log('getTagFromSlug');
         for( var i=0 ; i<state.tags.length ; i++ ) {
             if( state.tags[i].slug == slug ) {
-                console.log(state.tags[i]);
                 return state.tags[i];
             }
         }
         return null;
     },
     getTools( state ) {
-        // console.log('getTools');
         return state.tools;
     },
     searchTools: (state) => (period='') => {
-        // console.log(period);
-        // console.log('searchTools');
-        // console.log(state.search_term);
         var t_tools = [];
         var t_tmp = [];
 
@@ -75,11 +72,8 @@ export const getters = {
             var k = 0;
             var d_current = new Date();
             var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-            // var d7 = new Date( 2022, 11, 10 );
-            // console.log(d7);
             for( var i=0 ; i<state.tools.length ; i++ ) {
                 var td = new Date(state.tools[i].created_at);
-                // console.log(td);
                 if( td > d7 ) {
                     t_tmp[k++] = state.tools[i];
                 }
@@ -112,7 +106,6 @@ export const getters = {
                 var k = 0;
                 var r = new RegExp(state.search_term,'i');
                 for( var i=0 ; i<t_tmp.length ; i++ ) {
-                    // console.log(state.tools[i].slug.search(state.search_term));
                     if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
                         t_tools[k++] = t_tmp[i];
                     }
@@ -120,24 +113,15 @@ export const getters = {
             }
         }
 
-        // t_tools = t_tools.sort();
-        // for( var i=0 ; i<t_tools.length ; i++ ) {
-        //     console.log(t_tools[i].slug+" "+t_tools[i].created_at);
-        // }
-
         if( state.sort_by == 'date' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.created_at > b.created_at ? -1 : 1)
             );
         }
-        // for( var i=0 ; i<t_tools.length ; i++ ) {
-        //     console.log(t_tools[i].slug+" "+t_tools[i].created_at);
-        // }
 
         return t_tools;
     },
     getToolFromSlug: (state) => (slug) => {
-        // console.log('getToolsFromSlug');
         for( var i=0 ; i<state.tools.length ; i++ ) {
             if( state.tools[i].slug == slug ) {
                 return state.tools[i];
@@ -146,7 +130,6 @@ export const getters = {
         return null;
     },
     getToolsFromTag: (state) => (slug) => {
-        // console.log('getToolsFromTag');
         var k = 0;
         var t_tools = [];
         for( var i=0 ; i<state.tools.length ; i++ ) {
@@ -171,19 +154,19 @@ export const mutations = {
         return state.loading = false;
     },
     resetSearchTerm( state ) {
-        // console.log('resetSearchTerm');
         return state.search_term = '';
     },
     setSearchTerm( state, value ) {
-        // console.log('setSearchTerm');
         return state.search_term = value.trim();
     },
     setSortBy( state, value ) {
-        // console.log('setSearchTerm');
         return state.sort_by = value;
     },
     setContributors( state, data ) {
         return state.contributors = data;
+    },
+    setCategories( state, data ) {
+        return state.categories = data;
     },
     setTags( state, data ) {
         return state.tags = data;
@@ -202,31 +185,31 @@ export const actions = {
         this.dispatch( 'getTags' );
         this.dispatch( 'getTools' );
         this.dispatch( 'getContributors' );
+        this.dispatch( 'getCategories' );
     },
     resetState( context ) {
         context.commit('resetState');
     },
+    getCategories( context ) {
+        if( !this.state.categories.length ) {
+            this.$axios.get('/categories/export?from=store')
+                .then(response => {
+                    context.commit('setCategories',response.data);
+                });
+            }
+    },
     getContributors( context ) {
-        // context.commit('resetState');
-        // console.log('reload contributors');
         if( !this.state.contributors.length ) {
-            // console.log('contributors from api');
             this.$axios.get('/contributors/export?from=store')
                 .then(response => {
                     context.commit('setContributors',response.data);
-                })
-                .catch(error => {
                 });
             }
     },
     getTags( context ) {
-        // context.commit('resetState');
-        // console.log('reload tags');
         if( !this.state.tags.length ) {
-            // console.log('tags from api');
             this.$axios.get('/tags/export?from=store')
                 .then(response => {
-                    // console.log(response.data);
                     context.commit('setTags',response.data);
                 })
                 .catch(error => {
@@ -234,16 +217,10 @@ export const actions = {
             }
     },
     getTools( context ) {
-        // context.commit('resetState');
-        // console.log('reload tools');
         if( !this.state.tools.length ) {
-            // console.log('tools from api');
             this.$axios.get('/tools/export?from=store')
                 .then(response => {
-                    // console.log(response.data);
                     context.commit('setTools',response.data);
-                })
-                .catch(error => {
                 });
             }
     },

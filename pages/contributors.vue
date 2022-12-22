@@ -17,7 +17,7 @@
                         <div class="col text-start align-middle">
                             <a :href="'https://github.com/'+contributor.github_contributor" target="_blank">{{ contributor.github_contributor }}</a>
                         </div>
-                        <div class="col-3 text-right align-middle">
+                        <div class="col-3 text-end align-middle">
                             {{ contributor.tools_count }}
                         </div>
                     </div>

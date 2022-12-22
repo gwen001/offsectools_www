@@ -33,29 +33,15 @@ export default {
     },
     methods: {
         showMobileTarbar() {
-            // alert(1);
             this.$refs.tagbar.showMe();
         }
     },
-    // keyboardEvent (e) {
-    //     // console.log(e.which);
-    //     if( e.which === 27 ) {
-    //         this.$refs.tagbar.hideMe();
-    //         // this.$parent.hideMe();
-    //         // this.$router.push( '/' );
-    //     }
-    // },
     async mounted() {
         this.$store.dispatch( 'getTags' );
         this.$store.dispatch( 'getTools' );
         this.$store.dispatch( 'getContributors' );
+        this.$store.dispatch( 'getCategories' );
     },
-    // created() {
-    //     window.addEventListener('keyup', this.keyboardEvent);
-    // },
-    // beforeDestroy() {
-    //     window.removeEventListener('keyup', this.keyboardEvent);
-    // }
 }
 </script>
 
