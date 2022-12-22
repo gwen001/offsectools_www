@@ -7,6 +7,11 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
+                <nuxt-link to="/?p=last7days" v-on:click="resetSearchTerm()">Last 7 days</nuxt-link>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
                 <RandomTool></RandomTool>
             </div>
             <div class="col text-center">
@@ -29,6 +34,11 @@ export default {
         RandomTool
     },
     methods: {
+        resetSearchTerm: function (slug) {
+            alert(1);
+            this.$store.commit( 'resetSearchTerm' );
+            // this.$router.push( '/' );
+        },
         hideMobileTarbar() {
             // alert(3);
             this.$parent.hideMe();
