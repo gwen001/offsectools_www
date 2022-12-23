@@ -2,7 +2,7 @@
     <div id="mobile-menu" class="mb-3">
         <div class="row mt-1">
             <div class="col">
-                <a href="javascript:;" v-on:click="showTagsCategories" v-bind:class="[ isTagsCategories ? 'btn-custom3' : 'btn-outline-custom3', 'btn w-100']">By categories</a>
+                <a href="javascript:;" v-on:click="showTagsCategories" v-bind:class="[ isTagsCategories ? 'btn-custom3' : 'btn-outline-custom3', 'btn w-100']">Categories</a>
             </div>
         </div>
         <div class="row mt-1">
