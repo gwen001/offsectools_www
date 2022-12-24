@@ -58,6 +58,7 @@ export default {
         tools() {
             var p = '';
             if( this.$route.query.p != undefined ) {
+                this.$store.commit( 'resetSearchTerm' );
                 p = this.$route.query.p;
             }
             return this.$store.getters['searchTools'](p);

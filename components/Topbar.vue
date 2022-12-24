@@ -47,7 +47,7 @@ export default {
             this.$router.push( '/tool/'+tool.slug );
         },
         resetSearchTerm: function (slug) {
-            alert(1);
+            // alert(1);
             this.$store.commit( 'resetSearchTerm' );
             // this.$router.push( '/' );
         }
