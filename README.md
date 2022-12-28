@@ -7,7 +7,7 @@ https://offsec.tools
 
 - load on scroll  
 - daily promo  
-- votes  
+- rating  
 - reviews  
 - newsletter  
 - user area  
