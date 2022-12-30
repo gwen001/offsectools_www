@@ -12,18 +12,30 @@ const dynamicRoutes = async () => {
     //                     return '/tag/' + obj.slug   ;
     //                     // return '/tag/' + obj.slug + '/';
     //                 });
+    const t_routes = [];
     const r_tools = await axios.get(process.env.API_URL+'/tools/export?from=config.js');
-    const t_tools = r_tools.data.map((obj) => {
-                        // return {
-                        //     route: '/tool/' + obj.slug,
-                        //     payload: tooltool,
-                        // };
-                        return '/tool/' + obj.slug;
-                        // return '/tool/' + obj.slug + '/';
-                    });
-    const t_routes = t_tools;
+
+    for( const tool of r_tools.data ) {
+        const route = {
+            url: '/tool/' + tool.slug,
+            lastmodISO: tool.updated_at,
+            priority: 1
+        };
+        if( tool.picture !== null ) {
+            route.img = [
+                {
+                    url: '/assets/img/tools/'+tool.picture,
+                    caption: tool.short_descr,
+                    title: tool.nicename
+                }
+            ];
+        }
+        t_routes.push(route);
+    }
+
     // const t_routes = t_tags.concat(t_tools);
     // console.log(t_routes);
+
     return t_routes;
 }
 
