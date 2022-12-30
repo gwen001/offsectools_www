@@ -13,6 +13,17 @@
                             </h2>
                             <div :id="'panelsStayOpen-collapse'+cat.id" class="accordion-collapse collapse show" :aria-labelledby="'panelsStayOpen-heading'+cat.id">
                                 <div class="accordion-body">
+                                    <!-- <ul class="list-group">
+                                        <template v-for="tag,index in cat.tags">
+                                            <li>
+                                                <a href="javascript:;" v-on:click="setSearchTerm('#'+tag.slug)" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
+                                                    <span class="hashtag">#</span>
+                                                    <span class="nicename flex-fill">{{ tag.nicename }}</span>
+                                                    <span class="badge rounded-pill">{{ tag.tools_count }}</span>
+                                                </a>
+                                            </li>
+                                        </template>
+                                    </ul> -->
                                     <template v-for="tag,index in cat.tags">
                                         <a href="javascript:;" v-on:click="setSearchTerm('#'+tag.slug)" class="">
                                             <span class="hashtag m-0">#</span>
@@ -26,24 +37,24 @@
             </div>
         </template>
         <template v-else>
-        <ul class="list-group mt-3">
-            <li>
-                <a href="javascript:;" v-on:click="resetSearchTerm()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
-                    <span class="hashtag">#</span>
-                    <span class="nicename flex-fill">all</span>
-                    <span class="badge rounded-pill">{{ getToolsN }}</span>
-                </a>
-            </li>
-            <template v-for="tag,index in tags">
+            <ul class="list-group mt-3">
                 <li>
-                    <a href="javascript:;" v-on:click="setSearchTerm('#'+tag.slug)" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
+                    <a href="javascript:;" v-on:click="resetSearchTerm()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
                         <span class="hashtag">#</span>
-                        <span class="nicename flex-fill">{{ tag.nicename }}</span>
-                        <span class="badge rounded-pill">{{ tag.tools_count }}</span>
+                        <span class="nicename flex-fill">all</span>
+                        <span class="badge rounded-pill">{{ getToolsN }}</span>
                     </a>
                 </li>
-            </template>
-        </ul>
+                <template v-for="tag,index in tags">
+                    <li>
+                        <a href="javascript:;" v-on:click="setSearchTerm('#'+tag.slug)" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
+                            <span class="hashtag">#</span>
+                            <span class="nicename flex-fill">{{ tag.nicename }}</span>
+                            <span class="badge rounded-pill">{{ tag.tools_count }}</span>
+                        </a>
+                    </li>
+                </template>
+            </ul>
         </template>
     </div>
 </template>
@@ -120,6 +131,7 @@ export default {
 }
 .accordion-body {
     font-size: 0.95em !important;
+    /* padding: 5px; */
 }
 .accordion-button:after {
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");

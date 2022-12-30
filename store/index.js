@@ -177,6 +177,23 @@ export const mutations = {
     setTools( state, data ) {
         return state.tools = data;
     },
+    addRating(state, data) {
+        var tool_id = data[0];
+        var rate_value = data[1];
+        for( var i=0 ; i<state.tools.length ; i++ ) {
+            if( state.tools[i].id == tool_id ) {
+                if( state.tools[i].ratings_done === undefined ) {
+                    state.tools[i].ratings_count++;
+                    state.tools[i].ratings_total += rate_value;
+                    state.tools[i].ratings_avg = (state.tools[i].ratings_total/state.tools[i].ratings_count).toFixed(1);
+                    state.tools[i].ratings_done = 1;
+                    // console.log( state.tools[i].ratings_count );
+                    // console.log( state.tools[i].ratings_total );
+                }
+                break;
+            }
+        }
+    },
 };
 
 export const actions = {
@@ -224,4 +241,12 @@ export const actions = {
                 });
             }
     },
+    rate( context, data ) {
+        var tool_id = data[0];
+        var rate_value = data[1];
+        this.$axios.post('/tools/'+tool_id+'/'+rate_value)
+            .then(response => {
+                context.commit('addRating',data);
+            });
+    }
 };

@@ -1,12 +1,15 @@
 <template>
     <div class="tool-card h-100">
         <div class="card h-100">
-            <img :src="'/assets/img/tools/'+tool.picture" class="card-img-top tool-picture" />
+            <nuxt-img :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="card-img-top tool-picture" />
             <div class="card-body">
+                <div class="ratings-container" v-if="tool.ratings_count > 0">
+                    <Ratings from="toolcard" :tool="tool"></Ratings>
+                </div>
                 <h6 class="card-title tool-name">
                     <nuxt-link :to="'/tool/'+tool.slug" class="highlight1 stretched-link">{{ tool.nicename }}</nuxt-link>
                 </h6>
-                <p class="card-text tool-descr">{{ tool.short_descr }}</p>
+                <p class="card-text mt-3 tool-descr">{{ tool.short_descr }}</p>
             </div>
             <div class="tool-tags">
                 <p class="card-text tool-tags">
@@ -25,9 +28,14 @@
 </template>
 
 <script>
+import Ratings from '~/components/Ratings.vue';
+
 export default {
     name: 'ToolCard',
     props: ['tool'],
+    components: {
+        Ratings
+    },
     methods: {
         setSearchTerm: function (slug) {
             this.$store.commit( 'setSearchTerm', slug );
@@ -38,4 +46,11 @@ export default {
 </script>
 
 <style scoped>
+.ratings-container {
+    position: absolute;
+    right: 5px;
+    /* top: 5px; */
+    /* bottom: 220px; */
+    /* z-index: 99; */
+}
 </style>

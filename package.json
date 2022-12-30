@@ -15,6 +15,7 @@
         "nuxt": "^2.15.8",
         "vue": "^2.7.10",
         "vue-server-renderer": "^2.7.10",
-        "vue-template-compiler": "^2.7.10"
+        "vue-template-compiler": "^2.7.10",
+        "@nuxt/image": "^0.7.1"
     }
 }
