@@ -66,7 +66,7 @@ export default {
             { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
         ],
         script: [
-            { src: "https://www.googletagmanager.com/gtag/js?id=G-36B73TFMYT", async: true },
+            // { src: "https://www.googletagmanager.com/gtag/js?id=G-36B73TFMYT", async: true },
             { src: "/js/ga.js" },
             { src: "/js/bootstrap.bundle.min.js" },
         ]
