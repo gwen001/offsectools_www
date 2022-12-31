@@ -97,7 +97,7 @@ export default {
             // alert(4);
             this.$refs.tagbar.classList.remove('show');
         },
-        resetSearchTerm: function (slug) {
+        resetSearchTerm: function () {
             this.$store.commit( 'resetSearchTerm' );
             this.$router.push( '/' );
         },
