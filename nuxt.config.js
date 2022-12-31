@@ -119,10 +119,6 @@ export default {
         '@nuxtjs/google-analytics',
     ],
 
-    googleAnalytics: {
-        id: 'G-9DGYVTV1KW'
-    },
-
     sitemap: {
         hostname: process.env.APP_URL,
     },
@@ -132,12 +128,19 @@ export default {
         baseURL: process.env.API_URL,
     },
 
+    googleAnalytics: {
+        id: process.env.GOOGLE_ANALYTICS_ID
+    },
+
     // public vars
     publicRuntimeConfig: {
         APP_NAME: process.env.APP_NAME,
         APP_URL: process.env.APP_URL,
         APP_ENV: process.env.APP_ENV,
         GITHUB_URL: process.env.GITHUB_URL,
+        googleAnalytics: {
+            id: process.env.GOOGLE_ANALYTICS_ID
+        },
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
