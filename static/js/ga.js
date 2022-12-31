@@ -2,4 +2,4 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
 gtag('js', new Date());
-gtag('config', 'G-36B73TFMYT');
+gtag('config', 'G-9DGYVTV1KW');
