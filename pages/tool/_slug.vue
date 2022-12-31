@@ -56,11 +56,6 @@ export default {
                     'content': descr
                 },
                 {
-                    'property': 'og:image',
-                    'hid': 'og:image',
-                    'content': image
-                },
-                {
                     'property': 'twitter:title',
                     'hid': 'twitter:title',
                     'content': title
@@ -70,12 +65,20 @@ export default {
                     'hid': 'twitter:description',
                     'content': descr
                 },
-                {
+            ];
+
+            if( this.datool.picture !== null && this.datool.picture.length > 0 ) {
+                meta.push({
+                    'property': 'og:image',
+                    'hid': 'og:image',
+                    'content': image
+                });
+                meta.push({
                     'property': 'twitter:image',
                     'hid': 'twitter:image',
                     'content': image
-                },
-            ];
+                });
+            }
         }
 
         return {
