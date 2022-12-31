@@ -21,14 +21,13 @@ export default {
     head() {
         var meta = [];
         var title = '';
-        var url = '';
-        var image = '';
 
         if( this.datool )
         {
             title = this.datool.nicename+' on '+this.$config.APP_NAME;
-            url = this.$config.APP_URL+'/tool/'+this.datool.slug;
-            image = this.$config.APP_URL+'/assets/img/tools/'+this.datool.picture;
+            var url = this.$config.APP_URL+'/tool/'+this.datool.slug;
+            var descr = this.datool.nicename+' - '+this.datool.short_descr;
+            var image = this.$config.APP_URL+'/assets/img/tools/'+this.datool.picture;
 
             meta = [
                 {
@@ -39,7 +38,7 @@ export default {
                 {
                     'property': 'description',
                     'hid': 'description',
-                    'content': this.datool.short_descr
+                    'content': descr
                 },
                 {
                     'property': 'og:url',
@@ -54,7 +53,7 @@ export default {
                 {
                     'property': 'og:description',
                     'hid': 'og:description',
-                    'content': this.datool.short_descr
+                    'content': descr
                 },
                 {
                     'property': 'og:image',
@@ -69,7 +68,7 @@ export default {
                 {
                     'property': 'twitter:description',
                     'hid': 'twitter:description',
-                    'content': this.datool.short_descr
+                    'content': descr
                 },
                 {
                     'property': 'twitter:image',
