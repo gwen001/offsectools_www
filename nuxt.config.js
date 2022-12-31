@@ -80,7 +80,7 @@ export default {
             { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
         ],
         script: [
-            { src: "https://www.googletagmanager.com/gtag/js?id=G-9DGYVTV1KW", async: true },
+            // { src: "https://www.googletagmanager.com/gtag/js?id=G-9DGYVTV1KW", async: true },
             // { src: "/js/ga.js" },
             { src: "/js/bootstrap.bundle.min.js" },
         ]
@@ -116,7 +116,12 @@ export default {
         '@nuxtjs/axios',
         '@nuxtjs/sitemap',
         '@nuxt/image',
+        '@nuxtjs/google-analytics',
     ],
+
+    googleAnalytics: {
+        id: 'G-9DGYVTV1KW'
+    },
 
     sitemap: {
         hostname: process.env.APP_URL,
