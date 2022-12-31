@@ -18,11 +18,84 @@ export default {
     components: {
         NotFound, ToolDetails
     },
+    head() {
+        var meta = [];
+        var title = '';
+        var url = '';
+        var image = '';
+
+        if( this.datool )
+        {
+            title = this.datool.nicename+' on '+this.$config.APP_NAME;
+            url = this.$config.APP_URL+'/tool/'+this.datool.slug;
+            image = this.$config.APP_URL+'/assets/img/tools/'+this.datool.picture;
+
+            meta = [
+                {
+                    'property': 'keywords',
+                    'hid': 'keywords',
+                    'content': 'offsec,security,bug bounty,tools,'+this.datool.tags.join(',')
+                },
+                {
+                    'property': 'description',
+                    'hid': 'description',
+                    'content': this.datool.short_descr
+                },
+                {
+                    'property': 'og:url',
+                    'hid': 'og:url',
+                    'content': url
+                },
+                {
+                    'property': 'og:title',
+                    'hid': 'og:title',
+                    'content': title
+                },
+                {
+                    'property': 'og:description',
+                    'hid': 'og:description',
+                    'content': this.datool.short_descr
+                },
+                {
+                    'property': 'og:image',
+                    'hid': 'og:image',
+                    'content': image
+                },
+                {
+                    'property': 'twitter:title',
+                    'hid': 'twitter:title',
+                    'content': title
+                },
+                {
+                    'property': 'twitter:description',
+                    'hid': 'twitter:description',
+                    'content': this.datool.short_descr
+                },
+                {
+                    'property': 'twitter:image',
+                    'hid': 'twitter:image',
+                    'content': image
+                },
+            ];
+        }
+
+        return {
+            title: title,
+            meta
+        };
+    },
     computed: {
         tool() {
             return this.$store.getters['getToolFromSlug'](this.$route.params.slug);
         },
     },
+    async asyncData( { store, params } ) {
+        var t = await store.getters['getToolFromSlug'](params.slug);
+        // console.log( t );
+        return {
+            datool: t
+        };
+    }
 }
 </script>
 

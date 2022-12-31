@@ -1,4 +1,3 @@
-
 const getDefaultState = () => {
     return {
         loading: false,
@@ -122,6 +121,8 @@ export const getters = {
         return t_tools;
     },
     getToolFromSlug: (state) => (slug) => {
+        // console.log('getToolFromSlug');
+        // console.log(state.tools.length);
         for( var i=0 ; i<state.tools.length ; i++ ) {
             if( state.tools[i].slug == slug ) {
                 return state.tools[i];
@@ -197,12 +198,12 @@ export const mutations = {
 };
 
 export const actions = {
-    nuxtServerInit({ commit }, { req }) {
+    async nuxtServerInit({ commit }, { req }) {
         // console.log('nuxtServerInit');
-        this.dispatch( 'getTags' );
-        this.dispatch( 'getTools' );
-        this.dispatch( 'getContributors' );
-        this.dispatch( 'getCategories' );
+        await this.dispatch( 'getTags' );
+        await this.dispatch( 'getTools' );
+        await this.dispatch( 'getContributors' );
+        await this.dispatch( 'getCategories' );
     },
     resetState( context ) {
         context.commit('resetState');
@@ -233,9 +234,11 @@ export const actions = {
                 });
             }
     },
-    getTools( context ) {
+    async getTools( context ) {
+        // console.log('getTools');
         if( !this.state.tools.length ) {
-            this.$axios.get('/tools/export?from=store')
+            // console.log('really getTools');
+            await this.$axios.get('/tools/export?from=store')
                 .then(response => {
                     context.commit('setTools',response.data);
                 });
@@ -244,7 +247,7 @@ export const actions = {
     rate( context, data ) {
         var tool_id = data[0];
         var rate_value = data[1];
-        this.$axios.post('/tools/'+tool_id+'/'+rate_value)
+        athis.$axios.post('/tools/'+tool_id+'/'+rate_value)
             .then(response => {
                 context.commit('addRating',data);
             });

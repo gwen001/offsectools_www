@@ -74,10 +74,14 @@ export default {
         }
     },
     created() {
-        window.addEventListener('keyup', this.keyboardEvent);
+        if( process.browser ) {
+            window.addEventListener('keyup', this.keyboardEvent);
+        }
     },
     beforeDestroy() {
-        window.removeEventListener('keyup', this.keyboardEvent);
+        if( process.browser ) {
+            window.removeEventListener('keyup', this.keyboardEvent);
+        }
     },
 }
 </script>
