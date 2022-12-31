@@ -68,6 +68,7 @@ export default {
             { hid: 'og:description', property: 'og:description', content: 'A vast collection of security tools' },
             { hid: 'og:image', property: 'og:image', content: process.env.APP_URL+'/assets/img/preview.png' },
             { name: 'twitter:site', content: 'gwendallecoguic' },
+            { name: 'twitter:creator', content: 'gwendallecoguic' },
             { name: 'twitter:card', content: 'summary_large_image' },
             { hid: 'twitter:title', name: 'twitter:title', content: process.env.APP_NAME },
             { hid: 'twitter:description', name: 'twitter:description', content: 'A vast collection of security tools' },
