@@ -2,7 +2,7 @@ const getDefaultState = () => {
     return {
         loading: false,
         search_term: '',
-        sort_by: 'name', // 'name' or 'date'
+        sort_by: 'name', // 'name' or 'date' or 'ratings'
         tags_display: 'top', // 'all' or 'top' or 'categories'
         tags: [],
         tools: [],
@@ -115,6 +115,10 @@ export const getters = {
         if( state.sort_by == 'date' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.created_at > b.created_at ? -1 : 1)
+            );
+        } else if( state.sort_by == 'ratings' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
             );
         }
 
