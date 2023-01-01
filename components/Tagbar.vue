@@ -106,6 +106,9 @@ export default {
             this.$router.push( '/' );
         },
     },
+    mounted() {
+        // alert(1);
+    }
 }
 </script>
 

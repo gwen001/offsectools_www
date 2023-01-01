@@ -91,7 +91,7 @@ export const getters = {
         {
             var k = 0;
             if( state.search_term[0] == '#' ) {
-                var st = state.search_term.replace('#','');
+                var st = state.search_term.replace('#','').toLowerCase();
                 for( var i=0 ; i<t_tmp.length ; i++ ) {
                     for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
                         if( t_tmp[i].tags[j].startsWith(st) ) {

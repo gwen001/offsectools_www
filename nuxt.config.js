@@ -86,6 +86,20 @@ export default {
         ]
     },
 
+    // router: {
+    //     mode: 'hash',
+    //     keepDefaultRouter: false,
+    // //     scrollBehavior(to, from, savedPosition) {
+    // //         if( savedPosition ) {
+    // //             alert(1);
+    // //             return savedPosition;
+    // //         } else {
+    // //             alert(0);
+    // //             return { x: 0, y: 0 };
+    // //         }
+    // //     }
+    // },
+
     basePath: '/',
 
     // Global CSS: https://go.nuxtjs.dev/config-css
