@@ -61,8 +61,11 @@ export default {
         tools() {
             var p = '';
             if( this.$route.query.p != undefined ) {
-                // this.$store.commit( 'resetSearchTerm' );
                 p = this.$route.query.p;
+            }
+            var q = '';
+            if( this.$route.query.q != undefined ) {
+                this.$store.commit( 'setSearchTerm', this.$route.query.q );
             }
             return this.$store.getters['searchTools'](p);
         },
