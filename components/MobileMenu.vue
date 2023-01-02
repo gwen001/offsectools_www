@@ -55,7 +55,6 @@ export default {
             this.$router.push( '/' );
         },
         hideMobileTarbar() {
-            // alert(3);
             this.$parent.hideMe();
         },
     },
@@ -63,4 +62,7 @@ export default {
 </script>
 
 <style scope>
+svg {
+    cursor: pointer;
+}
 </style>

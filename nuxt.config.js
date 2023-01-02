@@ -80,8 +80,6 @@ export default {
             { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
         ],
         script: [
-            // { src: "https://www.googletagmanager.com/gtag/js?id=G-9DGYVTV1KW", async: true },
-            // { src: "/js/ga.js" },
             { src: "/js/bootstrap.bundle.min.js" },
         ]
     },
@@ -113,10 +111,6 @@ export default {
         color: '#22d3ee',
         height: '2px'
     },
-
-    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [
-    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,

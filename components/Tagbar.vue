@@ -90,11 +90,9 @@ export default {
     },
     methods: {
         showMe() {
-            // alert(2);
             this.$refs.tagbar.classList.add('show');
         },
         hideMe() {
-            // alert(4);
             this.$refs.tagbar.classList.remove('show');
         },
         resetSearchTerm: function () {
@@ -106,9 +104,6 @@ export default {
             this.$router.push( '/' );
         },
     },
-    mounted() {
-        // alert(1);
-    }
 }
 </script>
 

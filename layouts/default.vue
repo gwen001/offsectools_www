@@ -33,7 +33,17 @@ export default {
     },
     methods: {
         showMobileTarbar() {
+            // console.log('showMobileTarbar');
             this.$refs.tagbar.showMe();
+            setTimeout(() => document.addEventListener('click',this.hideMobileTarbar), 0);
+        },
+        hideMobileTarbar(event) {
+            var ignore_close = ['Categories','All tags','Top tags'];
+            var doClose = !ignore_close.includes(event.target.firstChild.data);
+            if( doClose ) {
+                this.$refs.tagbar.hideMe();
+                document.removeEventListener('click',this.hideMobileTarbar);
+            }
         }
     },
     async mounted() {
