@@ -7,13 +7,21 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/?p=last7days" v-on:click="resetSearchTerm()">Last 7 days</nuxt-link>
+                <a href="javascript:;" v-on:click="last7days()" class="ms-3">Last 7 days</a>
+            </div>
+            <div class="col text-center">
+                <RandomTool></RandomTool>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <RandomTool></RandomTool>
+                <a href="javascript:;" v-on:click="setSearchTerm('#learning')" class="ms-3">Learning</a>
             </div>
+            <div class="col text-center">
+                <a href="javascript:;" v-on:click="setSearchTerm('#resources')" class="ms-3">Resources</a>
+            </div>
+        </div>
+        <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/contributors">Contributors</nuxt-link>
             </div>
@@ -34,10 +42,17 @@ export default {
         RandomTool
     },
     methods: {
-        resetSearchTerm: function (slug) {
-            alert(1);
+        last7days: function () {
             this.$store.commit( 'resetSearchTerm' );
-            // this.$router.push( '/' );
+            this.$router.push( '/?p=last7days' );
+        },
+        resetSearchTerm: function () {
+            this.$store.commit( 'resetSearchTerm' );
+            this.$router.push( '/' );
+        },
+        setSearchTerm: function (slug) {
+            this.$store.commit( 'setSearchTerm', slug );
+            this.$router.push( '/' );
         },
         hideMobileTarbar() {
             // alert(3);
