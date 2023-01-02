@@ -58,7 +58,7 @@ export default {
             { name: 'X-UA-Compatible', content: 'IE=edge' },
             { name: 'format-detection', content: 'telephone=no' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'keywords', name: 'keywords', content: 'offsec,security,bug bounty,tools' },
+            { hid: 'keywords', name: 'keywords', content: 'offsec,security,bug bounty,tools,pentest,red team' },
             { hid: 'description', name: 'description', content: 'A vast collection of security tools' },
             { property: 'og:locale', content: 'en_US' },
             { property: 'og:type', content: 'website' },

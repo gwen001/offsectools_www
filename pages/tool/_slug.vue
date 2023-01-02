@@ -33,7 +33,7 @@ export default {
                 {
                     'property': 'keywords',
                     'hid': 'keywords',
-                    'content': 'offsec,security,bug bounty,tools,'+this.datool.tags.join(',')
+                    'content': 'offsec,security,bug bounty,tools,pentest,red team,'+this.datool.tags.join(',')
                 },
                 {
                     'property': 'description',
