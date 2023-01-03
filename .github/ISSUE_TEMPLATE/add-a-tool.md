@@ -7,8 +7,8 @@ assignees: ''
 
 ---
 
-[link]link to the tool[/link]
-[tags]list of tags separated by comma: tag1,tag2,tag3...[/tags]
-[short_descr]short description of the tool (max:100)[/short_descr]
-[long_descr]a bigger description[/long_descr] 
-[image]an image attached used as a preview OR a link[/image]
+[link]link to the tool (required)[/link]
+[tags]list of tags separated by comma: tag1,tag2,tag3... (required)[/tags]
+[short_descr]short description of the tool (max:100) (required)[/short_descr]
+[long_descr]a bigger description (optional)[/long_descr] 
+[image]a link OR an attached image (required)[/image]
