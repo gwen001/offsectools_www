@@ -7,9 +7,7 @@
                 <template v-for="cat,index in categories">
                         <div class="accordion-item">
                             <h2 class="accordion-header" :id="'panelsStayOpen-heading'+cat.id">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#panelsStayOpen-collapse'+cat.id" aria-expanded="true" :aria-controls="'panelsStayOpen-collapse'+cat.id">
-                                    {{ cat.nicename }}
-                                </button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#panelsStayOpen-collapse'+cat.id" aria-expanded="true" :aria-controls="'panelsStayOpen-collapse'+cat.id">{{ cat.nicename }}</button>
                             </h2>
                             <div :id="'panelsStayOpen-collapse'+cat.id" class="accordion-collapse collapse show" :aria-labelledby="'panelsStayOpen-heading'+cat.id">
                                 <div class="accordion-body">

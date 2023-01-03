@@ -15,6 +15,7 @@ https://offsec.tools
 
 # Changelog
 
+- 2023-01-02: mobile menu fix, topbar review  
 - 2022-12-31: tools metadata for SEO, home button  
 - 2022-12-30: rating system, default images, sitemap  
 - 2022-12-23: categories  
