@@ -20,6 +20,7 @@ export default {
     },
     head() {
         var meta = [];
+        var link = [];
         var title = '';
 
         if( this.datool )
@@ -28,6 +29,14 @@ export default {
             var url = this.$config.APP_URL+'/tool/'+this.datool.slug;
             var descr = this.datool.short_descr;
             var image = this.$config.APP_URL+'/assets/img/tools/'+this.datool.picture;
+
+            link = [
+                {
+                    'property': 'canonical',
+                    'hid': 'canonical',
+                    'content': url
+                },
+            ];
 
             meta = [
                 {
@@ -83,7 +92,8 @@ export default {
 
         return {
             title: title,
-            meta
+            meta,
+            link
         };
     },
     computed: {
