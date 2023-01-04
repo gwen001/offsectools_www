@@ -31,7 +31,7 @@
         <template v-if="tools.length > 0">
             <div class="row mt-5">
                 <template v-for="tool,index in tools">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
                         <ToolCard :tool="tool"></ToolCard>
                     </div>
                 </template>

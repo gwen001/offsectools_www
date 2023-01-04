@@ -27,11 +27,11 @@
                         <p>
                             4/ The issue should provide the following informations:
                             <ul>
-                                <li>required: [short_descr]short description of the tool (max:100)[/short_descr]</li>
-                                <li>required: [link]link to the tool[/link]</li>
-                                <li>required: [tags]list of tags separated by comma[/tags]</li>
-                                <li>required: an image attached used as a preview OR [image]a link[/image]</li>
-                                <li>optional: [long_descr]a bigger description[/long_descr]</li>
+                                <li>[link]link to the tool (required)[/link]</li>
+                                <li>[tags]list of tags separated by comma (required)[/tags]</li>
+                                <li>[short_descr]short description of the tool (max:100) (required)[/short_descr]</li>
+                                <li>[long_descr]a bigger description (optional)[/long_descr]</li>
+                                <li>[image]an image attached OR a link (required)[/image]</li>
                             </ul>
                         </p>
                     </div>
