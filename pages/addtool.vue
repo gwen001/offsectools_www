@@ -27,7 +27,8 @@
                         <p>
                             4/ The issue should provide the following informations:
                             <ul>
-                                <li>[link]link to the tool (required)[/link]</li>
+                                <li>[homepage]homepage of the tool (required)[/homepage]</li>
+                                <li>[extra_link]an extra link to the tool (optional)[/extra_link]</li>
                                 <li>[tags]list of tags separated by comma (required)[/tags]</li>
                                 <li>[short_descr]short description of the tool (max:100) (required)[/short_descr]</li>
                                 <li>[long_descr]a bigger description (optional)[/long_descr]</li>

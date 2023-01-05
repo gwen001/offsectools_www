@@ -12,7 +12,7 @@
             <div class="row mt-3">
                 <div class="tool-name col">
                     <h1>
-                        <a :href="tool.link" class="nicename" target="_blank">{{ tool.nicename }}</a>
+                        <a :href="tool.homepage" class="nicename" target="_blank">{{ tool.nicename }}</a>
                     </h1>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="row mt-5">
                 <div class="tool-link col">
-                    <a :href="tool.link" class="btn btn-outline-custom2" target="_blank">Try it</a>
+                    <a :href="tool.homepage" class="btn btn-outline-custom2" target="_blank">Try it</a>
                 </div>
             </div>
         </div>

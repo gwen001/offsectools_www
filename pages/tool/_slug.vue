@@ -19,9 +19,9 @@ export default {
         NotFound, ToolDetails
     },
     head() {
+        var title = '';
         var meta = [];
         var link = [];
-        var title = '';
 
         if( this.datool )
         {
