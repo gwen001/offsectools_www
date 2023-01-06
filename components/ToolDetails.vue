@@ -12,8 +12,10 @@
             <div class="row mt-3">
                 <div class="tool-name col">
                     <h1>
-                        <a :href="tool.homepage" class="nicename" target="_blank">{{ tool.nicename }}</a>
+                        {{ tool.nicename }}
+                        <a :href="tool.homepage" target="_blank" class="link-homepage"><svg xmlns="http://www.w3.org/2000/svg" width="30" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
                     </h1>
+
                 </div>
             </div>
             <div class="row mt-1 mb-4">
@@ -40,7 +42,8 @@
             </div>
             <div class="row mt-5">
                 <div class="tool-link col">
-                    <a :href="tool.homepage" class="btn btn-outline-custom2" target="_blank">Try it</a>
+                    <a :href="tool.homepage" class="btn btn-outline-custom2" target="_blank">Homepage</a>
+                    <a :href="tool.extra_link" class="btn btn-outline-custom2 ms-3" target="_blank" v-if="tool.extra_link">Secondary link</a>
                 </div>
             </div>
         </div>
@@ -87,10 +90,9 @@ export default {
 </script>
 
 <style scoped>
-a.nicename:hover {
+.link-homepage:hover {
     color: #ddd;
 }
-
 .link-close:hover {
     color: #ddd;
 }
