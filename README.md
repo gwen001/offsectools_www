@@ -5,8 +5,9 @@ https://offsec.tools
 
 # Todo
 
+- images on AWS  
 - improve search engine  
-- load on scroll  
+- fix scrollbar, load on scroll  
 - daily promo  
 - reviews  
 - newsletter  
@@ -15,6 +16,7 @@ https://offsec.tools
 
 # Changelog
 
+- 2023-01-05: extra link  
 - 2023-01-02: mobile menu fix, topbar review  
 - 2022-12-31: tools metadata for SEO, home button  
 - 2022-12-30: rating system, default images, sitemap  
