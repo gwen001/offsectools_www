@@ -61,8 +61,8 @@ a:hover {
     color: #ddd;
 }
 .mobilemenu_icon {
-    left: 15px;
+    left: 8px;
     position: absolute;
-    top: 15px;
+    top: 8px;
 }
 </style>

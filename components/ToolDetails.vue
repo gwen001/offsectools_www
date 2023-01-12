@@ -40,10 +40,12 @@
                     </template>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-4">
                 <div class="tool-link col">
-                    <a :href="tool.homepage" class="btn btn-outline-custom2" target="_blank">Homepage</a>
-                    <a :href="tool.extra_link" class="btn btn-outline-custom2 ms-3" target="_blank" v-if="tool.extra_link">Secondary link</a>
+                    <a :href="tool.homepage" class="text-custom2" target="_blank">{{ tool.homepage }}</a>
+                    <template v-if="tool.extra_link">
+                        <br /><a :href="tool.extra_link" class="text-custom2" target="_blank">{{ tool.extra_link }}</a>
+                    </template>
                 </div>
             </div>
         </div>
@@ -96,4 +98,8 @@ export default {
 .link-close:hover {
     color: #ddd;
 }
+.tool-link a:hover {
+    text-decoration: underline;
+}
+
 </style>
