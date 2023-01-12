@@ -1,7 +1,8 @@
 <template>
     <div class="tool-card h-100">
         <div class="card h-100">
-            <img :src="'/assets/img/tools/'+tool.picture" class="card-img-top tool-picture" />
+            <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="card-img-top tool-picture" />
+            <!-- <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" class="card-img-top tool-picture" /> -->
             <div class="card-body">
                 <div class="ratings-container" v-if="tool.ratings_count > 0">
                     <Ratings from="toolcard" :tool="tool"></Ratings>
