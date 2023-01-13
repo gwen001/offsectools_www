@@ -13,39 +13,39 @@
                 <div class="tool-name col">
                     <h1>
                         {{ tool.nicename }}
-                        <a :href="tool.homepage" target="_blank" class="link-homepage"><svg xmlns="http://www.w3.org/2000/svg" width="30" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
+                        <!-- <a :href="tool.homepage" target="_blank" class="link-homepage"><svg xmlns="http://www.w3.org/2000/svg" width="30" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a> -->
                     </h1>
 
                 </div>
             </div>
-            <div class="row mt-1 mb-4">
+            <!-- <div class="row mt-1 mb-4">
                 <div class="col">
                     <Ratings from="tooldetails" :tool="tool"></Ratings>
                 </div>
-            </div>
-            <div class="row">
-                <div class="tool-short-descr col">
-                    {{ tool.short_descr }}
+            </div> -->
+            <div class="row mt-2">
+                <div class="col tool-short-descr">
+                    <h5 class="m-0">{{ tool.short_descr }}</h5>
                 </div>
             </div>
-            <div class="row mt-4" v-if="tool.descr">
-                <div class="tool-descr col">
-                    <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>
-                </div>
-            </div>
-            <div class="row mt-4">
+            <div class="row mt-2">
                 <div class="tool-tags col">
                     <template v-for="tag,index in tool.tags">
                         <a href="javascript:;" class="tag-link highlight1" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
                     </template>
                 </div>
             </div>
-            <div class="row mt-4">
+            <div class="row mt-2">
                 <div class="tool-link col">
                     <a :href="tool.homepage" class="text-custom2" target="_blank">{{ tool.homepage }}</a>
                     <template v-if="tool.extra_link">
                         <br /><a :href="tool.extra_link" class="text-custom2" target="_blank">{{ tool.extra_link }}</a>
                     </template>
+                </div>
+            </div>
+            <div class="row mt-4" v-if="tool.descr">
+                <div class="tool-descr col">
+                    <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>
                 </div>
             </div>
         </div>
