@@ -36,9 +36,9 @@ export default {
             setTimeout(() => document.addEventListener('click',this.hideMobileTarbar), 0);
         },
         hideMobileTarbar(event) {
-            console.log(event);
-            console.log(event.target);
-            console.log(event.target.firstChild.data);
+            // console.log(event);
+            // console.log(event.target);
+            // console.log(event.target.firstChild.data);
             var ignore_close = ['Categories','All tags','Top tags','Cloud','CMS','Informations gathering','Vulnerabilities','Misc'];
             var doClose = !ignore_close.includes(event.target.firstChild.data);
             if( doClose ) {

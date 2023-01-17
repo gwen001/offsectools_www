@@ -82,11 +82,6 @@ export default {
             this.$router.push( '/' );
         }
     },
-    created() {
-        if( process.browser ) {
-            window.addEventListener('keyup', this.keyboardEvent);
-        }
-    },
     beforeDestroy() {
         if( process.browser ) {
             window.removeEventListener('keyup', this.keyboardEvent);

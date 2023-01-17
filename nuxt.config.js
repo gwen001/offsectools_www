@@ -85,6 +85,13 @@ export default {
     },
 
     router: {
+        // scrollBehavior() {
+        //     console.log('aaaaa');
+        //     document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+        // },
+            // scrollBehavior() {
+            //     return {top: 0, left: 0};
+            // },
         // function scrollBehavior (to, from, savedPosition) {
         //     console.log(savedPosition);
         //   return { x: 0, y: 0 };

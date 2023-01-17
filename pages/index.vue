@@ -83,7 +83,31 @@ export default {
         setSortBy: function (sort_by) {
             this.$store.commit( 'setSortBy', sort_by );
         },
+        // scrollEvent( e ) {
+        //     console.log('scrooooooll');
+        //     console.log(document.getElementById('main-content').scrollTop);
+        //     // console.log(this.$store.getters['getSearchTerm']);
+
+        //     var q = this.$store.getters['getSearchTerm'];
+        //     var scroll = localStorage.getItem('scroll');
+        //     var t_scroll = {};
+        //     if( scroll ) {
+        //         t_scroll = JSON.parse( scroll );
+        //     }
+        //     t_scroll[q] = document.getElementById('main-content').scrollTop;
+        //     localStorage.setItem('scroll', JSON.stringify(t_scroll));
+        // },
     },
+    // created() {
+    //     if( process.browser ) {
+    //         document.getElementById('main-content').addEventListener('scroll', this.scrollEvent);
+    //     }
+    // },
+    // beforeDestroy() {
+    //     if( process.browser ) {
+    //         document.getElementById('main-content').removeEventListener('scroll', this.scrollEvent);
+    //     }
+    // },
 }
 </script>
 
