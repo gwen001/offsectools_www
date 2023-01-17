@@ -1,6 +1,6 @@
 # offsec.tools
 
-[offsec.tools](https://offsec.tools) is a vast collection of security tools and resources.
+[offsec.tools](https://offsec.tools) is a vast collection of security tools and resources curated by the community.
 
 
 # Todo
