@@ -1,6 +1,6 @@
 # offsec.tools
 
-https://offsec.tools
+[offsec.tools](https://offsec.tools) is a vast collection of security tools and resources.
 
 
 # Todo
@@ -16,6 +16,7 @@ https://offsec.tools
 
 # Changelog
 
+- 2023-01-16: weekly contextualisation  
 - 2023-01-05: extra link  
 - 2023-01-02: mobile menu fix, topbar review  
 - 2022-12-31: tools metadata for SEO, home button  
