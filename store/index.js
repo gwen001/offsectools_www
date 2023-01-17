@@ -126,10 +126,6 @@ export const getters = {
     },
     getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
-        // let now = new Date();
-        // let onejan = new Date(now.getFullYear(), 0, 1);
-        // let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
-        // console.log(week);
 
         var t_context = [];
         for( var i=0 ; i<state.tools.length ; i++ ) {
@@ -142,11 +138,27 @@ export const getters = {
                 }
             }
         }
-        t_context.sort(() => Math.random() - 0.5)
-        // for( var i=0 ; i<t_context.length ; i++ ) {
-        //     console.log(t_context[i].slug);
-        // }
-        return t_context.slice(0,n_context);
+        // t_context.sort(() => Math.random() - 0.5)
+        // console.log('t_context:'+t_context.length);
+
+        let now = new Date();
+        let onejan = new Date(now.getFullYear(), 0, 1);
+        let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
+        // console.log('week:'+week);
+
+        let max_week = Math.floor( t_context.length/n_context );
+        if( max_week == 0 ) {
+            return t_context;
+        }
+        let final_week = week % max_week;
+        let start_index = (final_week-1) * n_context;
+        let end_index = final_week * n_context;
+        // console.log('max_week:'+max_week);
+        // console.log('final_week:'+final_week);
+        // console.log('start_index:'+start_index);
+        // console.log('final_index:'+end_index);
+
+        return t_context.slice(start_index,end_index);
     },
     getToolFromSlug: (state) => (slug) => {
         // console.log('getToolFromSlug');

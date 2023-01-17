@@ -31,7 +31,7 @@ export default {
     },
     mounted() {
         this.t_context = this.$store.getters['getToolContextualisation'](4,this.tool.tags,this.tool.slug);
-        console.log(this.t_context);
+        // console.log(this.t_context);
     }
 }
 </script>
