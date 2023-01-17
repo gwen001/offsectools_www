@@ -49,17 +49,21 @@
                 </div>
             </div>
         </div>
+        <div class="mt-5">
+            <ToolContextualisation :tool="tool"></ToolContextualisation>
+        </div>
     </div>
 </template>
 
 <script>
 import Ratings from '~/components/Ratings.vue';
+import ToolContextualisation from '~/components/ToolContextualisation.vue';
 
 export default {
     name: 'ToolDetails',
     props: [ 'tool' ],
     components: {
-        Ratings
+        Ratings, ToolContextualisation
     },
     methods: {
         rate( rate_value ) {

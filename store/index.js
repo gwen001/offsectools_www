@@ -124,6 +124,30 @@ export const getters = {
 
         return t_tools;
     },
+    getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
+        // console.log('contextualisation');
+        // let now = new Date();
+        // let onejan = new Date(now.getFullYear(), 0, 1);
+        // let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
+        // console.log(week);
+
+        var t_context = [];
+        for( var i=0 ; i<state.tools.length ; i++ ) {
+            for( var j=0 ; j<tags.length ; j++ ) {
+                if( state.tools[i].tags.includes(tags[j]) ) {
+                    if( !t_exclude.includes(state.tools[i].slug) ) {
+                        t_context.push( state.tools[i] );
+                        break;
+                    }
+                }
+            }
+        }
+        t_context.sort(() => Math.random() - 0.5)
+        // for( var i=0 ; i<t_context.length ; i++ ) {
+        //     console.log(t_context[i].slug);
+        // }
+        return t_context.slice(0,n_context);
+    },
     getToolFromSlug: (state) => (slug) => {
         // console.log('getToolFromSlug');
         // console.log(state.tools.length);

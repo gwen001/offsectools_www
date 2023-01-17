@@ -19,11 +19,13 @@
                     </template>
                 </p>
             </div>
-            <div class="card-footer text-center" style="z-index:9">
-                <a :href="tool.homepage" target="_blank" class="tool-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
-            </div>
+            <template v-if="from != 'contextualisation'">
+                <div class="card-footer text-center" style="z-index:9">
+                    <a :href="tool.homepage" target="_blank" class="tool-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -33,7 +35,7 @@ import Ratings from '~/components/Ratings.vue';
 
 export default {
     name: 'ToolCard',
-    props: ['tool'],
+    props: ['tool','from'],
     components: {
         Ratings
     },
