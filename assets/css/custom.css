@@ -373,7 +373,7 @@ $grid-breakpoints: (
 }
 .tool-card .tool-link svg {
     color: #fff;
-    width: 25px;
+    /* width: 30px; */
 }
 .tool-card .tool-link svg:hover {
     color: #22d3ee;

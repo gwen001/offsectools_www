@@ -155,6 +155,7 @@ export default {
     css: [
         '@/assets/css/custom.css',
         // '@/assets/scss/custom.scss',
+        '@fortawesome/fontawesome-svg-core/styles.css'
     ],
 
     // Loading bar https://nuxtjs.org/docs/2.x/features/loading
@@ -176,6 +177,10 @@ export default {
         '@nuxtjs/sitemap',
         '@nuxt/image',
         '@nuxtjs/google-analytics',
+    ],
+
+    plugins: [
+        '~/plugins/fontawesome.js'
     ],
 
     sitemap: {

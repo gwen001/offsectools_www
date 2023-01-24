@@ -21,9 +21,10 @@
             </div>
             <template v-if="from != 'contextualisation'">
                 <div class="card-footer text-center" style="z-index:9">
-                    <a :href="tool.homepage" target="_blank" class="tool-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
+                    <div class="d-flex justify-content-around">
+                        <ToolLink :link="tool.homepage"></ToolLink>
+                        <ToolLink :link="tool.extra_link" v-if="tool.extra_link"></ToolLink>
+                    </div>
                 </div>
             </template>
         </div>
@@ -32,12 +33,13 @@
 
 <script>
 import Ratings from '~/components/Ratings.vue';
+import ToolLink from '~/components/ToolLink.vue';
 
 export default {
     name: 'ToolCard',
     props: ['tool','from'],
     components: {
-        Ratings
+        Ratings, ToolLink
     },
     methods: {
         setSearchTerm: function (slug) {
