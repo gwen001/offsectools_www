@@ -37,9 +37,5 @@ export default {
 </script>
 
 <style scoped>
-svg {
-    height: 20px;
-}
 </style>
-
 

@@ -31,6 +31,12 @@ a.highlight2:hover {
     text-decoration: underline;
 }
 
+svg {
+    font-size: 1.3rem;
+}
+svg.fa-house {
+    font-size: 1.1rem;
+}
 
 .rounded {
     border-radius: 0.5rem !important;
@@ -248,6 +254,9 @@ a.text-custom3:hover {
     /* border-left: 3px solid #f9205a; */
 }
 
+#mobile-menu .lnk-close:hover {
+    color: #ddd;
+}
 
 /* X-Small	None  <576px
 Small	sm    ≥576px
@@ -332,10 +341,14 @@ $grid-breakpoints: (
 
 
 
-#tool-details .tool-picture {
-    /* border: 2px solid #162033; */
-    /* max-height: 300px !important;
-    max-width: 500px !important; */
+#tool-details .link-close svg {
+    font-size: 1.5rem !important;
+}
+#tool-details .link-close:hover {
+    color: #ddd;
+}
+#tool-details .tool-link:hover {
+    text-decoration: underline;
 }
 
 
@@ -372,8 +385,7 @@ $grid-breakpoints: (
     padding-bottom: 10px;
 }
 .tool-card .tool-link svg {
-    color: #fff;
-    /* width: 30px; */
+    /* color: #fff; */
 }
 .tool-card .tool-link svg:hover {
     color: #22d3ee;
