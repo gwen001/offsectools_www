@@ -2,6 +2,11 @@
     <div id="topbar" class="">
         <nav class="navbar">
             <div class="container-fluid">
+                <div class="mobilemenu-icon d-lg-none d-xl-none">
+                    <a href="javascript:;" v-on:click="showMobileTarbar">
+                        <font-awesome-icon icon="fas fa-bars" />
+                    </a>
+                </div>
                 <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
                     <a href="javascript:;" v-on:click="resetSearchTerm()" class="align-middle">
                         <font-awesome-icon icon="fas fa-house" />
@@ -67,6 +72,22 @@ export default {
             this.$store.commit( 'setSearchTerm', slug );
             this.$router.push( '/' );
         },
+        showMobileTarbar() {
+            // console.log('showMobileTarbar');
+            this.$parent.$refs.tagbar.showMe();
+            setTimeout(() => document.addEventListener('click',this.hideMobileTarbar), 0);
+        },
+        hideMobileTarbar(event) {
+            // console.log(event.target.firstChild.data);
+            var t_categories = this.$store.getters['getCategories'];
+            var ignore_close = ['Categories','All tags','Top tags'];
+            t_categories.forEach( elt =>ignore_close.push(elt.nicename) );
+            var doClose = !ignore_close.includes(event.target.firstChild.data);
+            if( doClose ) {
+                this.$parent.$refs.tagbar.hideMe();
+                document.removeEventListener('click',this.hideMobileTarbar);
+            }
+        },
     },
     computed: {
         search_term: {
@@ -86,6 +107,14 @@ export default {
 </script>
 
 <style scoped>
+.mobilemenu-icon {
+    left: 10px;
+    position: absolute;
+    top: 12px;
+}
+.mobilemenu-icon a:hover {
+    color: #ddd;
+}
 .input-group {
     padding-left: 20px;
 }
