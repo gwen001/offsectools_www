@@ -2,6 +2,7 @@ const getDefaultState = () => {
     return {
         loading: false,
         search_term: '',
+        search_results: [],
         sort_by: 'name', // 'name' or 'date' or 'ratings'
         tags_display: 'top', // 'all' or 'top' or 'categories'
         tags: [],
@@ -19,6 +20,10 @@ export const getters = {
     },
     getSearchTerm( state ) {
         return state.search_term;
+    },
+    getSearchResults: (state) => {
+        // console.log('getSearchResults');
+        return state.search_results;
     },
     getSortBy( state ) {
         return state.sort_by;
@@ -62,67 +67,6 @@ export const getters = {
     },
     getTools( state ) {
         return state.tools;
-    },
-    searchTools: (state) => (period='') => {
-        var t_tools = [];
-        var t_tmp = [];
-
-        if( period == 'last7days' ) {
-            var k = 0;
-            var d_current = new Date();
-            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-            for( var i=0 ; i<state.tools.length ; i++ ) {
-                var td = new Date(state.tools[i].created_at);
-                if( td > d7 ) {
-                    t_tmp[k++] = state.tools[i];
-                }
-            }
-        }
-        else
-        {
-            t_tmp = [...state.tools];
-        }
-
-        if( state.search_term.length == 0 )
-        {
-            t_tools = [...t_tmp];
-        }
-        else
-        {
-            var k = 0;
-            if( state.search_term[0] == '#' ) {
-                var st = state.search_term.replace('#','').toLowerCase();
-                for( var i=0 ; i<t_tmp.length ; i++ ) {
-                    for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
-                        if( t_tmp[i].tags[j].startsWith(st) ) {
-                            t_tools[k++] = t_tmp[i];
-                            break;
-                        }
-                    }
-                }
-            }
-            else {
-                var k = 0;
-                var r = new RegExp(state.search_term,'i');
-                for( var i=0 ; i<t_tmp.length ; i++ ) {
-                    if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
-                        t_tools[k++] = t_tmp[i];
-                    }
-                }
-            }
-        }
-
-        if( state.sort_by == 'date' ) {
-            t_tools = t_tools.sort(
-                (a, b) => (a.created_at > b.created_at ? -1 : 1)
-            );
-        } else if( state.sort_by == 'ratings' ) {
-            t_tools = t_tools.sort(
-                (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
-            );
-        }
-
-        return t_tools;
     },
     getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
@@ -199,6 +143,9 @@ export const mutations = {
     },
     setSearchTerm( state, value ) {
         return state.search_term = value.trim();
+    },
+    setSearchResults( state, data ) {
+        return state.search_results = data;
     },
     setSortBy( state, value ) {
         return state.sort_by = value;
@@ -287,9 +234,72 @@ export const actions = {
     rate( context, data ) {
         var tool_id = data[0];
         var rate_value = data[1];
-        athis.$axios.post('/tools/'+tool_id+'/'+rate_value)
+        this.$axios.post('/tools/'+tool_id+'/'+rate_value)
             .then(response => {
                 context.commit('addRating',data);
             });
-    }
+    },
+    searchTools( context, period ) {
+        // console.log('abcsearchTools');
+        var t_tools = [];
+        var t_tmp = [];
+
+        if( period == 'last7days' ) {
+            var k = 0;
+            var d_current = new Date();
+            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+            for( var i=0 ; i<this.state.tools.length ; i++ ) {
+                var td = new Date(this.state.tools[i].created_at);
+                if( td > d7 ) {
+                    t_tmp[k++] = this.state.tools[i];
+                }
+            }
+        }
+        else
+        {
+            t_tmp = [...this.state.tools];
+        }
+
+        if( this.state.search_term.length == 0 )
+        {
+            t_tools = [...t_tmp];
+        }
+        else
+        {
+            var k = 0;
+            if( this.state.search_term[0] == '#' ) {
+                var st = this.state.search_term.replace('#','').toLowerCase();
+                for( var i=0 ; i<t_tmp.length ; i++ ) {
+                    for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
+                        if( t_tmp[i].tags[j].startsWith(st) ) {
+                            t_tools[k++] = t_tmp[i];
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                var k = 0;
+                var r = new RegExp(this.state.search_term,'i');
+                for( var i=0 ; i<t_tmp.length ; i++ ) {
+                    if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+                        t_tools[k++] = t_tmp[i];
+                    }
+                }
+            }
+        }
+
+        if( this.state.sort_by == 'date' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.created_at > b.created_at ? -1 : 1)
+            );
+        } else if( this.state.sort_by == 'ratings' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
+            );
+        }
+
+        context.commit('setSearchResults',t_tools);
+        // return t_tools;
+    },
 };

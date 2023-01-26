@@ -67,7 +67,11 @@ export default {
             if( this.$route.query.q != undefined ) {
                 this.$store.commit( 'setSearchTerm', this.$route.query.q );
             }
-            return this.$store.getters['searchTools'](p);
+
+            this.$store.dispatch( 'searchTools', p );
+
+            // return this.$store.getters['searchTools'](p);
+            return this.$store.getters['getSearchResults'];
         },
         isSortByName() {
             return (this.$store.getters['getSortBy'] == 'name');

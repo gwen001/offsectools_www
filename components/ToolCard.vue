@@ -21,7 +21,7 @@
             </div>
             <template v-if="from != 'contextualisation'">
                 <div class="card-footer text-center" style="z-index:9">
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flexxxx justify-content-around">
                         <ToolLink :link="tool.homepage"></ToolLink>
                         <ToolLink :link="tool.extra_link" v-if="tool.extra_link"></ToolLink>
                     </div>

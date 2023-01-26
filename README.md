@@ -16,6 +16,7 @@
 
 # Changelog
 
+- 2023-01-24: fontawesome added  
 - 2023-01-16: weekly contextualisation  
 - 2023-01-05: extra link  
 - 2023-01-02: mobile menu fix, topbar review  

@@ -1,5 +1,5 @@
 <template>
-    <a :href="link" target="_blank" class="tool-link">
+    <a :href="link" target="_blank" class="tool-link ms-4 me-4">
         <font-awesome-icon :icon="daicon" />
     </a>
 </template>
