@@ -11,9 +11,9 @@
                     <a href="javascript:;" v-on:click="setSearchTerm('#learning')" class="ms-3">Learning</a>
                     <a href="javascript:;" v-on:click="setSearchTerm('#resources')" class="ms-3">Resources</a>
                     <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
-                    <a :href="$config.GITHUB_URL" target="_blank" class="ms-3 align-middle">
+                    <!-- <a :href="$config.GITHUB_URL" target="_blank" class="ms-3 align-middle">
                         <font-awesome-icon icon="fa-brands fa-github" />
-                    </a>
+                    </a> -->
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">
