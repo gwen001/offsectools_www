@@ -115,7 +115,14 @@ export default {
 .mobilemenu-icon a:hover {
     color: #ddd;
 }
-.input-group {
-    padding-left: 20px;
+@media all and (max-width: 991px) {
+    .input-group {
+        padding-left: 20px;
+    }
+}
+@media all and (max-width: 767px) {
+    .input-group {
+        padding-left: 20px;
+    }
 }
 </style>

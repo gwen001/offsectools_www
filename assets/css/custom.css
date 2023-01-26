@@ -2,7 +2,7 @@ body {
     background-color: #0a0c1f;
     color: #fff;
     font-size: 0.95em;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 h1 {
@@ -169,15 +169,24 @@ a.text-custom3:hover {
 
 #main-content {
     background-color: #0a0c1f;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     padding-bottom: 100px;
-    padding-top: 10px;
+    padding-top: 60px;
+
+    padding-left: 250px !important;
 }
 
 
 
 #topbar {
     border-bottom: 2px solid #141729;
+    position: fixed;
+    top:0;
+
+    background-color: #0a0c1f;
+    padding-left: 250px !important;
+    width: 100%;
+    z-index: 10;
 }
 #topbar input {
     padding-left: 40px;
@@ -204,13 +213,18 @@ a.text-custom3:hover {
 #tagbar {
     background-color: #0a0c1f;
     border-right: 2px solid #141729;
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
     padding-bottom: 100px;
     padding-left: 5px;
     padding-right: 5px;
     /* padding-top: 10px; */
     width: 250px;
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 11;
 }
 #tagbar nav a {
     font-size: 2em;
@@ -282,6 +296,22 @@ $grid-breakpoints: (
 }
 
 @media all and (max-width: 991px) {
+    #main-content {
+        padding-left: 0px !important;
+    }
+    #topbar {
+        padding-left: 0px !important;
+    }
+}
+
+@media all and (max-width: 1400px) {
+    #topbar #random-tool {
+        /* need place in the menu */
+        display: none;
+    }
+}
+
+@media all and (max-width: 991px) {
 
 	/* .offcanvas-header{ display:block; } */
 
@@ -298,18 +328,12 @@ $grid-breakpoints: (
 		transition: visibility .3s ease-in-out, transform .3s ease-in-out;
 		visibility: hidden;
         width: 50%;
+        max-width: 350px;
 		z-index: 1200;
 	}
-
-	/* .mobile-offcanvas .container, .mobile-offcanvas .container-fluid{
-		display: block;
-	} */
 }
 
 @media all and (max-width: 767px) {
-
-	/* .offcanvas-header{ display:block; } */
-
 	#tagbar {
 		border-radius: 0;
 		display: block;
@@ -323,12 +347,9 @@ $grid-breakpoints: (
 		transition: visibility .3s ease-in-out, transform .3s ease-in-out;
 		visibility: hidden;
         width: 80%;
+        max-width: 350px;
 		z-index: 1200;
 	}
-
-	/* .mobile-offcanvas .container, .mobile-offcanvas .container-fluid{
-		display: block;
-	} */
 }
 
 

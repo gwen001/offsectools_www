@@ -1,5 +1,5 @@
 <template>
-    <a href="javascript:;" v-on:click="randomtool" class="ms-3">Random tool</a>
+    <a id="random-tool" href="javascript:;" v-on:click="randomtool" class="ms-3">Random tool</a>
 </template>
 
 <script>
@@ -16,3 +16,6 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+</style>

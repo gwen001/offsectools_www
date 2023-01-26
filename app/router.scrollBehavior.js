@@ -19,6 +19,7 @@ export default function(to, from, savedPosition) {
 
     // console.log(nuxt.$store);
 
+    // console.log(savedPosition);
     console.log('scrollbehavior');
     document.getElementById('main-content').scrollTo(0,0);
 
