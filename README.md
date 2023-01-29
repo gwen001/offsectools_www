@@ -16,6 +16,8 @@
 
 # Changelog
 
+- 2023-01-29: some css and better scrollbar  
+- 2023-01-26: review main template and topbar  
 - 2023-01-24: fontawesome added  
 - 2023-01-16: weekly contextualisation  
 - 2023-01-05: extra link  

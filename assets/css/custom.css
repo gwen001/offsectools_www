@@ -1,8 +1,8 @@
 body {
-background-color: #0a0c1f;
-color: #fff;
-font-size: 0.93em;
-/* overflow: hidden; */
+    background-color: #0a0c1f;
+    color: #fff;
+    font-size: 0.93rem;
+    /* overflow: hidden; */
 }
 
 
@@ -26,71 +26,71 @@ h6 {
 }
 
 a {
-color: #fff;
-text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 a:hover {
-color: #f9205a;
-text-decoration: none;
+    color: #f9205a;
+    text-decoration: none;
 }
 a.highlight1 {
-color: #f9205a;
+    color: #f9205a;
 }
 a.highlight1:hover {
-color: #f9205a;
-text-decoration: underline;
+    color: #f9205a;
+    text-decoration: underline;
 }
 a.highlight2 {
-color: #22d3ee;
+    color: #22d3ee;
 }
 a.highlight2:hover {
-color: #22d3ee;
-text-decoration: underline;
+    color: #22d3ee;
+    text-decoration: underline;
 }
 
 svg {
-font-size: 1.3em;
+    font-size: 1.3em;
 }
 svg.fa-house {
-font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 .rounded {
-border-radius: 0.5rem !important;
+    border-radius: 0.5rem !important;
 }
 
 .btn {
-color: #fff;
-/* font-size: 0.92em; */
+    color: #fff;
+    /* font-size: 0.92em; */
 }
 .btn:hover {
-color: #fff;
+    color: #fff;
 }
 .accordion-button, .btn:focus {
-outline: none;
-box-shadow: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .form-control {
-color: #fff;
-background-color: #232536;
-border-color: #162033;
-font-size: 0.93em;
-padding: 0.3rem 0.5rem;
+    color: #fff;
+    background-color: #232536;
+    border-color: #162033;
+    font-size: 0.93rem;
+    padding: 0.3rem 0.5rem;
 }
 .btn {
-font-size: 0.93em
+    font-size: 0.93rem;
 }
 button, button:focus:not(.focus-visible) {
-outline: none;
-box-shadow: none;
+    outline: none;
+    box-shadow: none;
 }
 .form-control:focus {
-color: #fff;
-background-color: #0a0c1f;
-border-color: #22d3ee;
-box-shadow: inset 0 1px 1px rgba(101,210,233, 0.075), 0 0 8px rgba(101,210,233, 0.6);
-/* outline: none; */
+    color: #fff;
+    background-color: #0a0c1f;
+    border-color: #22d3ee;
+    box-shadow: inset 0 1px 1px rgba(101,210,233, 0.075), 0 0 8px rgba(101,210,233, 0.6);
+    /* outline: none; */
 }
 
 .color-custom1 {
