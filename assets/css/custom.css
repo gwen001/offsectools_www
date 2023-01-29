@@ -467,3 +467,18 @@ color: #f8ba74;
 .uneedbest:hover {
 color: #f8ba74;
 }
+
+
+#contextualisation div.row:first-of-type {
+    margin-top: 100px;
+}
+#contextualisation .card {
+    font-size: 0.75em;
+}
+/* #contextualisation .tool-name {
+    font-size: 1em;
+} */
+#contextualisation img {
+    height: 100px;
+}
+
