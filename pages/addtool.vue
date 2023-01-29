@@ -63,6 +63,7 @@
 export default {
     name: 'addtool',
     mounted() {
+        document.getElementById('main-content').scrollTo(0,0);
         this.$store.commit( 'resetSearchTerm' );
     }
 }

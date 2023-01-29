@@ -67,6 +67,7 @@
 export default {
     name: 'about',
     mounted() {
+        document.getElementById('main-content').scrollTo(0,0);
         this.$store.commit( 'resetSearchTerm' );
     }
 }

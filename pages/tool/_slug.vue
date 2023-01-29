@@ -101,6 +101,9 @@ export default {
             return this.$store.getters['getToolFromSlug'](this.$route.params.slug);
         },
     },
+    mounted() {
+        document.getElementById('main-content').scrollTo(0,0);
+    },
     async asyncData( { store, params } ) {
         var t = await store.getters['getToolFromSlug'](params.slug);
         // console.log( t );
