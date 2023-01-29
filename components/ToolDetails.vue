@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-5">
+        <div class="">
             <ToolContextualisation :tool="tool"></ToolContextualisation>
         </div>
     </div>
