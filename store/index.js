@@ -74,10 +74,6 @@ export const getters = {
     },
     getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
-        // console.log(state.data.length);
-        // console.log(state.categories.length);
-        // console.log(state.data.tags.length);
-        // console.log(state.tools.length);
 
         var t_context = [];
         for( var i=0 ; i<state.data.tools.length ; i++ ) {
@@ -99,13 +95,14 @@ export const getters = {
         // console.log('week:'+week);
 
         let max_week = Math.floor( t_context.length/n_context );
+        // console.log('max_week:'+max_week);
         if( max_week == 0 ) {
             return t_context;
         }
         let final_week = week % max_week;
-        let start_index = (final_week-1) * n_context;
-        let end_index = final_week * n_context;
-        // console.log('max_week:'+max_week);
+        // let start_index = (final_week-1) * n_context;
+        let start_index = final_week * n_context;
+        let end_index = start_index + n_context;
         // console.log('final_week:'+final_week);
         // console.log('start_index:'+start_index);
         // console.log('final_index:'+end_index);
