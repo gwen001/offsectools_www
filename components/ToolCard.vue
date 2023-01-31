@@ -12,13 +12,15 @@
                 </h6>
                 <p class="card-text mt-3 tool-descr">{{ tool.short_descr }}</p>
             </div>
-            <div class="tool-tags">
-                <p class="card-text tool-tags">
-                    <template v-for="tag,index in tool.tags">
-                        <a href="javascript:;" class="tag-link" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
-                    </template>
-                </p>
-            </div>
+            <template v-if="from != 'contextualisation'">
+                <div class="tool-tags">
+                    <p class="card-text tool-tags">
+                        <template v-for="tag,index in tool.tags">
+                            <a href="javascript:;" class="tag-link" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
+                        </template>
+                    </p>
+                </div>
+            </template>
             <template v-if="from != 'contextualisation'">
                 <div class="card-footer text-center" style="z-index:9">
                     <div class="d-flexxxx justify-content-around">
