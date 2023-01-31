@@ -231,41 +231,41 @@ color: #ddd;
 
 
 #tagbar {
-background-color: #0a0c1f;
-border-right: 2px solid #141729;
-overflow-x: hidden;
-overflow-y: auto;
-padding-bottom: 100px;
-padding-left: 5px;
-padding-right: 5px;
-/* padding-top: 10px; */
-width: 250px;
+    background-color: #0a0c1f;
+    border-right: 2px solid #141729;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* padding-top: 10px; */
+    width: 250px;
 
-position: fixed;
-left: 0px;
-top: 0px;
-z-index: 11;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 11;
 }
 #tagbar nav a {
-font-size: 2em;
+    font-size: 2em;
 }
 #tagbar nav a:hover {
-text-decoration: none;
+    text-decoration: none;
 }
 #tagbar ul {
-list-style-type: none;
+    list-style-type: none;
 }
 #tagbar li {
-/* border-left: 3px solid transparent; */
-margin-bottom: 0px;
+    /* border-left: 3px solid transparent; */
+    margin-bottom: 0px;
 
-/* padding: 2px 10px 2px 10px; */
+    /* padding: 2px 10px 2px 10px; */
 }
 #tagbar .list-group-item {
-background-color: transparent;
-border: 0px;
-font-size: 0.93em;
-padding: 6px;
+    background-color: transparent;
+    border: 0px;
+    font-size: 0.93em;
+    padding: 4px 6px;
 }
 /* #tagbar li.active {
 background-color: #1E293B;

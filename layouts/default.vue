@@ -26,10 +26,11 @@ export default {
         Topbar, Tagbar, MainContent
     },
     async mounted() {
-        this.$store.dispatch( 'getTags' );
-        this.$store.dispatch( 'getTools' );
-        this.$store.dispatch( 'getContributors' );
-        this.$store.dispatch( 'getCategories' );
+        await this.$store.dispatch( 'getDatata' );
+        // await this.$store.dispatch( 'getTags' );
+        // await this.$store.dispatch( 'getTools' );
+        // await this.$store.dispatch( 'getContributors' );
+        // await this.$store.dispatch( 'getCategories' );
     },
 }
 </script>

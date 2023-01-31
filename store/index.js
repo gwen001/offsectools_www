@@ -1,6 +1,7 @@
 const getDefaultState = () => {
     return {
         loading: false,
+        data: [],
         search_term: '',
         search_results: [],
         sort_by: 'name', // 'name' or 'date' or 'ratings'
@@ -28,11 +29,14 @@ export const getters = {
     getSortBy( state ) {
         return state.sort_by;
     },
+    getData( state ) {
+        return state.data;
+    },
     getCategories( state ) {
-        return state.categories;
+        return state.data.categories;
     },
     getContributors( state ) {
-        return state.contributors;
+        return state.data.contributors;
     },
     getTagsDisplay( state ) {
         return state.tags_display;
@@ -41,12 +45,12 @@ export const getters = {
         var k = 0;
         var t_tags = [];
 
-        for( var i=0 ; i<state.tags.length ; i++ ) {
-            if( state.tags[i].tools_count == 0 ) {
+        for( var i=0 ; i<state.data.tags.length ; i++ ) {
+            if( state.data.tags[i].tools_count == 0 ) {
                 continue;
             }
-            if( state.tags_display == 'all' || (state.tags_display == 'top' && state.tags[i].status == 1) ) {
-                t_tags[k++] = state.tags[i];
+            if( state.tags_display == 'all' || (state.tags_display == 'top' && state.data.tags[i].status == 1) ) {
+                t_tags[k++] = state.data.tags[i];
             }
         }
 
@@ -58,25 +62,29 @@ export const getters = {
         return t_tags;
     },
     getTagFromSlug: (state) => (slug) => {
-        for( var i=0 ; i<state.tags.length ; i++ ) {
-            if( state.tags[i].slug == slug ) {
-                return state.tags[i];
+        for( var i=0 ; i<state.data.tags.length ; i++ ) {
+            if( state.data.tags[i].slug == slug ) {
+                return state.data.tags[i];
             }
         }
         return null;
     },
     getTools( state ) {
-        return state.tools;
+        return state.data.tools;
     },
     getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
+        // console.log(state.data.length);
+        // console.log(state.categories.length);
+        // console.log(state.data.tags.length);
+        // console.log(state.tools.length);
 
         var t_context = [];
-        for( var i=0 ; i<state.tools.length ; i++ ) {
+        for( var i=0 ; i<state.data.tools.length ; i++ ) {
             for( var j=0 ; j<tags.length ; j++ ) {
-                if( state.tools[i].tags.includes(tags[j]) ) {
-                    if( !t_exclude.includes(state.tools[i].slug) ) {
-                        t_context.push( state.tools[i] );
+                if( state.data.tools[i].tags.includes(tags[j]) ) {
+                    if( !t_exclude.includes(state.data.tools[i].slug) ) {
+                        t_context.push( state.data.tools[i] );
                         break;
                     }
                 }
@@ -107,9 +115,9 @@ export const getters = {
     getToolFromSlug: (state) => (slug) => {
         // console.log('getToolFromSlug');
         // console.log(state.tools.length);
-        for( var i=0 ; i<state.tools.length ; i++ ) {
-            if( state.tools[i].slug == slug ) {
-                return state.tools[i];
+        for( var i=0 ; i<state.data.tools.length ; i++ ) {
+            if( state.data.tools[i].slug == slug ) {
+                return state.data.tools[i];
             }
         }
         return null;
@@ -117,10 +125,10 @@ export const getters = {
     getToolsFromTag: (state) => (slug) => {
         var k = 0;
         var t_tools = [];
-        for( var i=0 ; i<state.tools.length ; i++ ) {
-            for( var j=0 ; j<state.tools[i].tags.length ; j++ ) {
-                if( state.tools[i].tags[j] == slug ) {
-                    t_tools[k++] = state.tools[i];
+        for( var i=0 ; i<state.data.tools.length ; i++ ) {
+            for( var j=0 ; j<state.data.tools[i].tags.length ; j++ ) {
+                if( state.data.tools[i].tags[j] == slug ) {
+                    t_tools[k++] = state.data.tools[i];
                 }
             }
         }
@@ -150,33 +158,36 @@ export const mutations = {
     setSortBy( state, value ) {
         return state.sort_by = value;
     },
-    setContributors( state, data ) {
-        return state.contributors = data;
+    setData( state, data ) {
+        return state.data = data;
     },
-    setCategories( state, data ) {
-        return state.categories = data;
-    },
-    setTags( state, data ) {
-        return state.tags = data;
-    },
+    // setContributors( state, data ) {
+    //     return state.contributors = data;
+    // },
+    // setCategories( state, data ) {
+    //     return state.categories = data;
+    // },
+    // setTags( state, data ) {
+    //     return state.tags = data;
+    // },
     setTagsDisplay( state, data ) {
         return state.tags_display = data;
     },
-    setTools( state, data ) {
-        return state.tools = data;
-    },
+    // setTools( state, data ) {
+    //     return state.tools = data;
+    // },
     addRating(state, data) {
         var tool_id = data[0];
         var rate_value = data[1];
-        for( var i=0 ; i<state.tools.length ; i++ ) {
-            if( state.tools[i].id == tool_id ) {
-                if( state.tools[i].ratings_done === undefined ) {
-                    state.tools[i].ratings_count++;
-                    state.tools[i].ratings_total += rate_value;
-                    state.tools[i].ratings_avg = (state.tools[i].ratings_total/state.tools[i].ratings_count).toFixed(1);
-                    state.tools[i].ratings_done = 1;
-                    // console.log( state.tools[i].ratings_count );
-                    // console.log( state.tools[i].ratings_total );
+        for( var i=0 ; i<state.data.tools.length ; i++ ) {
+            if( state.data.tools[i].id == tool_id ) {
+                if( state.data.tools[i].ratings_done === undefined ) {
+                    state.data.tools[i].ratings_count++;
+                    state.data.tools[i].ratings_total += rate_value;
+                    state.data.tools[i].ratings_avg = (state.data.tools[i].ratings_total/state.data.tools[i].ratings_count).toFixed(1);
+                    state.data.tools[i].ratings_done = 1;
+                    // console.log( state.data.tools[i].ratings_count );
+                    // console.log( state.data.tools[i].ratings_total );
                 }
                 break;
             }
@@ -187,50 +198,58 @@ export const mutations = {
 export const actions = {
     async nuxtServerInit({ commit }, { req }) {
         // console.log('nuxtServerInit');
-        await this.dispatch( 'getTags' );
-        await this.dispatch( 'getTools' );
-        await this.dispatch( 'getContributors' );
-        await this.dispatch( 'getCategories' );
+        await this.dispatch( 'getData' );
+        // await this.dispatch( 'getTags' );
+        // await this.dispatch( 'getTools' );
+        // await this.dispatch( 'getContributors' );
+        // await this.dispatch( 'getCategories' );
     },
     resetState( context ) {
         context.commit('resetState');
     },
-    getCategories( context ) {
-        if( !this.state.categories.length ) {
-            this.$axios.get('/categories/export?from=store')
+    async getData( context ) {
+        // console.log('getData');
+        if( !this.state.data.length ) {
+            await this.$axios.get('/export')
                 .then(response => {
-                    context.commit('setCategories',response.data);
+                    context.commit('setData',response.data);
                 });
             }
     },
-    getContributors( context ) {
-        if( !this.state.contributors.length ) {
-            this.$axios.get('/contributors/export?from=store')
-                .then(response => {
-                    context.commit('setContributors',response.data);
-                });
-            }
-    },
-    getTags( context ) {
-        if( !this.state.tags.length ) {
-            this.$axios.get('/tags/export?from=store')
-                .then(response => {
-                    context.commit('setTags',response.data);
-                })
-                .catch(error => {
-                });
-            }
-    },
-    async getTools( context ) {
-        // console.log('getTools');
-        if( !this.state.tools.length ) {
-            // console.log('really getTools');
-            await this.$axios.get('/tools/export?from=store')
-                .then(response => {
-                    context.commit('setTools',response.data);
-                });
-            }
-    },
+    // async getCategories( context ) {
+    //     if( !this.state.categories.length ) {
+    //         await this.$axios.get('/categories/export?from=store')
+    //             .then(response => {
+    //                 context.commit('setCategories',response.data);
+    //             });
+    //         }
+    // },
+    // async getContributors( context ) {
+    //     if( !this.state.contributors.length ) {
+    //         await this.$axios.get('/contributors/export?from=store')
+    //             .then(response => {
+    //                 context.commit('setContributors',response.data);
+    //             });
+    //         }
+    // },
+    // async getTags( context ) {
+    //     if( !this.state.tags.length ) {
+    //         await this.$axios.get('/tags/export?from=store')
+    //             .then(response => {
+    //                 context.commit('setTags',response.data);
+    //             });
+    //         }
+    // },
+    // async getTools( context ) {
+    //     // console.log('getTools');
+    //     if( !this.state.tools.length ) {
+    //         // console.log('really getTools');
+    //         await this.$axios.get('/tools/export?from=store')
+    //             .then(response => {
+    //                 context.commit('setTools',response.data);
+    //             });
+    //         }
+    // },
     rate( context, data ) {
         var tool_id = data[0];
         var rate_value = data[1];
@@ -248,16 +267,16 @@ export const actions = {
             var k = 0;
             var d_current = new Date();
             var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-            for( var i=0 ; i<this.state.tools.length ; i++ ) {
-                var td = new Date(this.state.tools[i].created_at);
+            for( var i=0 ; i<this.state.data.tools.length ; i++ ) {
+                var td = new Date(this.state.data.tools[i].created_at);
                 if( td > d7 ) {
-                    t_tmp[k++] = this.state.tools[i];
+                    t_tmp[k++] = this.state.data.tools[i];
                 }
             }
         }
         else
         {
-            t_tmp = [...this.state.tools];
+            t_tmp = [...this.state.data.tools];
         }
 
         if( this.state.search_term.length == 0 )
