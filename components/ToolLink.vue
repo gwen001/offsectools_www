@@ -27,6 +27,9 @@ export default {
             if( lnk.startsWith('https://www.youtube.com/') ) {
                 return ['fa-brands', 'fa-youtube'];
             }
+            if( lnk.startsWith('https://sourceforge.net/') ) {
+                return ['fas', 'fa-floppy-disk'];
+            }
 
             return ['fa-solid', 'fa-house'];
             return ['fa-solid', 'fa-globe'];
