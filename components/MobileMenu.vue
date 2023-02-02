@@ -25,7 +25,7 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/tag/learning">Learning</nuxt-link>
+                <nuxt-link to="/tag/learning">Learn & Train</nuxt-link>
             </div>
             <div class="col text-center">
                 <nuxt-link to="/tag/resources">Resources</nuxt-link>

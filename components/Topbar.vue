@@ -13,7 +13,7 @@
                     </nuxt-link>
                     <nuxt-link to="/tag/last7days" class="ms-3">Last 7 days</nuxt-link>
                     <RandomTool from="topbar"></RandomTool>
-                    <nuxt-link to="/tag/learning" class="ms-3">Learning</nuxt-link>
+                    <nuxt-link to="/tag/learning" class="ms-3">Learn & Train</nuxt-link>
                     <nuxt-link to="/tag/resources" class="ms-3">Resources</nuxt-link>
                     <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
                 </div>
