@@ -332,13 +332,13 @@ xxl: 1400px
 }
 
 @media all and (min-width: 1200px) {
-    .card {
+    #contextualisation .card {
         border: 0px solid #f00 !important;
     }
-    .card img {
+    #contextualisation .card img {
         /* border-radius: calc(.25rem - 1px); */
     }
-    .card .card-body {
+    #contextualisation .card .card-body {
         background-color: #0a0c1f !important;
         padding: 4px;
     }
