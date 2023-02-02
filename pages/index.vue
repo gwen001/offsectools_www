@@ -49,19 +49,21 @@ export default {
     },
     computed: {
         tools() {
-            var p = '';
-            if( this.$route.query.p != undefined ) {
-                p = this.$route.query.p;
-            }
-            var q = '';
-            if( this.$route.query.q != undefined ) {
-                this.$store.commit( 'setSearchTerm', this.$route.query.q );
-            }
+            return this.$store.getters['getToolsFromTag']('all');
 
-            this.$store.dispatch( 'searchTools', p );
+            // var p = '';
+            // if( this.$route.query.p != undefined ) {
+            //     p = this.$route.query.p;
+            // }
+            // var q = '';
+            // if( this.$route.query.q != undefined ) {
+            //     this.$store.commit( 'setSearchTerm', this.$route.query.q );
+            // }
 
-            // return this.$store.getters['searchTools'](p);
-            return this.$store.getters['getSearchResults'];
+            // this.$store.dispatch( 'searchTools', p );
+
+            // // return this.$store.getters['searchTools'](p);
+            // return this.$store.getters['getSearchResults'];
         },
         isSortByName() {
             return (this.$store.getters['getSortBy'] == 'name');
