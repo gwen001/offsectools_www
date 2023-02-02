@@ -7,10 +7,10 @@
                 <!-- <div class="ratings-container" v-if="tool.ratings_count > 0">
                     <Ratings from="toolcard" :tool="tool"></Ratings>
                 </div> -->
-                <h6 class="card-title tool-name mb-3 d-block d-xl-none">
+                <h6 class="card-title tool-name mb-3">
                     <nuxt-link :to="'/tool/'+tool.slug" class="highlight1 stretched-link">{{ tool.nicename }}</nuxt-link>
                 </h6>
-                <nuxt-link :to="'/tool/'+tool.slug" class="d-none d-xl-block stretched-link"></nuxt-link>
+                <nuxt-link :to="'/tool/'+tool.slug" class="fake-link d-none stretched-link"></nuxt-link>
                 <p class="card-text tool-descr">{{ tool.short_descr }}</p>
             </div>
             <template v-if="from != 'contextualisation'">

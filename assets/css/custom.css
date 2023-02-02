@@ -331,9 +331,15 @@ xxl: 1400px
     }
 }
 
-@media all and (min-width: 1200px) {
+/* @media all and (min-width: 10px) { */
     #contextualisation .card {
         border: 0px solid #f00 !important;
+    }
+    #contextualisation .card .tool-name {
+        display: none;
+    }
+    #contextualisation .card .fake-link {
+        display: block !important;
     }
     #contextualisation .card img {
         /* border-radius: calc(.25rem - 1px); */
@@ -342,7 +348,7 @@ xxl: 1400px
         background-color: #0a0c1f !important;
         padding: 4px;
     }
-}
+/* } */
 
 @media all and (max-width: 991px) {
     #tagbar {
