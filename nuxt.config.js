@@ -28,7 +28,7 @@ const dynamicRoutes = async () => {
         const route = {
             url: '/tag/' + tag.slug,
             lastmodISO: tag.updated_at,
-            priority: 1
+            priority: 0.3
         };
         t_routes.push(route);
     }
