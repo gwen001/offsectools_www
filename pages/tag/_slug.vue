@@ -56,7 +56,7 @@ export default {
         {
             title = this.datag.nicename+' tools on '+this.$config.APP_NAME;
             var url = this.$config.APP_URL+'/tag/'+this.datag.slug;
-            var descr = this.$config.APP_DESCR+' about '+this.datag.nicename;
+            var descr = 'list of tools about '+this.datag.nicename;
 
             link = [
                 {
