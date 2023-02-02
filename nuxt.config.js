@@ -10,7 +10,7 @@ const dynamicRoutes = async () => {
         const route = {
             url: '/tool/' + tool.slug,
             lastmodISO: tool.updated_at,
-            priority: 1
+            priority: 0.7
         };
         if( tool.picture !== null ) {
             route.img = [
