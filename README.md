@@ -2,7 +2,6 @@
 
 [offsec.tools](https://offsec.tools) is a vast collection of security tools and resources curated by the community.
 
-
 # Todo
 
 - images on AWS  
@@ -16,7 +15,7 @@
 
 # Changelog
 
-- 2023-02-02: tag page & navigation  
+- 2023-02-02: ménage, tag page & navigation  
 - 2023-01-29: some css and better scrollbar  
 - 2023-01-26: review main template and topbar  
 - 2023-01-24: fontawesome added  

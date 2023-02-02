@@ -9,10 +9,18 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/tag/last7days">Last 7 days</nuxt-link>
+                <nuxt-link to="/">Home</nuxt-link>
             </div>
             <div class="col text-center">
+                <nuxt-link to="/tag/last7days">Last 7 days</nuxt-link>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
                 <RandomTool from="mobilemenu"></RandomTool>
+            </div>
+            <div class="col text-center">
+                <nuxt-link to="/contributors">Contributors</nuxt-link>
             </div>
         </div>
         <div class="row mt-3">
@@ -21,11 +29,6 @@
             </div>
             <div class="col text-center">
                 <nuxt-link to="/tag/resources">Resources</nuxt-link>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col text-center">
-                <nuxt-link to="/contributors">Contributors</nuxt-link>
             </div>
         </div>
         <div class="d-flex mt-3">
