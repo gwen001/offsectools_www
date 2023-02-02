@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xl-8 col-lg-10 col-sm-12">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-9 col-sm-11 col-11">
+                    <div class="col-xl-9 col-lg-10 col-sm-11 col-11">
                         <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="rounded tool-picture img-fluid" />
                     </div>
                     <!-- <div class="col-xl-3 col-lg-2 col-sm-1 col-1 text-end">
@@ -51,6 +51,7 @@
                     </div>
                 </div>
             </div>
+            <div class="col col-1 d-none d-xl-block"></div>
             <div class="col col-2 d-none d-xl-block">
                 <ToolContextualisation :tool="tool"></ToolContextualisation>
             </div>
