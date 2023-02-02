@@ -8,17 +8,14 @@
                     </a>
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <a href="javascript:;" v-on:click="resetSearchTerm()" class="align-middle">
+                    <nuxt-link to="/" class="align-middle">
                         <font-awesome-icon icon="fas fa-house" />
-                    </a>
-                    <a href="javascript:;" v-on:click="last7days()" class="ms-3">Last 7 days</a>
-                    <RandomTool></RandomTool>
-                    <a href="javascript:;" v-on:click="setSearchTerm('#learning')" class="ms-3">Learning</a>
-                    <a href="javascript:;" v-on:click="setSearchTerm('#resources')" class="ms-3">Resources</a>
+                    </nuxt-link>
+                    <nuxt-link to="/tag/last7days" class="ms-3">Last 7 days</nuxt-link>
+                    <RandomTool from="topbar"></RandomTool>
+                    <nuxt-link to="/tag/learning" class="ms-3">Learning</nuxt-link>
+                    <nuxt-link to="/tag/resources" class="ms-3">Resources</nuxt-link>
                     <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
-                    <!-- <a :href="$config.GITHUB_URL" target="_blank" class="ms-3 align-middle">
-                        <font-awesome-icon icon="fa-brands fa-github" />
-                    </a> -->
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">
@@ -51,7 +48,7 @@ export default {
     methods: {
         doSearch() {
             // alert('doSearch');
-            this.$router.push( '/' );
+            this.$router.push( '/tag/all' );
         },
         randomtool: function (event) {
             const t_tools = this.$store.getters['getTools'];
@@ -60,18 +57,18 @@ export default {
             this.$store.commit( 'resetSearchTerm' );
             this.$router.push( '/tool/'+tool.slug );
         },
-        last7days: function () {
-            this.$store.commit( 'resetSearchTerm' );
-            this.$router.push( '/?p=last7days' );
-        },
+        // last7days: function () {
+        //     this.$store.commit( 'resetSearchTerm' );
+        //     this.$router.push( '/?p=last7days' );
+        // },
         resetSearchTerm: function () {
             this.$store.commit( 'resetSearchTerm' );
-            this.$router.push( '/' );
+            // this.$router.push( '/' );
         },
-        setSearchTerm: function (slug) {
-            this.$store.commit( 'setSearchTerm', slug );
-            this.$router.push( '/' );
-        },
+        // setSearchTerm: function (slug) {
+        //     this.$store.commit( 'setSearchTerm', slug );
+        //     this.$router.push( '/' );
+        // },
         showMobileTarbar() {
             // console.log('showMobileTarbar');
             this.$parent.$refs.tagbar.showMe();
@@ -95,11 +92,11 @@ export default {
                 return this.$store.getters['getSearchTerm'];
             },
             set(val) {
-                if( val.length == 1 && val == '#' ) {
-                    ;
-                } else {
+                // if( val.length == 1 && val == '#' ) {
+                //     ;
+                // } else {
                     this.$store.commit( 'setSearchTerm', val );
-                }
+                // }
             }
         }
     }

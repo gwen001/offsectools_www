@@ -1,10 +1,11 @@
 <template>
-    <a id="random-tool" href="javascript:;" v-on:click="randomtool" class="ms-3">Random tool</a>
+    <a id="random-tool" href="javascript:;" v-on:click="randomtool" :class="[from=='topbar' ? 'ms-3' : '']">Random tool</a>
 </template>
 
 <script>
 export default {
     name: 'RandomTool',
+    props: ['from'],
     methods: {
         randomtool: function (event) {
             const t_tools = this.$store.getters['getTools'];

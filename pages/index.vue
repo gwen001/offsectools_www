@@ -1,17 +1,6 @@
 <template>
     <div id="home" class="w-100 h-100">
-        <div class="row justify-content-center mt-3 mb-0">
-            <div class="text-center">
-                <span class="logo">{{ $config.APP_NAME }}</span>
-            </div>
-        </div>
-        <div class="row mt-0">
-            <div class="col text-center">
-                <h1>
-                    A vast collection of security tools
-                </h1>
-            </div>
-        </div>
+        <Logo></Logo>
         <div class="row mt-1">
             <div class="col text-center">
                 {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
@@ -50,12 +39,13 @@
 </template>
 
 <script>
+import Logo from '~/components/Logo.vue'
 import ToolCard from '~/components/ToolCard.vue'
 
 export default {
     name: 'Home',
     components: {
-        ToolCard
+        Logo, ToolCard
     },
     computed: {
         tools() {
@@ -79,9 +69,9 @@ export default {
         isSortByDate() {
             return (this.$store.getters['getSortBy'] == 'date');
         },
-        isSortByRatings() {
-            return (this.$store.getters['getSortBy'] == 'ratings');
-        },
+        // isSortByRatings() {
+        //     return (this.$store.getters['getSortBy'] == 'ratings');
+        // },
     },
     methods: {
         setSortBy: function (sort_by) {

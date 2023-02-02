@@ -111,16 +111,66 @@ export const getters = {
         }
         return null;
     },
-    getToolsFromTag: (state) => (slug) => {
-        var k = 0;
+    sortTools: (state) => (t_tools) => {
+        console.log('sortTools');
+        if( state.sort_by == 'date' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.created_at > b.created_at ? -1 : 1)
+            );
+        } else if( state.sort_by == 'ratings' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
+            );
+        }
+        return t_tools;
+    },
+    getToolsFromTag: (state,getters) => (slug) => {
+        // console.log('getToolsFromTag');
         var t_tools = [];
-        for( var i=0 ; i<state.db.tools.length ; i++ ) {
-            for( var j=0 ; j<state.db.tools[i].tags.length ; j++ ) {
-                if( state.db.tools[i].tags[j] == slug ) {
-                    t_tools[k++] = state.db.tools[i];
+        var t_tmp = [];
+        slug = slug.toLowerCase();
+
+        switch(slug)
+        {
+            case '':
+            case 'all':
+                t_tmp = [...state.db.tools];
+                break;
+            case 'last7days':
+                var d_current = new Date();
+                var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+                for( var i=0 ; i<state.db.tools.length ; i++ ) {
+                    var td = new Date(state.db.tools[i].created_at);
+                    if( td > d7 ) {
+                        t_tmp.push(state.db.tools[i]);
+                    }
+                }
+                break;
+            default:
+                for( var i=0 ; i<state.db.tools.length ; i++ ) {
+                    if( state.db.tools[i].tags.includes(slug) ) {
+                        t_tmp.push(state.db.tools[i]);
+                    }
+                }
+                break;
+        }
+
+        if( state.search_term.length == 0 )
+        {
+            t_tools = [...t_tmp];
+        }
+        else
+        {
+            var r = new RegExp(state.search_term,'i');
+            for( var i=0 ; i<t_tmp.length ; i++ ) {
+                if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+                    t_tools.push(t_tmp[i]);
                 }
             }
         }
+
+        t_tools = getters.sortTools(t_tools);
+
         return t_tools;
     },
 };
@@ -197,67 +247,67 @@ export const actions = {
                 context.commit('addRating',data);
             });
     },
-    searchTools( context, period ) {
-        // console.log('abcsearchTools');
-        var t_tools = [];
-        var t_tmp = [];
+    // searchTools( context, period ) {
+    //     // console.log('abcsearchTools');
+    //     var t_tools = [];
+    //     var t_tmp = [];
 
-        if( period == 'last7days' ) {
-            var k = 0;
-            var d_current = new Date();
-            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-            for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
-                var td = new Date(this.state.db.tools[i].created_at);
-                if( td > d7 ) {
-                    t_tmp[k++] = this.state.db.tools[i];
-                }
-            }
-        }
-        else
-        {
-            t_tmp = [...this.state.db.tools];
-        }
+    //     if( period == 'last7days' ) {
+    //         var k = 0;
+    //         var d_current = new Date();
+    //         var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+    //         for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+    //             var td = new Date(this.state.db.tools[i].created_at);
+    //             if( td > d7 ) {
+    //                 t_tmp[k++] = this.state.db.tools[i];
+    //             }
+    //         }
+    //     }
+    //     else
+    //     {
+    //         t_tmp = [...this.state.db.tools];
+    //     }
 
-        if( this.state.search_term.length == 0 )
-        {
-            t_tools = [...t_tmp];
-        }
-        else
-        {
-            var k = 0;
-            if( this.state.search_term[0] == '#' ) {
-                var st = this.state.search_term.replace('#','').toLowerCase();
-                for( var i=0 ; i<t_tmp.length ; i++ ) {
-                    for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
-                        if( t_tmp[i].tags[j].startsWith(st) ) {
-                            t_tools[k++] = t_tmp[i];
-                            break;
-                        }
-                    }
-                }
-            }
-            else {
-                var k = 0;
-                var r = new RegExp(this.state.search_term,'i');
-                for( var i=0 ; i<t_tmp.length ; i++ ) {
-                    if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
-                        t_tools[k++] = t_tmp[i];
-                    }
-                }
-            }
-        }
+    //     if( this.state.search_term.length == 0 )
+    //     {
+    //         t_tools = [...t_tmp];
+    //     }
+    //     else
+    //     {
+    //         var k = 0;
+    //         if( this.state.search_term[0] == '#' ) {
+    //             var st = this.state.search_term.replace('#','').toLowerCase();
+    //             for( var i=0 ; i<t_tmp.length ; i++ ) {
+    //                 for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
+    //                     if( t_tmp[i].tags[j].startsWith(st) ) {
+    //                         t_tools[k++] = t_tmp[i];
+    //                         break;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         else {
+    //             var k = 0;
+    //             var r = new RegExp(this.state.search_term,'i');
+    //             for( var i=0 ; i<t_tmp.length ; i++ ) {
+    //                 if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+    //                     t_tools[k++] = t_tmp[i];
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        if( this.state.sort_by == 'date' ) {
-            t_tools = t_tools.sort(
-                (a, b) => (a.created_at > b.created_at ? -1 : 1)
-            );
-        } else if( this.state.sort_by == 'ratings' ) {
-            t_tools = t_tools.sort(
-                (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
-            );
-        }
+    //     if( this.state.sort_by == 'date' ) {
+    //         t_tools = t_tools.sort(
+    //             (a, b) => (a.created_at > b.created_at ? -1 : 1)
+    //         );
+    //     } else if( this.state.sort_by == 'ratings' ) {
+    //         t_tools = t_tools.sort(
+    //             (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
+    //         );
+    //     }
 
-        context.commit('setSearchResults',t_tools);
-        // return t_tools;
-    },
+    //     context.commit('setSearchResults',t_tools);
+    //     // return t_tools;
+    // },
 };

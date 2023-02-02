@@ -16,7 +16,10 @@
                 <div class="tool-tags">
                     <p class="card-text tool-tags">
                         <template v-for="tag,index in tool.tags">
-                            <a href="javascript:;" class="tag-link" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
+                            <nuxt-link :to="'/tag/'+tag" class="tag-link">
+                                #{{ tag }}
+                            </nuxt-link>
+                            &nbsp;
                         </template>
                     </p>
                 </div>
@@ -44,10 +47,10 @@ export default {
         Ratings, ToolLink
     },
     methods: {
-        setSearchTerm: function (slug) {
-            this.$store.commit( 'setSearchTerm', slug );
-            this.$router.push( '/' );
-        }
+        // setSearchTerm: function (slug) {
+        //     this.$store.commit( 'setSearchTerm', slug );
+        //     this.$router.push( '/' );
+        // }
     }
 }
 </script>

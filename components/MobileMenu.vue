@@ -9,18 +9,18 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <a href="javascript:;" v-on:click="last7days()" class="ms-3">Last 7 days</a>
+                <nuxt-link to="/tag/last7days">Last 7 days</nuxt-link>
             </div>
             <div class="col text-center">
-                <RandomTool></RandomTool>
+                <RandomTool from="mobilemenu"></RandomTool>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <a href="javascript:;" v-on:click="setSearchTerm('#learning')" class="ms-3">Learning</a>
+                <nuxt-link to="/tag/learning">Learning</nuxt-link>
             </div>
             <div class="col text-center">
-                <a href="javascript:;" v-on:click="setSearchTerm('#resources')" class="ms-3">Resources</a>
+                <nuxt-link to="/tag/resources">Resources</nuxt-link>
             </div>
         </div>
         <div class="row mt-3">
@@ -44,18 +44,18 @@ export default {
         RandomTool
     },
     methods: {
-        last7days: function () {
-            this.$store.commit( 'resetSearchTerm' );
-            this.$router.push( '/?p=last7days' );
-        },
-        resetSearchTerm: function () {
-            this.$store.commit( 'resetSearchTerm' );
-            this.$router.push( '/' );
-        },
-        setSearchTerm: function (slug) {
-            this.$store.commit( 'setSearchTerm', slug );
-            this.$router.push( '/' );
-        },
+        // last7days: function () {
+        //     this.$store.commit( 'resetSearchTerm' );
+        //     this.$router.push( '/?p=last7days' );
+        // },
+        // resetSearchTerm: function () {
+        //     this.$store.commit( 'resetSearchTerm' );
+        //     this.$router.push( '/' );
+        // },
+        // setSearchTerm: function (slug) {
+        //     this.$store.commit( 'setSearchTerm', slug );
+        //     this.$router.push( '/' );
+        // },
         hideMobileTarbar() {
             this.$parent.hideMe();
         },

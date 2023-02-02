@@ -5,11 +5,11 @@
                 <div class="col-xl-8 col-lg-9 col-sm-11 col-11">
                     <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="rounded tool-picture img-fluid" />
                 </div>
-                <div class="col-xl-3 col-lg-2 col-sm-1 col-1 text-end">
+                <!-- <div class="col-xl-3 col-lg-2 col-sm-1 col-1 text-end">
                     <a href="javascript:;" v-on:click="doSearch()" class="link-close">
                         <font-awesome-icon icon="far fa-circle-xmark" />
                     </a>
-                </div>
+                </div> -->
             </div>
             <div class="row mt-3">
                 <div class="tool-name col">
@@ -29,7 +29,10 @@
             <div class="row mt-2">
                 <div class="tool-tags col">
                     <template v-for="tag,index in tool.tags">
-                        <a href="javascript:;" class="tag-link highlight1" v-on:click="setSearchTerm('#'+tag)">#{{ tag }}</a>&nbsp;
+                        <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1">
+                            #{{ tag }}
+                        </nuxt-link>
+                        &nbsp;
                     </template>
                 </div>
             </div>
@@ -64,27 +67,27 @@ export default {
         Ratings, ToolContextualisation
     },
     methods: {
-        rate( rate_value ) {
-            this.$store.dispatch( 'rate', [this.tool.id,rate_value] );
-        },
-        keyboardEvent( e ) {
-            if( e.which === 27 ) {
-                this.$router.push( '/' );
-            }
-        },
-        doSearch() {
-            this.$router.push( '/' );
-        },
-        setSearchTerm: function (slug) {
-            this.$store.commit( 'setSearchTerm', slug );
-            this.$router.push( '/' );
-        }
+        // rate( rate_value ) {
+        //     this.$store.dispatch( 'rate', [this.tool.id,rate_value] );
+        // },
+        // keyboardEvent( e ) {
+        //     if( e.which === 27 ) {
+        //         this.$router.push( '/' );
+        //     }
+        // },
+        // doSearch() {
+        //     this.$router.push( '/' );
+        // },
+        // setSearchTerm: function (slug) {
+        //     this.$store.commit( 'setSearchTerm', slug );
+        //     this.$router.push( '/' );
+        // }
     },
-    beforeDestroy() {
-        if( process.browser ) {
-            window.removeEventListener('keyup', this.keyboardEvent);
-        }
-    },
+    // beforeDestroy() {
+    //     if( process.browser ) {
+    //         window.removeEventListener('keyup', this.keyboardEvent);
+    //     }
+    // },
 }
 </script>
 

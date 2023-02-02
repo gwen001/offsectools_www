@@ -42,7 +42,7 @@ export default {
                 {
                     'property': 'keywords',
                     'hid': 'keywords',
-                    'content': 'offsec,security,bug bounty,tools,pentest,red team,'+this.datool.tags.join(',')
+                    'content': this.$config.APP_KEYWORDS+','+this.datool.tags.join(',')
                 },
                 {
                     'property': 'description',
