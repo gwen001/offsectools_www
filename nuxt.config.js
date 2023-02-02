@@ -85,76 +85,14 @@ export default {
     },
 
     router: {
-        // scrollBehavior() {
-        //     console.log('aaaaa');
-        //     document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
-        // },
-            // scrollBehavior() {
-            //     return {top: 0, left: 0};
-            // },
-        // function scrollBehavior (to, from, savedPosition) {
-        //     console.log(savedPosition);
-        //   return { x: 0, y: 0 };
-        // },
-        // routes: [
-        //   {
-        //     path: '/',
-        //     name: 'Home',
-        //     component: Home
-        //   }
-        // ],
         mode: 'history'
     },
-
-    // router: {
-    //     async function scrollBehavior (to, from, savedPosition) {
-    //       if (savedPosition) {
-    //         return savedPosition
-    //       }
-
-    //       const findEl = async (hash, x) => {
-    //         return document.querySelector(hash) ||
-    //           new Promise((resolve, reject) => {
-    //             if (x > 50) {
-    //               return resolve()
-    //             }
-    //             setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
-    //           })
-    //       }
-
-    //       if (to.hash) {
-    //         let el = await findEl(to.hash)
-    //         if ('scrollBehavior' in document.documentElement.style) {
-    //           return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
-    //         } else {
-    //           return window.scrollTo(0, el.offsetTop)
-    //         }
-    //       }
-
-    //       return { x: 0, y: 0 }
-    //     }
-    //   },
-
-    // router: {
-    //     mode: 'hash',
-    //     keepDefaultRouter: false,
-    // //     scrollBehavior(to, from, savedPosition) {
-    // //         if( savedPosition ) {
-    // //             alert(1);
-    // //             return savedPosition;
-    // //         } else {
-    // //             alert(0);
-    // //             return { x: 0, y: 0 };
-    // //         }
-    // //     }
-    // },
 
     basePath: '/',
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/css/custom.css',
-        // '@/assets/scss/custom.scss',
         '@fortawesome/fontawesome-svg-core/styles.css'
     ],
 

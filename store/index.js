@@ -1,15 +1,11 @@
 const getDefaultState = () => {
     return {
         loading: false,
-        data: [],
+        db: [],
         search_term: '',
         search_results: [],
         sort_by: 'name', // 'name' or 'date' or 'ratings'
         tags_display: 'top', // 'all' or 'top' or 'categories'
-        tags: [],
-        tools: [],
-        contributors: [],
-        categories: []
     }
 }
 
@@ -23,20 +19,16 @@ export const getters = {
         return state.search_term;
     },
     getSearchResults: (state) => {
-        // console.log('getSearchResults');
         return state.search_results;
     },
     getSortBy( state ) {
         return state.sort_by;
     },
-    getData( state ) {
-        return state.data;
-    },
     getCategories( state ) {
-        return state.data.categories;
+        return state.db.categories;
     },
     getContributors( state ) {
-        return state.data.contributors;
+        return state.db.contributors;
     },
     getTagsDisplay( state ) {
         return state.tags_display;
@@ -45,12 +37,12 @@ export const getters = {
         var k = 0;
         var t_tags = [];
 
-        for( var i=0 ; i<state.data.tags.length ; i++ ) {
-            if( state.data.tags[i].tools_count == 0 ) {
+        for( var i=0 ; i<state.db.tags.length ; i++ ) {
+            if( state.db.tags[i].tools_count == 0 ) {
                 continue;
             }
-            if( state.tags_display == 'all' || (state.tags_display == 'top' && state.data.tags[i].status == 1) ) {
-                t_tags[k++] = state.data.tags[i];
+            if( state.tags_display == 'all' || (state.tags_display == 'top' && state.db.tags[i].status == 1) ) {
+                t_tags[k++] = state.db.tags[i];
             }
         }
 
@@ -62,25 +54,25 @@ export const getters = {
         return t_tags;
     },
     getTagFromSlug: (state) => (slug) => {
-        for( var i=0 ; i<state.data.tags.length ; i++ ) {
-            if( state.data.tags[i].slug == slug ) {
-                return state.data.tags[i];
+        for( var i=0 ; i<state.db.tags.length ; i++ ) {
+            if( state.db.tags[i].slug == slug ) {
+                return state.db.tags[i];
             }
         }
         return null;
     },
     getTools( state ) {
-        return state.data.tools;
+        return state.db.tools;
     },
     getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
 
         var t_context = [];
-        for( var i=0 ; i<state.data.tools.length ; i++ ) {
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
             for( var j=0 ; j<tags.length ; j++ ) {
-                if( state.data.tools[i].tags.includes(tags[j]) ) {
-                    if( !t_exclude.includes(state.data.tools[i].slug) ) {
-                        t_context.push( state.data.tools[i] );
+                if( state.db.tools[i].tags.includes(tags[j]) ) {
+                    if( !t_exclude.includes(state.db.tools[i].slug) ) {
+                        t_context.push( state.db.tools[i] );
                         break;
                     }
                 }
@@ -111,10 +103,10 @@ export const getters = {
     },
     getToolFromSlug: (state) => (slug) => {
         // console.log('getToolFromSlug');
-        // console.log(state.tools.length);
-        for( var i=0 ; i<state.data.tools.length ; i++ ) {
-            if( state.data.tools[i].slug == slug ) {
-                return state.data.tools[i];
+        // console.log(state.db.tools.length);
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
+            if( state.db.tools[i].slug == slug ) {
+                return state.db.tools[i];
             }
         }
         return null;
@@ -122,10 +114,10 @@ export const getters = {
     getToolsFromTag: (state) => (slug) => {
         var k = 0;
         var t_tools = [];
-        for( var i=0 ; i<state.data.tools.length ; i++ ) {
-            for( var j=0 ; j<state.data.tools[i].tags.length ; j++ ) {
-                if( state.data.tools[i].tags[j] == slug ) {
-                    t_tools[k++] = state.data.tools[i];
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
+            for( var j=0 ; j<state.db.tools[i].tags.length ; j++ ) {
+                if( state.db.tools[i].tags[j] == slug ) {
+                    t_tools[k++] = state.db.tools[i];
                 }
             }
         }
@@ -155,36 +147,24 @@ export const mutations = {
     setSortBy( state, value ) {
         return state.sort_by = value;
     },
-    setData( state, data ) {
-        return state.data = data;
+    setDb( state, data ) {
+        return state.db = data;
     },
-    // setContributors( state, data ) {
-    //     return state.contributors = data;
-    // },
-    // setCategories( state, data ) {
-    //     return state.categories = data;
-    // },
-    // setTags( state, data ) {
-    //     return state.tags = data;
-    // },
     setTagsDisplay( state, data ) {
         return state.tags_display = data;
     },
-    // setTools( state, data ) {
-    //     return state.tools = data;
-    // },
     addRating(state, data) {
         var tool_id = data[0];
         var rate_value = data[1];
-        for( var i=0 ; i<state.data.tools.length ; i++ ) {
-            if( state.data.tools[i].id == tool_id ) {
-                if( state.data.tools[i].ratings_done === undefined ) {
-                    state.data.tools[i].ratings_count++;
-                    state.data.tools[i].ratings_total += rate_value;
-                    state.data.tools[i].ratings_avg = (state.data.tools[i].ratings_total/state.data.tools[i].ratings_count).toFixed(1);
-                    state.data.tools[i].ratings_done = 1;
-                    // console.log( state.data.tools[i].ratings_count );
-                    // console.log( state.data.tools[i].ratings_total );
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
+            if( state.db.tools[i].id == tool_id ) {
+                if( state.db.tools[i].ratings_done === undefined ) {
+                    state.db.tools[i].ratings_count++;
+                    state.db.tools[i].ratings_total += rate_value;
+                    state.db.tools[i].ratings_avg = (state.db.tools[i].ratings_total/state.db.tools[i].ratings_count).toFixed(1);
+                    state.db.tools[i].ratings_done = 1;
+                    // console.log( state.db.tools[i].ratings_count );
+                    // console.log( state.db.tools[i].ratings_total );
                 }
                 break;
             }
@@ -195,58 +175,20 @@ export const mutations = {
 export const actions = {
     async nuxtServerInit({ commit }, { req }) {
         // console.log('nuxtServerInit');
-        await this.dispatch( 'getData' );
-        // await this.dispatch( 'getTags' );
-        // await this.dispatch( 'getTools' );
-        // await this.dispatch( 'getContributors' );
-        // await this.dispatch( 'getCategories' );
+        await this.dispatch( 'getDb' );
     },
     resetState( context ) {
         context.commit('resetState');
     },
-    async getData( context ) {
-        // console.log('getData');
-        if( !this.state.data.length ) {
-            await this.$axios.get('/export')
+    async getDb( context ) {
+        // console.log('getDb');
+        if( !this.state.db.length ) {
+            await this.$axios.get('/exportdb')
                 .then(response => {
-                    context.commit('setData',response.data);
+                    context.commit('setDb',response.data);
                 });
             }
     },
-    // async getCategories( context ) {
-    //     if( !this.state.categories.length ) {
-    //         await this.$axios.get('/categories/export?from=store')
-    //             .then(response => {
-    //                 context.commit('setCategories',response.data);
-    //             });
-    //         }
-    // },
-    // async getContributors( context ) {
-    //     if( !this.state.contributors.length ) {
-    //         await this.$axios.get('/contributors/export?from=store')
-    //             .then(response => {
-    //                 context.commit('setContributors',response.data);
-    //             });
-    //         }
-    // },
-    // async getTags( context ) {
-    //     if( !this.state.tags.length ) {
-    //         await this.$axios.get('/tags/export?from=store')
-    //             .then(response => {
-    //                 context.commit('setTags',response.data);
-    //             });
-    //         }
-    // },
-    // async getTools( context ) {
-    //     // console.log('getTools');
-    //     if( !this.state.tools.length ) {
-    //         // console.log('really getTools');
-    //         await this.$axios.get('/tools/export?from=store')
-    //             .then(response => {
-    //                 context.commit('setTools',response.data);
-    //             });
-    //         }
-    // },
     rate( context, data ) {
         var tool_id = data[0];
         var rate_value = data[1];
@@ -264,16 +206,16 @@ export const actions = {
             var k = 0;
             var d_current = new Date();
             var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-            for( var i=0 ; i<this.state.data.tools.length ; i++ ) {
-                var td = new Date(this.state.data.tools[i].created_at);
+            for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+                var td = new Date(this.state.db.tools[i].created_at);
                 if( td > d7 ) {
-                    t_tmp[k++] = this.state.data.tools[i];
+                    t_tmp[k++] = this.state.db.tools[i];
                 }
             }
         }
         else
         {
-            t_tmp = [...this.state.data.tools];
+            t_tmp = [...this.state.db.tools];
         }
 
         if( this.state.search_term.length == 0 )
