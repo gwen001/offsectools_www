@@ -325,51 +325,61 @@ xxl: 1400px
 }
 
 @media all and (max-width: 1400px) {
-#topbar #random-tool {
-    /* need place in the menu */
-    display: none;
+    #topbar #random-tool {
+        /* need place in the menu */
+        display: none;
+    }
 }
+
+@media all and (min-width: 1200px) {
+    .card {
+        border: 0px solid #f00 !important;
+    }
+    .card img {
+        /* border-radius: calc(.25rem - 1px); */
+    }
+    .card .card-body {
+        background-color: #0a0c1f !important;
+        padding: 4px;
+    }
 }
 
 @media all and (max-width: 991px) {
-
-/* .offcanvas-header{ display:block; } */
-
-#tagbar {
-    border-radius: 0;
-    display: block;
-    left: 0;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: fixed;
-    top: 0;
-    transform: translateX(-100%);
-    transition: visibility .3s ease-in-out, transform .3s ease-in-out;
-    visibility: hidden;
-    width: 50%;
-    max-width: 350px;
-    z-index: 1200;
-}
+    #tagbar {
+        border-radius: 0;
+        display: block;
+        left: 0;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+        transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+        visibility: hidden;
+        width: 50%;
+        max-width: 350px;
+        z-index: 1200;
+    }
 }
 
 @media all and (max-width: 767px) {
-#tagbar {
-    border-radius: 0;
-    display: block;
-    left: 0;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: fixed;
-    top: 0;
-    transform: translateX(-100%);
-    transition: visibility .3s ease-in-out, transform .3s ease-in-out;
-    visibility: hidden;
-    width: 80%;
-    max-width: 350px;
-    z-index: 1200;
-}
+    #tagbar {
+        border-radius: 0;
+        display: block;
+        left: 0;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+        transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+        visibility: hidden;
+        width: 80%;
+        max-width: 350px;
+        z-index: 1200;
+    }
 }
 
 
