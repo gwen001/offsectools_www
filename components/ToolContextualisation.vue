@@ -6,9 +6,9 @@
                     <h6>You might be interested by:</h6>
                 </div>
             </div>
-            <div class="row">
+            <div class="d-flex flex-wrap flex-row justify-content-start">
                 <template v-for="tool,index in t_context">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-6 mb-3">
+                    <div class="d-inline-flexxxx p-2 align-self-stretch">
                         <ToolCard :tool="tool" from="contextualisation"></ToolCard>
                     </div>
                 </template>
