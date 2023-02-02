@@ -6,15 +6,6 @@ const dynamicRoutes = async () => {
     const t_routes = [];
     const db = await axios.get(process.env.API_URL+'/exportdb');
 
-    for( const tag of db.data.tags ) {
-        const route = {
-            url: '/tag/' + tag.slug,
-            lastmodISO: tag.updated_at,
-            priority: 1
-        };
-        t_routes.push(route);
-    }
-
     for( const tool of db.data.tools ) {
         const route = {
             url: '/tool/' + tool.slug,
@@ -30,6 +21,15 @@ const dynamicRoutes = async () => {
                 }
             ];
         }
+        t_routes.push(route);
+    }
+
+    for( const tag of db.data.tags ) {
+        const route = {
+            url: '/tag/' + tag.slug,
+            lastmodISO: tag.updated_at,
+            priority: 1
+        };
         t_routes.push(route);
     }
 
