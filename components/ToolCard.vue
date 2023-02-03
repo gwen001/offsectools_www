@@ -1,5 +1,5 @@
 <template>
-    <div class="tool-card h-100" :class="[from=='tagpage' ? 'ms-2 me-2' : '']">
+    <div class="tool-card h-100" :class="[(from=='tagpage'||from=='index') ? 'ms-2 me-2' : '']">
         <div class="card h-100">
             <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="card-img-top tool-picture" /> -->
             <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" class="card-img-top tool-picture" />

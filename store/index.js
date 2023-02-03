@@ -64,7 +64,7 @@ export const getters = {
     getTools( state ) {
         return state.db.tools;
     },
-    getToolContextualisation: (state) => (n_context,tags,t_exclude) => {
+    getToolContextualisation: (state,getters) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
 
         var t_context = [];
@@ -99,7 +99,8 @@ export const getters = {
         // console.log('start_index:'+start_index);
         // console.log('final_index:'+end_index);
 
-        return t_context.slice(start_index,end_index);
+        t_context = getters.sortFeatured( t_context.slice(start_index,end_index) );
+        return t_context;
     },
     getToolFromSlug: (state) => (slug) => {
         // console.log('getToolFromSlug');

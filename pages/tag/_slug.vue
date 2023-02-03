@@ -6,17 +6,7 @@
                 {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
             </div>
         </div>
-        <div class="row mt-3 justify-content-center">
-            <div class="col-xl-2 col-lg-4 col-sm-4 col-6 mb-1">
-                <a href="javascript:;" v-on:click="setSortBy('name')" v-bind:class="[ isSortByName ? 'btn-custom2' : 'btn-outline-custom2', 'btn w-100']">sort by name</a>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-sm-4 col-6 mb-1">
-                <a href="javascript:;" v-on:click="setSortBy('date')" v-bind:class="[ isSortByDate ? 'btn-custom1' : 'btn-outline-custom1', 'btn w-100']">sort by last</a>
-            </div>
-            <!-- <div class="col-xl-2 col-lg-4 col-sm-4 col-12 mb-1">
-                <a href="javascript:;" v-on:click="setSortBy('ratings')" v-bind:class="[ isSortByRatings ? 'btn-custom3' : 'btn-outline-custom3', 'btn w-100']">best rated</a>
-            </div> -->
-        </div>
+        <ToolSorter></ToolSorter>
         <template v-if="tools.length > 0">
             <div class="d-flex flex-wrap flex-row justify-content-center mt-5">
                 <template v-for="tool,index in tools">
@@ -117,38 +107,7 @@ export default {
         },
         tools() {
             return this.$store.getters['getToolsFromTag'](this.$route.params.slug);
-
-            // var p = '';
-            // if( this.$route.query.p != undefined ) {
-            //     p = this.$route.query.p;
-            // }
-            // var q = '';
-            // if( this.$route.query.q != undefined ) {
-            //     this.$store.commit( 'setSearchTerm', this.$route.query.q );
-            // }
-
-            // this.$store.dispatch( 'searchTools', p );
-
-            // // return this.$store.getters['searchTools'](p);
-            // return this.$store.getters['getSearchResults'];
         },
-        isSortByName() {
-            return (this.$store.getters['getSortBy'] == 'name');
-        },
-        isSortByDate() {
-            return (this.$store.getters['getSortBy'] == 'date');
-        },
-        // isSortByRatings() {
-        //     return (this.$store.getters['getSortBy'] == 'ratings');
-        // },
-    },
-    methods: {
-        setSortBy: function (sort_by) {
-            this.$store.commit( 'setSortBy', sort_by );
-        },
-    },
-    mounted() {
-        // document.getElementById('main-content').scrollTo(0,0);
     },
     async asyncData( { store, params } ) {
         var t = await store.getters['getTagFromSlug'](params.slug);
