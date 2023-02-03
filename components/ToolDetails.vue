@@ -30,9 +30,7 @@
                 <div class="row mt-2">
                     <div class="tool-tags col">
                         <template v-for="tag,index in tool.tags">
-                            <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1">
-                                #{{ tag }}
-                            </nuxt-link>
+                            <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1">#{{ tag }}</nuxt-link>
                             &nbsp;
                         </template>
                     </div>

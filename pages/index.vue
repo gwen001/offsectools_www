@@ -3,7 +3,7 @@
         <Logo></Logo>
         <div class="row mt-1">
             <div class="col text-center">
-                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
+                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> featured
             </div>
         </div>
         <div class="row mt-3 justify-content-center">
@@ -49,7 +49,7 @@ export default {
     },
     computed: {
         tools() {
-            return this.$store.getters['getToolsFromTag']('all');
+            return this.$store.getters['getToolsFeatured'];
 
             // var p = '';
             // if( this.$route.query.p != undefined ) {

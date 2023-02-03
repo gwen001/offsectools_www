@@ -55,6 +55,33 @@ svg.fa-house {
     font-size: 1.1em;
 }
 
+.badge-primary {
+    background-color: #007bff;
+}
+.badge-secondary {
+    background-color: #6c757d;
+}
+.badge-success {
+    background-color: #28a745;
+}
+.badge-danger {
+    background-color: #dc3545;
+}
+.badge-warning {
+    color: #212529;
+    background-color: #ffc107;
+}
+.badge-info {
+    background-color: #17a2b8;
+}
+.badge-light {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+.badge-dark {
+    background-color: #343a40;
+}
+
 .rounded {
     border-radius: 0.5rem !important;
 }

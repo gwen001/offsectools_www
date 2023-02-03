@@ -124,6 +124,28 @@ export const getters = {
         }
         return t_tools;
     },
+    sortFeatured: (state) => (t_tools) => {
+        // console.log('sortTools');
+        t_tools = t_tools.sort(
+            (a, b) => (a.featured > b.featured ? -1 : 1)
+        );
+        return t_tools;
+    },
+    getToolsFeatured: (state,getters) => {
+        var t_tools = [];
+        var t_tmp = [];
+
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
+            if( state.db.tools[i].featured == 1 ) {
+                t_tmp.push(state.db.tools[i]);
+            }
+        }
+
+        t_tools = t_tmp;
+        t_tools = getters.sortTools(t_tools);
+
+        return t_tools;
+    },
     getToolsFromTag: (state,getters) => (slug) => {
         // console.log('getToolsFromTag');
         var t_tools = [];
@@ -170,6 +192,7 @@ export const getters = {
         }
 
         t_tools = getters.sortTools(t_tools);
+        t_tools = getters.sortFeatured(t_tools);
 
         return t_tools;
     },

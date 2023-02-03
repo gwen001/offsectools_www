@@ -4,6 +4,7 @@
             <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="card-img-top tool-picture" /> -->
             <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" class="card-img-top tool-picture" />
             <div class="card-body">
+                <span class="badge badge-warning ms-2" v-if="tool.featured">Featured</span>
                 <!-- <div class="ratings-container" v-if="tool.ratings_count > 0">
                     <Ratings from="toolcard" :tool="tool"></Ratings>
                 </div> -->
@@ -17,9 +18,7 @@
                 <div class="tool-tags">
                     <p class="card-text tool-tags">
                         <template v-for="tag,index in tool.tags">
-                            <nuxt-link :to="'/tag/'+tag" class="tag-link">
-                                #{{ tag }}
-                            </nuxt-link>
+                            <nuxt-link :to="'/tag/'+tag" class="tag-link">#{{ tag }}</nuxt-link>
                             &nbsp;
                         </template>
                     </p>
@@ -57,6 +56,12 @@ export default {
 </script>
 
 <style scoped>
+.badge {
+    font-size: 0.65em;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
 .ratings-container {
     position: absolute;
     right: 5px;
