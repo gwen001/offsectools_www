@@ -66,6 +66,7 @@ export const getters = {
     },
     getToolContextualisation: (state,getters) => (n_context,tags,t_exclude) => {
         // console.log('contextualisation');
+        // console.log(tags);
 
         var t_context = [];
         for( var i=0 ; i<state.db.tools.length ; i++ ) {
@@ -78,26 +79,39 @@ export const getters = {
                 }
             }
         }
-        // t_context.sort(() => Math.random() - 0.5)
         // console.log('t_context:'+t_context.length);
 
-        let now = new Date();
-        let onejan = new Date(now.getFullYear(), 0, 1);
-        let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
-        // console.log('week:'+week);
+        let rnd_context = true;
+        let start_index = 0;
+        let end_index = 0;
 
-        let max_week = Math.floor( t_context.length/n_context );
-        // console.log('max_week:'+max_week);
-        if( max_week == 0 ) {
-            return t_context;
+        if( rnd_context )
+        {
+            // random contextualisation
+            t_context = t_context.sort(() => Math.random() - 0.5)
+            start_index = 0;
+            end_index = start_index + n_context;
         }
-        let final_week = week % max_week;
-        // let start_index = (final_week-1) * n_context;
-        let start_index = final_week * n_context;
-        let end_index = start_index + n_context;
-        // console.log('final_week:'+final_week);
-        // console.log('start_index:'+start_index);
-        // console.log('final_index:'+end_index);
+        else
+        {
+            // weekly contextualisation
+            let now = new Date();
+            let onejan = new Date(now.getFullYear(), 0, 1);
+            let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
+            // console.log('week:'+week);
+
+            let max_week = Math.floor( t_context.length/n_context );
+            // console.log('max_week:'+max_week);
+            if( max_week == 0 ) {
+                return t_context;
+            }
+            let final_week = week % max_week;
+            // let start_index = (final_week-1) * n_context;
+            start_index = final_week * n_context;
+            end_index = start_index + n_context;
+            // console.log('final_week:'+final_week);
+            // console.log('start_index:'+start_index);
+        }
 
         t_context = getters.sortFeatured( t_context.slice(start_index,end_index) );
         return t_context;
