@@ -31,11 +31,12 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import ToolCard from '~/components/ToolCard.vue'
+import ToolSorter from '~/components/ToolSorter.vue'
 
 export default {
     name: 'TagPage',
     components: {
-        Logo, ToolCard
+        Logo, ToolCard, ToolSorter
     },
     head() {
         var title = '';
