@@ -103,7 +103,7 @@ svg.fa-house {
     background-color: #232536;
     border-color: #162033;
     font-size: 0.93rem;
-    padding: 0.3rem 0.5rem;
+    /* padding: 0.3rem 0.5rem; */
 }
 .btn {
     font-size: 0.93rem;
@@ -218,7 +218,7 @@ a.text-custom3:hover {
     background-color: #0a0c1f;
     /* overflow-y: auto; */
     padding-bottom: 100px;
-    padding-top: 60px;
+    padding-top: 80px;
 
     padding-left: 250px !important;
 }
@@ -234,19 +234,28 @@ a.text-custom3:hover {
     padding-left: 250px !important;
     width: 100%;
     z-index: 10;
+
 }
+@media all and (min-width: 992px) {
+    #topbar {
+       height: 65px;
+    }
+}
+/* #topbar a.ms-3 {
+    font-weight: 600;
+} */
 #topbar input {
     padding-left: 40px;
 }
 #topbar .go-search {
     color: #22d3ee;
     position: absolute;
-    padding: 5px 0px 5px 10px;
+    padding: 7px 0px 5px 10px;
     z-index: 100;
 }
 #topbar .reset-search-term {
     margin-left: -25px;
-    padding-top: 5px;
+    padding-top: 8px;
     z-index: 100;
 }
 #topbar .reset-search-term {
@@ -343,12 +352,12 @@ xxl: 1400px
 }
 
 @media all and (max-width: 991px) {
-#main-content {
-    padding-left: 0px !important;
-}
-#topbar {
-    padding-left: 0px !important;
-}
+    #main-content {
+        padding-left: 0px !important;
+    }
+    #topbar {
+        padding-left: 0px !important;
+    }
 }
 
 @media all and (max-width: 1400px) {

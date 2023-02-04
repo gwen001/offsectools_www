@@ -12,7 +12,7 @@
                 <nuxt-link to="/">Home</nuxt-link>
             </div>
             <div class="col text-center">
-                <nuxt-link to="/tag/last7days">Last 7 days</nuxt-link>
+                <nuxt-link to="/tag/last7days"><b>Last 7 days</b></nuxt-link>
             </div>
         </div>
         <div class="row mt-3">
@@ -20,15 +20,15 @@
                 <RandomTool from="mobilemenu"></RandomTool>
             </div>
             <div class="col text-center">
-                <nuxt-link to="/contributors">Contributors</nuxt-link>
+                <nuxt-link to="/contributors"><b>Contributors</b></nuxt-link>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/tag/learning">Learn & Train</nuxt-link>
+                <nuxt-link to="/tag/learning"><b>Learn & Train</b></nuxt-link>
             </div>
             <div class="col text-center">
-                <nuxt-link to="/tag/resources">Resources</nuxt-link>
+                <nuxt-link to="/tag/resources"><b>Resources</b></nuxt-link>
             </div>
         </div>
         <div class="d-flex mt-3">

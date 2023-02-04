@@ -6,8 +6,7 @@
 
 - images on AWS  
 - improve search engine  
-- fix scrollbar, load on scroll  
-- daily promo  
+- load on scroll  
 - reviews  
 - newsletter  
 - user area  
@@ -15,7 +14,8 @@
 
 # Changelog
 
-- 2023-02-02: design, ménage & navigation  
+- 2023-02-03: featured tools
+- 2023-02-02: design, code cleaning, seo & tag page  
 - 2023-01-29: some css and better scrollbar  
 - 2023-01-26: review main template and topbar  
 - 2023-01-24: fontawesome added  
