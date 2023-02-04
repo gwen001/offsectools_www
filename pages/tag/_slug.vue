@@ -1,42 +1,49 @@
 <template>
     <div id="home" class="w-100 h-100">
-        <Logo></Logo>
-        <div class="row mt-1">
-            <div class="col text-center">
-                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
-            </div>
-        </div>
-        <ToolSorter></ToolSorter>
-        <template v-if="tools.length > 0">
-            <div class="d-flex flex-wrap flex-row justify-content-center mt-5">
-                <template v-for="tool,index in tools">
-                    <div class="d-inline-flexxxx p-2 align-self-stretch">
-                        <ToolCard :tool="tool" from="tagpage"></ToolCard>
-                    </div>
-                </template>
-            </div>
-        </template>
-        <template v-else>
-            <div class="row mt-5">
+        <template v-if="tag">
+            <Logo></Logo>
+            <div class="row mt-1">
                 <div class="col text-center">
-                    Nothing there, but feel free to
-                    <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
-                    if you think something is missing :)
+                    {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
+                    {{ tag.nicename }}
                 </div>
             </div>
+            <template v-if="tools.length > 0">
+                <ToolSorter></ToolSorter>
+                <div class="d-flex flex-wrap flex-row justify-content-center mt-5">
+                    <template v-for="tool,index in tools">
+                        <div class="d-inline-flexxxx p-2 align-self-stretch">
+                            <ToolCard :tool="tool" from="tagpage"></ToolCard>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            <template v-else>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        Nothing there, but feel free to
+                        <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
+                        if you think something is missing :)
+                    </div>
+                </div>
+            </template>
+        </template>
+        <template v-else>
+            <NotFound from="tools"></NotFound>
         </template>
     </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import NotFound from '~/components/NotFound.vue';
 import ToolCard from '~/components/ToolCard.vue'
 import ToolSorter from '~/components/ToolSorter.vue'
 
 export default {
     name: 'TagPage',
     components: {
-        Logo, ToolCard, ToolSorter
+        Logo, NotFound, ToolCard, ToolSorter
     },
     head() {
         var title = '';
@@ -104,7 +111,11 @@ export default {
     },
     computed: {
         tag() {
-            return this.$store.getters['getTagFromSlug'](this.$route.params.slug);
+            if( this.$route.params.slug == 'all' || this.$route.params.slug == 'last7days' ) {
+                return this.$route.params.slug;
+            } else {
+                return this.$store.getters['getTagFromSlug'](this.$route.params.slug);
+            }
         },
         tools() {
             return this.$store.getters['getToolsFromTag'](this.$route.params.slug);
