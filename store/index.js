@@ -4,8 +4,8 @@ const getDefaultState = () => {
         db: [],
         search_term: '',
         search_results: [],
-        sort_by: 'name', // 'name' or 'date' or 'ratings'
-        tags_display: 'top', // 'all' or 'top' or 'categories'
+        sort_by: 'name_asc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
+        tags_display: 'top', // all, top, categories
     }
 }
 
@@ -127,16 +127,38 @@ export const getters = {
         return null;
     },
     sortTools: (state) => (t_tools) => {
-        // console.log('sortTools');
-        if( state.sort_by == 'date' ) {
+        console.log('sortTools');
+        console.log(state.sort_by);
+        if( state.sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.created_at > b.created_at ? -1 : 1)
             );
-        } else if( state.sort_by == 'ratings' ) {
+        } else if( state.sort_by == 'date_asc' ) {
             t_tools = t_tools.sort(
-                (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
+                (a, b) => (a.created_at > b.created_at ? 1 : -1)
             );
+        } else if( state.sort_by == 'name_asc' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.slug > b.slug ? 1 : -1)
+            );
+        } else if( state.sort_by == 'name_desc' ) {
+            t_tools = t_tools.sort(
+                (a, b) => (a.slug > b.slug ? -1 : 1)
+            );
+        } else if( state.sort_by == 'rand' ) {
+            t_tools = t_tools.sort(() => Math.random() - 0.5)
         }
+        // } else if( state.sort_by == 'ratings' ) {
+        //     t_tools = t_tools.sort(
+        //         (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
+        //     );
+        // }
+
+        t_tools = t_tools.reverse(); // just because of featured sort
+        t_tools = t_tools.sort(
+            (a, b) => (a.featured > b.featured ? -1 : 1)
+        );
+
         return t_tools;
     },
     sortFeatured: (state) => (t_tools) => {
@@ -207,7 +229,7 @@ export const getters = {
         }
 
         t_tools = getters.sortTools(t_tools);
-        t_tools = getters.sortFeatured(t_tools);
+        // t_tools = getters.sortFeatured(t_tools);
 
         return t_tools;
     },

@@ -1,15 +1,20 @@
 <template>
-    <div id="home" class="w-100 h-100">
+    <div id="tagpage" class="w-100 h-100">
         <template v-if="datag">
             <Logo></Logo>
-            <div class="row mt-1">
+            <div class="row mt-4 tagname">
                 <div class="col text-center">
-                    {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
+                    <h2>#{{ datag.slug }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
                 </div>
             </div>
             <template v-if="tools.length > 0">
                 <ToolSorter></ToolSorter>
-                <div class="d-flex flex-wrap flex-row justify-content-center mt-5">
+                <div class="d-flex flex-wrap flex-row justify-content-center mt-2">
                     <template v-for="tool,index in tools">
                         <div class="d-inline-flexxxx p-2 align-self-stretch">
                             <ToolCard :tool="tool" from="tagpage"></ToolCard>
@@ -144,4 +149,7 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+    font-size: 2em;
+}
 </style>
