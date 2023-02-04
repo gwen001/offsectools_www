@@ -1,11 +1,10 @@
 <template>
     <div id="home" class="w-100 h-100">
-        <template v-if="tag">
+        <template v-if="datag">
             <Logo></Logo>
             <div class="row mt-1">
                 <div class="col text-center">
                     {{ tools.length }} tool<span v-if="tools.length > 1">s</span> filtered
-                    {{ tag.nicename }}
                 </div>
             </div>
             <template v-if="tools.length > 0">
@@ -29,7 +28,7 @@
             </template>
         </template>
         <template v-else>
-            <NotFound from="tools"></NotFound>
+            <NotFound from="tagpage"></NotFound>
         </template>
     </div>
 </template>
@@ -54,7 +53,7 @@ export default {
         {
             title = this.datag.nicename+' tools on '+this.$config.APP_NAME;
             var url = this.$config.APP_URL+'/tag/'+this.datag.slug;
-            var descr = 'A curated list of tools about '+this.datag.nicename;
+            var descr = this.$config.APP_DESCR+' about '+this.datag.nicename;
 
             link = [
                 {
@@ -103,30 +102,37 @@ export default {
             ];
         }
 
-        return {
-            title: title,
-            meta,
-            link
-        };
+        return { title:title, meta, link };
     },
     computed: {
-        tag() {
-            if( this.$route.params.slug == 'all' || this.$route.params.slug == 'last7days' ) {
-                return this.$route.params.slug;
-            } else {
-                return this.$store.getters['getTagFromSlug'](this.$route.params.slug);
-            }
-        },
+        // tag() {
+        //     if( this.$route.params.slug == 'all' || this.$route.params.slug == 'last7days' ) {
+        //         return this.$route.params.slug;
+        //     } else {
+        //         var t = this.$store.getters['getTagFromSlug'](this.$route.params.slug);
+        //         if( t ) {
+        //             return t;
+        //         }
+        //         this.$nuxt.error({ statusCode:404, message:'This page could not be found' })
+        //         // return this.$store.getters['getTagFromSlug'](this.$route.params.slug);
+        //     }
+        // },
         tools() {
             return this.$store.getters['getToolsFromTag'](this.$route.params.slug);
         },
     },
-    async asyncData( { store, params } ) {
-        var t = await store.getters['getTagFromSlug'](params.slug);
-        // console.log( t );
-        return {
-            datag: t
-        };
+    async asyncData( { store, params, error } ) {
+        // console.log('asyncData');
+        if( params.slug == 'all' || params.slug == 'last7days' ) {
+            return { datag: {'slug':params.slug, 'nicename':params.slug} };
+        } else {
+            var t = await store.getters['getTagFromSlug'](params.slug);
+            if( t ) {
+                return { datag:t };
+            } else {
+                error({ statusCode:404, message:'This page could not be found' })
+            }
+        }
     }
 }
 </script>

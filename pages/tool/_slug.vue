@@ -1,10 +1,10 @@
 <template>
     <div class="container h-100 p-3">
-        <template v-if="tool">
-            <ToolDetails :tool="tool"></ToolDetails>
+        <template v-if="datool">
+            <ToolDetails :tool="datool"></ToolDetails>
         </template>
         <template v-else>
-            <NotFound from="tools"></NotFound>
+            <NotFound from="toolpage"></NotFound>
         </template>
     </div>
 </template>
@@ -90,26 +90,23 @@ export default {
             }
         }
 
-        return {
-            title: title,
-            meta,
-            link
-        };
+        return { title:title, meta, link };
     },
     computed: {
-        tool() {
-            return this.$store.getters['getToolFromSlug'](this.$route.params.slug);
-        },
+        // tool() {
+        //     return this.$store.getters['getToolFromSlug'](this.$route.params.slug);
+        // },
     },
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
     },
-    async asyncData( { store, params } ) {
+    async asyncData( { store, params, error } ) {
         var t = await store.getters['getToolFromSlug'](params.slug);
-        // console.log( t );
-        return {
-            datool: t
-        };
+        if( t ) {
+            return { datool:t };
+        } else {
+            error({ statusCode:404, message:'This page could not be found' })
+        }
     }
 }
 </script>

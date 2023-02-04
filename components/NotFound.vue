@@ -5,7 +5,7 @@
                 <h1>An error occurred</h1>
             </div>
             <div class="mt-5">
-                <h2>This page could not be found</h2>
+                <h2>This page could not be found!</h2>
             </div>
             <div class="mt-5">
                 <a href="/" class="btn btn-outline-custom2">Go back home</a>
