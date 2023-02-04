@@ -104,6 +104,12 @@ export default {
 
         return { title:title, meta, link };
     },
+    mounted() {
+        // document.getElementById('main-content').scrollTo(0,0);
+        if( this.$route.params.slug != 'all' ) {
+            this.$store.commit( 'resetSearchTerm' );
+        }
+    },
     computed: {
         // tag() {
         //     if( this.$route.params.slug == 'all' || this.$route.params.slug == 'last7days' ) {
