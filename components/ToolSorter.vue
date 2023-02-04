@@ -36,7 +36,7 @@ export default {
             sort_values: {
                 name_asc: 'sort by name (A-Z)',
                 name_desc: 'sort by name (Z-A)',
-                rand: 'sort by rand',
+                rand: 'random sort',
                 date_desc: 'newest first',
                 date_asc: 'oldest first',
             }

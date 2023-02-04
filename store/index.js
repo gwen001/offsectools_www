@@ -127,8 +127,8 @@ export const getters = {
         return null;
     },
     sortTools: (state) => (t_tools) => {
-        console.log('sortTools');
-        console.log(state.sort_by);
+        // console.log('sortTools');
+        // console.log(state.sort_by);
         if( state.sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.created_at > b.created_at ? -1 : 1)
