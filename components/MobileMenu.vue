@@ -9,7 +9,7 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/">Home</nuxt-link>
+                <nuxt-link to="/"><b>Home</b></nuxt-link>
             </div>
             <div class="col text-center">
                 <nuxt-link to="/tag/last7days"><b>Last 7 days</b></nuxt-link>
