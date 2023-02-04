@@ -74,7 +74,6 @@ export default {
         link: [
             { hid: 'canonical', rel: 'canonical', href: process.env.APP_URL },
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
         ],
         script: [
             { src: "/js/bootstrap.bundle.min.js" },
@@ -89,8 +88,9 @@ export default {
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
+        '@/assets/css/bootstrap.min.css',
+        '@fortawesome/fontawesome-svg-core/styles.css',
         '@/assets/css/custom.css',
-        '@fortawesome/fontawesome-svg-core/styles.css'
     ],
 
     // Loading bar https://nuxtjs.org/docs/2.x/features/loading
@@ -146,6 +146,7 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        extractCSS: true
     },
 
     generate: {
