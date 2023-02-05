@@ -46,7 +46,7 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: process.env.APP_NAME,
+        title: process.env.APP_TITLE,
         htmlAttrs: {
             lang: 'en'
         },
@@ -61,13 +61,13 @@ export default {
             { property: 'og:type', content: 'website' },
             { property: 'og:site_name', content: process.env.APP_NAME },
             { hid: 'og:url', property: 'og:url', content: process.env.APP_URL },
-            { hid: 'og:title', property: 'og:title', content: process.env.APP_NAME },
+            { hid: 'og:title', property: 'og:title', content: process.env.APP_TITLE },
             { hid: 'og:description', property: 'og:description', content: process.env.APP_DESCR },
             { hid: 'og:image', property: 'og:image', content: process.env.APP_URL+'/assets/img/preview.png' },
             { name: 'twitter:site', content: 'gwendallecoguic' },
             { name: 'twitter:creator', content: 'gwendallecoguic' },
             { name: 'twitter:card', content: 'summary_large_image' },
-            { hid: 'twitter:title', name: 'twitter:title', content: process.env.APP_NAME },
+            { hid: 'twitter:title', name: 'twitter:title', content: process.env.APP_TITLE },
             { hid: 'twitter:description', name: 'twitter:description', content: process.env.APP_DESCR },
             { hid: 'twitter:image', name: 'twitter:image', content: process.env.APP_URL+'/assets/img/preview.png' },
         ],
@@ -134,6 +134,7 @@ export default {
     // public vars
     publicRuntimeConfig: {
         APP_NAME: process.env.APP_NAME,
+        APP_TITLE: process.env.APP_TITLE,
         APP_DESCR: process.env.APP_DESCR,
         APP_KEYWORDS: process.env.APP_KEYWORDS,
         APP_URL: process.env.APP_URL,

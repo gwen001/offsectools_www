@@ -34,11 +34,11 @@ export default {
     data() {
         return {
             sort_values: {
+                date_desc: 'newest first',
+                date_asc: 'oldest first',
                 name_asc: 'sort by name (A-Z)',
                 name_desc: 'sort by name (Z-A)',
                 rand: 'random sort',
-                date_desc: 'newest first',
-                date_asc: 'oldest first',
             }
         }
     },

@@ -4,7 +4,7 @@ const getDefaultState = () => {
         db: [],
         search_term: '',
         search_results: [],
-        sort_by: 'name_asc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
+        sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
         tags_display: 'top', // all, top, categories
     }
 }

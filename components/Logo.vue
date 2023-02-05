@@ -5,10 +5,10 @@
                 <span class="logo">{{ $config.APP_NAME }}</span>
             </div>
         </div>
-        <div class="row mt-0">
-            <div class="col text-center">
+        <div class="row justify-content-center mt-0">
+            <div class="col-5 text-center">
                 <h1>
-                    A vast collection of security tools
+                    {{ $config.APP_DESCR }}
                 </h1>
             </div>
         </div>
