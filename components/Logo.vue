@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row justify-content-center mt-0">
-            <div class="col-12 col-sm-9 col-md-7 col-lg-7 col-xl-6 col-xxl-5 text-center">
+            <div class="col-12 col-sm-9 col-md-7 col-lg-7 col-xl-6 col-xxl-4 text-center">
                 <h2>
                     {{ $config.APP_DESCR }}
                 </h2>

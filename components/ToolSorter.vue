@@ -71,8 +71,14 @@ export default {
         //     return (this.$store.getters['getSortBy'] == 'ratings');
         // },
     },
+    watch: {
+        tools(new_value,old_value) {
+            this.getDimensions();
+        }
+    },
     methods: {
         getDimensions() {
+            console.log('getDimensions');
             var t_cards = document.getElementsByClassName('toolcard-loop');
             var min_left = -1;
             var max_left = -1;
