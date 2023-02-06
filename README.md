@@ -4,6 +4,7 @@
 
 # Todo
 
+- fix topbar on Chrome
 - images on AWS  
 - improve search engine  
 - load on scroll  

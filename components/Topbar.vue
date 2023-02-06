@@ -2,7 +2,7 @@
     <div id="topbar" class="">
         <nav class="navbar h-100">
             <div class="container-fluid">
-                <div class="mobilemenu-icon d-lg-none d-xl-none">
+                <div id="mobilemenu-icon" class="mobilemenu-icon d-lg-none d-xl-none">
                     <a href="javascript:;" v-on:click="showMobileTarbar">
                         <font-awesome-icon icon="fas fa-bars" />
                     </a>

@@ -4,19 +4,19 @@
             <Logo></Logo>
             <div class="row mt-4 tagname">
                 <div class="col text-center">
-                    <h2>#{{ datag.slug }}</h2>
+                    <h1>#{{ datag.slug }}</h1>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col text-center">
                     {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
                 </div>
-            </div>
+            </div> -->
             <template v-if="tools.length > 0">
-                <ToolSorter></ToolSorter>
-                <div class="d-flex flex-wrap flex-row justify-content-center mt-2">
+                <ToolSorter :tools="tools.length"></ToolSorter>
+                <div class="d-flex flex-wrap flex-row justify-content-center mt-1">
                     <template v-for="tool,index in tools">
-                        <div class="d-inline-flexxxx p-2 align-self-stretch">
+                        <div class="toolcard-loop p-2 align-self-stretch">
                             <ToolCard :tool="tool" from="tagpage"></ToolCard>
                         </div>
                     </template>
@@ -149,7 +149,7 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-    font-size: 2em;
+h1 {
+    font-size: 2.5em;
 }
 </style>

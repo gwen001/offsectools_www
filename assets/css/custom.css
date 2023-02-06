@@ -2,7 +2,7 @@ body {
     background-color: #0a0c1f;
     color: #fff;
     font-size: 0.93rem;
-    /* overflow: hidden; */
+    overflow-x: hidden;
 }
 
 
@@ -614,3 +614,8 @@ xxl: 1400px
     height: 100px;
 }
 
+
+#sorter {
+    /* border: 1px solid #f00; */
+    /* width: fit-content; */
+}

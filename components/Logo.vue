@@ -6,10 +6,10 @@
             </div>
         </div>
         <div class="row justify-content-center mt-0">
-            <div class="col-5 text-center">
-                <h1>
+            <div class="col-12 col-sm-9 col-md-7 col-lg-7 col-xl-6 col-xxl-5 text-center">
+                <h2>
                     {{ $config.APP_DESCR }}
-                </h1>
+                </h2>
             </div>
         </div>
     </div>
@@ -25,8 +25,8 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-    font-size: 1.8em !important;
+h2 {
+    font-size: 1.4em !important;
 }
 .logo {
     font-size: 4.5em !important;

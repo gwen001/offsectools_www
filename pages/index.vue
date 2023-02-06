@@ -3,19 +3,19 @@
         <Logo></Logo>
         <div class="row mt-4 tagname">
             <div class="col text-center">
-                <h2>Featured tools</h2>
+                <h1>Featured tools</h1>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col text-center">
                 {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
             </div>
-        </div>
-        <ToolSorter></ToolSorter>
+        </div> -->
         <template v-if="tools.length > 0">
-            <div class="d-flex flex-wrap flex-row justify-content-center mt-2">
+            <ToolSorter :tools="tools.length"></ToolSorter>
+            <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
                 <template v-for="tool,index in tools">
-                    <div class="d-inline-flexxxx p-2 align-self-stretch">
+                    <div class="toolcard-loop p-2 align-self-stretch">
                         <ToolCard :tool="tool" from="index"></ToolCard>
                     </div>
                 </template>
@@ -52,8 +52,10 @@ export default {
 </script>
 
 <style scoped>
-.logo {
-    font-size: 4.5em !important;
-    font-weight: 500;
+h1 {
+    font-size: 2.5em;
+}
+.flex-row {
+    /* border: 2px solid red; */
 }
 </style>
