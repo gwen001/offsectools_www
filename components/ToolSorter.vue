@@ -1,7 +1,7 @@
 <template>
     <div class="position-relative mt-5">
         <div id="counter" class="d-flex">
-            {{ tools }} tools found
+            {{ tools }} tool<span v-if="tools > 1">s</span>&nbsp;found
         </div>
         <div id="sorter" class="d-flex position-relative mt-1">
             <div id="dropdown" class="d-flex dropdown">
@@ -73,12 +73,17 @@ export default {
     },
     watch: {
         tools(new_value,old_value) {
+            console.log(new_value);
             this.getDimensions();
+            // if( new_value <= 1 ) {
+            //     document.getElementById("sorter").style.justifyContent = 'center';
+            // } else {
+
+            // }
         }
     },
     methods: {
         getDimensions() {
-            console.log('getDimensions');
             var t_cards = document.getElementsByClassName('toolcard-loop');
             var min_left = -1;
             var max_left = -1;
@@ -120,6 +125,11 @@ export default {
                 document.getElementById("counter").style.left = x_left+'px';
                 document.getElementById("counter").style.top = '10px';
                 document.getElementById("counter").style.position = 'absolute';
+            }
+            if( this.tools <= 1 ) {
+                document.getElementById("sorter").style.setProperty('display', 'none', 'important');
+            } else {
+                document.getElementById("sorter").style.display = 'block';
             }
         },
         setSortBy: function (sort_by) {
