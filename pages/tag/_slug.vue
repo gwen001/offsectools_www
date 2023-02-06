@@ -111,9 +111,9 @@ export default {
     },
     mounted() {
         // document.getElementById('main-content').scrollTo(0,0);
-        if( this.$route.params.slug != 'all' ) {
-            this.$store.commit( 'resetSearchTerm' );
-        }
+        // if( this.$route.params.slug != 'all' ) {
+        //     this.$store.commit( 'resetSearchTerm' );
+        // }
     },
     computed: {
         // tag() {

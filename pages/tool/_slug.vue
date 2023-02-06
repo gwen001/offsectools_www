@@ -99,7 +99,7 @@ export default {
     },
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
-        this.$store.commit( 'resetSearchTerm' );
+        // this.$store.commit( 'resetSearchTerm' );
     },
     async asyncData( { store, params, error } ) {
         var t = await store.getters['getToolFromSlug'](params.slug);

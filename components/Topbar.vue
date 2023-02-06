@@ -22,7 +22,7 @@
                         <div class="go-search">
                             <font-awesome-icon icon="fas fa-magnifying-glass" />
                         </div>
-                        <input type="text" class="form-control" name="search" placeholder="search..." v-model="search_term" v-on:keyup.13="doSearch()" />
+                        <input type="text" class="form-control" id="search-input" name="search" placeholder="search..." v-model="search_term" v-on:keyup.13="doSearch()" />
                         <a href="javascript:;" v-on:click="resetSearchTerm()" class="reset-search-term">
                             <font-awesome-icon icon="far fa-circle-xmark" />
                         </a>
@@ -85,6 +85,9 @@ export default {
                 document.removeEventListener('click',this.hideMobileTarbar);
             }
         },
+    },
+    mounted() {
+        document.getElementById('search-input').focus();
     },
     computed: {
         search_term: {

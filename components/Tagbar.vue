@@ -23,7 +23,7 @@
                                         </template>
                                     </ul> -->
                                     <template v-for="tag,index in cat.tags">
-                                        <nuxt-link :to="'/tag/'+tag.slug">
+                                        <nuxt-link :to="'/tag/'+tag.slug" v-on:click.native="resetSearchTerm()">
                                             <span class="hashtag m-0">#</span>
                                             <span class="nicename">{{ tag.nicename }}</span>
                                         </nuxt-link>
@@ -38,7 +38,7 @@
         <template v-else>
             <ul class="list-group mt-3">
                 <li>
-                    <nuxt-link to="/tag/all" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
+                    <nuxt-link to="/tag/all" v-on:click.native="resetSearchTerm()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
                         <span class="hashtag">#</span>
                         <span class="nicename flex-fill">all</span>
                         <span class="badge rounded-pill">{{ getToolsN }}</span>
@@ -46,7 +46,7 @@
                 </li>
                 <template v-for="tag,index in tags">
                     <li>
-                        <nuxt-link :to="'/tag/'+tag.slug" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
+                        <nuxt-link :to="'/tag/'+tag.slug" v-on:click.native="resetSearchTerm()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
                             <span class="hashtag">#</span>
                             <span class="nicename flex-fill">{{ tag.nicename }}</span>
                             <span class="badge rounded-pill">{{ tag.tools_count }}</span>
@@ -94,10 +94,10 @@ export default {
         hideMe() {
             this.$refs.tagbar.classList.remove('show');
         },
-        // resetSearchTerm: function () {
-        //     this.$store.commit( 'resetSearchTerm' );
-        //     this.$router.push( '/' );
-        // },
+        resetSearchTerm: function () {
+            this.$store.commit( 'resetSearchTerm' );
+            // this.$router.push( '/' );
+        },
         // setSearchTerm: function (slug) {
         //     this.$store.commit( 'setSearchTerm', slug );
         //     this.$router.push( '/' );
