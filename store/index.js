@@ -117,7 +117,7 @@ export const getters = {
         //     );
         // }
 
-        // t_tools = t_tools.reverse(); // just because of featured sort
+        t_tools = t_tools.reverse(); // just because of featured sort
         t_tools = getters.sortFeatured( t_tools );
 
         return t_tools;
