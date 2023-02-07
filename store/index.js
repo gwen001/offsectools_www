@@ -117,7 +117,7 @@ export const getters = {
         //     );
         // }
 
-        t_tools = t_tools.reverse(); // just because of featured sort
+        // t_tools = t_tools.reverse(); // just because of featured sort
         t_tools = getters.sortFeatured( t_tools );
 
         return t_tools;
@@ -145,7 +145,7 @@ export const getters = {
         return t_tools;
     },
     searchTools: (state,getters) => (slug) => {
-        console.log('searchTools');
+        // console.log('searchTools');
         var t_tools = [];
         var t_tmp = [];
         slug = slug.toLowerCase();
