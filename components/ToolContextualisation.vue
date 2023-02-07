@@ -26,15 +26,11 @@ export default {
     components: {
         ToolCard
     },
-    data: function () {
-        return {
-            t_context: []
+    computed: {
+        t_context() {
+            return this.$store.getters['getToolContextualisation'];
         }
     },
-    mounted() {
-        this.t_context = this.$store.getters['getToolContextualisation'](5,this.tool.tags,this.tool.slug);
-        // console.log(this.t_context);
-    }
 }
 </script>
 

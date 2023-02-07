@@ -6,11 +6,6 @@
                     <div class="col-xl-9 col-lg-10 col-sm-11 col-11">
                         <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="rounded tool-picture img-fluid" />
                     </div>
-                    <!-- <div class="col-xl-3 col-lg-2 col-sm-1 col-1 text-end">
-                        <a href="javascript:;" v-on:click="doSearch()" class="link-close">
-                            <font-awesome-icon icon="far fa-circle-xmark" />
-                        </a>
-                    </div> -->
                 </div>
                 <div class="row mt-3">
                     <div class="tool-name col">
@@ -76,24 +71,10 @@ export default {
         // rate( rate_value ) {
         //     this.$store.dispatch( 'rate', [this.tool.id,rate_value] );
         // },
-        // keyboardEvent( e ) {
-        //     if( e.which === 27 ) {
-        //         this.$router.push( '/' );
-        //     }
-        // },
-        // doSearch() {
-        //     this.$router.push( '/' );
-        // },
-        // setSearchTerm: function (slug) {
-        //     this.$store.commit( 'setSearchTerm', slug );
-        //     this.$router.push( '/' );
-        // }
     },
-    // beforeDestroy() {
-    //     if( process.browser ) {
-    //         window.removeEventListener('keyup', this.keyboardEvent);
-    //     }
-    // },
+    mounted() {
+        this.$store.dispatch( 'createToolContextualisation', [5,this.tool.tags,this.tool.slug] );
+    },
 }
 </script>
 

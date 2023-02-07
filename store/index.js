@@ -3,9 +3,12 @@ const getDefaultState = () => {
         loading: false,
         db: [],
         search_term: '',
+        search_page: 0,
+        limit_results: 200,
         search_results: [],
         sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
         tags_display: 'top', // all, top, categories
+        tool_context: [], // contextualisation
     }
 }
 
@@ -18,8 +21,8 @@ export const getters = {
     getSearchTerm( state ) {
         return state.search_term;
     },
-    getSearchResults: (state) => {
-        return state.search_results;
+    getSearchPage( state ) {
+        return state.search_page;
     },
     getSortBy( state ) {
         return state.sort_by;
@@ -64,57 +67,17 @@ export const getters = {
     getTools( state ) {
         return state.db.tools;
     },
-    getToolContextualisation: (state,getters) => (n_context,tags,t_exclude) => {
-        // console.log('contextualisation');
-        // console.log(tags);
-
-        var t_context = [];
-        for( var i=0 ; i<state.db.tools.length ; i++ ) {
-            for( var j=0 ; j<tags.length ; j++ ) {
-                if( state.db.tools[i].tags.includes(tags[j]) ) {
-                    if( !t_exclude.includes(state.db.tools[i].slug) ) {
-                        t_context.push( state.db.tools[i] );
-                        break;
-                    }
-                }
-            }
-        }
-        // console.log('t_context:'+t_context.length);
-
-        let rnd_context = true;
-        let start_index = 0;
-        let end_index = 0;
-
-        if( rnd_context )
-        {
-            // random contextualisation
-            t_context = t_context.sort(() => Math.random() - 0.5)
-            start_index = 0;
-            end_index = start_index + n_context;
-        }
-        else
-        {
-            // weekly contextualisation
-            let now = new Date();
-            let onejan = new Date(now.getFullYear(), 0, 1);
-            let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
-            // console.log('week:'+week);
-
-            let max_week = Math.floor( t_context.length/n_context );
-            // console.log('max_week:'+max_week);
-            if( max_week == 0 ) {
-                return t_context;
-            }
-            let final_week = week % max_week;
-            // let start_index = (final_week-1) * n_context;
-            start_index = final_week * n_context;
-            end_index = start_index + n_context;
-            // console.log('final_week:'+final_week);
-            // console.log('start_index:'+start_index);
-        }
-
-        t_context = getters.sortFeatured( t_context.slice(start_index,end_index) );
-        return t_context;
+    // getSearchResults: (state,getters) => {
+    //     var t_tools = [...state.search_results];
+    //     t_tools = getters.sortTools( t_tools );
+    //     var start_index = 0;
+    //     var end_index = (state.search_page+1) * state.limit_results;
+    //     t_tools = t_tools.slice(start_index,end_index);
+    //     return t_tools;
+    // },
+    getToolContextualisation: (state,getters) => {
+        var t_tools = [...state.tool_context];
+        return getters.sortTools( t_tools );
     },
     getToolFromSlug: (state) => (slug) => {
         // console.log('getToolFromSlug');
@@ -126,7 +89,7 @@ export const getters = {
         }
         return null;
     },
-    sortTools: (state) => (t_tools) => {
+    sortTools: (state,getters) => (t_tools) => {
         // console.log('sortTools');
         // console.log(state.sort_by);
         if( state.sort_by == 'date_desc' ) {
@@ -155,9 +118,7 @@ export const getters = {
         // }
 
         t_tools = t_tools.reverse(); // just because of featured sort
-        t_tools = t_tools.sort(
-            (a, b) => (a.featured > b.featured ? -1 : 1)
-        );
+        t_tools = getters.sortFeatured( t_tools );
 
         return t_tools;
     },
@@ -183,8 +144,8 @@ export const getters = {
 
         return t_tools;
     },
-    getToolsFromTag: (state,getters) => (slug) => {
-        // console.log('getToolsFromTag');
+    searchTools: (state,getters) => (slug) => {
+        console.log('searchTools');
         var t_tools = [];
         var t_tmp = [];
         slug = slug.toLowerCase();
@@ -229,10 +190,63 @@ export const getters = {
         }
 
         t_tools = getters.sortTools(t_tools);
-        // t_tools = getters.sortFeatured(t_tools);
+
+        // var start_index = 0;
+        // var end_index = (state.search_page+1) * state.limit_results;
+        // t_tools = t_tools.slice(start_index,end_index);
 
         return t_tools;
     },
+    // getToolsFromTag: (state,getters) => (slug) => {
+    //     // console.log('getToolsFromTag');
+    //     var t_tools = [];
+    //     var t_tmp = [];
+    //     slug = slug.toLowerCase();
+
+    //     switch(slug)
+    //     {
+    //         case '':
+    //         case 'all':
+    //             t_tmp = [...state.db.tools];
+    //             break;
+    //         case 'last7days':
+    //             var d_current = new Date();
+    //             var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+    //             for( var i=0 ; i<state.db.tools.length ; i++ ) {
+    //                 var td = new Date(state.db.tools[i].created_at);
+    //                 if( td > d7 ) {
+    //                     t_tmp.push(state.db.tools[i]);
+    //                 }
+    //             }
+    //             break;
+    //         default:
+    //             for( var i=0 ; i<state.db.tools.length ; i++ ) {
+    //                 if( state.db.tools[i].tags.includes(slug) ) {
+    //                     t_tmp.push(state.db.tools[i]);
+    //                 }
+    //             }
+    //             break;
+    //     }
+
+    //     if( state.search_term.length == 0 )
+    //     {
+    //         t_tools = [...t_tmp];
+    //     }
+    //     else
+    //     {
+    //         var r = new RegExp(state.search_term,'i');
+    //         for( var i=0 ; i<t_tmp.length ; i++ ) {
+    //             if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+    //                 t_tools.push(t_tmp[i]);
+    //             }
+    //         }
+    //     }
+
+    //     t_tools = getters.sortTools(t_tools);
+    //     // t_tools = getters.sortFeatured(t_tools);
+
+    //     return t_tools;
+    // },
 };
 
 export const mutations = {
@@ -245,15 +259,24 @@ export const mutations = {
     stopLoading( state ) {
         return state.loading = false;
     },
-    resetSearchTerm( state ) {
+    resetSearch( state, reset_search_page=0 ) {
+        if( reset_search_page ) {
+            state.search_page = 0;
+        }
         return state.search_term = '';
+    },
+    resetSearchPage( state ) {
+        return state.search_page = 0;
     },
     setSearchTerm( state, value ) {
         return state.search_term = value.trim();
     },
-    setSearchResults( state, data ) {
-        return state.search_results = data;
+    incrSearchPage( state ) {
+        return state.search_page = state.search_page + 1;
     },
+    // setSearchResults( state, data ) {
+    //     return state.search_results = data;
+    // },
     setSortBy( state, value ) {
         return state.sort_by = value;
     },
@@ -262,6 +285,9 @@ export const mutations = {
     },
     setTagsDisplay( state, data ) {
         return state.tags_display = data;
+    },
+    setContextualisation( state, data ) {
+        return state.tool_context = data;
     },
     addRating(state, data) {
         var tool_id = data[0];
@@ -303,71 +329,112 @@ export const actions = {
         var tool_id = data[0];
         var rate_value = data[1];
         this.$axios.post('/tools/'+tool_id+'/'+rate_value)
-            .then(response => {
-                context.commit('addRating',data);
-            });
+        .then(response => {
+            context.commit('addRating',data);
+        });
     },
-    // searchTools( context, period ) {
-    //     // console.log('abcsearchTools');
-    //     var t_tools = [];
-    //     var t_tmp = [];
+    searchTools( context, data ) {
+        console.log('searchTools');
+        var t_tools = [];
+        var t_tmp = [];
+        var slug = data[0];
+        slug = slug.toLowerCase();
 
-    //     if( period == 'last7days' ) {
-    //         var k = 0;
-    //         var d_current = new Date();
-    //         var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-    //         for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
-    //             var td = new Date(this.state.db.tools[i].created_at);
-    //             if( td > d7 ) {
-    //                 t_tmp[k++] = this.state.db.tools[i];
-    //             }
-    //         }
-    //     }
-    //     else
-    //     {
-    //         t_tmp = [...this.state.db.tools];
-    //     }
+        switch(slug)
+        {
+            case '':
+            case 'all':
+                t_tmp = [...this.state.db.tools];
+                break;
+            case 'last7days':
+                var d_current = new Date();
+                var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+                for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+                    var td = new Date(this.state.db.tools[i].created_at);
+                    if( td > d7 ) {
+                        t_tmp.push(this.state.db.tools[i]);
+                    }
+                }
+                break;
+            default:
+                for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+                    if( this.state.db.tools[i].tags.includes(slug) ) {
+                        t_tmp.push(this.state.db.tools[i]);
+                    }
+                }
+                break;
+        }
 
-    //     if( this.state.search_term.length == 0 )
-    //     {
-    //         t_tools = [...t_tmp];
-    //     }
-    //     else
-    //     {
-    //         var k = 0;
-    //         if( this.state.search_term[0] == '#' ) {
-    //             var st = this.state.search_term.replace('#','').toLowerCase();
-    //             for( var i=0 ; i<t_tmp.length ; i++ ) {
-    //                 for( var j=0 ; j<t_tmp[i].tags.length ; j++ ) {
-    //                     if( t_tmp[i].tags[j].startsWith(st) ) {
-    //                         t_tools[k++] = t_tmp[i];
-    //                         break;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         else {
-    //             var k = 0;
-    //             var r = new RegExp(this.state.search_term,'i');
-    //             for( var i=0 ; i<t_tmp.length ; i++ ) {
-    //                 if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
-    //                     t_tools[k++] = t_tmp[i];
-    //                 }
-    //             }
-    //         }
-    //     }
+        if( this.state.search_term.length == 0 )
+        {
+            t_tools = [...t_tmp];
+        }
+        else
+        {
+            var r = new RegExp(this.state.search_term,'i');
+            for( var i=0 ; i<t_tmp.length ; i++ ) {
+                if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+                    t_tools.push(t_tmp[i]);
+                }
+            }
+        }
 
-    //     if( this.state.sort_by == 'date' ) {
-    //         t_tools = t_tools.sort(
-    //             (a, b) => (a.created_at > b.created_at ? -1 : 1)
-    //         );
-    //     } else if( this.state.sort_by == 'ratings' ) {
-    //         t_tools = t_tools.sort(
-    //             (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
-    //         );
-    //     }
+        context.commit('setSearchResults',t_tools);
+    },
+    createToolContextualisation( context, data ) {
+        // console.log('createToolContextualisation');
+        var n_context = data[0];
+        var t_tags = data[1];
+        var t_exclude = data[2];
 
-    //     context.commit('setSearchResults',t_tools);
-    //     // return t_tools;
-    // },
+        var t_context = [];
+        for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+            for( var j=0 ; j<t_tags.length ; j++ ) {
+                if( this.state.db.tools[i].tags.includes(t_tags[j]) ) {
+                    if( !t_exclude.includes(this.state.db.tools[i].slug) ) {
+                        t_context.push( this.state.db.tools[i] );
+                        break;
+                    }
+                }
+            }
+        }
+        // console.log('t_context:'+t_context.length);
+
+        let rnd_context = true;
+        let start_index = 0;
+        let end_index = 0;
+
+        if( rnd_context )
+        {
+            // random contextualisation
+            t_context = t_context.sort(() => Math.random() - 0.5)
+            start_index = 0;
+            end_index = start_index + n_context;
+        }
+        else
+        {
+            // weekly contextualisation
+            let now = new Date();
+            let onejan = new Date(now.getFullYear(), 0, 1);
+            let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
+            // console.log('week:'+week);
+
+            let max_week = Math.floor( t_context.length/n_context );
+            // console.log('max_week:'+max_week);
+            if( max_week == 0 ) {
+                return t_context;
+            }
+            let final_week = week % max_week;
+            // let start_index = (final_week-1) * n_context;
+            start_index = final_week * n_context;
+            end_index = start_index + n_context;
+            // console.log('final_week:'+final_week);
+            // console.log('start_index:'+start_index);
+        }
+
+        t_context = t_context.slice(start_index,end_index);
+        // console.log(t_context);
+
+        context.commit('setContextualisation',t_context);
+    },
 };

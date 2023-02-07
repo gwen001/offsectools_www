@@ -23,7 +23,7 @@
                             <font-awesome-icon icon="fas fa-magnifying-glass" />
                         </div>
                         <input type="text" class="form-control" id="search-input" name="search" placeholder="search..." v-model="search_term" v-on:keyup.13="doSearch()" />
-                        <a href="javascript:;" v-on:click="resetSearchTerm()" class="reset-search-term">
+                        <a href="javascript:;" v-on:click="resetSearch()" class="reset-search-term">
                             <font-awesome-icon icon="far fa-circle-xmark" />
                         </a>
                     </div>
@@ -48,21 +48,22 @@ export default {
     methods: {
         doSearch() {
             // alert('doSearch');
+            this.$store.commit( 'resetSearchPage' );
             this.$router.push( '/tag/all' );
         },
         randomtool: function (event) {
             const t_tools = this.$store.getters['getTools'];
             const r = Math.floor(Math.random() * t_tools.length);
             const tool = this.tool = t_tools[r];
-            this.$store.commit( 'resetSearchTerm' );
+            this.$store.commit( 'resetSearch' );
             this.$router.push( '/tool/'+tool.slug );
         },
         // last7days: function () {
-        //     this.$store.commit( 'resetSearchTerm' );
+        //     this.$store.commit( 'resetSearch' );
         //     this.$router.push( '/?p=last7days' );
         // },
-        resetSearchTerm: function () {
-            this.$store.commit( 'resetSearchTerm' );
+        resetSearch: function () {
+            this.$store.commit( 'resetSearch' );
             // this.$router.push( '/' );
         },
         // setSearchTerm: function (slug) {

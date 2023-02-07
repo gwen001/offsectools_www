@@ -43,11 +43,12 @@ import Logo from '~/components/Logo.vue'
 import NotFound from '~/components/NotFound.vue';
 import ToolCard from '~/components/ToolCard.vue'
 import ToolSorter from '~/components/ToolSorter.vue'
+import LoadMore from '~/components/LoadMore.vue'
 
 export default {
     name: 'TagPage',
     components: {
-        Logo, NotFound, ToolCard, ToolSorter
+        Logo, NotFound, ToolCard, ToolSorter, LoadMore
     },
     head() {
         var title = '';
@@ -109,29 +110,16 @@ export default {
 
         return { title:title, meta, link };
     },
-    mounted() {
-        // document.getElementById('main-content').scrollTo(0,0);
-        // if( this.$route.params.slug != 'all' ) {
-        //     this.$store.commit( 'resetSearchTerm' );
-        // }
-    },
     computed: {
-        // tag() {
-        //     if( this.$route.params.slug == 'all' || this.$route.params.slug == 'last7days' ) {
-        //         return this.$route.params.slug;
-        //     } else {
-        //         var t = this.$store.getters['getTagFromSlug'](this.$route.params.slug);
-        //         if( t ) {
-        //             return t;
-        //         }
-        //         this.$nuxt.error({ statusCode:404, message:'This page could not be found' })
-        //         // return this.$store.getters['getTagFromSlug'](this.$route.params.slug);
-        //     }
-        // },
         tools() {
-            return this.$store.getters['getToolsFromTag'](this.$route.params.slug);
+            return this.$store.getters['searchTools'](this.$route.params.slug);
         },
     },
+    // mounted() {
+    //     // document.getElementById('main-content').scrollTo(0,0);
+    //     this.$store.dispatch('searchTools', [this.$route.params.slug]);
+    //     var t = await store.getters['getTagFromSlug'](params.slug);
+    // },
     async asyncData( { store, params, error } ) {
         // console.log('asyncData');
         if( params.slug == 'all' || params.slug == 'last7days' ) {

@@ -5,7 +5,7 @@
         </div>
         <div id="sorter" class="d-flex position-relative mt-1">
             <div id="dropdown" class="d-flex dropdown">
-                <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">{{ currentSortTitle }}</a>
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">{{ currentSortTitle }}</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li v-for="v,k in sort_values">
                         <a class="dropdown-item" href="javascript:;" v-on:click="setSortBy(k)">
@@ -73,13 +73,7 @@ export default {
     },
     watch: {
         tools(new_value,old_value) {
-            console.log(new_value);
             this.getDimensions();
-            // if( new_value <= 1 ) {
-            //     document.getElementById("sorter").style.justifyContent = 'center';
-            // } else {
-
-            // }
         }
     },
     methods: {

@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 h2 {
+    color: #bbb;
     font-size: 1.4em !important;
 }
 .logo {

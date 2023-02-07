@@ -92,14 +92,8 @@ export default {
 
         return { title:title, meta, link };
     },
-    computed: {
-        // tool() {
-        //     return this.$store.getters['getToolFromSlug'](this.$route.params.slug);
-        // },
-    },
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
-        // this.$store.commit( 'resetSearchTerm' );
     },
     async asyncData( { store, params, error } ) {
         var t = await store.getters['getToolFromSlug'](params.slug);

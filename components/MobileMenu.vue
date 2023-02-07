@@ -47,18 +47,6 @@ export default {
         RandomTool
     },
     methods: {
-        // last7days: function () {
-        //     this.$store.commit( 'resetSearchTerm' );
-        //     this.$router.push( '/?p=last7days' );
-        // },
-        // resetSearchTerm: function () {
-        //     this.$store.commit( 'resetSearchTerm' );
-        //     this.$router.push( '/' );
-        // },
-        // setSearchTerm: function (slug) {
-        //     this.$store.commit( 'setSearchTerm', slug );
-        //     this.$router.push( '/' );
-        // },
         hideMobileTarbar() {
             this.$parent.hideMe();
         },

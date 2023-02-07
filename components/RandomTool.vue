@@ -11,7 +11,7 @@ export default {
             const t_tools = this.$store.getters['getTools'];
             const r = Math.floor(Math.random() * t_tools.length);
             const tool = this.tool = t_tools[r];
-            this.$store.commit( 'resetSearchTerm' );
+            this.$store.commit( 'resetSearch', 1 );
             this.$router.push( '/tool/'+tool.slug );
         },
     },
