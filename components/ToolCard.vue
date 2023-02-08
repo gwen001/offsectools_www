@@ -25,7 +25,7 @@
                 </div>
             </template>
             <template v-if="from != 'contextualisation'">
-                <div class="card-footer text-center" style="z-index:9">
+                <div class="card-footer text-center">
                     <div class="justify-content-around">
                         <ToolLink :link="tool.homepage"></ToolLink>
                         <ToolLink :link="tool.extra_link" v-if="tool.extra_link"></ToolLink>
@@ -46,12 +46,6 @@ export default {
     components: {
         Ratings, ToolLink
     },
-    methods: {
-        // setSearchTerm: function (slug) {
-        //     this.$store.commit( 'setSearchTerm', slug );
-        //     this.$router.push( '/' );
-        // }
-    }
 }
 </script>
 
@@ -68,5 +62,8 @@ export default {
     /* top: 5px; */
     /* bottom: 220px; */
     /* z-index: 99; */
+}
+.card-footer {
+    z-index: 9;
 }
 </style>

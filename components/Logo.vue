@@ -17,7 +17,6 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import ToolCard from '~/components/ToolCard.vue'
 
 export default {
     name: 'Logo',
