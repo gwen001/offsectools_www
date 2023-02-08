@@ -1,5 +1,6 @@
 const getDefaultState = () => {
     return {
+        user_agent: '',
         loading: false,
         db: [],
         search_term: '',
@@ -17,6 +18,9 @@ export const state = () => getDefaultState();
 export const getters = {
     isLoading( state ) {
         return state.loading;
+    },
+    getUserAgent( state ) {
+        return state.user_agent;
     },
     getSearchTerm( state ) {
         return state.search_term;
@@ -91,7 +95,6 @@ export const getters = {
     },
     sortTools: (state,getters) => (t_tools) => {
         // console.log('sortTools');
-        // console.log(state.sort_by);
         if( state.sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.created_at > b.created_at ? -1 : 1)
@@ -117,7 +120,9 @@ export const getters = {
         //     );
         // }
 
-        t_tools = t_tools.reverse(); // just because of featured sort
+        if( state.user_agent.toLowerCase().includes('firefox',0) ) {
+            t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
+        }
         t_tools = getters.sortFeatured( t_tools );
 
         return t_tools;
@@ -252,6 +257,9 @@ export const getters = {
 export const mutations = {
     resetState( state ) {
         Object.assign( state, getDefaultState() );
+    },
+    setUserAgent( state, user_agent ) {
+        return state.user_agent = user_agent;
     },
     startLoading( state ) {
         return state.loading = true;

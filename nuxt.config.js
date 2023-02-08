@@ -116,7 +116,8 @@ export default {
     ],
 
     plugins: [
-        '~/plugins/fontawesome.js'
+        '~/plugins/fontawesome.js',
+        '~/plugins/app-mounted.js',
     ],
 
     sitemap: {
