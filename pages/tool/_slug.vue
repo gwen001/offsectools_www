@@ -28,7 +28,7 @@ export default {
             title = this.datool.nicename+' on '+this.$config.APP_NAME;
             var url = this.$config.APP_URL+'/tool/'+this.datool.slug;
             var descr = this.datool.short_descr;
-            var image = this.$config.APP_URL+'/assets/img/tools/'+this.datool.picture;
+            var image = this.$config.APP_URL+'/img/tools/'+this.datool.picture;
 
             link = [
                 {

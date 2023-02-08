@@ -4,7 +4,7 @@
             <div class="col-xl-8 col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 col-sm-11 col-11">
-                        <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/assets/img/tools/'+tool.picture" placeholder="/assets/img/tools/default.png" class="rounded tool-picture img-fluid" />
+                        <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.picture" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" />
                     </div>
                 </div>
                 <div class="row mt-3">

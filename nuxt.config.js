@@ -15,7 +15,7 @@ const dynamicRoutes = async () => {
         if( tool.picture !== null ) {
             route.img = [
                 {
-                    url: '/assets/img/tools/'+tool.picture,
+                    url: '/img/tools/'+tool.picture,
                     caption: tool.short_descr,
                     title: tool.nicename
                 }
@@ -63,13 +63,13 @@ export default {
             { hid: 'og:url', property: 'og:url', content: process.env.APP_URL },
             { hid: 'og:title', property: 'og:title', content: process.env.APP_TITLE },
             { hid: 'og:description', property: 'og:description', content: process.env.APP_DESCR },
-            { hid: 'og:image', property: 'og:image', content: process.env.APP_URL+'/assets/img/preview.png' },
+            { hid: 'og:image', property: 'og:image', content: process.env.APP_URL+'/img/preview.png' },
             { name: 'twitter:site', content: 'gwendallecoguic' },
             { name: 'twitter:creator', content: 'gwendallecoguic' },
             { name: 'twitter:card', content: 'summary_large_image' },
             { hid: 'twitter:title', name: 'twitter:title', content: process.env.APP_TITLE },
             { hid: 'twitter:description', name: 'twitter:description', content: process.env.APP_DESCR },
-            { hid: 'twitter:image', name: 'twitter:image', content: process.env.APP_URL+'/assets/img/preview.png' },
+            { hid: 'twitter:image', name: 'twitter:image', content: process.env.APP_URL+'/img/preview.png' },
         ],
         link: [
             { hid: 'canonical', rel: 'canonical', href: process.env.APP_URL },

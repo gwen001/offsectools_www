@@ -39,7 +39,7 @@
                 </div>
                 <div class="row">
                     <div class="col col-9">
-                        <img src="/assets/img/addtool-issue-example.png" class="rounded img-fluid" />
+                        <img src="/img/addtool-issue-example.png" class="rounded img-fluid" />
                     </div>
                 </div>
                 <div class="row mt-3">
