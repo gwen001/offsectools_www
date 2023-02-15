@@ -1,6 +1,6 @@
 body {
     background-color: #0a0c1f;
-    color: #fff;
+    color: #ffffff;
     font-size: 0.93rem;
     overflow-x: hidden;
 }
@@ -30,7 +30,7 @@ a {
     text-decoration: none;
 }
 a:hover {
-    color: #f9205a;
+    color: #22d3ee;
     text-decoration: none;
 }
 a.highlight1 {
@@ -45,6 +45,13 @@ a.highlight2 {
 }
 a.highlight2:hover {
     color: #22d3ee;
+    text-decoration: underline;
+}
+a.discret {
+    color: #fff;
+}
+a.discret:hover {
+    color: #fff;
     text-decoration: underline;
 }
 
@@ -619,3 +626,32 @@ xxl: 1400px
     /* border: 1px solid #f00; */
     /* width: fit-content; */
 }
+
+
+.newsletter-card .card-body {
+    padding: 1rem 0.5rem;
+}
+.newsletter .newsletter-error {
+    /* display: none; */
+    margin-top: 8px;
+    padding-top: 8px;
+}
+.newsletter .newsletter-confirm {
+    /* display: none; */
+    margin-top: 8px;
+    padding-top: 8px;
+}
+.newsletter .fa-spinner {
+    animation: rotation 2s linear infinite;
+    /* display: none; */
+    margin-top: 8px;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

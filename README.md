@@ -14,8 +14,9 @@
 
 # Changelog
 
-- 2023-02-04: new sorter
-- 2023-02-03: featured tools
+- 2023-02-08: images renamed, fix sorter  
+- 2023-02-04: new sorter  
+- 2023-02-03: featured tools  
 - 2023-02-02: design, code cleaning, seo & tag page  
 - 2023-01-29: some css and better scrollbar  
 - 2023-01-26: review main template and topbar  
