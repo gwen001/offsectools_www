@@ -12,14 +12,13 @@
                 <div class="row mt-3">
                     <div class="col">
                         <p>
-                            This project is still under development, so for now the only way to add a tool is manually.
-                            If you want to register a tool to be listed in {{ $config.APP_NAME }}, please use the following process so it could be easily automated:
+                            To register a tool to be listed in {{ $config.APP_NAME }}, please use the following process:
                         </p>
                         <p>
-                            1/ Be sure to carefully read the <a :href="$config.GITHUB_URL+'/issues/1'" class="highlight1" target="_blank">guidelines</a> first.
+                            1/ Be sure to carefully read the <a :href="$config.GITHUB_URL+'/issues/1'" class="highlight2" target="_blank">guidelines</a> first.
                         </p>
                         <p>
-                            2/ Open a <a :href="$config.GITHUB_URL+'/issues/new'" class="highlight1" target="_blank">new issue</a> on GitHub.
+                            2/ Open a <a :href="$config.GITHUB_URL+'/issues/new'" class="highlight2" target="_blank">new issue</a> on GitHub.
                         </p>
                         <p>
                             3/ The title of the issue is the name of the tool as it will be displayed in {{ $config.APP_NAME }} with the prefix [addtool]

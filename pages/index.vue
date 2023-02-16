@@ -20,6 +20,9 @@
                     </div>
                 </template>
             </div>
+            <!-- <div class="mt-5 ms-5 d-flex">
+                <Newsletter></Newsletter>
+            </div> -->
         </template>
         <template v-else>
             <div class="row mt-5">
@@ -37,11 +40,12 @@
 import Logo from '~/components/Logo.vue'
 import ToolCard from '~/components/ToolCard.vue'
 import ToolSorter from '~/components/ToolSorter.vue'
+import Newsletter from '~/components/Newsletter.vue';
 
 export default {
     name: 'Home',
     components: {
-        Logo, ToolCard, ToolSorter
+        Logo, ToolCard, ToolSorter, Newsletter
     },
     computed: {
         tools() {

@@ -1,7 +1,7 @@
 <template>
     <div class="position-relative mt-5">
         <div id="counter" class="d-flex">
-            {{ tools }} tool<span v-if="tools > 1">s</span>&nbsp;found
+            {{ tools }} result<span v-if="tools > 1">s</span>
         </div>
         <div id="sorter" class="d-flex position-relative mt-1">
             <div id="dropdown" class="d-flex dropdown">

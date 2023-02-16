@@ -1,3 +1,5 @@
+import { faIgloo } from "@fortawesome/free-solid-svg-icons";
+
 const getDefaultState = () => {
     return {
         user_agent: '',
@@ -10,6 +12,7 @@ const getDefaultState = () => {
         sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
         tags_display: 'top', // all, top, categories
         tool_context: [], // contextualisation
+        newsletter_status: -1, // -1:nothing done (default), 9999:loading, 0:refused, 1:accepted
     }
 }
 
@@ -36,6 +39,9 @@ export const getters = {
     },
     getContributors( state ) {
         return state.db.contributors;
+    },
+    getSponsors( state ) {
+        return state.db.sponsors;
     },
     getTagsDisplay( state ) {
         return state.tags_display;
@@ -124,7 +130,18 @@ export const getters = {
             t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
         }
         t_tools = getters.sortFeatured( t_tools );
+        if( state.user_agent.toLowerCase().includes('firefox',0) ) {
+            t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
+        }
+        t_tools = getters.sortSponsored( t_tools );
 
+        return t_tools;
+    },
+    sortSponsored: (state) => (t_tools) => {
+        // console.log('sortTools');
+        t_tools = t_tools.sort(
+            (a, b) => (a.sponsor_id > b.sponsor_id ? -1 : 1)
+        );
         return t_tools;
     },
     sortFeatured: (state) => (t_tools) => {
@@ -202,6 +219,10 @@ export const getters = {
 
         return t_tools;
     },
+    getNewsletterStatus( state ) {
+        // console.log('getNewsletterStatus '+state.newsletter_status);
+        return state.newsletter_status;
+    }
 };
 
 export const mutations = {
@@ -264,6 +285,18 @@ export const mutations = {
             }
         }
     },
+    resetNewsletterStatus( state ) {
+        // console.log('resetNewsletterStatus');
+        return state.newsletter_status = -1;
+    },
+    setNewsletterLoader( state ) {
+        console.log('setNewsletterLoader');
+        return state.newsletter_status = 9999;
+    },
+    setNewsletterStatus( state, data ) {
+        console.log('setNewsletterStatus '+data);
+        return state.newsletter_status = data ? 1 : 0;
+    }
 };
 
 export const actions = {
@@ -344,13 +377,16 @@ export const actions = {
         var n_context = data[0];
         var t_tags = data[1];
         var t_exclude = data[2];
-
         var t_context = [];
+        var sponsor_chance = 20; // tools from sponsors have x chance to be selected
+        var featured_chance = 10; // featured tools have x chance to be selected
+
+        var t_basetools = [];
         for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
             for( var j=0 ; j<t_tags.length ; j++ ) {
                 if( this.state.db.tools[i].tags.includes(t_tags[j]) ) {
                     if( !t_exclude.includes(this.state.db.tools[i].slug) ) {
-                        t_context.push( this.state.db.tools[i] );
+                        t_basetools.push( this.state.db.tools[i] );
                         break;
                     }
                 }
@@ -365,9 +401,46 @@ export const actions = {
         if( rnd_context )
         {
             // random contextualisation
-            t_context = t_context.sort(() => Math.random() - 0.5)
-            start_index = 0;
-            end_index = start_index + n_context;
+            // console.log(t_basetools.length);
+            var r;
+            var n_basetools = t_basetools.length;
+            t_basetools = t_basetools.sort(() => Math.random() - 0.5)
+
+            for( var i=0 ; i<n_basetools ; i++ ) {
+                if( t_basetools[i].sponsor_id ) {
+                    r = Math.floor(Math.random() * 100);
+                    // console.log(r);
+                    if( r >= (100-sponsor_chance) ) {
+                        n_basetools = n_basetools - 1;
+                        t_context.push(t_basetools[i]);
+                        // delete t_basetools[i];
+                        t_basetools.splice(i, 1);
+                    }
+                }
+            }
+
+            for( var i=0 ; i<n_basetools ; i++ ) {
+                if( t_basetools[i].featured ) {
+                    r = Math.floor(Math.random() * 100);
+                    // console.log(r);
+                    if( r >= (100-featured_chance) ) {
+                        n_basetools = n_basetools - 1;
+                        t_context.push(t_basetools[i]);
+                        // delete t_basetools[i];
+                        t_basetools.splice(i, 1);
+                    }
+                }
+            }
+            // console.log(t_basetools.length);
+            // console.log(t_context.length);
+
+            if( t_context.length > n_context ) {
+                t_context = t_context.slice( 0, n_context );
+            } else {
+                start_index = 0;
+                end_index = start_index + n_context - t_context.length;
+                t_context = t_context.concat( t_basetools.slice(start_index,end_index) );
+            }
         }
         else
         {
@@ -377,10 +450,10 @@ export const actions = {
             let week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7);
             // console.log('week:'+week);
 
-            let max_week = Math.floor( t_context.length/n_context );
+            let max_week = Math.floor( t_basetools.length/n_context );
             // console.log('max_week:'+max_week);
             if( max_week == 0 ) {
-                return t_context;
+                return t_basetools;
             }
             let final_week = week % max_week;
             // let start_index = (final_week-1) * n_context;
@@ -388,11 +461,22 @@ export const actions = {
             end_index = start_index + n_context;
             // console.log('final_week:'+final_week);
             // console.log('start_index:'+start_index);
+            t_context = t_basetools.slice(start_index,end_index);
         }
 
-        t_context = t_context.slice(start_index,end_index);
         // console.log(t_context);
-
         context.commit('setContextualisation',t_context);
+    },
+    async newsletter( context, data ) {
+        // console.log('subscribe newsletter');
+        // console.log(data);
+        await this.$axios.post('https://assets.mailerlite.com/jsonp/326626/forms/79988456374142647/subscribe',data)
+            .then(response => {
+                // console.log(response.data.success);
+                context.commit('setNewsletterStatus',response.data.success);
+            })
+            .catch(function (error) {
+                context.commit('setNewsletterStatus',0);
+            });
     },
 };

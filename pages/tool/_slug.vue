@@ -2,6 +2,9 @@
     <div class="container h-100 p-3">
         <template v-if="datool">
             <ToolDetails :tool="datool"></ToolDetails>
+            <!-- <div class="row mt-3">
+                <Newsletter></Newsletter>
+            </div> -->
         </template>
         <template v-else>
             <NotFound from="toolpage"></NotFound>
@@ -12,11 +15,12 @@
 <script>
 import NotFound from '~/components/NotFound.vue';
 import ToolDetails from '~/components/ToolDetails.vue';
+import Newsletter from '~/components/Newsletter.vue';
 
 export default {
     name: 'ToolPage',
     components: {
-        NotFound, ToolDetails
+        NotFound, ToolDetails, Newsletter
     },
     head() {
         var title = '';

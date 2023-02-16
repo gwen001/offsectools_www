@@ -4,12 +4,13 @@
             <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.picture" placeholder="/img/default-tool.png" class="card-img-top tool-picture" /> -->
             <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.picture" class="card-img-top tool-picture" />
             <div class="card-body">
+                <span class="badge badge-danger ms-2" v-if="tool.sponsor_id">Sponsor</span>
                 <span class="badge badge-warning ms-2" v-if="tool.featured">Featured</span>
                 <!-- <div class="ratings-container" v-if="tool.ratings_count > 0">
                     <Ratings from="toolcard" :tool="tool"></Ratings>
                 </div> -->
                 <h6 class="card-title tool-name mb-3">
-                    <nuxt-link :to="'/tool/'+tool.slug" class="highlight1 stretched-link">{{ tool.nicename }}</nuxt-link>
+                    <nuxt-link :to="'/tool/'+tool.slug" :class="[tool.sponsor_id ? 'highlight1' : tool.featured ? 'text-warning': 'highlight2', 'stretched-link']">{{ tool.nicename }}</nuxt-link>
                 </h6>
                 <nuxt-link :to="'/tool/'+tool.slug" class="fake-link d-none stretched-link"></nuxt-link>
                 <p class="card-text tool-descr">{{ tool.short_descr }}</p>

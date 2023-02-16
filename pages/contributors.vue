@@ -12,7 +12,7 @@
                 <template v-for="contributor,index in contributors">
                     <div class="row align-items-center mb-3">
                         <div class="col text-start" style="max-width:65px;">
-                            <a :href="'https://github.com/'+contributor.github_contributor" target="_blank"><img :src="'https://github.com/'+contributor.github_contributor+'.png?size=48'" width="48" class="rounded-circle" /></a>
+                            <a :href="'https://github.com/'+contributor.github_contributor" target="_blank"><img :src="'https://github.com/'+contributor.github_contributor+'.png?size=48'" width="48" class="rounded-circle" :alt="contributor.github_contributor" /></a>
                         </div>
                         <div class="col text-start align-middle">
                             <a :href="'https://github.com/'+contributor.github_contributor" target="_blank">{{ contributor.github_contributor }}</a>

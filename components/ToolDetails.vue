@@ -23,14 +23,6 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="tool-tags col">
-                        <template v-for="tag,index in tool.tags">
-                            <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1">#{{ tag }}</nuxt-link>
-                            &nbsp;
-                        </template>
-                    </div>
-                </div>
-                <div class="row mt-2">
                     <div class="col">
                         <a :href="tool.homepage" class="tool-link text-custom2" target="_blank">{{ tool.homepage }}</a>
                         <template v-if="tool.extra_link">
@@ -41,6 +33,14 @@
                 <div class="row mt-4" v-if="tool.descr">
                     <div class="tool-descr col">
                         <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="tool-tags col">
+                        <template v-for="tag,index in tool.tags">
+                            <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1">#{{ tag }}</nuxt-link>
+                            &nbsp;
+                        </template>
                     </div>
                 </div>
             </div>
@@ -58,14 +58,14 @@
 </template>
 
 <script>
-import Ratings from '~/components/Ratings.vue';
 import ToolContextualisation from '~/components/ToolContextualisation.vue';
+import Ratings from '~/components/Ratings.vue';
 
 export default {
     name: 'ToolDetails',
     props: [ 'tool' ],
     components: {
-        Ratings, ToolContextualisation
+        ToolContextualisation, Ratings
     },
     methods: {
         // rate( rate_value ) {
