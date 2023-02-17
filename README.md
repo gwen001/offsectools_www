@@ -4,7 +4,6 @@
 
 Tools developped by my sponsors are highlighted.  
 And every week, 10 tools are promoted on the homepage.  
-All those tools come first in search results.  
 
 Newsletter is coming soon!  
 
