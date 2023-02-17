@@ -2,6 +2,13 @@
 
 [offsec.tools](https://offsec.tools) is a vast collection of security tools and resources curated by the community.
 
+Tools developped by my sponsors are highlighted.  
+And every week, 10 tools are promoted on the homepage.  
+All those tools come first in search results.  
+
+Newsletter is coming soon!  
+
+
 # Todo
 
 - images on AWS  
@@ -14,6 +21,7 @@
 
 # Changelog
 
+- 2023-02-16: sponsors  
 - 2023-02-08: images renamed, fix sorter  
 - 2023-02-04: new sorter  
 - 2023-02-03: featured tools  
