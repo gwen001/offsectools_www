@@ -18,8 +18,8 @@
                             The list is feeded by the author and the community.
                         </p>
                         <p>
-                            Tools developped by my sponsors are highlighted.
-                            <br/>And every week, 10 tools are promoted on the homepage.
+                            Tools developped by sponsors are highlighted.
+                            <br/>And every week, 10 random tools are promoted on the homepage.
                         </p>
                         <p>
                           Feel free to check the <a :href="$config.GITHUB_URL" class="highlight2" target="_blank">GitHub repository</a>.

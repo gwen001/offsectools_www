@@ -2,8 +2,8 @@
 
 [offsec.tools](https://offsec.tools) is a vast collection of security tools and resources curated by the community.
 
-Tools developped by my sponsors are highlighted.  
-And every week, 10 tools are promoted on the homepage.  
+Tools developped by sponsors are highlighted.  
+And every week, 10 random tools are promoted on the homepage.  
 
 Newsletter is coming soon!  
 
