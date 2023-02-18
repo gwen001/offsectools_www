@@ -10,6 +10,7 @@ Newsletter is coming soon!
 
 # Todo
 
+- clean tags!!  
 - images on AWS  
 - improve search engine  
 - load on scroll  
