@@ -142,6 +142,7 @@ export default {
         APP_URL: process.env.APP_URL,
         APP_ENV: process.env.APP_ENV,
         GITHUB_URL: process.env.GITHUB_URL,
+        NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL,
         googleAnalytics: {
             id: process.env.GOOGLE_ANALYTICS_ID
         },

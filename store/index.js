@@ -471,7 +471,7 @@ export const actions = {
     async newsletter( context, data ) {
         // console.log('subscribe newsletter');
         // console.log(data);
-        await this.$axios.post('https://assets.mailerlite.com/jsonp/326626/forms/79988456374142647/subscribe',data)
+        await this.$axios.post(this.app.$config.NEWSLETTER_SUBSCRIBE_URL,data)
             .then(response => {
                 // console.log(response.data.success);
                 context.commit('setNewsletterStatus',response.data.success);
