@@ -7,26 +7,21 @@
                     <h1>#{{ datag.slug }}</h1>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="col text-center">
-                    {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
-                </div>
-            </div> -->
             <template v-if="tools.length > 0">
                 <ToolSorter :tools="tools.length"></ToolSorter>
                 <div class="d-flex flex-wrap flex-row justify-content-center mt-1">
                     <template v-for="tool,index in tools">
-                        <!-- <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 9">
+                        <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 9">
                             <NewsletterCard from="tagpage"></NewsletterCard>
-                        </div> -->
+                        </div>
                         <div class="toolcard-loop p-2 align-self-stretch">
                             <ToolCard :tool="tool" from="tagpage"></ToolCard>
                         </div>
                     </template>
                 </div>
-                <!-- <div class="mt-5 ms-5 d-flex">
+                <div class="mt-5 ms-5 d-flex">
                     <Newsletter></Newsletter>
-                </div> -->
+                </div>
             </template>
             <template v-else>
                 <div class="row mt-5">

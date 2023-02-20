@@ -20,9 +20,9 @@
                     </div>
                 </template>
             </div>
-            <!-- <div class="mt-5 ms-5 d-flex">
+            <div class="mt-5 ms-5 d-flex">
                 <Newsletter></Newsletter>
-            </div> -->
+            </div>
         </template>
         <template v-else>
             <div class="row mt-5">

@@ -239,6 +239,7 @@ export const mutations = {
         return state.loading = false;
     },
     resetSearch( state, reset_search_page=0 ) {
+        // console.log('resetSearch');
         if( reset_search_page ) {
             state.search_page = 0;
         }

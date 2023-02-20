@@ -2,9 +2,9 @@
     <div class="container h-100 p-3">
         <template v-if="datool">
             <ToolDetails :tool="datool"></ToolDetails>
-            <!-- <div class="row mt-3">
+            <div class="row mt-3">
                 <Newsletter></Newsletter>
-            </div> -->
+            </div>
         </template>
         <template v-else>
             <NotFound from="toolpage"></NotFound>

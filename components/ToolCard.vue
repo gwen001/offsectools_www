@@ -19,7 +19,7 @@
                 <div class="tool-tags">
                     <p class="card-text tool-tags">
                         <template v-for="tag,index in tool.tags">
-                            <nuxt-link :to="'/tag/'+tag" class="tag-link">#{{ tag }}</nuxt-link>
+                            <nuxt-link :to="'/tag/'+tag" class="tag-link" v-on:click.native="resetSearch()">#{{ tag }}</nuxt-link>
                             &nbsp;
                         </template>
                     </p>
@@ -46,6 +46,13 @@ export default {
     props: ['tool','from'],
     components: {
         Ratings, ToolLink
+    },
+    methods: {
+        resetSearch: function () {
+            console.log('aaaaa');
+            this.$store.commit( 'resetSearch', 1 );
+            // this.$router.push( '/' );
+        },
     },
 }
 </script>

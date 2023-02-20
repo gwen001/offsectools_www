@@ -25,7 +25,7 @@
                 <div class="row mt-2">
                     <div class="tool-tags col">
                         <template v-for="tag,index in tool.tags">
-                            <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1111">#{{ tag }}</nuxt-link>
+                            <nuxt-link :to="'/tag/'+tag" class="tag-link highlight1" @click.native.prevent="resetSearch()">#{{ tag }}</nuxt-link>
                             &nbsp;
                         </template>
                     </div>
@@ -68,6 +68,11 @@ export default {
         ToolContextualisation, Ratings
     },
     methods: {
+        resetSearch: function () {
+            console.log('ccccc');
+            // this.$store.commit( 'resetSearch', 1 );
+            // this.$router.push( '/' );
+        },
         // rate( rate_value ) {
         //     this.$store.dispatch( 'rate', [this.tool.id,rate_value] );
         // },
