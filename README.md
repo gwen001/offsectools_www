@@ -8,20 +8,10 @@ And every week, 10 random tools are promoted on the homepage.
 Newsletter is coming soon!  
 
 
-# Todo
-
-- clean tags!!  
-- images on AWS  
-- improve search engine  
-- load on scroll  
-- reviews  
-- newsletter  
-- user area  
-
-
 # Changelog
 
-- 2023-02-16: sponsors  
+- 2023-02-20: newsletter activated  
+- 2023-02-16: sponsors tools highlighted  
 - 2023-02-08: images renamed, fix sorter  
 - 2023-02-04: new sorter  
 - 2023-02-03: featured tools  
