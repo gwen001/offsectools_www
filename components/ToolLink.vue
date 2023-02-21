@@ -15,25 +15,28 @@ export default {
             if( lnk.startsWith('https://github.com/') ) {
                 return ['fa-brands', 'fa-github'];
             }
-            if( lnk.startsWith('https://gitlab.com/') ) {
+            else if( lnk.startsWith('https://gitlab.com/') ) {
                 return ['fa-brands', 'fa-gitlab'];
             }
-            if( lnk.startsWith('https://twitter.com/') ) {
+            else if( lnk.startsWith('https://twitter.com/') ) {
                 return ['fa-brands', 'fa-twitter'];
             }
-            if( lnk.startsWith('https://www.twitch.tv') ) {
+            else if( lnk.startsWith('https://www.twitch.tv') ) {
                 return ['fa-brands', 'fa-twitch'];
             }
-            if( lnk.startsWith('https://www.youtube.com/') ) {
+            else if( lnk.startsWith('https://www.youtube.com/') ) {
                 return ['fa-brands', 'fa-youtube'];
             }
-            if( lnk.startsWith('https://sourceforge.net/') ) {
+            else if( lnk.startsWith('https://hub.docker.com/') ) {
+                return ['fa-brands', 'fa-docker'];
+            }
+            else if( lnk.startsWith('https://sourceforge.net/') ) {
                 return ['fas', 'fa-floppy-disk'];
             }
 
             return ['fa-solid', 'fa-house'];
-            return ['fa-solid', 'fa-globe'];
-            return ['fa-solid', 'fa-up-right-from-square'];
+            // return ['fa-solid', 'fa-globe'];
+            // return ['fa-solid', 'fa-up-right-from-square'];
         }
     }
 }
