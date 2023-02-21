@@ -5,7 +5,7 @@
 Tools developped by sponsors are highlighted.  
 And every week, 10 random tools are promoted on the homepage.  
 
-Newsletter is coming soon!  
+Newsletter is available since 2023-02-20 !  
 
 
 # Changelog
