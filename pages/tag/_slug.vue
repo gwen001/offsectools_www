@@ -11,7 +11,7 @@
                 <ToolSorter :tools="tools.length"></ToolSorter>
                 <div class="d-flex flex-wrap flex-row justify-content-center mt-1">
                     <template v-for="tool,index in tools">
-                        <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 9">
+                        <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 6">
                             <NewsletterCard from="tagpage"></NewsletterCard>
                         </div>
                         <div class="toolcard-loop p-2 align-self-stretch">
