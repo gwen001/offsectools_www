@@ -98,6 +98,7 @@ export default {
 
 <style scoped>
 .sponsors img {
+    margin-bottom: 10px;
     margin-right: 10px;
 }
 </style>
