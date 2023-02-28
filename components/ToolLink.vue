@@ -33,6 +33,9 @@ export default {
             else if( lnk.startsWith('https://sourceforge.net/') ) {
                 return ['fas', 'fa-floppy-disk'];
             }
+            else if( lnk.startsWith('https://code.google.com/') ) {
+                return ['fa-brands', 'fa-google'];
+            }
 
             return ['fa-solid', 'fa-house'];
             // return ['fa-solid', 'fa-globe'];
