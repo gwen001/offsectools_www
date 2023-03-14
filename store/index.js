@@ -140,7 +140,8 @@ export const getters = {
     sortSponsored: (state) => (t_tools) => {
         // console.log('sortTools');
         t_tools = t_tools.sort(
-            (a, b) => (a.sponsor_id > b.sponsor_id ? -1 : 1)
+            // (a, b) => (a.sponsor_id > b.sponsor_id ? -1 : 1)
+            (a, b) => (a.sponsored > b.sponsored ? -1 : 1)
         );
         return t_tools;
     },
@@ -408,7 +409,7 @@ export const actions = {
             t_basetools = t_basetools.sort(() => Math.random() - 0.5)
 
             for( var i=0 ; i<n_basetools ; i++ ) {
-                if( t_basetools[i].sponsor_id ) {
+                if( t_basetools[i].sponsored ) {
                     r = Math.floor(Math.random() * 100);
                     // console.log(r);
                     if( r >= (100-sponsor_chance) ) {
