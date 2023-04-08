@@ -10,7 +10,7 @@ const dynamicRoutes = async () => {
         const route = {
             url: '/tool/' + tool.slug,
             lastmodISO: tool.updated_at,
-            priority: 0.7
+            priority: 1
         };
         if( tool.picture !== null ) {
             route.img = [
@@ -112,12 +112,13 @@ export default {
         '@nuxtjs/axios',
         '@nuxtjs/sitemap',
         '@nuxt/image',
-        '@nuxtjs/google-analytics',
+        '@nuxtjs/dayjs',
     ],
 
     plugins: [
         '~/plugins/fontawesome.js',
         '~/plugins/app-mounted.js',
+        '~/plugins/gtag.js',
     ],
 
     sitemap: {
@@ -129,10 +130,6 @@ export default {
         baseURL: process.env.API_URL,
     },
 
-    googleAnalytics: {
-        id: process.env.GOOGLE_ANALYTICS_ID
-    },
-
     // public vars
     publicRuntimeConfig: {
         APP_NAME: process.env.APP_NAME,
@@ -142,10 +139,7 @@ export default {
         APP_URL: process.env.APP_URL,
         APP_ENV: process.env.APP_ENV,
         GITHUB_URL: process.env.GITHUB_URL,
-        NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL,
-        googleAnalytics: {
-            id: process.env.GOOGLE_ANALYTICS_ID
-        },
+        NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
