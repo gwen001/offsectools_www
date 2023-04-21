@@ -183,7 +183,7 @@ export const getters = {
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
                 for( var i=0 ; i<state.db.tools.length ; i++ ) {
-                    var td = new Date(state.db.tools[i].created_at);
+                    var td = new Date(state.db.tools[i].accepted_at);
                     if( td > d7 ) {
                         t_tmp.push(state.db.tools[i]);
                     }
