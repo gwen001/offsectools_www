@@ -16,6 +16,7 @@
                     <nuxt-link to="/tag/learning" class="ms-3"><b>Learn & Train</b></nuxt-link>
                     <nuxt-link to="/tag/resources" class="ms-3"><b>Resources</b></nuxt-link>
                     <nuxt-link to="/contributors" class="ms-3"><b>Contributors</b></nuxt-link>
+                    <nuxt-link to="/newsletter" class="ms-3"><b>Newsletter</b></nuxt-link>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">

@@ -10,6 +10,7 @@ Newsletter is available since 2023-02-20 !
 
 # Changelog
 
+- 2023-03-14: fix sponsors status  
 - 2023-02-20: newsletter activated  
 - 2023-02-16: sponsors tools highlighted  
 - 2023-02-08: images renamed, fix sorter  
