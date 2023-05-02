@@ -103,11 +103,11 @@ export const getters = {
         // console.log('sortTools');
         if( state.sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
-                (a, b) => (a.created_at > b.created_at ? -1 : 1)
+                (a, b) => (a.accepted_at > b.accepted_at ? -1 : 1)
             );
         } else if( state.sort_by == 'date_asc' ) {
             t_tools = t_tools.sort(
-                (a, b) => (a.created_at > b.created_at ? 1 : -1)
+                (a, b) => (a.accepted_at > b.accepted_at ? 1 : -1)
             );
         } else if( state.sort_by == 'name_asc' ) {
             t_tools = t_tools.sort(
@@ -343,7 +343,7 @@ export const actions = {
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
                 for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
-                    var td = new Date(this.state.db.tools[i].created_at);
+                    var td = new Date(this.state.db.tools[i].accepted_at);
                     if( td > d7 ) {
                         t_tmp.push(this.state.db.tools[i]);
                     }
