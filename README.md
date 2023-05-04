@@ -14,7 +14,7 @@
 ## Features
 
 - Tools are classified by tags, tags belong to a category
-- Poor search engine
+- Basic search engine
 - Several ways to sort the tools
 - Related tools list
 - Tools developped by sponsors are highlighted and always appear first in search results
