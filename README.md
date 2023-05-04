@@ -3,9 +3,9 @@
 <h4 align="center">A vast collection of security tools and resources curated by the community.</h4>
 
 <p align="center">
-    <img alt="Laravel" src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white" />
     <img alt="Nuxt.js" src="https://img.shields.io/badge/Nuxt.js-00C58E?style=flat-square&logo=nuxt.js&logoColor=white" />
     <img alt="Bootstrap" src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" />
+    <img alt="Laravel" src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white" />
     <a href="https://twitter.com/intent/tweet?text=https%3a%2f%2fgithub.com%2fgwen001%2fDataExtractor%2f" target="_blank"><img alt="Twitter" src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" /></a>
 </p>
 
@@ -22,6 +22,7 @@
 - Newsletter is available since 2023-02-20 !
 - Everyone can add a tool, see [the guidelines](https://github.com/gwen001/offsectools_www/issues/1)
 - Contributors list
+- [Public analytics](https://app.splitbee.io/public/offsec.tools?period=24h) on Splitbee
 
 ---
 
