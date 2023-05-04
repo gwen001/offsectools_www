@@ -17,7 +17,7 @@
 - Basic search engine
 - Several ways to sort the tools
 - Related tools list
-- Tools developped by sponsors are highlighted and always appear first in search results
+- Tools created by sponsors are highlighted and always appear first in search results
 - Every week, 10 random tools are promoted on the homepage
 - Newsletter is available since 2023-02-20 !
 - Everyone can add a tool, see [the guidelines](https://github.com/gwen001/offsectools_www/issues/1)
