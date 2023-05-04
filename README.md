@@ -9,6 +9,7 @@
     <a href="https://twitter.com/intent/tweet?text=https%3a%2f%2fgithub.com%2fgwen001%2fDataExtractor%2f" target="_blank"><img alt="Twitter" src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" /></a>
 </p>
 
+---
 
 ## Features
 
