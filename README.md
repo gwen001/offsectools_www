@@ -2,14 +2,23 @@
 
 [offsec.tools](https://offsec.tools) is a vast collection of security tools and resources curated by the community.
 
-Tools developped by sponsors are highlighted.  
-And every week, 10 random tools are promoted on the homepage.  
 
-Newsletter is available since 2023-02-20 !  
+# Features
+
+- Tools are classified by tags, thags belong to a category.
+- Poor search engine.
+- Several ways to sort the tools
+- Related tools list
+- Tools developped by sponsors are highlighted and always appear first in search results.  
+- Every week, 10 random tools are promoted on the homepage.  
+- Newsletter is available since 2023-02-20 !  
+- Everyone can add a tool, see [the guidelines](https://github.com/gwen001/offsectools_www/issues/1).
+- Contributors list.
 
 
 # Changelog
 
+- 2023-05-04: multi links, multi images  
 - 2023-05-02: fix bug in sorter  
 - 2023-05-01: public analytics added  
 - 2023-03-14: fix sponsors status  
