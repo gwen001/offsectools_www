@@ -3,7 +3,7 @@
         <Logo></Logo>
         <div class="row mt-4 tagname">
             <div class="col text-center">
-                <h1>Featured tools</h1>
+                <h1>Featured tools this week</h1>
             </div>
         </div>
         <!-- <div class="row">

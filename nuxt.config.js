@@ -139,6 +139,7 @@ export default {
         APP_URL: process.env.APP_URL,
         APP_ENV: process.env.APP_ENV,
         GITHUB_URL: process.env.GITHUB_URL,
+        ANALYTICS_URL: process.env.ANALYTICS_URL,
         NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL
     },
 

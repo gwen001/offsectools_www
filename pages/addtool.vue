@@ -15,24 +15,13 @@
                             To register a tool to be listed in {{ $config.APP_NAME }}, please use the following process:
                         </p>
                         <p>
-                            1/ Be sure to carefully read the <a :href="$config.GITHUB_URL+'/issues/1'" class="highlight2" target="_blank">guidelines</a> first.
+                            1/ Be sure to carefully <a :href="$config.GITHUB_URL+'/issues/1'" class="highlight2" target="_blank">read the guidelines</a> first.
                         </p>
                         <p>
-                            2/ Open a <a :href="$config.GITHUB_URL+'/issues/new'" class="highlight2" target="_blank">new issue</a> on GitHub.
+                            2/ <a :href="$config.GITHUB_URL+'/issues/new?assignees=&labels=&template=add-a-tool.md&title=%5Baddtool%5D+Tool+NiceName'" class="highlight2" target="_blank">Open a new issue</a> using the template created for that purpose on GitHub.
                         </p>
                         <p>
-                            3/ The title of the issue is the name of the tool as it will be displayed in {{ $config.APP_NAME }} with the prefix [addtool]
-                        </p>
-                        <p>
-                            4/ The issue should provide the following informations:
-                            <ul>
-                                <li>[homepage]homepage of the tool (required)[/homepage]</li>
-                                <li>[extra_link]an extra link to the tool (optional)[/extra_link]</li>
-                                <li>[tags]list of tags separated by comma (required)[/tags]</li>
-                                <li>[short_descr]short description of the tool (max:100) (required)[/short_descr]</li>
-                                <li>[long_descr]a bigger description (optional)[/long_descr]</li>
-                                <li>[image]an image attached OR a link (required)[/image]</li>
-                            </ul>
+                            3/ Fill all necessary informations, some are required, some are optional.
                         </p>
                     </div>
                 </div>
@@ -44,11 +33,11 @@
                 <div class="row mt-3">
                     <div class="col">
                         <p>
-                            5/ Submit the issue.
+                            4/ Submit the issue.
                         </p>
                         <p>
-                            6/ The issue will be handled by the bot and the tool confirmed after human check.
-                            <br>Note that the team reserves the right to change any details.
+                            5/ The issue will be handled by the bot and the tool confirmed after human check.
+                            <br>Note that the team reserves the right to accept/refuse the submission and change any details if needed.
                         </p>
                     </div>
                 </div>

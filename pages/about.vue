@@ -22,7 +22,7 @@
                             <br/>And every week, 10 random tools are promoted on the homepage.
                         </p>
                         <p>
-                          Feel free to check the <a :href="$config.GITHUB_URL" class="highlight2" target="_blank">GitHub repository</a>.
+                          Feel free to check the <a :href="$config.GITHUB_URL" class="highlight2" target="_blank">GitHub repository</a> and the <a :href="$config.ANALYTICS_URL" class="highlight2" target="_blank">public analytics page</a>.
                         </p>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                             Thanks to all <nuxt-link to="/contributors" class="highlight2">Contributors</nuxt-link>.
                         </p>
                         <p>
-                            Give back to Caesar what's belong to Caesar, {{ $config.APP_NAME }} is very inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
+                            Give back to Caesar what belongs to Caesar, {{ $config.APP_NAME }} is very inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
                         </p>
                         <ul>
                             <li>Site built with <a href="https://nuxtjs.org/" class="discret" target="_blank">NuxtJS</a></li>

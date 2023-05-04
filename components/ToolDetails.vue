@@ -4,7 +4,7 @@
             <div class="col-xl-8 col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 col-sm-11 col-11">
-                        <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.picture" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" />
+                        <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.images[0]" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" />
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -32,12 +32,19 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col">
+                        <template v-for="link,index in tool.links">
+                            <a :href="link" class="text-custom2" target="_blank">{{ link }}</a><br />
+                        </template>
+                    </div>
+                </div>
+                <!-- <div class="row mt-2">
+                    <div class="col">
                         <a :href="tool.homepage" class="tool-link text-custom2" target="_blank">{{ tool.homepage }}</a>
                         <template v-if="tool.extra_link">
                             <br /><a :href="tool.extra_link" class="text-custom2" target="_blank">{{ tool.extra_link }}</a>
                         </template>
                     </div>
-                </div>
+                </div> -->
                 <div class="row mt-4" v-if="tool.descr">
                     <div class="tool-descr col">
                         <p v-html="tool.descr.replace(/(?:\r\n|\r|\n)/g, '<br />')"></p>

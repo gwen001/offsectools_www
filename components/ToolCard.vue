@@ -1,8 +1,7 @@
 <template>
     <div class="tool-card h-100" :class="[(from=='tagpage'||from=='index') ? 'ms-2 me-2' : '']">
         <div class="card h-100">
-            <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.picture" placeholder="/img/default-tool.png" class="card-img-top tool-picture" /> -->
-            <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.picture" class="card-img-top tool-picture" />
+            <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.images[0]" class="card-img-top tool-picture" />
             <div class="card-body">
                 <span class="badge badge-danger ms-2" v-if="tool.sponsored">Sponsor</span>
                 <span class="badge badge-warning ms-2" v-if="tool.featured">Featured</span>
@@ -28,8 +27,11 @@
             <template v-if="from != 'contextualisation'">
                 <div class="card-footer text-center">
                     <div class="justify-content-around">
-                        <ToolLink :link="tool.homepage"></ToolLink>
-                        <ToolLink :link="tool.extra_link" v-if="tool.extra_link"></ToolLink>
+                        <template v-for="link,index in tool.links">
+                            <ToolLink :link="link" :index="index"></ToolLink>
+                        </template>
+                        <!-- <ToolLink :link="tool.homepage"></ToolLink>
+                        <ToolLink :link="tool.extra_link" v-if="tool.extra_link"></ToolLink> -->
                     </div>
                 </div>
             </template>

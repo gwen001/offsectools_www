@@ -10,6 +10,8 @@ Newsletter is available since 2023-02-20 !
 
 # Changelog
 
+- 2023-05-02: fix bug in sorter  
+- 2023-05-01: public analytics added  
 - 2023-03-14: fix sponsors status  
 - 2023-02-20: newsletter activated  
 - 2023-02-16: sponsors tools highlighted  

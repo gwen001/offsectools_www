@@ -7,7 +7,7 @@
 <script>
 export default {
     name: 'ToolLink',
-    props: ['link'],
+    props: ['link','index'],
     computed: {
         daicon() {
             const lnk = this.link.toLowerCase();
@@ -37,9 +37,13 @@ export default {
                 return ['fa-brands', 'fa-google'];
             }
 
-            return ['fa-solid', 'fa-house'];
-            // return ['fa-solid', 'fa-globe'];
-            // return ['fa-solid', 'fa-up-right-from-square'];
+            if( this.index == 0 ) {
+                return ['fa-solid', 'fa-house'];
+            } else {
+                // return ['fa-solid', 'fa-link'];
+                return ['fa-solid', 'fa-globe'];
+                return ['fa-solid', 'fa-up-right-from-square'];
+            }
         }
     }
 }
