@@ -12,7 +12,7 @@
 
 ## Features
 
-- Tools are classified by tags, thags belong to a category
+- Tools are classified by tags, tags belong to a category
 - Poor search engine
 - Several ways to sort the tools
 - Related tools list
