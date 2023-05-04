@@ -10,7 +10,7 @@
 </p>
 
 
-# Features
+## Features
 
 - Tools are classified by tags, thags belong to a category
 - Poor search engine
@@ -23,7 +23,7 @@
 - Contributors list
 
 
-# Changelog
+## Changelog
 
 - 2023-05-04: multi links, multi images
 - 2023-05-02: fix bug in sorter
