@@ -22,6 +22,11 @@
 - Everyone can add a tool, see [the guidelines](https://github.com/gwen001/offsectools_www/issues/1)
 - Contributors list
 
+---
+
+<img src="https://raw.githubusercontent.com/gwen001/offsectools_www/main/static/img/preview.png">
+
+---
 
 ## Changelog
 
@@ -47,7 +52,3 @@
 - 2022-12-20: last7days
 - 2022-12-14: mobile version
 - 2022-12-10: first version
-
----
-
-<img src="https://raw.githubusercontent.com/gwen001/offsectools_www/main/static/img/preview.png">
