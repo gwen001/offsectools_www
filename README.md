@@ -32,6 +32,7 @@
 
 ## Changelog
 
+- 2023-05-11: moved to another server
 - 2023-05-04: multi links, multi images
 - 2023-05-02: fix bug in sorter
 - 2023-05-01: public analytics added
