@@ -9,6 +9,8 @@ assignees: []
 
 ---
 
+Before you fill all the informations here, please give a read at the [guidelines](https://github.com/gwen001/offsectools_www/issues/1) first.
+
 [link]homepage of the tool: https://... (required)[/link]
 [link]another link: https://... (optional)[/link]
 [link]another link: https://... (optional)[/link]
@@ -18,5 +20,3 @@ assignees: []
 [image]a link or an attached image (required)[/image]
 [image]another link or an attached image (optional)[/image]
 [image]another link or an attached image (optional)[/image]
-
-Before you fill all the informations here, please give a read at the [guidelines](https://github.com/gwen001/offsectools_www/issues/1) first.
