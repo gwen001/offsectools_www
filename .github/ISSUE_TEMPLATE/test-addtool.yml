@@ -30,6 +30,7 @@ body:
     id: tags
     attributes:
       label: "Tags"
+      description: "tags separated by comma"
       placeholder: "tag1,tag2,tag3..."
     validations:
       required: true
