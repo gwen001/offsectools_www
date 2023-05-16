@@ -1,5 +1,5 @@
-name: "TEST: Add a tool"
-description: "Issue template for easily add a tool on offsec.tools"
+name: "test add a tool"
+description: "DO NOT USE THIS TEMPLATE"
 title: "[addtool] YourToolNiceNameHere"
 labels: [
   "addtool"
@@ -45,7 +45,8 @@ body:
     id: long_descr
     attributes:
       label: "Long description"
-      placeholder: "No images there, only text, Markdown will not be interpreted."
+      description: "No image, only text, Markdown will not be interpreted."
+      placeholder: "No image, only text, Markdown will not be interpreted."
     validations:
       required: false
   - type: textarea
