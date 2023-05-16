@@ -1,5 +1,4 @@
 name: "Add a tool"
-about: "Issue template for easily add a tool on offsec.tools"
 description: "Issue template for easily add a tool on offsec.tools"
 title: "[addtool] YourToolNiceNameHere"
 labels: [
