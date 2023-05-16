@@ -52,6 +52,7 @@ body:
     id: images
     attributes:
       label: "Image(s)"
+      description: one link per line
       placeholder: |
         https://...
         https://...
