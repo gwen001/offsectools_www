@@ -1,11 +1,13 @@
 ---
 name: Add a tool
 about: Issue template for easily add a tool on offsec.tools
-title: "[addtool] Tool NiceName"
+title: "[addtool] YourToolNiceNameHere"
 labels: ''
 assignees: ''
 
 ---
+
+Before you fill all the informations here, please give a read at the [guidelines](https://github.com/gwen001/offsectools_www/issues/1) first.
 
 [link]homepage of the tool: https://... (required)[/link]
 [link]another link: https://... (optional)[/link]
