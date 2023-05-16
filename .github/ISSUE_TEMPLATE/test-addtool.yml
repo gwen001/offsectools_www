@@ -26,6 +26,13 @@ body:
       placeholder: "https://..."
     validations:
       required: false
+  - type: input
+    id: tags
+    attributes:
+      label: "Tags"
+      placeholder: "tag1,tag2,tag3..."
+    validations:
+      required: true
   - type: textarea
     id: short_descr
     attributes:
