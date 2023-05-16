@@ -34,7 +34,7 @@ body:
       placeholder: "tag1,tag2,tag3..."
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: short_descr
     attributes:
       label: "Short description"
