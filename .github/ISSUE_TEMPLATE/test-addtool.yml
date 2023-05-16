@@ -5,38 +5,38 @@ title: "[addtool] YourToolNiceNameHere"
 labels: ["addtool"]
 assignees: []
 body:
-    - type: input
-      id: link1
+  - type: input
+    id: link1
+    attributes:
+      label: "Main link"
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: input
+    id: link2
+    attributes:
+      label: "Secondary link"
+      placeholder: "https://..."
+    validations:
+      required: false
+  - type: input
+    id: link3
+    attributes:
+      label: "Another link"
+      placeholder: "https://..."
+    validations:
+      required: false
+  - type: textarea
+      id: short_descr
       attributes:
-        label: "Main link"
-        placeholder: "https://..."
+        label: "Short description"
+        placeholder: "Just another tool for doing things."
       validations:
         required: true
-    - type: input
-      id: link2
+  - type: textarea
+      id: long_descr
       attributes:
-        label: "Secondary link"
-        placeholder: "https://..."
+        label: "Long description"
+        placeholder: "blablabla"
       validations:
         required: false
-    - type: input
-      id: link3
-      attributes:
-        label: "Another link"
-        placeholder: "https://..."
-      validations:
-        required: false
-    - type: textarea
-        id: short_descr
-        attributes:
-          label: "Short description"
-          placeholder: "Just another tool for doing things."
-        validations:
-          required: true
-    - type: textarea
-        id: long_descr
-        attributes:
-          label: "Long description"
-          placeholder: "blablabla"
-        validations:
-          required: false
