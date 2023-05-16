@@ -45,7 +45,7 @@ body:
     id: long_descr
     attributes:
       label: "Long description"
-      placeholder: "blablabla"
+      placeholder: "No images there, only text, Markdown will not be interpreted."
     validations:
       required: false
   - type: textarea
