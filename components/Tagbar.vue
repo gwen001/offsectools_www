@@ -7,9 +7,9 @@
                 <template v-for="cat,index in categories">
                         <div class="accordion-item">
                             <h2 class="accordion-header" :id="'panelsStayOpen-heading'+cat.id">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#panelsStayOpen-collapse'+cat.id" aria-expanded="true" :aria-controls="'panelsStayOpen-collapse'+cat.id">{{ cat.nicename }}</button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#panelsStayOpen-collapse'+cat.id" aria-expanded="false" :aria-controls="'panelsStayOpen-collapse'+cat.id">{{ cat.nicename }}</button>
                             </h2>
-                            <div :id="'panelsStayOpen-collapse'+cat.id" class="accordion-collapse collapse show" :aria-labelledby="'panelsStayOpen-heading'+cat.id">
+                            <div :id="'panelsStayOpen-collapse'+cat.id" class="accordion-collapse collapse" :aria-labelledby="'panelsStayOpen-heading'+cat.id">
                                 <div class="accordion-body">
                                     <!-- <ul class="list-group">
                                         <template v-for="tag,index in cat.tags">
@@ -37,13 +37,13 @@
         </template>
         <template v-else>
             <ul class="list-group mt-3">
-                <li>
+                <!-- <li>
                     <nuxt-link to="/tag/all" v-on:click.native="resetSearch()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">
                         <span class="hashtag">#</span>
                         <span class="nicename flex-fill">all</span>
                         <span class="badge rounded-pill">{{ getToolsN }}</span>
                     </nuxt-link>
-                </li>
+                </li> -->
                 <template v-for="tag,index in tags">
                     <li>
                         <nuxt-link :to="'/tag/'+tag.slug" v-on:click.native="resetSearch()" class="list-group-item btn text-start d-flex justify-content-between align-items-center">

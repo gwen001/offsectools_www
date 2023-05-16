@@ -407,6 +407,13 @@ a.text-custom3:hover {
     color: #ddd;
 }
 
+.show {
+    /* border: 5px solid #f00; */
+    /* display: block; */
+    transform: translateX(0) !important;
+    visibility: visible !important;
+}
+
 /* X-Small	None  <576px
 Small	sm    ≥576px
 Medium	md    ≥768px
@@ -422,13 +429,6 @@ lg: 992px,
 xl: 1200px,
 xxl: 1400px
 ); */
-
-.show {
-    /* border: 5px solid #f00; */
-    visibility: visible !important;
-    /* display: block; */
-    transform: translateX(0) !important;
-}
 
 @media all and (max-width: 991px) {
     #main-content {
