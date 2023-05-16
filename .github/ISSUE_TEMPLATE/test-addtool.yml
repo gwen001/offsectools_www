@@ -52,7 +52,7 @@ body:
     id: images
     attributes:
       label: "Image(s)"
-      description: one link per line
+      description: one link per line, but you can also attach images to the issue
       placeholder: |
         https://...
         https://...
