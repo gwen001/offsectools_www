@@ -48,3 +48,14 @@ body:
       placeholder: "blablabla"
     validations:
       required: false
+  - type: textarea
+    id: images
+    attributes:
+      label: "Image(s)"
+      placeholder: |
+        https://...
+        https://...
+        https://...
+        https://...
+    validations:
+      required: true
