@@ -2,8 +2,9 @@ name: "Add a tool"
 about: "Issue template for easily add a tool on offsec.tools"
 description: "Issue template for easily add a tool on offsec.tools"
 title: "[addtool] YourToolNiceNameHere"
-labels: ["addtool"]
-assignees: []
+labels: [
+  "addtool"
+]
 body:
   - type: input
     id: link1
