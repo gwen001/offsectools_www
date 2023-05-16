@@ -28,16 +28,16 @@ body:
     validations:
       required: false
   - type: textarea
-      id: short_descr
-      attributes:
-        label: "Short description"
-        placeholder: "Just another tool for doing things."
-      validations:
-        required: true
+    id: short_descr
+    attributes:
+      label: "Short description"
+      placeholder: "Just another tool for doing things."
+    validations:
+      required: true
   - type: textarea
-      id: long_descr
-      attributes:
-        label: "Long description"
-        placeholder: "blablabla"
-      validations:
-        required: false
+    id: long_descr
+    attributes:
+      label: "Long description"
+      placeholder: "blablabla"
+    validations:
+      required: false
