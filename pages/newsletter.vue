@@ -25,6 +25,7 @@
                         <br /><nuxt-link to="/newsletter/newsletter-12.html" target="_blank" class="highlight2">Weekly newsletter N°12</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-13.html" target="_blank" class="highlight2">Weekly newsletter N°13</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-14.html" target="_blank" class="highlight2">Weekly newsletter N°14</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-15.html" target="_blank" class="highlight2">Weekly newsletter N°15</nuxt-link>
                     </div>
                 </div>
                 <div class="mt-5 d-flex">
