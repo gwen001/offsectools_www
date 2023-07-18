@@ -28,6 +28,9 @@
                         <br /><nuxt-link to="/newsletter/newsletter-15.html" target="_blank" class="highlight2">Weekly newsletter N°15</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-16.html" target="_blank" class="highlight2">Weekly newsletter N°16</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-17.html" target="_blank" class="highlight2">Weekly newsletter N°17</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-18.html" target="_blank" class="highlight2">Weekly newsletter N°18</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-19.html" target="_blank" class="highlight2">Weekly newsletter N°19</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-20.html" target="_blank" class="highlight2">Weekly newsletter N°20</nuxt-link>
                     </div>
                 </div>
                 <div class="mt-5 d-flex">
