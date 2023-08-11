@@ -24,13 +24,21 @@
                 </div>
             </template>
             <template v-else>
-                <div class="row mt-5">
-                    <div class="col text-center">
-                        Nothing there, but feel free to
-                        <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
-                        if you think something is missing :)
+                <template v-if="datag.slug=='last7days'">
+                    <div class="col-8 text-center m-auto mt-4">
+                        <p>Currently lazy because of DefCon2023 :)</p>
+                        <img src="/img/defcon2023.jpg" class="img-fluid" />
                     </div>
-                </div>
+                </template>
+                <template v-else>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            Nothing there, but feel free to
+                            <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
+                            if you think something is missing :)
+                        </div>
+                    </div>
+                </template>
             </template>
         </template>
         <template v-else>
