@@ -26,8 +26,8 @@
             <template v-else>
                 <template v-if="datag.slug=='last7days'">
                     <div class="col-8 text-center m-auto mt-4">
-                        <p>Currently lazy because of DefCon2023 :)</p>
-                        <img src="/img/defcon2023.jpg" class="img-fluid" />
+                        <p>Currently lazy because of holidays, back soon ❤️</p>
+                        <img src="/img/cancun.jpg" class="img-fluid" />
                     </div>
                 </template>
                 <template v-else>
