@@ -545,7 +545,7 @@ xxl: 1400px
         transform: translateX(-100%);
         transition: visibility .3s ease-in-out, transform .3s ease-in-out;
         visibility: hidden;
-        width: 30%;
+        width: 40%;
         max-width: 350px;
         z-index: 1200;
     }
@@ -564,7 +564,7 @@ xxl: 1400px
         transform: translateX(-100%);
         transition: visibility .3s ease-in-out, transform .3s ease-in-out;
         visibility: hidden;
-        width: 30%;
+        width: 40%;
         max-width: 350px;
         z-index: 1200;
     }
