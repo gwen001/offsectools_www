@@ -77,6 +77,7 @@ export default {
         ],
         script: [
             { src: "/js/bootstrap.bundle.min.js" },
+            { src: "/js/masonry.pkgd.min.js" },
         ]
     },
     // <link rel="preload" href="/telfront/modern/fonts/inter-v7-latin.c8186f6f0b5f997e3697.woff2" as="font" type="font/woff2" crossorigin>

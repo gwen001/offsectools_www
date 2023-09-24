@@ -2,7 +2,7 @@
     <div id="mobile-menu" class="mb-3 d-block d-lg-none d-xl-none">
         <div class="row mt-2">
             <div class="col text-end">
-                <a href="javascript:;" class="lnk-close" v-on:click="hideMobileTarbar">
+                <a href="javascript:;" class="lnk-close" v-on:click="hideMobilebar">
                     <font-awesome-icon icon="far fa-circle-xmark" />
                 </a>
             </div>
@@ -16,6 +16,8 @@
             <div class="col text-center">
                 <nuxt-link to="/tag/last7days"><b>Last 7 days</b></nuxt-link>
             </div>
+        </div>
+        <div class="row mt-3">
             <div class="col text-center">
                 <RandomTool from="mobilemenu"></RandomTool>
             </div>
@@ -24,6 +26,8 @@
             <div class="col text-center">
                 <nuxt-link to="/tag/learning"><b>Learn & Train</b></nuxt-link>
             </div>
+        </div>
+        <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/tag/resources"><b>Resources</b></nuxt-link>
             </div>
@@ -32,8 +36,15 @@
             <div class="col text-center">
                 <nuxt-link to="/contributors"><b>Contributors</b></nuxt-link>
             </div>
+        </div>
+        <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/newsletter"><b>Newsletter</b></nuxt-link>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <nuxt-link :to="browseLink"><b>Tags</b></nuxt-link>
             </div>
         </div>
         <div class="d-flex mt-3">
@@ -51,8 +62,17 @@ export default {
     components: {
         RandomTool
     },
+    computed: {
+        browseLink() {
+            if( this.$store.getters['getTagsSortBy'] == 'categories' ) {
+                return '/browse/categories';
+            } else {
+                return '/browse/alphabet';
+            }
+        },
+    },
     methods: {
-        hideMobileTarbar() {
+        hideMobilebar() {
             this.$parent.hideMe();
         },
     },

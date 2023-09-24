@@ -12,7 +12,7 @@
             </div>
         </div> -->
         <template v-if="tools.length > 0">
-            <ToolSorter :tools="tools.length"></ToolSorter>
+            <ToolsSorter :tools="tools.length"></ToolsSorter>
             <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
                 <template v-for="tool,index in tools">
                     <div class="toolcard-loop p-2 align-self-stretch">
@@ -39,13 +39,13 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import ToolCard from '~/components/ToolCard.vue'
-import ToolSorter from '~/components/ToolSorter.vue'
+import ToolsSorter from '~/components/ToolsSorter.vue'
 import Newsletter from '~/components/Newsletter.vue';
 
 export default {
     name: 'Home',
     components: {
-        Logo, ToolCard, ToolSorter, Newsletter
+        Logo, ToolCard, ToolsSorter, Newsletter
     },
     computed: {
         tools() {

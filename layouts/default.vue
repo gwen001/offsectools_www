@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid vh-100 p-0 m-0">
         <div class="row vh-100 p-0 m-0">
-            <Tagbar ref="tagbar"></Tagbar>
+            <Mobilebar ref="mobilebar"></Mobilebar>
             <div id="main" class="col p-0 m-0">
                 <Topbar></Topbar>
                 <div class="row p-0 m-0">
@@ -18,13 +18,13 @@
 
 <script>
 import Topbar from '~/components/Topbar.vue';
-import Tagbar from '~/components/Tagbar.vue';
+import Mobilebar from '~/components/Mobilebar.vue';
 import MainContent from '~/components/MainContent.vue';
 
 export default {
     name: 'default_layout',
     components: {
-        Topbar, Tagbar, MainContent
+        Topbar, Mobilebar, MainContent
     },
     async mounted() {
         await this.$store.dispatch( 'getDb' );

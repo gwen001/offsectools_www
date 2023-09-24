@@ -40,12 +40,15 @@ export default {
     methods: {
         showTagsCategories() {
             this.$store.commit( 'setTagsDisplay', 'categories' );
+            this.$router.push('/tags/bycategory')
         },
         showTopTags() {
             this.$store.commit( 'setTagsDisplay', 'top' );
         },
         showAllTags() {
             this.$store.commit( 'setTagsDisplay', 'all' );
+            // document.location = '/tags/all';
+            this.$router.push('/tags')
 
         },
     },

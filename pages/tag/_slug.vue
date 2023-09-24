@@ -8,8 +8,10 @@
                 </div>
             </div>
             <template v-if="tools.length > 0">
-                <ToolSorter :tools="tools.length"></ToolSorter>
-                <div class="d-flex flex-wrap flex-row justify-content-center mt-1">
+                <div class="d-flex justify-content-center">
+                    <ToolsSorter :tools="tools.length"></ToolsSorter>
+                </div>
+                <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
                     <template v-for="tool,index in tools">
                         <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 6">
                             <NewsletterCard from="tagpage"></NewsletterCard>
@@ -19,7 +21,7 @@
                         </div>
                     </template>
                 </div>
-                <div class="mt-5 ms-5 d-flex">
+                <div class="mt-5 d-flex justify-content-center">
                     <Newsletter></Newsletter>
                 </div>
             </template>
@@ -51,7 +53,7 @@
 import Logo from '~/components/Logo.vue'
 import NotFound from '~/components/NotFound.vue';
 import ToolCard from '~/components/ToolCard.vue'
-import ToolSorter from '~/components/ToolSorter.vue'
+import ToolsSorter from '~/components/ToolsSorter.vue'
 import LoadMore from '~/components/LoadMore.vue'
 import Newsletter from '~/components/Newsletter.vue';
 import NewsletterCard from '~/components/NewsletterCard.vue';
@@ -59,7 +61,7 @@ import NewsletterCard from '~/components/NewsletterCard.vue';
 export default {
     name: 'TagPage',
     components: {
-        Logo, NotFound, ToolCard, ToolSorter, LoadMore, Newsletter, NewsletterCard
+        Logo, NotFound, ToolCard, ToolsSorter, LoadMore, Newsletter, NewsletterCard
     },
     head() {
         var title = '';

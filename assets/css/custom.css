@@ -295,11 +295,12 @@ a.text-custom3:hover {
 
 #main-content {
     background-color: #0a0c1f;
+    /* border: 1px solid #f00; */
     /* overflow-y: auto; */
     padding-bottom: 100px;
     padding-top: 80px;
 
-    padding-left: 250px !important;
+    /* padding-left: 250px !important; */
 }
 
 
@@ -310,7 +311,7 @@ a.text-custom3:hover {
     top:0;
 
     background-color: #0a0c1f;
-    padding-left: 250px !important;
+    /* padding-left: 250px !important; */
     width: 100%;
     z-index: 10;
 
@@ -403,16 +404,6 @@ a.text-custom3:hover {
     /* border-left: 3px solid #f9205a; */
 }
 
-#mobile-menu .lnk-close:hover {
-    color: #ddd;
-}
-
-.show {
-    /* border: 5px solid #f00; */
-    /* display: block; */
-    transform: translateX(0) !important;
-    visibility: visible !important;
-}
 
 /* X-Small	None  <576px
 Small	sm    ≥576px
@@ -429,6 +420,7 @@ lg: 992px,
 xl: 1200px,
 xxl: 1400px
 ); */
+
 
 @media all and (max-width: 991px) {
     #main-content {
@@ -465,8 +457,40 @@ xxl: 1400px
     }
 /* } */
 
+
+#mobilebar {
+    display: none;
+
+    background-color: #0a0c1f;
+    border-right: 2px solid #141729;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* padding-top: 10px; */
+    /* width: 150px; */
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 11;
+}
+
+
+#mobile-menu .lnk-close:hover {
+    color: #ddd;
+}
+
+.show {
+    /* border: 5px solid #f00; */
+    /* display: block; */
+    transform: translateX(0) !important;
+    visibility: visible !important;
+}
+
 @media all and (max-width: 991px) {
-    #tagbar {
+    /* #tagbar {
         border-radius: 0;
         display: block;
         left: 0;
@@ -481,11 +505,43 @@ xxl: 1400px
         width: 50%;
         max-width: 350px;
         z-index: 1200;
+    } */
+    #mobilebar {
+        border-radius: 0;
+        display: block;
+        left: 0;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+        transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+        visibility: hidden;
+        width: 30%;
+        max-width: 350px;
+        z-index: 1200;
     }
 }
 
 @media all and (max-width: 767px) {
-    #tagbar {
+    #mobilebar {
+        border-radius: 0;
+        display: block;
+        left: 0;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+        transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+        visibility: hidden;
+        width: 30%;
+        max-width: 350px;
+        z-index: 1200;
+    }
+    /* #tagbar {
         border-radius: 0;
         display: block;
         left: 0;
@@ -500,10 +556,31 @@ xxl: 1400px
         width: 80%;
         max-width: 350px;
         z-index: 1200;
-    }
+    } */
 }
 
 
+
+#browse-alphabet .column {
+    border: 0px solid #00f;
+    margin-bottom: 50px;
+    margin-right: 30px;
+}
+#browse-alphabet div.title {
+    color: #22d3ee;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+#browse-categories .column {
+    border: 0px solid #00f;
+    margin-bottom: 50px;
+    margin-right: 30px;
+}
+#browse-categories div.title {
+    color: #22d3ee;
+    font-size: 1.3em;
+    /* text-transform: uppercase; */
+}
 
 
 
@@ -529,6 +606,7 @@ xxl: 1400px
     background-color: #141729;
 }
 .tool-card {
+    /* width: 300px; */
     width: 300px;
     /* margin: auto; */
 }
@@ -655,3 +733,29 @@ xxl: 1400px
     }
 }
 
+.btn.btn-outline-gradient {
+    position: relative;
+    box-sizing: border-box;
+    background: #0a0c1f;
+    background-clip: padding-box;
+    border-color: transparent;
+}
+
+
+.btn.btn-outline-gradient:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    /* background: linear-gradient(135deg,#ffe100,#f70606); */
+    /* background: linear-gradient(135deg,#facc15,#f9205a); */
+    background: linear-gradient(135deg,#facc15,#22d3ee);
+    /* background: linear-gradient(135deg,#22d3ee,#f9205a); */
+    /* background: linear-gradient(135deg,#facc15,#22d3ee); */
+    /* background: linear-gradient(135deg,#92fe9d,#00c9ff); */
+}

@@ -17,6 +17,7 @@
                     <nuxt-link to="/tag/resources" class="ms-3"><b>Resources</b></nuxt-link>
                     <nuxt-link to="/contributors" class="ms-3"><b>Contributors</b></nuxt-link>
                     <nuxt-link to="/newsletter" class="ms-3"><b>Newsletter</b></nuxt-link>
+                    <nuxt-link :to="browseLink" class="ms-3"><b>Tags</b></nuxt-link>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">
@@ -30,7 +31,7 @@
                     </div>
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block">
-                    <nuxt-link to="/addtool" class="btn btn-outline-custom2">Add a tool</nuxt-link>
+                    <nuxt-link to="/addtool" class="btn btn-outline-custom2 btn-outline-gradientttt">Add a tool</nuxt-link>
                     <nuxt-link to="/about" class="btn btn-custom2 ms-1">?</nuxt-link>
                 </div>
             </div>
@@ -73,7 +74,7 @@ export default {
         // },
         showMobileTarbar() {
             // console.log('showMobileTarbar');
-            this.$parent.$refs.tagbar.showMe();
+            this.$parent.$refs.mobilebar.showMe();
             setTimeout(() => document.addEventListener('click',this.hideMobileTarbar), 0);
         },
         hideMobileTarbar(event) {
@@ -83,7 +84,7 @@ export default {
             t_categories.forEach( elt =>ignore_close.push(elt.nicename) );
             var doClose = !ignore_close.includes(event.target.firstChild.data);
             if( doClose ) {
-                this.$parent.$refs.tagbar.hideMe();
+                this.$parent.$refs.mobilebar.hideMe();
                 document.removeEventListener('click',this.hideMobileTarbar);
             }
         },
@@ -92,6 +93,16 @@ export default {
         document.getElementById('search-input').focus();
     },
     computed: {
+        browseLink() {
+            if( this.$store.getters['getTagsSortBy'] == 'categories' ) {
+                return '/browse/categories';
+            } else {
+                return '/browse/alphabet';
+            }
+        },
+        isSortByCategories() {
+            return (this.$store.getters['getTagsSortBy'] == 'categories');
+        },
         search_term: {
             get() {
                 return this.$store.getters['getSearchTerm'];

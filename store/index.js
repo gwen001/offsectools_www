@@ -9,7 +9,8 @@ const getDefaultState = () => {
         search_page: 0,
         limit_results: 200,
         search_results: [],
-        sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
+        tags_sort_by: 'categories', // name, categories
+        tools_sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
         tags_display: 'top', // all, top, categories
         tool_context: [], // contextualisation
         newsletter_status: -1, // -1:nothing done (default), 9999:loading, 0:refused, 1:accepted
@@ -31,8 +32,11 @@ export const getters = {
     getSearchPage( state ) {
         return state.search_page;
     },
-    getSortBy( state ) {
-        return state.sort_by;
+    getTagsSortBy( state ) {
+        return state.tags_sort_by;
+    },
+    getToolsSortBy( state ) {
+        return state.tools_sort_by;
     },
     getCategories( state ) {
         return state.db.categories;
@@ -65,6 +69,33 @@ export const getters = {
             );
         }
         return t_tags;
+    },
+    getTagsByName( state ) {
+        var k = 0;
+        var t_tags = [];
+        var t_alphabet = {};
+        var first_letter = '';
+
+        for( var i=0 ; i<state.db.tags.length ; i++ ) {
+            if( state.db.tags[i].tools_count == 0 ) {
+                continue;
+            }
+            first_letter = state.db.tags[i].slug[0];
+            if( first_letter < 'a' || first_letter > 'z' ) {
+                first_letter = '#';
+            }
+            if( first_letter in t_alphabet ) {
+                // console.log(t_alphabet[first_letter].length);
+            } else {
+                // console.log('not yet');
+                t_alphabet[first_letter] = [];
+            }
+            t_alphabet[first_letter][t_alphabet[first_letter].length] = state.db.tags[i];
+
+            t_tags[k++] = state.db.tags[i];
+        }
+        // console.log(t_alphabet);
+        return t_alphabet;
     },
     getTagFromSlug: (state) => (slug) => {
         for( var i=0 ; i<state.db.tags.length ; i++ ) {
@@ -101,26 +132,26 @@ export const getters = {
     },
     sortTools: (state,getters) => (t_tools) => {
         // console.log('sortTools');
-        if( state.sort_by == 'date_desc' ) {
+        if( state.tools_sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.accepted_at > b.accepted_at ? -1 : 1)
             );
-        } else if( state.sort_by == 'date_asc' ) {
+        } else if( state.tools_sort_by == 'date_asc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.accepted_at > b.accepted_at ? 1 : -1)
             );
-        } else if( state.sort_by == 'name_asc' ) {
+        } else if( state.tools_sort_by == 'name_asc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.slug > b.slug ? 1 : -1)
             );
-        } else if( state.sort_by == 'name_desc' ) {
+        } else if( state.tools_sort_by == 'name_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.slug > b.slug ? -1 : 1)
             );
-        } else if( state.sort_by == 'rand' ) {
+        } else if( state.tools_sort_by == 'rand' ) {
             t_tools = t_tools.sort(() => Math.random() - 0.5)
         }
-        // } else if( state.sort_by == 'ratings' ) {
+        // } else if( state.tools_sort_by == 'ratings' ) {
         //     t_tools = t_tools.sort(
         //         (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
         //     );
@@ -258,8 +289,11 @@ export const mutations = {
     // setSearchResults( state, data ) {
     //     return state.search_results = data;
     // },
-    setSortBy( state, value ) {
-        return state.sort_by = value;
+    setTagsSortBy( state, value ) {
+        return state.tags_sort_by = value;
+    },
+    setToolsSortBy( state, value ) {
+        return state.tools_sort_by = value;
     },
     setDb( state, data ) {
         return state.db = data;
