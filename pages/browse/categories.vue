@@ -57,6 +57,7 @@ export default {
         // },
     },
     mounted() {
+        this.$store.commit( 'resetAwesomeBackground' );
         let masonry = new Masonry('#browse-categories .categories', {
             // columnWidth: "200",
             percentPosition: true,

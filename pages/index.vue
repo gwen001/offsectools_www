@@ -54,6 +54,9 @@ export default {
             return this.$store.getters['getToolsFeatured'];
         },
     },
+    mounted() {
+        this.$store.commit( 'resetAwesomeBackground' );
+    }
 }
 </script>
 

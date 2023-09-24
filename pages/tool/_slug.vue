@@ -98,6 +98,7 @@ export default {
     },
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
+        this.$store.commit( 'resetAwesomeBackground' );
     },
     async asyncData( { store, params, error } ) {
         var t = await store.getters['getToolFromSlug'](params.slug);
@@ -106,6 +107,9 @@ export default {
         } else {
             error({ statusCode:404, message:'This page could not be found' })
         }
+    },
+    mounted() {
+        this.$store.commit( 'resetAwesomeBackground' );
     }
 }
 </script>

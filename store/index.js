@@ -4,6 +4,7 @@ const getDefaultState = () => {
     return {
         user_agent: '',
         loading: false,
+        awesome_background: '',
         db: [],
         search_term: '',
         search_page: 0,
@@ -26,6 +27,9 @@ export const getters = {
     getUserAgent( state ) {
         return state.user_agent;
     },
+    getAwesomeBackground( state ) {
+        return state.awesome_background;
+    },
     getSearchTerm( state ) {
         return state.search_term;
     },
@@ -39,6 +43,7 @@ export const getters = {
         return state.tools_sort_by;
     },
     getCategories( state ) {
+        // console.log(state.db.categories);
         return state.db.categories;
     },
     getContributors( state ) {
@@ -263,6 +268,12 @@ export const mutations = {
     },
     setUserAgent( state, user_agent ) {
         return state.user_agent = user_agent;
+    },
+    setAwesomeBackground( state, awesome_background ) {
+        return state.awesome_background = awesome_background;
+    },
+    resetAwesomeBackground( state ) {
+        return state.awesome_background = '';
     },
     startLoading( state ) {
         return state.loading = true;

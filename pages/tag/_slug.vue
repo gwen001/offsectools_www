@@ -145,6 +145,9 @@ export default {
                 error({ statusCode:404, message:'This page could not be found' })
             }
         }
+    },
+    mounted() {
+        this.$store.commit( 'resetAwesomeBackground' );
     }
 }
 </script>

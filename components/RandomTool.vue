@@ -1,5 +1,5 @@
 <template>
-    <a id="random-tool" href="javascript:;" v-on:click="randomtool" :class="[from=='topbar' ? 'ms-3' : '']"><b>Random tool</b></a>
+    <a id="random-tool" href="javascript:;" v-on:click="randomtool" :class="[from=='topbar' ? 'ms-3' : '']">Random tool</a>
 </template>
 
 <script>

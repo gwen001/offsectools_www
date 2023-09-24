@@ -7,7 +7,7 @@
         </div>
         <div class="row justify-content-center mt-0">
             <div class="col-12 col-sm-9 col-md-7 col-lg-7 col-xl-6 col-xxl-4 text-center">
-                <h2>
+                <h2 class="slogan">
                     {{ $config.APP_DESCR }}
                 </h2>
             </div>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Logo from '~/components/Logo.vue'
 
 export default {
     name: 'Logo',

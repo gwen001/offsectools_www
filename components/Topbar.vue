@@ -11,13 +11,13 @@
                     <nuxt-link to="/" class="align-middle">
                         <font-awesome-icon icon="fas fa-house" />
                     </nuxt-link>
-                    <nuxt-link to="/tag/last7days" class="ms-3"><b>Last 7 days</b></nuxt-link>
+                    <nuxt-link to="/tag/last7days" class="ms-3">Last 7 days</nuxt-link>
                     <RandomTool from="topbar"></RandomTool>
-                    <nuxt-link to="/tag/learning" class="ms-3"><b>Learn & Train</b></nuxt-link>
-                    <nuxt-link to="/tag/resources" class="ms-3"><b>Resources</b></nuxt-link>
-                    <nuxt-link to="/contributors" class="ms-3"><b>Contributors</b></nuxt-link>
-                    <nuxt-link to="/newsletter" class="ms-3"><b>Newsletter</b></nuxt-link>
-                    <nuxt-link :to="browseLink" class="ms-3"><b>Tags</b></nuxt-link>
+                    <nuxt-link to="/tag/learning" class="ms-3">Learn & Train</nuxt-link>
+                    <nuxt-link to="/tag/resources" class="ms-3">Resources</nuxt-link>
+                    <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
+                    <nuxt-link to="/newsletter" class="ms-3">Newsletter</nuxt-link>
+                    <nuxt-link :to="browseLink" class="ms-3">Tags</nuxt-link>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">
