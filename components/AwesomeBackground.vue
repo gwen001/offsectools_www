@@ -1,8 +1,8 @@
 <template>
     <div id="awesome-background">
         <div id="awesome-background-copyright">
-            <template v-if="awesome_background">
-            <a href="https://twitter.com/rez0__" target="_blank">credit @rez0</a>
+            <template v-if="awesome_background != ''">
+                <a href="https://twitter.com/rez0__" target="_blank">credit @rez0</a>
             </template>
         </div>
         <div id="awesome-background-image" :style="`background-image:url(${awesome_background});`"></div>
