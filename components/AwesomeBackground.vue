@@ -34,7 +34,7 @@ export default {
     z-index: 0;
 }
 #awesome-background-copyright a {
-    color: rgba(255,255,255,0.5);
+    color: #eee;
 }
 #awesome-background-copyright a:hover {
     text-decoration: none;
@@ -66,15 +66,5 @@ export default {
     top: 0px;
     width: 100%;
     z-index: -1;
-}
-
-
-h2 {
-    color: #bbb;
-    font-size: 1.4em !important;
-}
-.logo {
-    font-size: 4.5em !important;
-    font-weight: 500;
 }
 </style>

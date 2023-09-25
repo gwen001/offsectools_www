@@ -337,7 +337,7 @@ a.text-custom3:hover {
     position: fixed;
     top:0;
 
-    background-color: #0a0c1f;
+    /* background-color: #0a0c1f; */
     /* padding-left: 250px !important; */
     width: 100%;
     z-index: 10;

@@ -1,5 +1,5 @@
 <template>
-    <div id="topbar" class="">
+    <div id="topbar" class="" :style="`background-color: rgba(10,12,31,${opacity});`">
         <nav class="navbar h-100">
             <div class="container-fluid">
                 <div id="mobilemenu-icon" class="mobilemenu-icon d-lg-none d-xl-none">
@@ -47,6 +47,11 @@ export default {
     components: {
         RandomTool
     },
+    data: function () {
+        return {
+            opacity: 0,
+        }
+    },
     methods: {
         doSearch() {
             // alert('doSearch');
@@ -88,11 +93,32 @@ export default {
                 document.removeEventListener('click',this.hideMobileTarbar);
             }
         },
+        handleScroll() {
+            if( process.client ) {
+                let scrollHeight = window.scrollY;
+                let maxHeight = window.document.body.scrollHeight - window.document.documentElement.clientHeight;
+                this.opacity = scrollHeight/100;
+                // console.log(scrollHeight);
+                // console.log(maxHeight);
+                if( scrollHeight >= (maxHeight-200) ) {
+                    //this.getPosts();
+                }
+            }
+        },
+    },
+    created() {
+        if( process.client ) {
+            window.addEventListener('scroll', this.handleScroll);
+            // this.getPosts();
+        }
     },
     mounted() {
         document.getElementById('search-input').focus();
     },
     computed: {
+        opacity() {
+            return this.opacity;
+        },
         browseLink() {
             if( this.$store.getters['getTagsSortBy'] == 'categories' ) {
                 return '/browse/categories';
