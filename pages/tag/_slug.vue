@@ -1,8 +1,8 @@
 <template>
-    <div id="tagpage" class="w-100 h-100" style="margin-topppp:25em;">
+    <div id="tagpage" class="w-100 h-100">
         <template v-if="datag">
             <!-- <Logo></Logo> -->
-            <div class="row mt-4 tagname">
+            <div class="row tagname">
                 <div class="col text-center">
                     <h1>#{{ datag.slug }}</h1>
                 </div>
@@ -128,11 +128,6 @@ export default {
             return this.$store.getters['searchTools'](this.$route.params.slug);
         },
     },
-    // mounted() {
-    //     // document.getElementById('main-content').scrollTo(0,0);
-    //     this.$store.dispatch('searchTools', [this.$route.params.slug]);
-    //     var t = await store.getters['getTagFromSlug'](params.slug);
-    // },
     async asyncData( { store, params, error } ) {
         // console.log('asyncData');
         if( params.slug == 'all' || params.slug == 'last7days' ) {
@@ -140,6 +135,7 @@ export default {
         } else {
             var t = await store.getters['getTagFromSlug'](params.slug);
             if( t ) {
+                // console.log(t.background_filename);
                 return { datag:t };
             } else {
                 error({ statusCode:404, message:'This page could not be found' })
@@ -147,8 +143,11 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit( 'resetAwesomeBackground' );
-        // this.$store.commit( 'setAwesomeBackground', '/img/bg-default3.jpg' );
+        // this.$store.commit( 'resetAwesomeBackground' );
+        // console.log(this.datag);
+        if( this.datag.background_filename && this.datag.background_filename.length ) {
+            this.$store.commit( 'setAwesomeBackground', ['/img/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
+        }
     }
 }
 </script>

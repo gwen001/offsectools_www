@@ -162,7 +162,7 @@ svg.fa-house {
     /* font-size: 0.92em; */
 }
 .btn:hover {
-    color: #fff;
+    color: #fff !important;
 }
 .accordion-button, .btn:focus {
     outline: none;
@@ -351,11 +351,14 @@ a.text-custom3:hover {
 /* #topbar a.ms-3 {
     font-weight: 600;
 } */
+#topbar a:hover {
+    color: #ccc;
+}
 #topbar input {
     padding-left: 40px;
 }
 #topbar .go-search {
-    color: #22d3ee;
+    color: #fff;
     position: absolute;
     padding: 9px 0px 5px 10px;
     z-index: 100;
@@ -587,6 +590,12 @@ xxl: 1400px
 }
 
 
+#home h1,
+#tagpage h1 {
+    font-size: 5em;
+    margin-bottom: 2em;
+    margin-top: 2.5em;
+}
 
 #browse-alphabet .column {
     border: 0px solid #00f;
@@ -772,7 +781,7 @@ xxl: 1400px
 .btn-outline-gradient:hover {
     position: relative;
     box-sizing: border-box;
-    background: #2a2c3f;
+    background: #232536;
     background-clip: padding-box;
 }
 .btn-outline-gradient:after,

@@ -1,7 +1,7 @@
 <template>
     <div id="home" class="w-100 h-100">
-        <Logo></Logo>
-        <div class="row mt-4 tagname">
+        <!-- <Logo></Logo> -->
+        <div class="row tagname">
             <div class="col text-center">
                 <h1>Featured tools this week</h1>
             </div>
@@ -56,6 +56,7 @@ export default {
     },
     mounted() {
         this.$store.commit( 'resetAwesomeBackground' );
+        this.$store.commit( 'setAwesomeBackground', ['/img/bg-default5.jpg','',''] );
     }
 }
 </script>

@@ -4,7 +4,7 @@ const getDefaultState = () => {
     return {
         user_agent: '',
         loading: false,
-        awesome_background: '',
+        awesome_background: {'background_filename':'','background_author':'','background_author_link':''},
         db: [],
         search_term: '',
         search_page: 0,
@@ -28,6 +28,8 @@ export const getters = {
         return state.user_agent;
     },
     getAwesomeBackground( state ) {
+        // console.log('laaa');
+        // console.log(state.awesome_background);
         return state.awesome_background;
     },
     getSearchTerm( state ) {
@@ -269,11 +271,16 @@ export const mutations = {
     setUserAgent( state, user_agent ) {
         return state.user_agent = user_agent;
     },
-    setAwesomeBackground( state, awesome_background ) {
-        return state.awesome_background = awesome_background;
+    setAwesomeBackground( state, data ) {
+        // console.log('iciiiii');
+        state.awesome_background = [];
+        state.awesome_background['background_filename'] = data[0];
+        state.awesome_background['background_author'] = data[1];
+        state.awesome_background['background_author_link'] = data[2];
+        return;
     },
     resetAwesomeBackground( state ) {
-        return state.awesome_background = '';
+        return state.awesome_background = {'background_filename':'','background_author':'','background_author_link':''};
     },
     startLoading( state ) {
         return state.loading = true;

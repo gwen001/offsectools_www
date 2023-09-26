@@ -1,11 +1,13 @@
 <template>
     <div id="awesome-background">
-        <div id="awesome-background-copyright">
-            <template v-if="awesome_background != ''">
-                <a href="https://twitter.com/rez0__" target="_blank">credit @rez0</a>
+        <template v-if="awesome_background.background_filename">
+            <template v-if="awesome_background.background_author">
+                <div id="awesome-background-copyright">
+                    <a :href="awesome_background.background_author_link" target="_blank">credit @{{ awesome_background.background_author }}</a>
+                </div>
             </template>
-        </div>
-        <div id="awesome-background-image" :style="`background-image:url(${awesome_background});`"></div>
+        </template>
+        <div id="awesome-background-image" :style="`background-image:url(${awesome_background.background_filename});`"></div>
         <div id="awesome-background-gradient"></div>
     </div>
 </template>
@@ -51,6 +53,7 @@ export default {
     /* border: 1px solid #f00; */
     height: 75%;
     left: 0px;
+    opacity: 0.8;
     position: absolute;
     top: 0px;
     width: 100%;
