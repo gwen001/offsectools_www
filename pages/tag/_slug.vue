@@ -11,7 +11,7 @@
                 <div class="d-flex justify-content-center" v-if="tools.length > 1">
                     <ToolsSorter :tools="tools.length"></ToolsSorter>
                 </div>
-                <div class="d-flex flex-wrap flex-row justify-content-evenly mt-3">
+                <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
                     <template v-for="tool,index in tools">
                         <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 6">
                             <NewsletterCard from="tagpage"></NewsletterCard>
