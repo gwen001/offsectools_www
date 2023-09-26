@@ -766,7 +766,14 @@ xxl: 1400px
     box-sizing: border-box;
     background: #0a0c1f;
     background-clip: padding-box;
-    border-color: transparent;
+    /* background: transparent; */
+    /* border-color: rgba(255,255,255,0.3); */
+}
+.btn-outline-gradient:hover {
+    position: relative;
+    box-sizing: border-box;
+    background: #2a2c3f;
+    background-clip: padding-box;
 }
 .btn-outline-gradient:after,
 .btn-outline-gradient:before {
