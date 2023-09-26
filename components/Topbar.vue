@@ -114,9 +114,9 @@ export default {
         document.getElementById('search-input').focus();
     },
     computed: {
-        opacity() {
-            return this.opacity;
-        },
+        // opacity() {
+        //     return this.opacity;
+        // },
         browseLink() {
             if( this.$store.getters['getTagsSortBy'] == 'categories' ) {
                 return '/browse/categories';
