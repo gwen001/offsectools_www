@@ -8,9 +8,7 @@
                     </a>
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <nuxt-link to="/" class="align-middle">
-                        <font-awesome-icon icon="fas fa-house" />
-                    </nuxt-link>
+                    <nuxt-link to="/">Home</nuxt-link>
                     <nuxt-link to="/tag/last7days" class="ms-3">Last 7 days</nuxt-link>
                     <RandomTool from="topbar"></RandomTool>
                     <nuxt-link to="/tag/learning" class="ms-3">Learn & Train</nuxt-link>
@@ -31,7 +29,7 @@
                     </div>
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block">
-                    <nuxt-link to="/addtool" class="btn btn-outline-custom2 btn-outline-gradientttt">Add a tool</nuxt-link>
+                    <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1">Add a tool</nuxt-link>
                     <nuxt-link to="/about" class="btn btn-custom2 ms-1">?</nuxt-link>
                 </div>
             </div>

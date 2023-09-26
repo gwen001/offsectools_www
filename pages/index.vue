@@ -12,7 +12,7 @@
             </div>
         </div> -->
         <template v-if="tools.length > 0">
-            <!-- <div class="d-flex justify-content-center">
+            <!--  <div class="d-flex justify-content-left" v-if="tools.length > 1">
                 <ToolsSorter :tools="tools.length"></ToolsSorter>
             </div> -->
             <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
@@ -22,7 +22,7 @@
                     </div>
                 </template>
             </div>
-            <div class="mt-5 ms-5 d-flex">
+            <div class="mt-5 ms-5 d-flex justify-content-center">
                 <Newsletter></Newsletter>
             </div>
         </template>

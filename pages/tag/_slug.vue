@@ -1,17 +1,17 @@
 <template>
-    <div id="tagpage" class="w-100 h-100">
+    <div id="tagpage" class="w-100 h-100" style="margin-topppp:25em;">
         <template v-if="datag">
-            <Logo></Logo>
+            <!-- <Logo></Logo> -->
             <div class="row mt-4 tagname">
                 <div class="col text-center">
                     <h1>#{{ datag.slug }}</h1>
                 </div>
             </div>
             <template v-if="tools.length > 0">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center" v-if="tools.length > 1">
                     <ToolsSorter :tools="tools.length"></ToolsSorter>
                 </div>
-                <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
+                <div class="d-flex flex-wrap flex-row justify-content-around mt-3">
                     <template v-for="tool,index in tools">
                         <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 6">
                             <NewsletterCard from="tagpage"></NewsletterCard>
@@ -26,13 +26,13 @@
                 </div>
             </template>
             <template v-else>
-                <template v-if="datag.slug=='last7days'">
+                <!-- <template v-if="datag.slug=='last7days'">
                     <div class="col-8 text-center m-auto mt-4">
                         <p>Currently lazy because of holidays, back soon ❤️</p>
                         <img src="/img/cancun.jpg" class="img-fluid" />
                     </div>
                 </template>
-                <template v-else>
+                <template v-else> -->
                     <div class="row mt-5">
                         <div class="col text-center">
                             Nothing there, but feel free to
@@ -40,7 +40,7 @@
                             if you think something is missing :)
                         </div>
                     </div>
-                </template>
+                <!-- </template> -->
             </template>
         </template>
         <template v-else>
@@ -148,6 +148,7 @@ export default {
     },
     mounted() {
         this.$store.commit( 'resetAwesomeBackground' );
+        // this.$store.commit( 'setAwesomeBackground', '/img/bg-default3.jpg' );
     }
 }
 </script>

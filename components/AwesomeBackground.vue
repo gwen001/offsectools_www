@@ -26,10 +26,11 @@ export default {
 #awesome-background {
 }
 #awesome-background-copyright {
+    font-family: InriaSans,Arial,sans-serif;
     font-size: 0.5em;
     right: 15px;
     position: absolute;
-    top: 70px;
+    top: 60px;
     /* width: 100%; */
     z-index: 0;
 }

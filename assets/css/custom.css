@@ -501,7 +501,7 @@ xxl: 1400px
     position: fixed;
     left: 0px;
     top: 0px;
-    z-index: 11;
+    z-index: 1200;
 }
 
 
@@ -634,15 +634,15 @@ xxl: 1400px
 }
 .tool-card {
     /* width: 300px; */
-    width: 300px;
+    max-width: 250px;
     /* margin: auto; */
 }
 .tool-card .card {
-    border: 2px solid #141729;
+    border: 1px solid #141729;
     transition: transform .2s;
 }
 .tool-card .card:hover {
-    transform: scale(1.03);
+    transform: scale(1.1);
     /* transform: translate(0px, -10px); */
 }
 .tool-card .card-body {
@@ -656,7 +656,7 @@ xxl: 1400px
     font-weight: bold;
 }
 .tool-card .tool-picture {
-    height: 200px;
+    height: 180px;
 }
 .tool-card .tool-descr {
 }
@@ -760,29 +760,40 @@ xxl: 1400px
     }
 }
 
-.btn.btn-outline-gradient {
+
+.btn-outline-gradient {
     position: relative;
     box-sizing: border-box;
     background: #0a0c1f;
     background-clip: padding-box;
     border-color: transparent;
 }
-
-
-.btn.btn-outline-gradient:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -1px;
+.btn-outline-gradient:after,
+.btn-outline-gradient:before {
     border-radius: inherit;
+    bottom: 0;
+    content: "";
+    left: 0;
+    margin: -1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+
     /* background: linear-gradient(135deg,#ffe100,#f70606); */
+
     /* background: linear-gradient(135deg,#facc15,#f9205a); */
-    background: linear-gradient(135deg,#facc15,#22d3ee);
     /* background: linear-gradient(135deg,#22d3ee,#f9205a); */
     /* background: linear-gradient(135deg,#facc15,#22d3ee); */
     /* background: linear-gradient(135deg,#92fe9d,#00c9ff); */
+    /* background: linear-gradient(272.21deg,#e63887 36.73%,#f78560 96.93%); */
 }
+.btn-outline-gradient1:before {
+    background: linear-gradient(135deg,#facc15,#22d3ee);
+}
+.btn-outline-gradient2:before {
+    background: linear-gradient(135deg,#f78560,#e63887);
+}
+/* .btn-outline-gradient:after {
+    filter: blur(2px);
+} */

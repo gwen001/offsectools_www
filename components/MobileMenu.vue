@@ -48,8 +48,10 @@
             </div>
         </div>
         <div class="d-flex mt-3">
-            <nuxt-link to="/addtool" class="btn btn-outline-custom2 w-100">Add tool</nuxt-link>
-            <nuxt-link to="/about" class="btn btn-custom2 ms-2">?</nuxt-link>
+            <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1 w-100">Add tool</nuxt-link>
+        </div>
+        <div class="d-flex mt-3">
+            <nuxt-link to="/about" class="btn btn-custom2 w-100">?</nuxt-link>
         </div>
     </div>
 </template>
