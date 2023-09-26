@@ -30,7 +30,7 @@
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block">
                     <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1">Add a tool</nuxt-link>
-                    <nuxt-link to="/about" class="btn btn-custom2 ms-1">?</nuxt-link>
+                    <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 ms-1">About</nuxt-link>
                 </div>
             </div>
         </nav>

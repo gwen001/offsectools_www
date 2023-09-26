@@ -51,7 +51,7 @@
             <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1 w-100">Add tool</nuxt-link>
         </div>
         <div class="d-flex mt-3">
-            <nuxt-link to="/about" class="btn btn-custom2 w-100">?</nuxt-link>
+            <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 w-100">About</nuxt-link>
         </div>
     </div>
 </template>
