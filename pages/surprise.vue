@@ -3,7 +3,7 @@
         <!-- <Logo></Logo> -->
         <div class="row tagname">
             <div class="col text-center">
-                <h1>Surprise!</h1>
+                <h1>Take it like a gift</h1>
             </div>
         </div>
         <!-- <div class="row">
