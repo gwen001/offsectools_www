@@ -77,7 +77,6 @@ export default {
     },
     methods: {
         resetSearch: function () {
-            console.log('ccccc');
             // this.$store.commit( 'resetSearch', 1 );
             // this.$router.push( '/' );
         },

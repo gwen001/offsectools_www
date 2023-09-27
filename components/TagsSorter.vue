@@ -46,10 +46,8 @@ export default {
             // console.log(sort_by);
             this.$store.commit( 'setTagsSortBy', sort_by );
             if( sort_by == 'categories' ) {
-                // console.log('ccc');
                 this.$router.push( '/browse/categories' );
             } else {
-                // console.log('aaa');
                 this.$router.push( '/browse/alphabet' );
             }
         },

@@ -8,13 +8,13 @@
                 <!-- <div class="ratings-container" v-if="tool.ratings_count > 0">
                     <Ratings from="toolcard" :tool="tool"></Ratings>
                 </div> -->
-                <h6 class="card-title tool-name mb-3">
+                <h6 class="card-title tool-name mt-1 mb-2">
                     <nuxt-link :to="'/tool/'+tool.slug" :class="[tool.sponsored ? 'highlight1' : tool.featured ? 'text-warning': 'highlight2', 'stretched-link']">{{ tool.nicename }}</nuxt-link>
                 </h6>
                 <nuxt-link :to="'/tool/'+tool.slug" class="fake-link d-none stretched-link"></nuxt-link>
                 <p class="card-text tool-descr">{{ tool.short_descr }}</p>
             </div>
-            <template v-if="from != 'contextualisation'">
+            <!-- <template v-if="from != 'contextualisation'">
                 <div class="tool-tags">
                     <p class="card-text tool-tags">
                         <template v-for="tag,index in tool.tags">
@@ -23,18 +23,16 @@
                         </template>
                     </p>
                 </div>
-            </template>
-            <template v-if="from != 'contextualisation'">
+            </template> -->
+            <!-- <template v-if="from != 'contextualisation'">
                 <div class="card-footer text-center">
                     <div class="justify-content-around">
                         <template v-for="link,index in tool.links">
                             <ToolLink :link="link" :index="index"></ToolLink>
                         </template>
-                        <!-- <ToolLink :link="tool.homepage"></ToolLink>
-                        <ToolLink :link="tool.extra_link" v-if="tool.extra_link"></ToolLink> -->
                     </div>
                 </div>
-            </template>
+            </template> -->
         </div>
     </div>
 </template>
@@ -51,7 +49,6 @@ export default {
     },
     methods: {
         resetSearch: function () {
-            console.log('aaaaa');
             this.$store.commit( 'resetSearch', 1 );
             // this.$router.push( '/' );
         },

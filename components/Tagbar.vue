@@ -95,7 +95,6 @@ export default {
             this.$refs.tagbar.classList.remove('show');
         },
         resetSearch: function () {
-            // console.log('bbbbb');
             this.$store.commit( 'resetSearch', 1 );
             // this.$router.push( '/' );
         },

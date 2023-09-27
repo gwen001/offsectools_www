@@ -18,7 +18,7 @@
                     <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" v-model="email" placeholder="Enter your email" autocomplete="email" required>
                 </div>
                 <div class="col-auto mt-4">
-                    <button type="submit" class="newsletter-btn btn btn-outline-gradient btn-outline-gradient1" v-if="newsletterStatus < 0">Subscribe</button>
+                    <button type="submit" class="newsletter-btn btn p-0 border-0" v-if="newsletterStatus < 0"><div class="box-border-gradient" v-if="newsletterStatus < 0"><div class="box-border-gradient-bg1">Subscribe</div></div></button>
                     <font-awesome-icon icon="fa-solid fa-spinner" class="align-middle" v-if="newsletterStatus > 1000" />
                     <span class="newsletter-error text-custom1 align-middle" v-if="newsletterStatus == 0">Something gone wrong!</span>
                     <span class="newsletter-confirm text-custom1 align-middle" v-if="newsletterStatus == 1">You're confirmed, thanks buddy!</span>

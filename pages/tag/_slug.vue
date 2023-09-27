@@ -13,10 +13,10 @@
                 </div>
                 <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
                     <template v-for="tool,index in tools">
-                        <div class="toolcard-loop p-2 align-self-stretch" v-if="index == 6">
+                        <div class="toolcard-loop p-3 align-self-stretch" v-if="index == 6">
                             <NewsletterCard from="tagpage"></NewsletterCard>
                         </div>
-                        <div class="toolcard-loop p-2 align-self-stretch">
+                        <div class="toolcard-loop p-3 align-self-stretch">
                             <ToolCard :tool="tool" from="tagpage"></ToolCard>
                         </div>
                     </template>

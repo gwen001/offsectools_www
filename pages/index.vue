@@ -17,7 +17,7 @@
             </div> -->
             <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
                 <template v-for="tool,index in tools">
-                    <div class="toolcard-loop p-2 align-self-stretch">
+                    <div class="toolcard-loop p-3 align-self-stretch">
                         <ToolCard :tool="tool" from="index"></ToolCard>
                     </div>
                 </template>

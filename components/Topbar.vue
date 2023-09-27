@@ -8,14 +8,14 @@
                     </a>
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <nuxt-link to="/">Home</nuxt-link>
-                    <nuxt-link to="/tag/last7days" class="ms-3">Last 7 days</nuxt-link>
+                    <nuxt-link to="/" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
+                    <nuxt-link to="/tag/last7days" class="ms-3" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
+                    <nuxt-link to="/tag/learning" class="ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">Learn & Train</nuxt-link>
+                    <nuxt-link to="/tag/resources" class="ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">Resources</nuxt-link>
+                    <nuxt-link to="/contributors" class="ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">Contributors</nuxt-link>
+                    <nuxt-link to="/newsletter" class="ms-3" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">Newsletter</nuxt-link>
+                    <nuxt-link :to="browseLink" class="ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">Tags</nuxt-link>
                     <RandomTool from="topbar"></RandomTool>
-                    <nuxt-link to="/tag/learning" class="ms-3">Learn & Train</nuxt-link>
-                    <nuxt-link to="/tag/resources" class="ms-3">Resources</nuxt-link>
-                    <nuxt-link to="/contributors" class="ms-3">Contributors</nuxt-link>
-                    <nuxt-link to="/newsletter" class="ms-3">Newsletter</nuxt-link>
-                    <nuxt-link :to="browseLink" class="ms-3">Tags</nuxt-link>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">
@@ -29,8 +29,10 @@
                     </div>
                 </div>
                 <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block">
-                    <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1">Add a tool</nuxt-link>
-                    <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 ms-1">About</nuxt-link>
+                    <!-- <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1">Add a tool</nuxt-link>
+                    <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 ms-1">About</nuxt-link> -->
+                    <nuxt-link to="/about"><div class="box-border-gradient float-end ms-3"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/about' ? 'fw-bold': '']">About</div></div></nuxt-link>
+                    <nuxt-link to="/addtool"><div class="box-border-gradient float-start"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/addtool' ? 'fw-bold': '']">Add a tool</div></div></nuxt-link>
                 </div>
             </div>
         </nav>

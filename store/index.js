@@ -28,7 +28,6 @@ export const getters = {
         return state.user_agent;
     },
     getAwesomeBackground( state ) {
-        // console.log('laaa');
         // console.log(state.awesome_background);
         return state.awesome_background;
     },
@@ -94,7 +93,6 @@ export const getters = {
             if( first_letter in t_alphabet ) {
                 // console.log(t_alphabet[first_letter].length);
             } else {
-                // console.log('not yet');
                 t_alphabet[first_letter] = [];
             }
             t_alphabet[first_letter][t_alphabet[first_letter].length] = state.db.tags[i];
@@ -272,7 +270,6 @@ export const mutations = {
         return state.user_agent = user_agent;
     },
     setAwesomeBackground( state, data ) {
-        // console.log('iciiiii');
         state.awesome_background = [];
         state.awesome_background['background_filename'] = data[0];
         state.awesome_background['background_author'] = data[1];
@@ -344,11 +341,11 @@ export const mutations = {
         return state.newsletter_status = -1;
     },
     setNewsletterLoader( state ) {
-        console.log('setNewsletterLoader');
+        // console.log('setNewsletterLoader');
         return state.newsletter_status = 9999;
     },
     setNewsletterStatus( state, data ) {
-        console.log('setNewsletterStatus '+data);
+        // console.log('setNewsletterStatus '+data);
         return state.newsletter_status = data ? 1 : 0;
     }
 };
@@ -379,7 +376,7 @@ export const actions = {
         });
     },
     searchTools( context, data ) {
-        console.log('searchTools');
+        // console.log('searchTools');
         var t_tools = [];
         var t_tmp = [];
         var slug = data[0];

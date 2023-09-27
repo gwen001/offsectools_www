@@ -2,7 +2,7 @@
     <div class="newsletter newsletter-card tool-card h-100" :class="[(from=='tagpage'||from=='index') ? 'ms-2 me-2' : '']">
         <div class="card h-100">
             <div class="card-body text-center d-grid align-content-center">
-                <form class="newsletter-form ml-block-form" data-code="" method="post" target="_blank" v-on:submit.stop.prevent="subscribe($event)">
+                <form id="newsletter-formmm" class="newsletter-form ml-block-form" data-code="" method="post" v-on:submit.stop.prevent="subscribe($event)">
                     <input type="hidden" name="ml-submit" value="1">
                     <input type="hidden" name="anticsrf" value="true">
                     <div class="catcher1 text-custom1">
@@ -15,7 +15,7 @@
                         <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" v-model="email" placeholder="Enter your email" autocomplete="email" required>
                     </div>
                     <div class="mt-4">
-                        <button type="submit" class="newsletter-btn btn btn-outline-custom1 w-100" v-if="newsletterStatus < 0">Subscribe</button>
+                        <button type="submit" class="newsletter-btn btn w-100 p-0 border-0" v-if="newsletterStatus < 0"><div class="box-border-gradient" v-if="newsletterStatus < 0"><div class="box-border-gradient-bg2">Subscribe</div></div></button>
                         <font-awesome-icon icon="fa-solid fa-spinner" class="align-middle" v-if="newsletterStatus > 1000" />
                         <span class="newsletter-error text-custom1 align-middle" v-if="newsletterStatus == 0">Something gone wrong!</span>
                         <span class="newsletter-confirm text-custom1 align-middle" v-if="newsletterStatus == 1">You're confirmed, thanks buddy!</span>
