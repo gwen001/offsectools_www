@@ -3,7 +3,7 @@
         <!-- <Logo></Logo> -->
         <div class="row tagname">
             <div class="col text-center">
-                <h1>Featured tools this week</h1>
+                <h1>Surprise!</h1>
             </div>
         </div>
         <!-- <div class="row">
@@ -51,12 +51,12 @@ export default {
     },
     computed: {
         tools() {
-            return this.$store.getters['getToolsFeatured'];
+            return this.$store.getters['getSurprise'](15);
         },
     },
     mounted() {
         // this.$store.commit( 'resetAwesomeBackground' );
-        this.$store.commit( 'setAwesomeBackground', ['/img/background/home.jpg','',''] );
+        this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg','',''] );
     }
 }
 </script>

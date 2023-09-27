@@ -44,7 +44,8 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <RandomTool from="mobilemenu"></RandomTool>
+                <nuxt-link to="/surprise" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+                <!-- <RandomTool from="mobilemenu"></RandomTool> -->
             </div>
         </div>
         <div class="d-flex mt-3">

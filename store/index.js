@@ -135,28 +135,32 @@ export const getters = {
         }
         return null;
     },
-    sortTools: (state,getters) => (t_tools) => {
+    sortTools: (state,getters) => (t_tools,sort_by) => {
+        if( sort_by === undefined ) {
+            sort_by = state.tools_sort_by;
+        }
         // console.log('sortTools');
-        if( state.tools_sort_by == 'date_desc' ) {
+        // console.log(sort_by);
+        if( sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.accepted_at > b.accepted_at ? -1 : 1)
             );
-        } else if( state.tools_sort_by == 'date_asc' ) {
+        } else if( sort_by == 'date_asc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.accepted_at > b.accepted_at ? 1 : -1)
             );
-        } else if( state.tools_sort_by == 'name_asc' ) {
+        } else if( sort_by == 'name_asc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.slug > b.slug ? 1 : -1)
             );
-        } else if( state.tools_sort_by == 'name_desc' ) {
+        } else if( sort_by == 'name_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.slug > b.slug ? -1 : 1)
             );
-        } else if( state.tools_sort_by == 'rand' ) {
+        } else if( sort_by == 'rand' ) {
             t_tools = t_tools.sort(() => Math.random() - 0.5)
         }
-        // } else if( state.tools_sort_by == 'ratings' ) {
+        // } else if( sort_by == 'ratings' ) {
         //     t_tools = t_tools.sort(
         //         (a, b) => (a.ratings_avg > b.ratings_avg ? -1 : 1)
         //     );
@@ -203,8 +207,21 @@ export const getters = {
 
         return t_tools;
     },
-    searchTools: (state,getters) => (slug) => {
+    getSurprise: (state,getters) => (limit) => {
+        var t_tools = [...state.db.tools];
+        t_tools = t_tools.sort(() => Math.random() - 0.5)
+        t_tools = t_tools.slice(0,limit);
+        t_tools = getters.sortFeatured( t_tools );
+        if( state.user_agent.toLowerCase().includes('firefox',0) ) {
+            t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
+        }
+        t_tools = getters.sortSponsored( t_tools );
+        return t_tools;
+    },
+    searchTools: (state,getters) => (slug,options) => {
         // console.log('searchTools');
+        // console.log(slug);
+        // console.log(options);
         var t_tools = [];
         var t_tmp = [];
         slug = slug.toLowerCase();
@@ -248,7 +265,15 @@ export const getters = {
             }
         }
 
-        t_tools = getters.sortTools(t_tools);
+        if( options && options['sort_by'] ) {
+            t_tools = getters.sortTools(t_tools,options['sort_by']);
+        } else {
+            t_tools = getters.sortTools(t_tools);
+        }
+
+        if( options && options['limit'] ) {
+            return t_tools.slice(0,options['limit']);
+        }
 
         // var start_index = 0;
         // var end_index = (state.search_page+1) * state.limit_results;

@@ -15,7 +15,8 @@
                     <nuxt-link to="/contributors" class="ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">Contributors</nuxt-link>
                     <nuxt-link to="/newsletter" class="ms-3" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">Newsletter</nuxt-link>
                     <nuxt-link :to="browseLink" class="ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">Tags</nuxt-link>
-                    <RandomTool from="topbar"></RandomTool>
+                    <nuxt-link to="/surprise" class="ms-3" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+                    <!-- <RandomTool from="topbar"></RandomTool> -->
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="input-group">
