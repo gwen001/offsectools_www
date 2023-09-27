@@ -53,7 +53,7 @@ export default {
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
         this.$store.commit( 'resetSearch', 1 );
-        this.$store.commit( 'setAwesomeBackground', ['/img/bg-default2.jpg','@rez0','https://twitter.com/rez0__'] );
+        this.$store.commit( 'setAwesomeBackground', ['/img/bg-default2.jpg','rez0','https://twitter.com/rez0__'] );
     }
 }
 </script>

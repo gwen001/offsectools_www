@@ -34,7 +34,7 @@ export default {
                 date_asc: 'oldest first',
                 name_asc: 'sort by name (A-Z)',
                 name_desc: 'sort by name (Z-A)',
-                rand: 'random sort',
+                // rand: 'random sort',
             }
         }
     },

@@ -1,7 +1,7 @@
 body {
     background-color: #0a0c1f;
     color: #ffffff;
-    font-size: 0.93rem;
+    font-size: 0.90rem;
     overflow-x: hidden;
     text-shadow: 2px 2px 4px rgba(0,0,0,.45);
 }
@@ -652,6 +652,7 @@ xxl: 1400px
 }
 .tool-card .card:hover {
     transform: scale(1.1);
+    /* z-index: 10; */
     /* transform: translate(0px, -10px); */
 }
 .tool-card .card-body {
