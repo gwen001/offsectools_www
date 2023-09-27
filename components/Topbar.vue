@@ -50,7 +50,7 @@ export default {
     },
     data: function () {
         return {
-            opacity: 0,
+            opacity: 0.1,
         }
     },
     methods: {
@@ -99,6 +99,12 @@ export default {
                 let scrollHeight = window.scrollY;
                 let maxHeight = window.document.body.scrollHeight - window.document.documentElement.clientHeight;
                 this.opacity = scrollHeight/100;
+                if( this.opacity <= 0 ) {
+                    this.opacity = 0.1;
+                }
+                if( this.opacity >= 1 ) {
+                    this.opacity = 1;
+                }
                 // console.log(scrollHeight);
                 // console.log(maxHeight);
                 if( scrollHeight >= (maxHeight-200) ) {

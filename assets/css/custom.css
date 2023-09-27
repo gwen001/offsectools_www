@@ -354,11 +354,22 @@ a.text-custom3:hover {
 #topbar a:hover {
     color: #ccc;
 }
+/* #topbar button:hover {
+    background-color: rgba(35,37,54,0.2);
+} */
 #topbar input {
+    border-width: 1px;
+    border-color: rgba(22,32,51,0.4);
+    background-color: rgba(35,37,54,0.4);
     padding-left: 40px;
 }
+#topbar input:focus {
+    border-color: rgba(22,32,51,0.8);
+    background-color: rgba(35,37,54,0.8);
+ }
 #topbar .go-search {
     color: #fff;
+    /* opacity: 0.5; */
     position: absolute;
     padding: 9px 0px 5px 10px;
     z-index: 100;
@@ -832,7 +843,7 @@ xxl: 1400px
 }
 .box-border-gradient:hover {
     color: #fff;
-    background-color: #232536;
+    background-color: rgba(35,37,54,0.5);
 }
 .box-border-gradient-bg1 {
     padding:0px;
