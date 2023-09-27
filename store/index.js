@@ -10,7 +10,7 @@ const getDefaultState = () => {
         search_page: 0,
         limit_results: 200,
         search_results: [],
-        tags_sort_by: 'categories', // name, categories
+        tags_sort_by: 'name', // name, categories
         tools_sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
         tags_display: 'top', // all, top, categories
         tool_context: [], // contextualisation
