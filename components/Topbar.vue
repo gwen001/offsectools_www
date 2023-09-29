@@ -18,7 +18,7 @@
                     <nuxt-link to="/surprise" class="ms-3" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
                     <!-- <RandomTool from="topbar"></RandomTool> -->
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xXl-4">
                     <div class="input-group">
                         <div class="go-search">
                             <font-awesome-icon icon="fas fa-magnifying-glass" />

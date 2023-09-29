@@ -70,7 +70,7 @@ svg.fa-house {
     /* font-size: 0.8em; */
     color: #fff;
     /* bottom: 0; */
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     padding-top: 50px;
     /* position: relative; */
 }
@@ -864,7 +864,7 @@ xxl: 1400px
 }
 .box-border-gradient:hover {
     color: #fff;
-    background-color: rgba(35,37,54,0.5);
+    background-color: rgba(35,37,54,0.7);
 }
 .box-border-gradient-bg1 {
     padding:0px;

@@ -32,6 +32,7 @@
 
 ## Changelog
 
+- 2023-09-29: footer
 - 2023-09-26: awesome background, surprise
 - 2023-09-24: remove tags bar
 - 2023-05-11: moved to another server

@@ -68,7 +68,7 @@
                             <br />Thanks to the artists who provide <a href="/img/tags/" class="highlight2">wallpapers</a>.
                         </p>
                         <p>
-                            Give back to Caesar what belongs to Caesar, {{ $config.APP_NAME }} is very inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
+                            Give back to Caesar what belongs to Caesar, {{ $config.APP_NAME }} is widely inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
                         </p>
                         <ul>
                             <li>Site built with <a href="https://nuxtjs.org/" class="discret" target="_blank">NuxtJS</a></li>
