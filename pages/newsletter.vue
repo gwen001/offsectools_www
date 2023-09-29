@@ -1,5 +1,5 @@
 <template>
-    <div id="about" class="container h-100 p-3">
+    <div id="newsletter" class="container h-100 p-3">
         <div class="row">
             <div class="col-xl-8 col-lg-10 col-sm-12">
                 <div class="row">
@@ -37,9 +37,6 @@
                         <br /><nuxt-link to="/newsletter/newsletter-24.html" target="_blank" class="highlight2">Weekly newsletter N°24</nuxt-link>
                     </div>
                 </div>
-                <div class="mt-5 d-flex">
-                    <Newsletter></Newsletter>
-                </div>
             </div>
         </div>
     </div>
@@ -48,12 +45,7 @@
 
 <script>
 export default {
-    name: 'about',
-    computed: {
-        sponsors() {
-            return this.$store.getters['getSponsors'];
-        }
-    },
+    name: 'newsletter',
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
         this.$store.commit( 'resetSearch', 1 );
@@ -63,9 +55,5 @@ export default {
 </script>
 
 <style scoped>
-.sponsors img {
-    margin-bottom: 10px;
-    margin-right: 10px;
-}
 </style>
 
