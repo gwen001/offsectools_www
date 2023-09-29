@@ -8,6 +8,7 @@ const getDefaultState = () => {
         db: [],
         search_term: '',
         search_page: 0,
+        current_tool: 0,
         limit_results: 200,
         search_results: [],
         tags_sort_by: 'name', // name, categories
@@ -30,6 +31,10 @@ export const getters = {
     getAwesomeBackground( state ) {
         // console.log(state.awesome_background);
         return state.awesome_background;
+    },
+    getCurrentTool( state ) {
+        // console.log(state.current_tool);
+        return state.current_tool;
     },
     getSearchTerm( state ) {
         return state.search_term;
@@ -56,24 +61,33 @@ export const getters = {
     getTagsDisplay( state ) {
         return state.tags_display;
     },
-    getTags( state ) {
+    getTags( state, options=[] ) {
         var k = 0;
         var t_tags = [];
+
+        if( options['sort_by'] === undefined ) {
+            options['sort_by'] = state.tags_display;
+        }
 
         for( var i=0 ; i<state.db.tags.length ; i++ ) {
             if( state.db.tags[i].tools_count == 0 ) {
                 continue;
             }
-            if( state.tags_display == 'all' || (state.tags_display == 'top' && state.db.tags[i].status == 1) ) {
+            if( options['sort_by'] == 'all' || (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
                 t_tags[k++] = state.db.tags[i];
             }
         }
 
-        if( state.tags_display == 'top' ) {
+        if( options['sort_by'] == 'top' ) {
             t_tags = t_tags.sort(
                 (a, b) => (a.tools_count > b.tools_count ? -1 : 1)
             );
         }
+
+        if( options['limit'] !== undefined ) {
+           t_tags = t_tags.slice(0,options['limit']);
+        }
+
         return t_tags;
     },
     getTagsByName( state ) {
@@ -300,6 +314,12 @@ export const mutations = {
         state.awesome_background['background_author'] = data[1];
         state.awesome_background['background_author_link'] = data[2];
         return;
+    },
+    setCurrentTool( state, data ) {
+        state.current_tool = data;
+    },
+    resetCurrentTool( state ) {
+        state.current_tool = 0;
     },
     resetAwesomeBackground( state ) {
         return state.awesome_background = {'background_filename':'','background_author':'','background_author_link':''};

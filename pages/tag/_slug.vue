@@ -11,7 +11,8 @@
                 <div class="d-flex justify-content-center" v-if="tools.length > 1">
                     <ToolsSorter :tools="tools.length"></ToolsSorter>
                 </div>
-                <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
+                <ToolsListing ref="toolslisting" from="tagpage" :tools="tools"></ToolsListing>
+                <!-- <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
                     <template v-for="tool,index in tools">
                         <div class="toolcard-loop p-3 align-self-stretch" v-if="index == 6">
                             <NewsletterCard from="tagpage"></NewsletterCard>
@@ -20,10 +21,7 @@
                             <ToolCard :tool="tool" from="tagpage"></ToolCard>
                         </div>
                     </template>
-                </div>
-                <div class="mt-5 d-flex justify-content-center">
-                    <Newsletter></Newsletter>
-                </div>
+                </div> -->
             </template>
             <template v-else>
                 <!-- <template v-if="datag.slug=='last7days'">
@@ -54,14 +52,14 @@ import Logo from '~/components/Logo.vue'
 import NotFound from '~/components/NotFound.vue';
 import ToolCard from '~/components/ToolCard.vue'
 import ToolsSorter from '~/components/ToolsSorter.vue'
+import ToolsListing from '~/components/ToolsListing.vue'
 import LoadMore from '~/components/LoadMore.vue'
-import Newsletter from '~/components/Newsletter.vue';
 import NewsletterCard from '~/components/NewsletterCard.vue';
 
 export default {
     name: 'TagPage',
     components: {
-        Logo, NotFound, ToolCard, ToolsSorter, LoadMore, Newsletter, NewsletterCard
+        Logo, NotFound, ToolCard, ToolsSorter, ToolsListing, LoadMore, NewsletterCard
     },
     head() {
         var title = '';
@@ -140,6 +138,19 @@ export default {
             } else {
                 error({ statusCode:404, message:'This page could not be found' })
             }
+        }
+    },
+    beforeRouteLeave(to, from, next) {
+        next();
+        return;
+        // console.log(to);
+        // console.log(from);
+        // console.log(next);
+        if( to.name === 'tool-slug' ) {
+            // console.log('modal!!!');
+            this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+        } else {
+            next();
         }
     },
     mounted() {

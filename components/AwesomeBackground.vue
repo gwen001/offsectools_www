@@ -30,7 +30,7 @@ export default {
 #awesome-background-copyright {
     font-family: InriaSans,Arial,sans-serif;
     font-size: 0.6em;
-    right: 10px;
+    right: 15px;
     position: absolute;
     top: 65px;
     /* width: 100%; */

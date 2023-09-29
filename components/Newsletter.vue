@@ -1,5 +1,5 @@
 <template>
-    <div class="newsletter d-flex mt-5 mb-5">
+    <div class="newsletter">
         <form class="newsletter-form ml-block-form" data-code="" method="post" target="_blank" v-on:submit.stop.prevent="subscribe($event)">
             <input type="hidden" name="ml-submit" value="1">
             <input type="hidden" name="anticsrf" value="true">

@@ -1,7 +1,8 @@
 <template>
     <div id="home" class="w-100 h-100">
         <!-- <Logo></Logo> -->
-        <div class="row tagname">
+        <!-- <ToolModal ref="toolmodal"></ToolModal> -->
+        <div class="row tagname" ref="toollisting">
             <div class="col text-center">
                 <h1>Featured tools this week</h1>
             </div>
@@ -12,19 +13,17 @@
             </div>
         </div> -->
         <template v-if="tools.length > 0">
+            <ToolsListing ref="toolslisting" from="home" :tools="tools"></ToolsListing>
             <!--  <div class="d-flex justify-content-left" v-if="tools.length > 1">
                 <ToolsSorter :tools="tools.length"></ToolsSorter>
             </div> -->
-            <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
+            <!-- <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
                 <template v-for="tool,index in tools">
                     <div class="toolcard-loop p-3 align-self-stretch">
                         <ToolCard :tool="tool" from="index"></ToolCard>
                     </div>
                 </template>
-            </div>
-            <div class="mt-5 ms-5 d-flex justify-content-center">
-                <Newsletter></Newsletter>
-            </div>
+            </div> -->
         </template>
         <template v-else>
             <div class="row mt-5">
@@ -41,18 +40,32 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import ToolCard from '~/components/ToolCard.vue'
+import ToolModal from '~/components/ToolModal.vue';
 import ToolsSorter from '~/components/ToolsSorter.vue'
-import Newsletter from '~/components/Newsletter.vue';
+import ToolsListing from '~/components/ToolsListing.vue'
 
 export default {
     name: 'Home',
     components: {
-        Logo, ToolCard, ToolsSorter, Newsletter
+        Logo, ToolModal, ToolCard, ToolsSorter, ToolsListing
     },
     computed: {
         tools() {
             return this.$store.getters['getToolsFeatured'];
         },
+    },
+    beforeRouteLeave(to, from, next) {
+        next();
+        return;
+        // console.log(to);
+        // console.log(from);
+        // console.log(next);
+        if( to.name === 'tool-slug' ) {
+            // console.log('modal!!!');
+            this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+        } else {
+            next();
+        }
     },
     mounted() {
         // this.$store.commit( 'resetAwesomeBackground' );

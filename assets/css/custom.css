@@ -64,6 +64,27 @@ svg.fa-house {
 }
 
 
+#footer {
+    background-color: #141729;
+    /* border: 1px solid #ff0; */
+    /* font-size: 0.8em; */
+    color: #fff;
+    /* bottom: 0; */
+    padding-bottom: 50px;
+    padding-top: 50px;
+    /* position: relative; */
+}
+#footer a {
+    color: #ccc;
+}
+#footer a:hover {
+    color: #fff;
+    /* text-decoration: underline; */
+}
+#footer .col-2 {
+    border: 0px solid #f00;
+}
+
 .dropdown {
     /* margin-left: 3rem; */
 }
