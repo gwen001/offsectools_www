@@ -661,7 +661,7 @@ xxl: 1400px
     /* margin: auto; */
 }
 .tool-card .card {
-    border: 1px solid #141729;
+    border: 1px solid #0a0c1f;
     transition: transform .2s;
 }
 .tool-card .card:hover {
@@ -879,4 +879,13 @@ xxl: 1400px
     border-radius: 50px;
     border-image: linear-gradient(135deg,#facc15,#f9205a) 1;
     padding: .375rem .75rem;
+}
+
+
+.modal {
+    /* background-color: #141729; */
+}
+.modal .modal-content {
+    background-color: #141729;
+    border: 2px solid #0a0c1f;
 }

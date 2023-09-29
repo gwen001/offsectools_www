@@ -103,7 +103,7 @@
                                 <a href="https://offsec.tools/img/tags/" target="_blank">Wallpapers</a>
                             </li>
                             <li>
-                                <a href="https://www.uneed.best/" target="_blank">Inspiration</a>
+                                <a href="https://www.uneed.best/" target="_blank">Inspired by</a>
                             </li>
                         </ul>
                     </div>
