@@ -60,12 +60,12 @@ export default {
         // console.log(to);
         // console.log(from);
         // console.log(next);
-        if( to.name === 'tool-slug' ) {
-            // console.log('modal!!!');
-            this.$refs.toolslisting.beforeRouteLeave( to, from, next );
-        } else {
-            next();
-        }
+        // if( to.name === 'tool-slug' ) {
+        //     // console.log('modal!!!');
+        //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+        // } else {
+        //     next();
+        // }
     },
     mounted() {
         // this.$store.commit( 'resetAwesomeBackground' );
