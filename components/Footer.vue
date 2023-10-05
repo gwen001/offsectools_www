@@ -7,7 +7,7 @@
                         <div class="d-none d-sm-block d-md-none d-lg-none d-xl-none d-xxl-none">sm</div>
                         <div class="d-block d-sm-none d-md-none d-lg-none d-xl-none d-xxl-none">xs</div> -->
         <div class="row justify-content-center">
-            <div class="text-left mb-4 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 col-xxl-4">
+            <div class="text-left mb-5 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 col-xxl-4">
                 <div class="row justify-content-center">
                     <div class="col-11">
                         <Newsletter></Newsletter>
@@ -15,7 +15,33 @@
                 </div>
             </div>
             <div class="break d-block d-sm-block d-md-block d-lg-block d-xl-none d-xxl-none"></div>
-            <div class="mb-4 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
+            <div class="mb-5 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <ul class="list-unstyled p-0 m-0">
+                            <li class="mb-4">
+                                SITE
+                            </li>
+                            <li class="mb-4">
+                                <nuxt-link :to="browseLink">All tags</nuxt-link>
+                            </li>
+                            <li class="mb-4">
+                                <nuxt-link to="/contributors">Contributors</nuxt-link>
+                            </li>
+                            <li class="mb-4">
+                                <nuxt-link to="/newsletter">Newsletter</nuxt-link>
+                            </li>
+                            <li class="mb-4">
+                                <nuxt-link to="/addtool">Add a tool</nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/about">About</nuxt-link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-5 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <ul class="list-unstyled p-0 m-0">
@@ -41,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-4 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
+            <div class="mb-5 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <ul class="list-unstyled p-0 m-0">
@@ -57,33 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-4 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
-                <div class="row justify-content-center">
-                    <div class="col-8">
-                        <ul class="list-unstyled p-0 m-0">
-                            <li class="mb-4">
-                                WEBSITE
-                            </li>
-                            <li class="mb-4">
-                                <nuxt-link :to="browseLink">All tags</nuxt-link>
-                            </li>
-                            <li class="mb-4">
-                                <nuxt-link to="/contributors">Contributors</nuxt-link>
-                            </li>
-                            <li class="mb-4">
-                                <nuxt-link to="/newsletter">Newsletter</nuxt-link>
-                            </li>
-                            <li class="mb-4">
-                                <nuxt-link to="/addtool">Add a tool</nuxt-link>
-                            </li>
-                            <li>
-                                <nuxt-link to="/about">About</nuxt-link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-4 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
+            <div class="mb-5 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <ul class="list-unstyled p-0 m-0">
@@ -94,7 +94,7 @@
                                 <a href="https://github.com/gwen001/offsectools_www" target="_blank">GitHub</a>
                             </li>
                             <li class="mb-4">
-                                <a href="https://app.splitbee.io/public/offsec.tools?period=7d" target="_blank">Analytics</a>
+                                <a href="https://app.splitbee.io/public/offsec.tools?period=30d" target="_blank">Analytics</a>
                             </li>
                             <li class="mb-4">
                                 <a href="https://10degres.net" target="_blank">Author blog</a>
@@ -138,4 +138,24 @@ export default {
 </script>
 
 <style scoped>
+#footer {
+    background-color: #141729;
+    /* border: 1px solid #ff0; */
+    /* font-size: 0.8em; */
+    color: #fff;
+    /* bottom: 0; */
+    padding-bottom: 0px;
+    padding-top: 50px;
+    /* position: relative; */
+}
+#footer a {
+    color: #ccc;
+}
+#footer a:hover {
+    color: #fff;
+    /* text-decoration: underline; */
+}
+#footer .col-2 {
+    border: 0px solid #f00;
+}
 </style>

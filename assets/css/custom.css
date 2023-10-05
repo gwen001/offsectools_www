@@ -63,28 +63,6 @@ svg.fa-house {
     font-size: 1.1em;
 }
 
-
-#footer {
-    background-color: #141729;
-    /* border: 1px solid #ff0; */
-    /* font-size: 0.8em; */
-    color: #fff;
-    /* bottom: 0; */
-    padding-bottom: 30px;
-    padding-top: 50px;
-    /* position: relative; */
-}
-#footer a {
-    color: #ccc;
-}
-#footer a:hover {
-    color: #fff;
-    /* text-decoration: underline; */
-}
-#footer .col-2 {
-    border: 0px solid #f00;
-}
-
 .dropdown {
     /* margin-left: 3rem; */
 }
@@ -364,7 +342,42 @@ a.text-custom3:hover {
     z-index: 10;
 
 }
-@media all and (min-width: 992px) {
+@media all and (max-width: 995px) {
+    .topbar-learning {
+        display:none;
+    }
+    .topbar-resources {
+        display:none;
+    }
+}
+@media all and (max-width: 1190px) {
+    .topbar-buttons {
+        display:none;
+    }
+}
+@media all and (max-width: 1460px) {
+    .topbar-contributors {
+        display:none;
+    }
+    .topbar-newsletter {
+        display:none;
+    }
+    /* .topbar-last7days {
+        display:none;
+    }
+ */
+
+    /* .topbar-logo {
+        display:none;
+    }
+    .topbar-home {
+        display:none;
+    }
+    .topbar-buttons {
+        display:none;
+    } */
+}
+@media all and (min-width: 768px) {
     #topbar {
        height: 65px;
     }
@@ -561,7 +574,7 @@ xxl: 1400px
         transform: translateX(-100%);
         transition: visibility .3s ease-in-out, transform .3s ease-in-out;
         visibility: hidden;
-        width: 40%;
+        width: 30%;
         max-width: 350px;
         z-index: 1200;
     }
@@ -887,5 +900,31 @@ xxl: 1400px
 }
 .modal .modal-content {
     background-color: #141729;
-    border: 2px solid #0a0c1f;
+    border: 0px solid #f00;
+    z-index: 1070;
 }
+.modal .modal-body {
+    padding: 0px;
+}
+.modal .modal-body .tool-name {
+    font-size: 1.5em;
+}
+.modal-open-body {
+    overflow: hidden;
+    padding-right: 0px;
+}
+.modal-backdrop.show {
+    opacity: .5;
+}
+#modal-backdrop {
+    position: fixed;
+    /* opacity: 0; */
+    opacity: .5;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+

@@ -1,5 +1,5 @@
 <template>
-    <div id="mobile-menu" class="mb-3 d-block d-lg-none d-xl-none">
+    <div id="mobile-menu" class="mb-3 d-block d-md-none d-lg-none d-xl-none">
         <div class="row mt-2">
             <div class="col text-end">
                 <a href="javascript:;" class="lnk-close" v-on:click="hideMobilebar">
@@ -7,11 +7,18 @@
                 </a>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
+            <div class="col text-center">
+                <div class="w-100">
+                    <Logo2></Logo2>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/" :class="[this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
             </div>
-        </div>
+        </div> -->
         <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/tag/last7days" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
@@ -45,7 +52,6 @@
         <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/surprise" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
-                <!-- <RandomTool from="mobilemenu"></RandomTool> -->
             </div>
         </div>
         <div class="d-flex mt-3">
@@ -58,12 +64,13 @@
 </template>
 
 <script>
-import RandomTool from '~/components/RandomTool.vue';
+import Logo2 from '~/components/Logo2.vue';
+import MobileMenu from '~/components/MobileMenu.vue';
 
 export default {
     name: 'MobileMenu',
     components: {
-        RandomTool
+        Logo2
     },
     computed: {
         browseLink() {
@@ -83,4 +90,7 @@ export default {
 </script>
 
 <style scope>
+a:hover {
+    color: #ddd;
+}
 </style>

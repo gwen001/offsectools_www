@@ -54,21 +54,14 @@ export default {
             return this.$store.getters['getToolsFeatured'];
         },
     },
-    beforeRouteLeave(to, from, next) {
-        next();
-        return;
-        // console.log(to);
-        // console.log(from);
-        // console.log(next);
-        // if( to.name === 'tool-slug' ) {
-        //     // console.log('modal!!!');
-        //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
-        // } else {
-        //     next();
-        // }
-    },
+    // beforeRouteLeave(to, from, next) {
+    //     // console.log(window.event.type);
+    //     console.log(from);
+    //     console.log(to);
+    //     console.log(next);
+    //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+    // },
     mounted() {
-        // this.$store.commit( 'resetAwesomeBackground' );
         this.$store.commit( 'setAwesomeBackground', ['/img/background/home.jpg','',''] );
     }
 }

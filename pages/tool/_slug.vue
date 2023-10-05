@@ -1,7 +1,7 @@
 <template>
     <div class="container h-100 p-3">
         <template v-if="datool">
-            <ToolDetails :tool="datool"></ToolDetails>
+            <ToolDetails from="toolpage" :tool="datool"></ToolDetails>
         </template>
         <template v-else>
             <NotFound from="toolpage"></NotFound>
@@ -12,11 +12,12 @@
 <script>
 import NotFound from '~/components/NotFound.vue';
 import ToolDetails from '~/components/ToolDetails.vue';
+import ToolDetails2 from '~/components/ToolDetails2.vue';
 
 export default {
     name: 'ToolPage',
     components: {
-        NotFound, ToolDetails
+        NotFound, ToolDetails2, ToolDetails
     },
     head() {
         var title = '';

@@ -1,16 +1,44 @@
 <template>
-    <div id="tool-details">
-        <div class="row">
-            <div class="col-xl-8 col-lg-10 col-sm-12">
+    <div id="tool-details" class="container-fluid p-0">
+        <div class="row p-0 m-0">
+            <div class="col p-0 m-0" style="border:0px solid #f00;">
+
+<!-- <div id="tool-background-gradient2"></div> -->
+
+<!-- <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-bs-ride="carousel" data-bs-interval="true">
+<template v-if="tool.images.length > 1">
+<div class="carousel-indicators">
+<template v-for="img,index in tool.images">
+<button type="button" data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="[index == 0 ? 'active' : '']" :aria-current="[index == 0 ? 'true' : '']" :aria-label="'Slide '+index"></button>
+</template>
+</div>
+</template>
+<div class="carousel-inner w-100 h-100">
+<template v-for="img,index in tool.images">
+<div class="carousel-item" :class="[index == 0 ? 'active' : '']" data-bs-interval="1000">
+<img :src="'/img/tools/'+tool.images[index]" class="rounded-top d-block w-100 h-100" :alt="tool.nicename+' on '+$config.APP_NAME">
+</div>
+</template>
+</div>
+<template v-if="tool.images.length > 1">
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</template>
+</div> -->
+                <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.images[0]" class="rounded-top tool-picture img-fluid" :class="[from=='modal' ? 'w-100' : 'w-50']" />
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col">
                 <div class="row">
-                    <div class="col-xl-9 col-lg-10 col-sm-11 col-11">
-                        <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.images[0]" class="rounded tool-picture img-fluid" />
-                        <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="'/img/tools/'+tool.images[0]" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" /> -->
-                    </div>
-                </div>
-                <div class="row mt-3">
                     <div class="tool-name col">
-                        <h1>{{ tool.nicename }}</h1>
+                        <h2>{{ tool.nicename }}</h2>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -47,15 +75,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-1 d-none d-xl-block"></div>
-            <div class="col col-2 d-none d-xl-block">
-                <ToolContextualisation :tool="tool"></ToolContextualisation>
-            </div>
-        </div>
-        <div class="row m-0 p-0 d-block d-xl-none">
-            <div class="col m-0 p-0">
-                <ToolContextualisation :tool="tool"></ToolContextualisation>
-            </div>
         </div>
     </div>
 </template>
@@ -65,7 +84,7 @@ import ToolContextualisation from '~/components/ToolContextualisation.vue';
 
 export default {
     name: 'ToolDetails',
-    props: [ 'tool' ],
+    props: [ 'tool', 'from' ],
     components: {
         ToolContextualisation
     },

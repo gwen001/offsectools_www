@@ -53,13 +53,12 @@ import NotFound from '~/components/NotFound.vue';
 import ToolCard from '~/components/ToolCard.vue'
 import ToolsSorter from '~/components/ToolsSorter.vue'
 import ToolsListing from '~/components/ToolsListing.vue'
-import LoadMore from '~/components/LoadMore.vue'
 import NewsletterCard from '~/components/NewsletterCard.vue';
 
 export default {
     name: 'TagPage',
     components: {
-        Logo, NotFound, ToolCard, ToolsSorter, ToolsListing, LoadMore, NewsletterCard
+        Logo, NotFound, ToolCard, ToolsSorter, ToolsListing, NewsletterCard
     },
     head() {
         var title = '';
@@ -128,7 +127,8 @@ export default {
     },
     async asyncData( { store, params, error } ) {
         // console.log('asyncData');
-        if( params.slug == 'all' || params.slug == 'last7days' ) {
+        // if( params.slug == 'all' || params.slug == 'last7days' ) {
+        if( params.slug == 'last7days' ) {
             return { datag: {'slug':params.slug, 'nicename':params.slug} };
         } else {
             var t = await store.getters['getTagFromSlug'](params.slug);
@@ -140,22 +140,21 @@ export default {
             }
         }
     },
-    beforeRouteLeave(to, from, next) {
-        next();
-        return;
-        // console.log(to);
-        // console.log(from);
-        // console.log(next);
-        if( to.name === 'tool-slug' ) {
-            // console.log('modal!!!');
-            this.$refs.toolslisting.beforeRouteLeave( to, from, next );
-        } else {
-            next();
-        }
-    },
+    // beforeRouteLeave(to, from, next) {
+    //     console.log(to);
+    //     console.log(from);
+    //     console.log(next);
+    //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+    // },
+    // beforeRouteUpdate(to, from, next) {
+    //     console.log(to);
+    //     console.log(from);
+    //     console.log(next);
+    //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+    //     // if( to.path != from.path ) {
+    //     // }
+    // },
     mounted() {
-        // this.$store.commit( 'resetAwesomeBackground' );
-        // console.log(this.datag);
         if( this.datag.background_filename && this.datag.background_filename.length ) {
             this.$store.commit( 'setAwesomeBackground', ['/img/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
         }

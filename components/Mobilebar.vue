@@ -9,9 +9,6 @@ import MobileMenu from '~/components/MobileMenu.vue';
 
 export default {
     name: 'Mobilebar',
-    components: {
-        MobileMenu
-    },
     computed: {
     },
     methods: {

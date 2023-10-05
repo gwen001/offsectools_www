@@ -8,7 +8,8 @@ const getDefaultState = () => {
         db: [],
         search_term: '',
         search_page: 0,
-        current_tool: 0,
+        current_tool: null,
+        tool_null: null,
         limit_results: 200,
         search_results: [],
         tags_sort_by: 'name', // name, categories
@@ -35,6 +36,10 @@ export const getters = {
     getCurrentTool( state ) {
         // console.log(state.current_tool);
         return state.current_tool;
+    },
+    getToolModal( state ) {
+        // console.log(state.current_tool);
+        return state.tool_modal;
     },
     getSearchTerm( state ) {
         return state.search_term;
@@ -73,7 +78,8 @@ export const getters = {
             if( state.db.tags[i].tools_count == 0 ) {
                 continue;
             }
-            if( options['sort_by'] == 'all' || (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
+            // if( options['sort_by'] == 'all' || (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
+            if( (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
                 t_tags[k++] = state.db.tags[i];
             }
         }
@@ -242,10 +248,10 @@ export const getters = {
 
         switch(slug)
         {
-            case '':
-            case 'all':
-                t_tmp = [...state.db.tools];
-                break;
+            // case '':
+            // case 'all':
+            //     t_tmp = [...state.db.tools];
+            //     break;
             case 'last7days':
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
@@ -319,7 +325,13 @@ export const mutations = {
         state.current_tool = data;
     },
     resetCurrentTool( state ) {
-        state.current_tool = 0;
+        state.current_tool = null;
+    },
+    setToolModal( state, data ) {
+        state.tool_modal = data;
+    },
+    resetToolModal( state ) {
+        state.tool_modal = null;
     },
     resetAwesomeBackground( state ) {
         return state.awesome_background = {'background_filename':'','background_author':'','background_author_link':''};
@@ -429,10 +441,10 @@ export const actions = {
 
         switch(slug)
         {
-            case '':
-            case 'all':
-                t_tmp = [...this.state.db.tools];
-                break;
+            // case '':
+            // case 'all':
+            //     t_tmp = [...this.state.db.tools];
+            //     break;
             case 'last7days':
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);

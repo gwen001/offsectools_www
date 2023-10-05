@@ -2,23 +2,27 @@
     <div id="topbar" class="" :style="`background-color: rgba(10,12,31,${opacity});`">
         <nav class="navbar h-100">
             <div class="container-fluid">
-                <div id="mobilemenu-icon" class="mobilemenu-icon d-lg-none d-xl-none">
-                    <a href="javascript:;" v-on:click="showMobileTarbar">
+                <div id="mobilemenu-icon" class="mobilemenu-icon d-md-none d-lg-none d-xl-none">
+                    <a href="javascript:;" v-on:click="showMobilebar">
                         <font-awesome-icon icon="fas fa-bars" />
                     </a>
                 </div>
-                <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <nuxt-link to="/" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
-                    <nuxt-link to="/tag/last7days" class="ms-3" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
-                    <nuxt-link to="/tag/learning" class="ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">Learn & Train</nuxt-link>
-                    <nuxt-link to="/tag/resources" class="ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">Resources</nuxt-link>
-                    <nuxt-link to="/contributors" class="ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">Contributors</nuxt-link>
-                    <nuxt-link to="/newsletter" class="ms-3" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">Newsletter</nuxt-link>
-                    <nuxt-link :to="browseLink" class="ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">Tags</nuxt-link>
-                    <nuxt-link to="/surprise" class="ms-3" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
-                    <!-- <RandomTool from="topbar"></RandomTool> -->
+                <div class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
+                    <div class="topbar-logo float-start">
+                        <Logo2></Logo2>
+                    </div>
+                    <div class="d-inline ms-4" style="line-height:37px;">
+                        <!-- <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link> -->
+                        <nuxt-link to="/tag/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
+                        <nuxt-link to="/tag/learning" class="topbar-learning ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">Learn & Train</nuxt-link>
+                        <nuxt-link to="/tag/resources" class="topbar-resources ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">Resources</nuxt-link>
+                        <nuxt-link to="/contributors" class="topbar-contributors ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">Contributors</nuxt-link>
+                        <nuxt-link to="/newsletter" class="topbar-newsletter ms-3" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">Newsletter</nuxt-link>
+                        <nuxt-link :to="browseLink" class="topbar-tags ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">Tags</nuxt-link>
+                        <nuxt-link to="/surprise" class="topbar-surprise ms-3" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xXl-4">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xXl-4">
                     <div class="input-group">
                         <div class="go-search">
                             <font-awesome-icon icon="fas fa-magnifying-glass" />
@@ -29,7 +33,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                <div class="topbar-buttons">
                     <!-- <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1">Add a tool</nuxt-link>
                     <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 ms-1">About</nuxt-link> -->
                     <nuxt-link to="/about"><div class="box-border-gradient float-end ms-3"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/about' ? 'fw-bold': '']">About</div></div></nuxt-link>
@@ -41,12 +45,12 @@
 </template>
 
 <script>
-import RandomTool from '~/components/RandomTool.vue';
+import Logo2 from '~/components/Logo2.vue';
 
 export default {
     name: 'Topbar',
     components: {
-        RandomTool
+        Logo2
     },
     data: function () {
         return {
@@ -57,15 +61,15 @@ export default {
         doSearch() {
             // alert('doSearch');
             this.$store.commit( 'resetSearchPage' );
-            this.$router.push( '/tag/all' );
+            this.$router.push( '/' );
         },
-        randomtool: function (event) {
-            const t_tools = this.$store.getters['getTools'];
-            const r = Math.floor(Math.random() * t_tools.length);
-            const tool = this.tool = t_tools[r];
-            this.$store.commit( 'resetSearch' );
-            this.$router.push( '/tool/'+tool.slug );
-        },
+        // randomtool: function (event) {
+        //     const t_tools = this.$store.getters['getTools'];
+        //     const r = Math.floor(Math.random() * t_tools.length);
+        //     const tool = this.tool = t_tools[r];
+        //     this.$store.commit( 'resetSearch' );
+        //     this.$router.push( '/tool/'+tool.slug );
+        // },
         // last7days: function () {
         //     this.$store.commit( 'resetSearch' );
         //     this.$router.push( '/?p=last7days' );
@@ -78,20 +82,21 @@ export default {
         //     this.$store.commit( 'setSearchTerm', slug );
         //     this.$router.push( '/' );
         // },
-        showMobileTarbar() {
-            // console.log('showMobileTarbar');
+        showMobilebar() {
+            // console.log('showMobilebar');
             this.$parent.$refs.mobilebar.showMe();
-            setTimeout(() => document.addEventListener('click',this.hideMobileTarbar), 0);
+            setTimeout(() => document.addEventListener('click',this.hideMobilebar), 0);
         },
-        hideMobileTarbar(event) {
+        hideMobilebar(event) {
             // console.log(event.target.firstChild.data);
             var t_categories = this.$store.getters['getCategories'];
-            var ignore_close = ['Categories','All tags','Top tags'];
+            // var ignore_close = ['Categories','All tags','Top tags'];
+            var ignore_close = [];
             t_categories.forEach( elt =>ignore_close.push(elt.nicename) );
             var doClose = !ignore_close.includes(event.target.firstChild.data);
             if( doClose ) {
                 this.$parent.$refs.mobilebar.hideMe();
-                document.removeEventListener('click',this.hideMobileTarbar);
+                document.removeEventListener('click',this.hideMobilebar);
             }
         },
         handleScroll() {

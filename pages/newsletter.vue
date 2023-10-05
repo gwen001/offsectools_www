@@ -35,6 +35,7 @@
                         <br /><nuxt-link to="/newsletter/newsletter-22.html" target="_blank" class="highlight2">Weekly newsletter N°22</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-23.html" target="_blank" class="highlight2">Weekly newsletter N°23</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-24.html" target="_blank" class="highlight2">Weekly newsletter N°24</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-25.html" target="_blank" class="highlight2">Weekly newsletter N°25</nuxt-link>
                     </div>
                 </div>
             </div>

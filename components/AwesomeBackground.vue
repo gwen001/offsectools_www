@@ -43,8 +43,6 @@ export default {
     text-decoration: none;
 }
 #awesome-background-image {
-    /* ('/img/bg-default2.jpg') */
-
     /* background-image: url('/img/bg-default2.jpg'); */
     background-position: center center;
     background-repeat: no-repeat;
@@ -59,7 +57,6 @@ export default {
     width: 100%;
     z-index: -2;
 }
-
 #awesome-background-gradient {
     background: linear-gradient(180deg, rgba(10,12,31,0) 0%, rgba(10,12,31,0) 80%, rgba(10,12,31,1) 100%);
 

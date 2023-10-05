@@ -5,9 +5,6 @@
             <div class="card-body">
                 <span class="badge badge-danger ms-2" v-if="tool.sponsored">Sponsor</span>
                 <span class="badge badge-warning ms-2" v-if="tool.featured">Featured</span>
-                <!-- <div class="ratings-container" v-if="tool.ratings_count > 0">
-                    <Ratings from="toolcard" :tool="tool"></Ratings>
-                </div> -->
                 <h6 class="card-title tool-name mt-1 mb-2">
                     <nuxt-link :to="'/tool/'+tool.slug" :class="[tool.sponsored ? 'highlight1' : tool.featured ? 'text-warning': 'highlight2', 'stretched-link']">{{ tool.nicename }}</nuxt-link>
                 </h6>
@@ -38,14 +35,13 @@
 </template>
 
 <script>
-import Ratings from '~/components/Ratings.vue';
 import ToolLink from '~/components/ToolLink.vue';
 
 export default {
     name: 'ToolCard',
     props: ['tool','from'],
     components: {
-        Ratings, ToolLink
+        ToolLink
     },
     methods: {
         resetSearch: function () {
