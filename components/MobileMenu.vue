@@ -14,11 +14,11 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row mt-3">
+        <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/" :class="[this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
             </div>
-        </div> -->
+        </div>
         <div class="row mt-3">
             <div class="col text-center">
                 <nuxt-link to="/tag/last7days" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>

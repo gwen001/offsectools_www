@@ -342,7 +342,7 @@ a.text-custom3:hover {
     z-index: 10;
 
 }
-@media all and (max-width: 995px) {
+@media all and (max-width: 1015px) {
     .topbar-learning {
         display:none;
     }
@@ -350,12 +350,12 @@ a.text-custom3:hover {
         display:none;
     }
 }
-@media all and (max-width: 1190px) {
+@media all and (max-width: 1210px) {
     .topbar-buttons {
         display:none;
     }
 }
-@media all and (max-width: 1460px) {
+@media all and (max-width: 1490px) {
     .topbar-contributors {
         display:none;
     }

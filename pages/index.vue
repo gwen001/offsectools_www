@@ -4,7 +4,7 @@
         <!-- <ToolModal ref="toolmodal"></ToolModal> -->
         <div class="row tagname" ref="toollisting">
             <div class="col text-center">
-                <h1>Featured tools this week</h1>
+                <h1>Featured this week</h1>
             </div>
         </div>
         <!-- <div class="row">

@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>offsec.tools - Weekly newsletter n°2</title>
+    <meta charset="utf-8">
+    <style>
+        *, body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+        body {
+            background-color: #0a0c1f;
+            color: #ffffff;
+        }
+        a {
+            color: #dddddd;
+        }
+        h1 {
+            font-size: 50pt;
+            margin: 0px;
+        }
+        h2 {
+            font-size: 20pt;
+            margin: 0px;
+        }
+        h3 {
+            font-size: 16pt;
+            margin: 0px;
+        }
+        hr.sep1 {
+            border: 2px solid #232536;
+            width: 100%;
+        }
+        hr.sep2 {
+            border: 1px solid #232536;
+            width: 50px;
+        }
+        .slogan {
+            color: #bbbbbb;
+            font-size: 16pt;
+        }
+        .nicename_featured {
+            color: #f9205a;
+            font-size: 14pt;
+        }
+        .nicename {
+            color: #22d3ee;
+            font-size: 14pt;
+        }
+        img {
+            border-radius: 5px;
+        }
+        .align_l img {
+            margin-right: 15px;
+        }
+        .align_r img {
+            margin-left: 15px;
+        }
+        .descr {
+            color: #eeeeee;
+            font-size: 11pt;
+        }
+        .tag {
+            color: #aaa;
+            font-size: 9pt;
+        }
+        .btn {
+            background-color: #22d3ee;
+            border: 1px solid #0ea5e9;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .footer {
+            color: #dddddd;
+            font-size: 11px;
+        }
+        .footer a {
+            color: #dddddd;
+            font-size: 11px;
+        }
+        .header a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .header a:hover {
+            color: #dddddd;
+        }
+        .sponsor-img {
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body align="center">
+    <table border="0" cellpadding="0" cellspacing="0" align="center" width="700">
+        <tr height="40"><td align="right"><a href="https://offsec.tools/newsletter/newsletter-2.html" target="_blank">View in browser</a></td></tr>
+    </table>
+    <table border="0" cellpadding="0" cellspacing="0" align="center" style="border:3px solid #232536;" width="700">
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><h3>Weekly newsletter n°2</h3></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr><td align="center"><table border="0" cellpadding="0" cellspacing="0" width="500" align="center">
+            <tr><td align="center">
+                <h1>offsec.tools</h1>
+                <div class="slogan">A vast collection of security tools for bug bounty, pentest and red teaming</div>
+            </td></tr>
+        </table></td></tr>
+        <tr height="40"><td></td></tr>
+        <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600" align="center">
+            <tr><td align="left" class="header">
+                <a href="https://offsec.tools" target="_blank">offsec.tools</a> is a vast listing of security tools designed to help pentesters and bug hunters in their daily task.
+                The list is organized by tags and provide a quick search engine.
+                The list is feeded by the author and the community.
+                Anyone can add a tool and be listed as a contributor, feel free to check the <a href="https://github.com/gwen001/offsectools_www" target="_blank">GitHub repository</a>.
+            </td></tr>
+        </table></td></tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center">
+                <a class="btn" href="https://offsec.tools" target="_blank">Go to offsec.tools</a>
+            </td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><hr class="sep1" /></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><h2>Tools featured this week</h2></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr><td align="center"><table border="0" cellpadding="0" cellspacing="0" width="650" align="center">
+            <tr>
+                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/yoga" target="_blank"><img src="https://offsec.tools/img/tools/yoga.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/yoga" class="nicename_featured" target="_blank">Yoga</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Your OSINT Graphical Analyzer.</span></td>
+                    </tr>
+                </table></td>
+                                    <td width="50"></td>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/ffuf" target="_blank"><img src="https://offsec.tools/img/tools/ffuf.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/ffuf" class="nicename_featured" target="_blank">ffuf</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Fast web fuzzer written in Go.</span></td>
+                    </tr>
+                </table></td>
+                                    </tr><tr height="40"><td></td></tr><tr>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/qsreplace" target="_blank"><img src="https://offsec.tools/img/tools/qsreplace.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/qsreplace" class="nicename_featured" target="_blank">qsreplace</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Accept URLs on stdin, replace all query string values with a user-supplied value.</span></td>
+                    </tr>
+                </table></td>
+                                    <td width="50"></td>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/fingerprinter" target="_blank"><img src="https://offsec.tools/img/tools/fingerprinter.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/fingerprinter" class="nicename_featured" target="_blank">Fingerprinter</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">CMS/LMS/Library etc Versions Fingerprinter.</span></td>
+                    </tr>
+                </table></td>
+                                    </tr><tr height="40"><td></td></tr><tr>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/masscan" target="_blank"><img src="https://offsec.tools/img/tools/masscan.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/masscan" class="nicename_featured" target="_blank">Masscan</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes.</span></td>
+                    </tr>
+                </table></td>
+                                    <td width="50"></td>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/awsbucketdump" target="_blank"><img src="https://offsec.tools/img/tools/awsbucketdump.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/awsbucketdump" class="nicename_featured" target="_blank">AWSBucketDump</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Security Tool to Look For Interesting Files in S3 Buckets.</span></td>
+                    </tr>
+                </table></td>
+                                    </tr><tr height="40"><td></td></tr><tr>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/xsstrike" target="_blank"><img src="https://offsec.tools/img/tools/xsstrike.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/xsstrike" class="nicename_featured" target="_blank">XSStrike</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Most advanced XSS scanner.</span></td>
+                    </tr>
+                </table></td>
+                                    <td width="50"></td>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/pypykatz" target="_blank"><img src="https://offsec.tools/img/tools/pypykatz.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/pypykatz" class="nicename_featured" target="_blank">pypykatz</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Mimikatz implementation in pure Python.</span></td>
+                    </tr>
+                </table></td>
+                                    </tr><tr height="40"><td></td></tr><tr>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/beef" target="_blank"><img src="https://offsec.tools/img/tools/beef.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/beef" class="nicename_featured" target="_blank">BeEF</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">The Browser Exploitation Framework is a penetration testing tool that focuses on the web browser.</span></td>
+                    </tr>
+                </table></td>
+                                    <td width="50"></td>
+                                            <td width="300" style="vertical-align:baseline;"><table border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="150" align="center" width="250"><a href="https://offsec.tools/tool/sherlock" target="_blank"><img src="https://offsec.tools/img/tools/sherlock.png" width="250" height="150" /></a></td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                        <td align="center"><a href="https://offsec.tools/tool/sherlock" class="nicename_featured" target="_blank">Sherlock</a></td>
+                    </tr>
+                    <tr height="20"><td></td></tr>
+                    <tr>
+                        <td align="center"><span class="descr">Hunt down social media accounts by username across social networks.</span></td>
+                    </tr>
+                </table></td>
+                                    </tr><tr height="40"><td></td></tr><tr>
+                                    </table></td></tr>
+        <tr>
+            <td align="center"><hr class="sep1 /"></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><h2>Tools added this week</h2></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600" align="center">
+                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/hunter.how" target="_blank"><img src="https://offsec.tools/img/tools/tool-hunter.how.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/hunter.how" class="nicename" target="_blank">hunter.how</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Internet search engines for security researchers.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/sslstrip" target="_blank"><img src="https://offsec.tools/img/tools/sslstrip.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/sslstrip" class="nicename" target="_blank">sslstrip</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">A tool for exploiting Moxie Marlinspike&#039;s SSL &quot;stripping&quot; attack.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/splunk" target="_blank"><img src="https://offsec.tools/img/tools/splunk.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/splunk" class="nicename" target="_blank">Splunk</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">The unified security and observability platform.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/netwitness" target="_blank"><img src="https://offsec.tools/img/tools/netwitness.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/netwitness" class="nicename" target="_blank">NetWitness</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Rapidly detect and respond to any threat, anywhere. See Everything. Fear Nothing.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/nagios" target="_blank"><img src="https://offsec.tools/img/tools/nagios.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/nagios" class="nicename" target="_blank">Nagios</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">The industry standard in IT infrastructure monitoring.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/invicti" target="_blank"><img src="https://offsec.tools/img/tools/invicti.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/invicti" class="nicename" target="_blank">Invicti</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Web Application Security For Enterprise.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/webinspect" target="_blank"><img src="https://offsec.tools/img/tools/webinspect.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/webinspect" class="nicename" target="_blank">WebInspect</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">An automated dynamic testing solution that provides comprehensive vulnerability detection.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/nipper-ng" target="_blank"><img src="https://offsec.tools/img/tools/nipper-ng.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/nipper-ng" class="nicename" target="_blank">nipper-ng</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Network infrastructure configuration parser.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/networkminer" target="_blank"><img src="https://offsec.tools/img/tools/networkminer.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/networkminer" class="nicename" target="_blank">NetworkMiner</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Network forensic analysis tool for Windows.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/wikto" target="_blank"><img src="https://offsec.tools/img/tools/wikto.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/wikto" class="nicename" target="_blank">wikto</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Nikto for Windows with some extra features.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/p0f" target="_blank"><img src="https://offsec.tools/img/tools/p0f.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/p0f" class="nicename" target="_blank">p0f</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Identify the operating system of a target host simply by examining captured packets.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/sguil" target="_blank"><img src="https://offsec.tools/img/tools/sguil.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/sguil" class="nicename" target="_blank">Sguil</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">The analyst console for network security monitoring.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/samurai-wtf" target="_blank"><img src="https://offsec.tools/img/tools/samurai-wtf.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/samurai-wtf" class="nicename" target="_blank">Samurai WTF</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">The best security training environment for developers and AppSec professionals.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/tamper-data" target="_blank"><img src="https://offsec.tools/img/tools/tamper-data.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/tamper-data" class="nicename" target="_blank">Tamper Data</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">View and modify HTTP requests before they are sent.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/tamper-dev" target="_blank"><img src="https://offsec.tools/img/tools/tamper-dev.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/tamper-dev" class="nicename" target="_blank">Tamper Dev</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Allows you to intercept and edit HTTP/HTTPS requests and responses.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/ratproxy" target="_blank"><img src="https://offsec.tools/img/tools/ratproxy.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/ratproxy" class="nicename" target="_blank">ratproxy</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">A semi-automated largely passive web application security audit tool.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/kismac" target="_blank"><img src="https://offsec.tools/img/tools/kismac.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/kismac" class="nicename" target="_blank">KisMac</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">A free, open source wireless stumbling and security tool for Mac OS X.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/ike-scan" target="_blank"><img src="https://offsec.tools/img/tools/ike-scan.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/ike-scan" class="nicename" target="_blank">ike-scan</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Discover and fingerprint IKE hosts.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/amap" target="_blank"><img src="https://offsec.tools/img/tools/amap.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/amap" class="nicename" target="_blank">amap</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Identify applications even if they are running on a different port than normal.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/grendel-scan" target="_blank"><img src="https://offsec.tools/img/tools/grendel-scan.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/grendel-scan" class="nicename" target="_blank">Grendel-Scan</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">A tool for automated security scanning of web applications.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/dradis" target="_blank"><img src="https://offsec.tools/img/tools/dradis.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/dradis" class="nicename" target="_blank">Dradis</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Collaboration and reporting for infosec teams made simple.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/nbtscan" target="_blank"><img src="https://offsec.tools/img/tools/nbtscan.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/nbtscan" class="nicename" target="_blank">nbtscan</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Scan networks searching for NetBIOS information.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/unicornscan" target="_blank"><img src="https://offsec.tools/img/tools/unicornscan.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/unicornscan" class="nicename" target="_blank">Unicornscan</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">An asynchronous TCP and UDP port scanner.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/kali-linux" target="_blank"><img src="https://offsec.tools/img/tools/kali-linux.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/kali-linux" class="nicename" target="_blank">Kali Linux</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">The most advanced penetration testing distribution.</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/upload_bypass" target="_blank"><img src="https://offsec.tools/img/tools/upload_bypass.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/upload_bypass" class="nicename" target="_blank">upload_bypass</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">File upload restrictions bypass by using different techniques!</span></td>
+                    </tr>
+                </table></td></tr>
+                                    <tr height="50"><td><hr class="sep2" /></td></tr>
+                                            <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600">
+                    <tr class="align_l">
+                        <td rowspan="3" width="200"><a href="https://offsec.tools/tool/quickjack" target="_blank"><img src="https://offsec.tools/img/tools/quickjack.png" width="200" height="120" /></a></td>
+                        <td height="30" align="left"><a href="https://offsec.tools/tool/quickjack" class="nicename" target="_blank">Quickjack</a></td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="descr">Point-and-click tool for producing advanced clickjacking and frame-slicing attacks.</span></td>
+                    </tr>
+                </table></td></tr>
+                                        <tr height="40"><td></td></tr>
+        </table></td></tr>
+        <tr>
+            <td align="center"><hr class="sep1" /></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr><td><table border="0" cellpadding="0" cellspacing="0" width="600" align="center">
+            <tr>
+                <td align="left">
+                    <h2>Want more to see more tools?</h2>
+                </td>
+            </tr>
+            <tr height="30"><td></td></tr>
+            <tr>
+                <td align="left">
+                    <a class="btn" href="https://offsec.tools" target="_blank">Go to offsec.tools</a>
+                </td>
+            </tr>
+        </table></td></tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><hr class="sep1" /></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><h2>Sponsors</h2></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center">
+                                <a href="https://github.com/projectdiscovery" target="_blank"><img src="https://github.com/projectdiscovery.png?size=48" width="48" class="sponsor-img" alt="projectdiscovery" /></a>
+                                <a href="https://github.com/codingo" target="_blank"><img src="https://github.com/codingo.png?size=48" width="48" class="sponsor-img" alt="codingo" /></a>
+                                <a href="https://github.com/hateshape" target="_blank"><img src="https://github.com/hateshape.png?size=48" width="48" class="sponsor-img" alt="hateshape" /></a>
+                                <a href="https://github.com/schniggie" target="_blank"><img src="https://github.com/schniggie.png?size=48" width="48" class="sponsor-img" alt="schniggie" /></a>
+                                <a href="https://github.com/YouGina" target="_blank"><img src="https://github.com/YouGina.png?size=48" width="48" class="sponsor-img" alt="YouGina" /></a>
+                                <a href="https://github.com/channyein1337" target="_blank"><img src="https://github.com/channyein1337.png?size=48" width="48" class="sponsor-img" alt="channyein1337" /></a>
+                                <a href="https://github.com/mellow-hype" target="_blank"><img src="https://github.com/mellow-hype.png?size=48" width="48" class="sponsor-img" alt="mellow-hype" /></a>
+                                <a href="https://github.com/ttymeh" target="_blank"><img src="https://github.com/ttymeh.png?size=48" width="48" class="sponsor-img" alt="ttymeh" /></a>
+                                <a href="https://github.com/masonhck3571" target="_blank"><img src="https://github.com/masonhck3571.png?size=48" width="48" class="sponsor-img" alt="masonhck3571" /></a>
+                            </td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr>
+            <td align="center"><hr class="sep1" /></td>
+        </tr>
+        <tr height="40"><td></td></tr>
+        <tr><td><table border="0" cellpadding="0" cellspacing="0" width="400" align="center">
+            <tr>
+                <td align="center" class="footer">
+                    You received this email because you signed up on our website.
+                    <br>You can unsubscribe anytime.
+                    <br><br><a href="{$unsubscribe}" target="_blank">Unsubscribe</a>
+                </td>
+            </tr>
+        </table></td></tr>
+        <tr height="40"><td></td></tr>
+    </table>
+</body>
+
+</html>

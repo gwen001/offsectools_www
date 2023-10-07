@@ -12,7 +12,7 @@
                         <Logo2></Logo2>
                     </div>
                     <div class="d-inline ms-4" style="line-height:37px;">
-                        <!-- <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link> -->
+                        <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
                         <nuxt-link to="/tag/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
                         <nuxt-link to="/tag/learning" class="topbar-learning ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">Learn & Train</nuxt-link>
                         <nuxt-link to="/tag/resources" class="topbar-resources ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">Resources</nuxt-link>
@@ -54,7 +54,7 @@ export default {
     },
     data: function () {
         return {
-            opacity: 0.1,
+            opacity: 0.15,
         }
     },
     methods: {
@@ -104,8 +104,8 @@ export default {
                 let scrollHeight = window.scrollY;
                 let maxHeight = window.document.body.scrollHeight - window.document.documentElement.clientHeight;
                 this.opacity = scrollHeight/100;
-                if( this.opacity <= 0 ) {
-                    this.opacity = 0.1;
+                if( this.opacity <= 0.15 ) {
+                    this.opacity = 0.15;
                 }
                 if( this.opacity >= 1 ) {
                     this.opacity = 1;
