@@ -158,6 +158,9 @@ export default {
         if( this.datag.background_filename && this.datag.background_filename.length ) {
             this.$store.commit( 'setAwesomeBackground', ['/img/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
         }
+        if( this.$route.params.slug ) {
+            this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg','',''] );
+        }
     }
 }
 </script>
