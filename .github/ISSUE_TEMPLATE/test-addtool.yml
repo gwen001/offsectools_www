@@ -1,6 +1,6 @@
 name: "test add a tool"
 description: "DO NOT USE THIS TEMPLATE"
-title: "YourToolNiceNameHere"
+title: "[addtool] YourToolNiceNameHere"
 labels: [
   "addtool"
 ]
