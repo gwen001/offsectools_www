@@ -50,15 +50,38 @@ body:
       placeholder: "No image, only text, Markdown will not be interpreted."
     validations:
       required: false
-  - type: textarea
-    id: images
+  - type: input
+    id: image1
     attributes:
-      label: "Image(s)"
-      description: one link per line, but you can also drag and drop images
-      placeholder: |
-        https://...
-        https://...
-        https://...
-        https://...
+      label: "Main image"
+      placeholder: "https://..."
     validations:
       required: true
+  - type: input
+    id: image2
+    attributes:
+      label: "Image 2"
+      placeholder: "https://..."
+    validations:
+      required: false
+  - type: input
+    id: image3
+    attributes:
+      label: "Image 3"
+      placeholder: "https://..."
+    validations:
+      required: false
+  - type: input
+    id: image4
+    attributes:
+      label: "Image 4"
+      placeholder: "https://..."
+    validations:
+      required: false
+  - type: input
+    id: image5
+    attributes:
+      label: "Image 5"
+      placeholder: "https://..."
+    validations:
+      required: false
