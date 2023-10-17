@@ -14,7 +14,7 @@ https://github.com/gwen001/offsectools_www/issues/1
 
 Put your data between the `[opening-tag]` and the `[/closing-tag]`.
 
-Homepage of the tool: https://... (minimum 1 required):
+Link to the tool: https://... (minimum 1 required):
 [link][/link]
 [link][/link]
 [link][/link]
@@ -29,6 +29,8 @@ A bigger description (optional, but nice to have):
 [long_descr][/long_descr]
 
 A link or an attached image (minimum 1 required):
+[image][/image]
+[image][/image]
 [image][/image]
 [image][/image]
 [image][/image]
