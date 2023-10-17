@@ -1,6 +1,6 @@
 name: "test add a tool"
 description: "DO NOT USE THIS TEMPLATE"
-title: "[addtool] YourToolNiceNameHere"
+title: "YourToolNiceNameHere"
 labels: [
   "addtool"
 ]
@@ -15,14 +15,14 @@ body:
   - type: input
     id: link2
     attributes:
-      label: "Secondary link"
+      label: "Link 2"
       placeholder: "https://..."
     validations:
       required: false
   - type: input
     id: link3
     attributes:
-      label: "Another link"
+      label: "Link 3"
       placeholder: "https://..."
     validations:
       required: false
@@ -38,6 +38,7 @@ body:
     id: short_descr
     attributes:
       label: "Short description"
+      description: "max 100 chars"
       placeholder: "Just another tool for doing things."
     validations:
       required: true
