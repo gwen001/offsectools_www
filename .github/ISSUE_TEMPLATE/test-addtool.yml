@@ -2,7 +2,7 @@ name: "test add a tool"
 description: "DO NOT USE THIS TEMPLATE"
 title: "[addtool] YourToolNiceNameHere"
 labels: [
-  "addtool"
+  "bug"
 ]
 body:
   - type: input
