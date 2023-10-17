@@ -12,7 +12,7 @@ assignees: []
 Before you fill all the informations here, please give a read at the guidelines:
 https://github.com/gwen001/offsectools_www/issues/1
 
-Put your data between the `[opening-tag]` and the `[/closing-tag]`.
+Put your data between the `[opening-tags]` and the `[/closing-tags]`.
 
 Link to the tool: https://... (minimum 1 required):
 [link][/link]
