@@ -1,5 +1,8 @@
 <template>
     <div id="tool-details">
+        <div style="left:-35px;position:relative;">
+            <Sharer :tool=tool></Sharer>
+        </div>
         <div class="row">
             <div class="col-xl-8 col-lg-10 col-sm-12">
                 <div class="row">
@@ -61,13 +64,14 @@
 </template>
 
 <script>
+import Sharer from '~/components/Sharer.vue';
 import ToolContextualisation from '~/components/ToolContextualisation.vue';
 
 export default {
     name: 'ToolDetails',
     props: [ 'tool' ],
     components: {
-        ToolContextualisation
+        ToolContextualisation, Sharer
     },
     methods: {
         resetSearch: function () {
