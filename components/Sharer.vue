@@ -16,7 +16,7 @@ export default {
     props: [ 'tool' ],
     computed: {
         sharing_text() {
-            return encodeURIComponent(this.tool.nicename+' on '+this.$config.APP_NAME);
+            return encodeURIComponent('Check '+this.tool.nicename+' on '+this.$config.APP_NAME);
         },
         sharing_url() {
             return encodeURIComponent(this.$config.APP_URL+this.$route.path);
