@@ -127,8 +127,8 @@ export default {
     },
     async asyncData( { store, params, error } ) {
         // console.log('asyncData');
-        // if( params.slug == 'all' || params.slug == 'last7days' ) {
-        if( params.slug == 'last7days' ) {
+        // if( params.slug == 'last7days' ) {
+        if( params.slug == 'all' || params.slug == 'last7days' ) {
             return { datag: {'slug':params.slug, 'nicename':params.slug} };
         } else {
             var t = await store.getters['getTagFromSlug'](params.slug);

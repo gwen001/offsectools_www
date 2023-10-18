@@ -61,7 +61,7 @@ export default {
         doSearch() {
             // alert('doSearch');
             this.$store.commit( 'resetSearchPage' );
-            this.$router.push( '/' );
+            this.$router.push( '/tag/all' );
         },
         // randomtool: function (event) {
         //     const t_tools = this.$store.getters['getTools'];

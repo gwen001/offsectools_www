@@ -141,7 +141,8 @@ export default {
         APP_ENV: process.env.APP_ENV,
         GITHUB_URL: process.env.GITHUB_URL,
         ANALYTICS_URL: process.env.ANALYTICS_URL,
-        NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL
+        NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL,
+        ASSETS_URL: process.env.ASSETS_URL
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -78,8 +78,8 @@ export const getters = {
             if( state.db.tags[i].tools_count == 0 ) {
                 continue;
             }
-            // if( options['sort_by'] == 'all' || (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
-            if( (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
+            if( options['sort_by'] == 'all' || (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
+            // if( (options['sort_by'] == 'top' && state.db.tags[i].status == 1) ) {
                 t_tags[k++] = state.db.tags[i];
             }
         }
@@ -248,10 +248,10 @@ export const getters = {
 
         switch(slug)
         {
-            // case '':
-            // case 'all':
-            //     t_tmp = [...state.db.tools];
-            //     break;
+            case '':
+            case 'all':
+                t_tmp = [...state.db.tools];
+                break;
             case 'last7days':
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
@@ -441,10 +441,10 @@ export const actions = {
 
         switch(slug)
         {
-            // case '':
-            // case 'all':
-            //     t_tmp = [...this.state.db.tools];
-            //     break;
+            case '':
+            case 'all':
+                t_tmp = [...this.state.db.tools];
+                break;
             case 'last7days':
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
