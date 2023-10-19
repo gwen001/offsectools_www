@@ -32,6 +32,7 @@
 
 ## Changelog
 
+- 2023-10-19: search fixed, sharing module
 - 2023-09-29: footer
 - 2023-09-26: awesome background, surprise
 - 2023-09-24: remove tags bar
