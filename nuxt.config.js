@@ -114,6 +114,9 @@ export default {
         '@nuxtjs/sitemap',
         '@nuxt/image',
         '@nuxtjs/dayjs',
+        ['@nuxtjs/redirect-module', {
+            // Redirect option here
+        }]
     ],
 
     plugins: [

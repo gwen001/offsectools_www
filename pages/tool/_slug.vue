@@ -29,7 +29,6 @@ export default {
             title = this.datool.nicename+' on '+this.$config.APP_NAME;
             var url = this.$config.APP_URL+'/tool/'+this.datool.slug;
             var descr = this.datool.short_descr;
-            var image = this.$config.APP_URL+'/img/tools/'+this.datool.picture;
 
             link = [
                 {
@@ -77,7 +76,8 @@ export default {
                 },
             ];
 
-            if( this.datool.picture !== null && this.datool.picture.length > 0 ) {
+            if( this.datool.images !== null && this.datool.images.length > 0 ) {
+                var image = this.$config.ASSETS_URL+'/tools/'+this.datool.images[0];
                 meta.push({
                     'property': 'og:image',
                     'hid': 'og:image',
