@@ -114,10 +114,17 @@ export default {
         '@nuxtjs/sitemap',
         '@nuxt/image',
         '@nuxtjs/dayjs',
-        ['@nuxtjs/redirect-module', {
-            // Redirect option here
-        }]
+        '@nuxtjs/redirect-module',
     ],
+
+    redirect: {
+        rules: (process.env.APP_ENV!='prod') ? [
+            // global redirect rules
+        ] : [
+            // production rules
+            { from: '^/img/tools/(.*)$', to: process.env.ASSETS_URL+'/tools/$1', statusCode: 301 }
+        ]
+    },
 
     plugins: [
         '~/plugins/fontawesome.js',
