@@ -119,7 +119,7 @@ export default {
 
     redirect: {
         rules: (process.env.APP_ENV!='prod') ? [
-            // global redirect rules
+            // non production rules
         ] : [
             // production rules
             { from: '^/img/tools/(.*)$', to: process.env.ASSETS_URL+'/tools/$1', statusCode: 301 }

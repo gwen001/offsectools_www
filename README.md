@@ -32,7 +32,7 @@
 
 ## Changelog
 
-- 2023-10-20: tools pictures on AWS
+- 2023-10-20: tools pictures optimized, resized and uploaded on AWS
 - 2023-10-19: fix search, sharing module
 - 2023-10-17: fix newsletter CSS
 - 2023-09-29: footer
