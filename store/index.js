@@ -4,7 +4,7 @@ const getDefaultState = () => {
     return {
         user_agent: '',
         loading: false,
-        awesome_background: {'background_filename':'','background_author':'','background_author_link':''},
+        awesome_background: {'background_filename':'','background_author':'','background_author_link':'','is_video':0},
         db: [],
         search_term: '',
         search_page: 0,
@@ -328,7 +328,7 @@ export const mutations = {
         } else {
             state.awesome_background['is_video'] = 0;
         }
-        console.log(state.awesome_background);
+        // console.log(state.awesome_background);
         return;
     },
     setCurrentTool( state, data ) {

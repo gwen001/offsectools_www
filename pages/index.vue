@@ -63,7 +63,7 @@ export default {
     // },
     mounted() {
         // this.$store.commit( 'setAwesomeBackground', ['/img/background/home.jpg'] );
-        this.$store.commit( 'setAwesomeBackground', ['http://assets.offsec.tools/vidz/space-orange.mp4'] );
+        this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/vidz/code.mp4'] );
     }
 }
 </script>

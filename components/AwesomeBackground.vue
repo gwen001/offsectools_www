@@ -6,18 +6,18 @@
                     <a :href="awesome_background.background_author_link" target="_blank">credit @{{ awesome_background.background_author }}</a>
                 </div>
             </template>
-        </template>
 
-        <template v-if="awesome_background.is_video == 1">
-            <video id="awesome-background-video" autoplay muted loop>
-                <source :src="awesome_background.background_filename" type="video/mp4">
-            </video>
-        </template>
-        <template v-else>
-            <div id="awesome-background-image" :style="`background-image:url(${awesome_background.background_filename});`"></div>
-        </template>
+            <template v-if="awesome_background.is_video == 1">
+                <video id="awesome-background-video" autoplay muted loop  preload="none">
+                    <source :src="awesome_background.background_filename+'?r='+rnd" :class="'aaaa?'+rnd" type="video/mp4">
+                </video>
+            </template>
+            <template v-else>
+                <div id="awesome-background-image" :style="`background-image:url(${awesome_background.background_filename});`"></div>
+            </template>
 
-        <div id="awesome-background-gradient"></div>
+            <div id="awesome-background-gradient"></div>
+        </template>
     </div>
 </template>
 
@@ -26,6 +26,9 @@
 export default {
     name: 'AwesomeBackground',
     computed: {
+        rnd() {
+            return Math.floor(Math.random()*10000);
+        },
         awesome_background() {
             return this.$store.getters['getAwesomeBackground'];
         }

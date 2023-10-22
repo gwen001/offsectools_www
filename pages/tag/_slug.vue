@@ -8,7 +8,7 @@
                 </div>
             </div>
             <template v-if="tools.length > 0">
-                <div class="d-flex justify-content-center" v-if="tools.length > 1">
+                <div class="d-flex justify-content-center" v-if="tools.length > 1 && this.$route.params.slug != 'last7days'">
                     <ToolsSorter :tools="tools.length"></ToolsSorter>
                 </div>
                 <ToolsListing ref="toolslisting" from="tagpage" :tools="tools"></ToolsListing>
@@ -159,7 +159,8 @@ export default {
             this.$store.commit( 'setAwesomeBackground', ['/img/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
         }
         if( this.$route.params.slug == 'last7days' ) {
-            this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg'] );
+        this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/vidz/code.mp4'] );
+            // this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg'] );
         }
     }
 }
