@@ -59,7 +59,8 @@ export default {
     //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
     // },
     mounted() {
-        this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg'] );
+        this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/vidz/code.mp4'] );
+        // this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg'] );
     }
 }
 </script>
