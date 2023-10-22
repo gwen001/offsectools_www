@@ -32,6 +32,7 @@
 
 ## Changelog
 
+- 2023-10-22: videos for background
 - 2023-10-20: tools pictures optimized, resized and uploaded on AWS
 - 2023-10-19: fix search, sharing module
 - 2023-10-17: fix newsletter CSS
