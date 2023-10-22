@@ -74,7 +74,7 @@ export default {
         link: [
             { hid: 'canonical', rel: 'canonical', href: process.env.APP_URL },
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            // { rel: 'preload', href: process.env.ASSETS_URL, type: 'image', as: 'image' },
+            { rel: 'preload', href: process.env.ASSETS_URL, type: 'image', as: 'image' },
         ],
         script: [
             { src: "/js/bootstrap.bundle.min.js" },
