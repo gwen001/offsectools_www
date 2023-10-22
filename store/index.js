@@ -317,8 +317,18 @@ export const mutations = {
     setAwesomeBackground( state, data ) {
         state.awesome_background = [];
         state.awesome_background['background_filename'] = data[0];
-        state.awesome_background['background_author'] = data[1];
-        state.awesome_background['background_author_link'] = data[2];
+        if( data.length >= 2 ) {
+            state.awesome_background['background_author'] = data[1];
+        }
+        if( data.length >= 3 ) {
+            state.awesome_background['background_author_link'] = data[2];
+        }
+        if( data[0].indexOf('.mp4') > 0 ) {
+            state.awesome_background['is_video'] = 1;
+        } else {
+            state.awesome_background['is_video'] = 0;
+        }
+        console.log(state.awesome_background);
         return;
     },
     setCurrentTool( state, data ) {

@@ -62,7 +62,8 @@ export default {
     //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
     // },
     mounted() {
-        this.$store.commit( 'setAwesomeBackground', ['/img/background/home.jpg','',''] );
+        // this.$store.commit( 'setAwesomeBackground', ['/img/background/home.jpg'] );
+        this.$store.commit( 'setAwesomeBackground', ['http://assets.offsec.tools/vidz/space-orange.mp4'] );
     }
 }
 </script>

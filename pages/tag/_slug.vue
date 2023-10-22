@@ -159,7 +159,7 @@ export default {
             this.$store.commit( 'setAwesomeBackground', ['/img/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
         }
         if( this.$route.params.slug == 'last7days' ) {
-            this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg','',''] );
+            this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg'] );
         }
     }
 }
