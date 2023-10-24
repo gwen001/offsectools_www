@@ -65,7 +65,7 @@
                     <div class="col">
                         <p>
                             Thanks to <nuxt-link to="/contributors" class="highlight2">Contributors</nuxt-link> for feeding the website.
-                            <br />Thanks to the artists who provide <a href="/img/tags/" class="highlight2">wallpapers</a>.
+                            <br />Thanks to the artists who provide <a href="/assets/tags/" class="highlight2">wallpapers</a>.
                         </p>
                         <p>
                             Give back to Caesar what belongs to Caesar, {{ $config.APP_NAME }} is widely inspired by <a href="https://www.uneed.best/" target="_blank" class="uneedbest">uneed.best</a>, a list of useful web tools daily curated by hand by <a href="https://twitter.com/T_Zahil" class="uneedbest">Thomas Sanlis</a>.
@@ -93,7 +93,7 @@ export default {
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
         this.$store.commit( 'resetSearch', 1 );
-        this.$store.commit( 'setAwesomeBackground', ['/img/background/about.jpg','rez0','https://twitter.com/rez0__'] );
+        this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/background/about.jpg','rez0','https://twitter.com/rez0__'] );
         // this.$store.commit( 'resetAwesomeBackground' );
     }
 }

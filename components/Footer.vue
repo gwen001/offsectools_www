@@ -100,7 +100,7 @@
                                 <a href="https://10degres.net" target="_blank">Author blog</a>
                             </li>
                             <li class="mb-4">
-                                <a href="https://offsec.tools/img/tags/" target="_blank">Wallpapers</a>
+                                <a href="/assets/tags/" target="_blank">Wallpapers</a>
                             </li>
                             <li>
                                 <a href="https://www.uneed.best/" target="_blank">Inspired by</a>

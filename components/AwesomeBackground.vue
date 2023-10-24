@@ -74,7 +74,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
 
-    height: 75%;
+    height: 85%;
     left: 0px;
     opacity: 0.8;
     position: absolute;
@@ -83,7 +83,7 @@ export default {
     z-index: -2;
 }
 #awesome-background-gradient {
-    background: linear-gradient(180deg, rgba(10,12,31,0) 0%, rgba(10,12,31,0) 60%, rgba(10,12,31,1) 75%, rgba(10,12,31,1) 100%);
+    background: linear-gradient(180deg, rgba(10,12,31,0) 0%, rgba(10,12,31,0) 70%, rgba(10,12,31,1) 85%, rgba(10,12,31,1) 100%);
 
     height: 100%;
     left: 0px;

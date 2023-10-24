@@ -156,11 +156,11 @@ export default {
     // },
     mounted() {
         if( this.datag.background_filename && this.datag.background_filename.length ) {
-            this.$store.commit( 'setAwesomeBackground', ['/img/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
+            this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
         }
         if( this.$route.params.slug == 'last7days' ) {
         this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/vidz/code.mp4'] );
-            // this.$store.commit( 'setAwesomeBackground', ['/img/background/surprise.jpg'] );
+            // this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/background/surprise.jpg'] );
         }
     }
 }
