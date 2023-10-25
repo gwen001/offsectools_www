@@ -9,7 +9,7 @@
 
             <template v-if="awesome_background.is_video == 1">
                 <video id="awesome-background-video" autoplay muted loop  preload="none">
-                    <source :src="awesome_background.background_filename+'?r='+rnd" :class="'aaaa?'+rnd" type="video/mp4">
+                    <source :src="awesome_background.background_filename" type="video/mp4">
                 </video>
             </template>
             <template v-else>
@@ -26,9 +26,6 @@
 export default {
     name: 'AwesomeBackground',
     computed: {
-        rnd() {
-            return Math.floor(Math.random()*10000);
-        },
         awesome_background() {
             return this.$store.getters['getAwesomeBackground'];
         }
