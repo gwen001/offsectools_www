@@ -71,7 +71,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
 
-    height: 85%;
+    height: 90%;
     left: 0px;
     opacity: 0.8;
     position: absolute;

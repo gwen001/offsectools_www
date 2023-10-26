@@ -1,11 +1,19 @@
 <template>
     <div id="sharer">
         <div class="sharer-buttons">
-            <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/twitter.png'" alt="twitter"></a>
+            <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img class="twitter" :src="this.$config.ASSETS_URL+'/share/twitter.svg'" alt="twitter"></a>
+            <a :href="'http://www.reddit.com/submit?url='+sharing_url+'&title='+sharing_text" target="_blank"><img class="reddit" :src="this.$config.ASSETS_URL+'/share/reddit.svg'" alt="reddit"></a>
+            <a :href="'https://news.ycombinator.com/submitlink?u='+sharing_url+'&amp;t='+sharing_text" target="_blank"><img class="hackernews" :src="this.$config.ASSETS_URL+'/share/hackernews.svg'" alt="hackernews"></a>
+            <a :href="'mailto:?subject='+sharing_text+'&body='+sharing_url" target="_blank"><img class="mail" :src="this.$config.ASSETS_URL+'/share/mail.svg'" alt="mail"></a>
+            <a :href="'https://wa.me/?text='+sharing_text+'%20'+sharing_url" target="_blank"><img class="whatsapp" :src="this.$config.ASSETS_URL+'/share/whatsapp.svg'" alt="facebook"></a>
+            <a :href="'https://t.me/share/url?url='+sharing_url+'&text='+sharing_text" target="_blank"><img class="telegram" :src="this.$config.ASSETS_URL+'/share/telegram.svg'" alt="facebook"></a>
+            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img class="linkedin" :src="this.$config.ASSETS_URL+'/share/linkedin.svg'" alt="linkedin"></a>
+            <a :href="'https://www.facebook.com/sharer/sharer.php?u='+sharing_url+'&t='+sharing_text" target="_blank"><img class="facebook" :src="this.$config.ASSETS_URL+'/share/facebook.svg'" alt="facebook"></a>
+            <!-- <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/twitter.png'" alt="twitter"></a>
             <a :href="'http://www.reddit.com/submit?url='+sharing_url+'&title='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/reddit.png'" alt="reddit"></a>
             <a :href="'https://news.ycombinator.com/submitlink?u='+sharing_url+'&amp;t='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/ycombinator.png'" alt="ycombinator"></a>
             <a :href="'https://www.facebook.com/sharer/sharer.php?u='+sharing_url" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/facebook.png'" alt="facebook"></a>
-            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/linkedin.png'" alt="linkedin"></a>
+            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/linkedin.png'" alt="linkedin"></a> -->
         </div>
     </div>
 </template>
@@ -44,9 +52,37 @@ export default {
 }
 #sharer a {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 #sharer img {
-    width: 20px;
+    border-radius: 2px;
+    width: 25px;
+}
+#sharer img:hover {
+    opacity: 0.8;
+}
+.twitter {
+    background-color: rgb(29, 155, 240);
+}
+.reddit {
+    background-color: rgb(255, 69, 0);
+}
+.hackernews {
+    background-color: rgb(255, 102, 0);
+}
+.telegram {
+    background-color: rgb(44, 165, 224);
+}
+.facebook {
+    background-color: rgb(8, 102, 255);
+}
+.whatsapp {
+    background-color: rgb(18, 175, 10);
+}
+.linkedin {
+    background-color: rgb(0, 123, 181);
+}
+.mail {
+    background-color: rgb(136, 137, 144);
 }
 </style>
