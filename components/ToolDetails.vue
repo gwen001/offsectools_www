@@ -7,15 +7,13 @@
             <div class="col-xl-8 col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 col-sm-11 col-11 position-relative overflow-hidden pe-0">
-
-                <template v-if="tool.featured">
-                    <Ribbon rstyle="warning" rtext="featured"></Ribbon>
-                </template>
-                <template v-if="tool.sponsored">
-                    <Ribbon rstyle="danger" rtext="sponsor"></Ribbon>
-                </template>
-
-                        <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded tool-picture img-fluid" />
+                        <template v-if="tool.featured">
+                            <Ribbon rstyle="warning" rtext="featured"></Ribbon>
+                        </template>
+                        <template v-if="tool.sponsored">
+                            <Ribbon rstyle="danger" rtext="sponsor"></Ribbon>
+                        </template>
+                        <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded tool-picture img-fluid w-100" />
                         <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" /> -->
                     </div>
                 </div>

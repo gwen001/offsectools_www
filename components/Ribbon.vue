@@ -16,14 +16,18 @@ export default {
     font-weight: bold;
     height: 2em;
     padding-bottom: 1.9em;
-    padding-left: 8.5em;
+    padding-left: 2.5em;
+    /* padding-left: 8.5em; */
     padding-top: 0.3em;
     position: absolute;
-    right: -5em;
-    top: -1em;
+    right: -2em;
+    /* right: -5em; */
+    top: 1em;
+    /* top: -1em; */
     text-align: center;
     transform: rotate(30deg);
-    width: 25em;
+    /* width: 25em; */
+    width: 15em;
 }
 
 .ribbon-danger { color:#fff; background-color: #dc3545; }
