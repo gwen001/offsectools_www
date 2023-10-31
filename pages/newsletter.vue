@@ -40,6 +40,8 @@
                     <div class="col-12 col-sm-6">
                         <nuxt-link to="/newsletter/newsletter-26.html" target="_blank" class="highlight2">Weekly newsletter N°26</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-27.html" target="_blank" class="highlight2">Weekly newsletter N°27</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-28.html" target="_blank" class="highlight2">Weekly newsletter N°28</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-29.html" target="_blank" class="highlight2">Weekly newsletter N°29</nuxt-link>
                     </div>
                 </div>
             </div>
