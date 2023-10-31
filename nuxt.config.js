@@ -12,10 +12,10 @@ const dynamicRoutes = async () => {
             lastmodISO: tool.updated_at,
             priority: 1
         };
-        if( tool.picture !== null ) {
+        if( tool.images !== null && tool.images.length > 0 ) {
             route.img = [
                 {
-                    url: '/img/tools/'+tool.picture,
+                    url: process.env.ASSETS_URL+'/tools/'+tool.images[0],
                     caption: tool.short_descr,
                     title: tool.nicename
                 }

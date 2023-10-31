@@ -13,7 +13,7 @@
                         <template v-if="tool.sponsored">
                             <Ribbon rstyle="danger" rtext="sponsor"></Ribbon>
                         </template>
-                        <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded tool-picture img-fluid w-100" />
+                        <img :alt="tool.nicename" :title="tool.nicename" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded tool-picture img-fluid w-100" />
                         <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" /> -->
                     </div>
                 </div>
