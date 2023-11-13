@@ -42,6 +42,8 @@
                         <br /><nuxt-link to="/newsletter/newsletter-27.html" target="_blank" class="highlight2">Weekly newsletter N°27</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-28.html" target="_blank" class="highlight2">Weekly newsletter N°28</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-29.html" target="_blank" class="highlight2">Weekly newsletter N°29</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-30.html" target="_blank" class="highlight2">Weekly newsletter N°30</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-31.html" target="_blank" class="highlight2">Weekly newsletter N°31</nuxt-link>
                     </div>
                 </div>
             </div>
