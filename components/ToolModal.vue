@@ -33,6 +33,7 @@ export default {
         return {
             myModalEl: null,
             myModal: null,
+            back_url: null,
         }
     },
     methods: {
@@ -40,11 +41,96 @@ export default {
             this.$store.commit( 'resetSearch' );
             // this.$router.push( '/' );
         },
+        resetCurrentTool( tool_slug ) {
+            console.log('click on close');
+            this.$store.commit( 'resetCurrentTool' );
+        },
         closeModal: function () {
             console.log('close');
             if( this.myModal ) {
                 this.myModal.hide();
             }
+        },
+        showToolModal( tool ) {
+            this.modal_enabled = true;
+            setTimeout(() => document.addEventListener('keydown',this.resetCurrentTool), 0);
+
+            // this.$store.commit( 'setCurrentTool', this.route_to.params.slug );
+            // window.history.pushState({}, null, this.route_to.path);
+            window.history.pushState({}, null, this.$config.APP_URL+'/tool/'+tool.slug);
+            this.back_url = this.$route.path;
+            // console.log(this.$config.APP_URL+'/tool/'+this.datool.slug;);
+            console.log(this.$route.path);
+
+            var myModalElt = document.getElementById('myModal');
+            myModalElt.classList.add('show');
+            myModalElt.classList.add('d-block');
+            setTimeout(() => myModalElt.addEventListener('click',this.resetCurrentTool), 0);
+
+            var bodyElt = document.getElementsByTagName('body');
+            // bodyElt.classList.add('modal-open');
+            // bodyElt.classList.add('modal-open-body');
+
+            var backdropElt = document.getElementById('modal-backdrop');
+            backdropElt.classList.remove('d-none');
+
+            var closeBtn = document.getElementById('modal-close');
+            setTimeout(() => closeBtn.addEventListener('click',this.resetCurrentTool), 0);
+        },
+        hideToolModal() {
+            // console.log('close!!!');
+            // console.log(e);
+            // console.log(typeof e);
+            // console.log(e.target);
+            // console.log(e.target.id);
+            // console.log(e.key);
+
+            // console.log(this.$route.path);
+            // console.log(e.target.getAttribute('href'));
+
+            // if( typeof e == 'function' ) {
+            //     console.log('function!!!');
+            // } else {
+            //     console.log('obj!!!');
+            // }
+
+            // if( (e.target.href && e.target.getAttribute('href')==this.$route.path) || (e.key && e.key=='Escape') || (e.target.id && (e.target.id=='myModal' || e.target.id=='modal-close' || e.target.id=='modal-close-icon' || e.target.id=='modal-close-icon-path')) )
+            {
+                this.modal_enabled = false;
+
+                console.log('do close!!!');
+                document.removeEventListener('keydown',this.resetCurrentTool);
+
+                var myModalElt = document.getElementById('myModal');
+                myModalElt.classList.remove('show');
+                myModalElt.classList.remove('d-block');
+                myModalElt.removeEventListener('click',this.resetCurrentTool);
+
+                var bodyElt = document.getElementsByTagName('body');
+                // bodyElt.classList.remove('modal-open');
+                // bodyElt.classList.remove('modal-open-body');
+
+                var backdropElt = document.getElementById('modal-backdrop');
+                backdropElt.classList.add('d-none');
+
+                var closeBtn = document.getElementById('modal-close');
+                closeBtn.removeEventListener('click',this.resetCurrentTool);
+
+                // this.$store.commit( 'resetCurrentTool' );
+                if( this.back_url != null && this.back_url.length ) {
+                    window.history.pushState({}, null, this.back_url);
+                }
+                // this.$router.push( this.route_from );
+                // window.history.back();
+                // this.$router.go(-1);
+                // history.go(-1);
+                // window.history.forward();
+            }
+
+            // if( next ) {
+            //     next();
+            // }
+
         },
     },
     computed: {
@@ -62,10 +148,14 @@ export default {
         tool(newv,oldv) {
             console.log('oldv='+oldv);
             console.log('newv='+newv);
-            // if( newv == '' || newv == null ) {
-            //     return;
-            // }
 
+            if( newv == '' || newv == null ) {
+                this.hideToolModal();
+            } else {
+                this.showToolModal( newv );
+            }
+
+            return;
             // var that = this;
 
             // this.myModalEl = document.getElementById('myModal');
@@ -81,7 +171,7 @@ export default {
 
 
 
-            // setTimeout(() => document.addEventListener('click',this.hideModal), 0);
+            // // setTimeout(() => document.addEventListener('click',this.hideModal), 0);
             // // document.removeEventListener('click',this.hideMobilebar);
 
 
@@ -89,9 +179,9 @@ export default {
             // this.myModalEl = document.getElementById('myModal');
             // this.myModal = new bootstrap.Modal(this.myModalEl);
             // this.myModal.show();
-            // this.myModalEl.addEventListener('hide.bs.modal', function (event) {
-            //     that.$parent.eventHideToolModal();
-            // });
+            // // this.myModalEl.addEventListener('hide.bs.modal', function (event) {
+            // //     that.$parent.eventHideToolModal();
+            // // });
         }
     },
 }

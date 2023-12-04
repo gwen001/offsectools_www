@@ -13,6 +13,7 @@
                 <!-- <span class="badge badge-warning ms-2" v-if="tool.featured">Featured</span> -->
                 <h6 class="card-title tool-name mt-1 mb-2">
                     <nuxt-link :to="'/tool/'+tool.slug" :class="[tool.sponsored ? 'highlight1' : tool.featured ? 'text-warning': 'highlight2', 'stretched-link']">{{ tool.nicename }}</nuxt-link>
+                    <!-- <a v-on:click.prevent="setCurrentTool(tool.slug)" :href="'/tool/'+tool.slug" :class="[tool.sponsored ? 'highlight1' : tool.featured ? 'text-warning': 'highlight2', 'stretched-link']">{{ tool.nicename }}</a> -->
                 </h6>
                 <nuxt-link :to="'/tool/'+tool.slug" class="fake-link d-none stretched-link"></nuxt-link>
                 <p class="card-text tool-descr">{{ tool.short_descr }}</p>
@@ -51,6 +52,10 @@ export default {
         ToolLink
     },
     methods: {
+        setCurrentTool( tool_slug ) {
+            console.log('click on '+tool_slug);
+            this.$store.commit( 'setCurrentTool', [tool_slug,this.$route.path] );
+        },
         resetSearch: function () {
             this.$store.commit( 'resetSearch', 1 );
             // this.$router.push( '/' );

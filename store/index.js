@@ -9,6 +9,7 @@ const getDefaultState = () => {
         search_term: '',
         search_page: 0,
         current_tool: null,
+        navigation_history: [],
         tool_null: null,
         limit_results: 200,
         search_results: [],
@@ -32,6 +33,14 @@ export const getters = {
     getAwesomeBackground( state ) {
         // console.log(state.awesome_background);
         return state.awesome_background;
+    },
+    getToolUrl( state, slug ) {
+        return slug;
+    },
+    getNavigationHistory( state, route_path ) {
+        if( state.navigation_history.hasOwnProperty(route_path) ) {
+            return state.navigation_history.hasOwnProperty(route_path);
+        };
     },
     getCurrentTool( state ) {
         // console.log(state.current_tool);
@@ -332,10 +341,17 @@ export const mutations = {
         return;
     },
     setCurrentTool( state, data ) {
-        state.current_tool = data;
+        state.current_tool = data[0];
+        state.navigation_history[data[1]] = data[0];
+        console.log(state.navigation_history);
     },
     resetCurrentTool( state ) {
+        // if( state.navigation_history.hasOwnProperty(state.current_tool) ) {
+        //     delete state.navigation_history[state.current_tool];
+        // };
+        state.navigation_history[state.current_tool] = null;
         state.current_tool = null;
+        console.log(state.navigation_history);
     },
     setToolModal( state, data ) {
         state.tool_modal = data;
