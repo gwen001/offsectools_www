@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-
+// import { Feed } from "feed";
 
 const dynamicRoutes = async () => {
     const t_routes = [];
@@ -36,6 +36,94 @@ const dynamicRoutes = async () => {
     return t_routes;
 }
 
+const createFeeds = async () => {
+    const t_feeds = [];
+    const db = await axios.get(process.env.API_URL+'/exportdb');
+    const t_tools = db.data.tools.sort(
+        (a, b) => (a.accepted_at > b.accepted_at ? -1 : 1)
+    );
+
+    const feed_all = {
+        path: '/feed.xml', // The route to your feed.
+        cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+        type: 'rss2', // Can be: rss2, atom1, json1
+        async create( feed ) {
+            feed.options = {
+                title: process.env.APP_NAME,
+                link: process.env.APP_URL,
+                description: process.env.APP_DESCR,
+                language: 'en',
+                image: process.env.APP_URL+'/img/preview.png',
+                // favicon: process.env.APP_URL+'/favicon.ico',
+                // image: {
+                //     title: process.env.APP_NAME,
+                //     url: process.env.APP_URL+'/img/preview.png',
+                // },
+                // copyright: "All rights reserved 2013, John Doe",
+                // lastBuildDate: new Date(2013, 6, 14), // optional, default = today
+                // generator: "awesome", // optional, default = 'Feed for Node.js'
+                // feedLinks: {
+                //     json: "https://example.com/json",
+                //     atom: "https://example.com/atom"
+                // },
+                author: [{
+                    name: "Gwendal Le Coguic",
+                    email: "g@offsec.tools",
+                    link: "https://10degres.net"
+                }]
+            }
+
+            for( const tool of t_tools ) {
+                feed.addItem({
+                    title: tool.nicename,
+                    id: process.env.APP_URL+'/tool/' + tool.slug,
+                    link: process.env.APP_URL+'/tool/' + tool.slug,
+                    date: new Date( tool.accepted_at ),
+                    image: process.env.ASSETS_URL+'/tools/'+tool.images[0],
+                    description: tool.short_descr,
+                    // content: tool.descr
+                })
+            }
+        },
+    }
+    t_feeds.push(feed_all);
+
+    const feed_l7d = {
+        path: '/last7days.xml', // The route to your feed.
+        cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+        type: 'rss2', // Can be: rss2, atom1, json1
+        async create( feed ) {
+            feed.options = {
+                title: process.env.APP_NAME,
+                link: process.env.APP_URL,
+                description: process.env.APP_DESCR,
+                language: 'en',
+                image: process.env.APP_URL+'/img/preview.png',
+            }
+
+            var d_current = new Date();
+            var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+
+            for( const tool of t_tools ) {
+                var td = new Date(tool.accepted_at);
+                if( td > d7 ) {
+                    feed.addItem({
+                        title: tool.nicename,
+                        id: process.env.APP_URL+'/tool/' + tool.slug,
+                        link: process.env.APP_URL+'/tool/' + tool.slug,
+                        date: new Date( tool.accepted_at ),
+                        image: process.env.ASSETS_URL+'/tools/'+tool.images[0],
+                        description: tool.short_descr,
+                        // content: tool.descr
+                    })
+                }
+            }
+        },
+    }
+    t_feeds.push(feed_l7d);
+
+    return t_feeds;
+}
 
 export default {
     // https://nuxtjs.org/docs/concepts/server-side-rendering
@@ -112,11 +200,15 @@ export default {
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         '@nuxtjs/axios',
+        '@nuxtjs/feed',
         '@nuxtjs/sitemap',
         '@nuxt/image',
         '@nuxtjs/dayjs',
         '@nuxtjs/redirect-module',
     ],
+
+    // https://github.com/nuxt-community/feed-module
+    feed: createFeeds,
 
     redirect: {
         rules: (process.env.APP_ENV!='prod') ? [
