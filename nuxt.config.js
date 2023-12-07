@@ -163,6 +163,7 @@ export default {
             { hid: 'canonical', rel: 'canonical', href: process.env.APP_URL },
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
             { rel: 'preload', href: process.env.ASSETS_URL, type: 'image', as: 'image' },
+            { rel: 'alternate', href: process.env.APP_URL+'/last7days.xml', type: 'application/rss+xml', title: 'Tools added last week on '+process.env.APP_NAME },
         ],
         script: [
             { src: "/js/bootstrap.bundle.min.js" },
