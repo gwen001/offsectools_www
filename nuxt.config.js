@@ -90,7 +90,7 @@ const createFeeds = async () => {
 
     const feed_l7d = {
         path: '/last7days.xml', // The route to your feed.
-        cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+        cacheTime: 60 * 5, // How long should the feed be cached, 5mn
         type: 'rss2', // Can be: rss2, atom1, json1
         async create( feed ) {
             feed.options = {
