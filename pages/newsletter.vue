@@ -64,6 +64,12 @@
                         <br /><nuxt-link to="/newsletter/newsletter-49.html" target="_blank" class="highlight2">Weekly newsletter N°49</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-51.html" target="_blank" class="highlight2">Weekly newsletter N°51</nuxt-link>
                     </div>
+                    <div class="col-12 col-sm-6">
+                        <nuxt-link to="/newsletter/newsletter-52.html" target="_blank" class="highlight2">Weekly newsletter N°52</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-53.html" target="_blank" class="highlight2">Weekly newsletter N°53</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-54.html" target="_blank" class="highlight2">Weekly newsletter N°54</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-55.html" target="_blank" class="highlight2">Weekly newsletter N°55</nuxt-link>
+                    </div>
                 </div>
             </div>
         </div>
