@@ -6,6 +6,7 @@ const getDefaultState = () => {
         loading: false,
         awesome_background: {'background_filename':'','background_author':'','background_author_link':'','is_video':0},
         db: [],
+        db_rejected: [],
         search_term: '',
         search_page: 0,
         current_tool: null,
@@ -68,6 +69,9 @@ export const getters = {
     },
     getContributors( state ) {
         return state.db.contributors;
+    },
+    getRejected( state ) {
+        return state.db.rejected;
     },
     getSponsors( state ) {
         return state.db.sponsors;

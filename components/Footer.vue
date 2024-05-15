@@ -61,7 +61,7 @@
                                 <nuxt-link to="/tag/resources">Resources</nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/surprise">Surprise!</nuxt-link>
+                                <nuxt-link to="/rejected">Rejected</nuxt-link>
                             </li>
                         </ul>
                     </div>

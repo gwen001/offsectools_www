@@ -43,7 +43,7 @@ import ToolsSorter from '~/components/ToolsSorter.vue'
 import ToolsListing from '~/components/ToolsListing.vue'
 
 export default {
-    name: 'Surprise',
+    name: 'surprise',
     components: {
         Logo, ToolCard, ToolsSorter, ToolsListing
     },
