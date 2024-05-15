@@ -19,6 +19,7 @@
                                 <li>it's a single CVE exploit/PoC</li>
                                 <li>it's malicious or harmless by purpose</li>
                                 <li>it's a common utility provided by OS</li>
+                                <li>it's not related to security</li>
                             </ul>
                             or something else...
                             <br><br>
