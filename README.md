@@ -32,6 +32,7 @@
 
 ## Changelog
 
+- 2024-05-20: Page to list the rejected tools
 - 2023-10-31: SEO optimization
 - 2023-10-26: images and videos resized and optimized
 - 2023-10-25: more assets on AWS
