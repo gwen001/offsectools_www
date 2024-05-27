@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-4">
                         <nuxt-link to="/newsletter/newsletter-1.html" target="_blank" class="highlight2">Weekly newsletter N°1</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-2.html" target="_blank" class="highlight2">Weekly newsletter N°2</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-3.html" target="_blank" class="highlight2">Weekly newsletter N°3</nuxt-link>
@@ -37,7 +37,7 @@
                         <br /><nuxt-link to="/newsletter/newsletter-24.html" target="_blank" class="highlight2">Weekly newsletter N°24</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-25.html" target="_blank" class="highlight2">Weekly newsletter N°25</nuxt-link>
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-4">
                         <nuxt-link to="/newsletter/newsletter-26.html" target="_blank" class="highlight2">Weekly newsletter N°26</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-27.html" target="_blank" class="highlight2">Weekly newsletter N°27</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-28.html" target="_blank" class="highlight2">Weekly newsletter N°28</nuxt-link>
@@ -64,11 +64,15 @@
                         <br /><nuxt-link to="/newsletter/newsletter-49.html" target="_blank" class="highlight2">Weekly newsletter N°49</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-51.html" target="_blank" class="highlight2">Weekly newsletter N°51</nuxt-link>
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-4">
                         <nuxt-link to="/newsletter/newsletter-52.html" target="_blank" class="highlight2">Weekly newsletter N°52</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-53.html" target="_blank" class="highlight2">Weekly newsletter N°53</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-54.html" target="_blank" class="highlight2">Weekly newsletter N°54</nuxt-link>
                         <br /><nuxt-link to="/newsletter/newsletter-55.html" target="_blank" class="highlight2">Weekly newsletter N°55</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-56.html" target="_blank" class="highlight2">Weekly newsletter N°56</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-57.html" target="_blank" class="highlight2">Weekly newsletter N°57</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-58.html" target="_blank" class="highlight2">Weekly newsletter N°58</nuxt-link>
+                        <br /><nuxt-link to="/newsletter/newsletter-59.html" target="_blank" class="highlight2">Weekly newsletter N°59</nuxt-link>
                     </div>
                 </div>
             </div>
