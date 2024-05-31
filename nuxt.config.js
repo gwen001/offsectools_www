@@ -219,6 +219,7 @@ export default {
         ] : [
             // production rules
             { from: '^/img/tools/(.*)$', to: process.env.ASSETS_URL+'/tools/$1', statusCode: 301 }
+            { from: '^/tag/last7days$', to: process.env.ASSETS_URL+'/last7days', statusCode: 301 }
         ]
     },
 
