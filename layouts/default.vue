@@ -17,7 +17,9 @@
                 <Footer></Footer>
             </div>
         </div>
-        <script async src="https://cdn.splitbee.io/sb.js"></script>
+        <template v-if="this.$config.APP_ENV == 'prod'">
+            <script async src="https://cdn.splitbee.io/sb.js"></script>
+        </template>
     </div>
 </template>
 

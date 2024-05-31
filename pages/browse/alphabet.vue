@@ -1,7 +1,7 @@
 <template>
     <div id="browse-alphabet" class="container h-100 p-3">
         <div class="row mb-5">
-            <div class="col">
+            <div class="col-2">
                 <TagsSorter></TagsSorter>
             </div>
         </div>

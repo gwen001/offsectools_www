@@ -49,16 +49,16 @@
                                 TOOLS
                             </li>
                             <li class="mb-4">
-                                <nuxt-link to="/">Promoted tools</nuxt-link>
+                                <nuxt-link to="/advertise">Advertise!</nuxt-link>
                             </li>
                             <li class="mb-4">
-                                <nuxt-link to="/tag/last7days">Added last week</nuxt-link>
+                                <nuxt-link to="/">Featured tools</nuxt-link>
                             </li>
                             <li class="mb-4">
-                                <nuxt-link to="/tag/learning">Learn & Train</nuxt-link>
+                                <nuxt-link to="/last7days">Added last week</nuxt-link>
                             </li>
                             <li class="mb-4">
-                                <nuxt-link to="/tag/resources">Resources</nuxt-link>
+                                <nuxt-link to="/surprise">Surprise me</nuxt-link>
                             </li>
                             <li>
                                 <nuxt-link to="/rejected">Rejected</nuxt-link>
@@ -94,7 +94,7 @@
                                 <a href="https://github.com/gwen001/offsectools_www" target="_blank">GitHub</a>
                             </li>
                             <li class="mb-4">
-                                <a href="https://app.splitbee.io/public/offsec.tools?period=30d" target="_blank">Analytics</a>
+                                <a :href="$config.ANALYTICS_URL" target="_blank">Analytics</a>
                             </li>
                             <li class="mb-4">
                                 <a href="https://10degres.net" target="_blank">Author blog</a>

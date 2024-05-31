@@ -21,7 +21,7 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/tag/last7days" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
+                <nuxt-link to="/last7days" :class="[this.$route.path=='/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
             </div>
         </div>
         <div class="row mt-3">
@@ -51,9 +51,14 @@
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <nuxt-link to="/surprise" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+                <nuxt-link to="/advertise" :class="[this.$route.path=='/advertise' ? 'fw-bold': '']">Advertise!</nuxt-link>
             </div>
         </div>
+        <!-- <div class="row mt-3">
+            <div class="col text-center">
+                <nuxt-link to="/surprise" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+            </div>
+        </div> -->
         <div class="d-flex mt-3">
             <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1 w-100" :class="[this.$route.path=='/addtool' ? 'fw-bold': '']">Add tool</nuxt-link>
         </div>

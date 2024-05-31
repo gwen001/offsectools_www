@@ -30,10 +30,11 @@ export default {
     data() {
         return {
             sort_values: {
-                date_desc: 'newest first',
-                date_asc: 'oldest first',
-                name_asc: 'sort by name (A-Z)',
-                name_desc: 'sort by name (Z-A)',
+                date_desc: 'sort by date',
+                // date_desc: 'newest first',
+                // date_asc: 'oldest first',
+                name_asc: 'sort by name',
+                // name_desc: 'sort by name (Z-A)',
                 // rand: 'random sort',
             }
         }
@@ -123,7 +124,7 @@ export default {
 </script>
 
 <style scoped>
-select, option {
+/* select, option {
     background-color: ;
-}
+} */
 </style>

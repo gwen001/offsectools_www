@@ -1,5 +1,5 @@
 <template>
-    <div id="topbar" class="" :style="`background-color: rgba(10,12,31,${opacity});`">
+    <div id="topbar" class="" :style="`background-color: rgba(10,12,31,1);`">
         <nav class="navbar h-100">
             <div class="container-fluid">
                 <div id="mobilemenu-icon" class="mobilemenu-icon d-md-none d-lg-none d-xl-none">
@@ -13,13 +13,13 @@
                     </div>
                     <div class="d-inline ms-4" style="line-height:37px;">
                         <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
-                        <nuxt-link to="/tag/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/tag/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
+                        <nuxt-link to="/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
                         <nuxt-link to="/tag/learning" class="topbar-learning ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">Learn & Train</nuxt-link>
                         <nuxt-link to="/tag/resources" class="topbar-resources ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">Resources</nuxt-link>
                         <nuxt-link to="/contributors" class="topbar-contributors ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">Contributors</nuxt-link>
                         <nuxt-link to="/newsletter" class="topbar-newsletter ms-3" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">Newsletter</nuxt-link>
                         <nuxt-link :to="browseLink" class="topbar-tags ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">Tags</nuxt-link>
-                        <nuxt-link to="/surprise" class="topbar-surprise ms-3" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+                        <nuxt-link to="/advertise" class="topbar-advertise ms-3" :class="[this.$route.path=='/advertise' ? 'fw-bold': '']">Advertise!</nuxt-link>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xXl-4">
@@ -52,28 +52,17 @@ export default {
     components: {
         Logo2
     },
-    data: function () {
-        return {
-            opacity: 0.15,
-        }
-    },
+    // data: function () {
+    //     return {
+    //         opacity: 0.15,
+    //     }
+    // },
     methods: {
         doSearch() {
             // alert('doSearch');
             this.$store.commit( 'resetSearchPage' );
             this.$router.push( '/tag/all' );
         },
-        // randomtool: function (event) {
-        //     const t_tools = this.$store.getters['getTools'];
-        //     const r = Math.floor(Math.random() * t_tools.length);
-        //     const tool = this.tool = t_tools[r];
-        //     this.$store.commit( 'resetSearch' );
-        //     this.$router.push( '/tool/'+tool.slug );
-        // },
-        // last7days: function () {
-        //     this.$store.commit( 'resetSearch' );
-        //     this.$router.push( '/?p=last7days' );
-        // },
         resetSearch: function () {
             this.$store.commit( 'resetSearch' );
             // this.$router.push( '/' );
@@ -99,31 +88,31 @@ export default {
                 document.removeEventListener('click',this.hideMobilebar);
             }
         },
-        handleScroll() {
-            if( process.client ) {
-                let scrollHeight = window.scrollY;
-                let maxHeight = window.document.body.scrollHeight - window.document.documentElement.clientHeight;
-                this.opacity = scrollHeight/100;
-                if( this.opacity <= 0.15 ) {
-                    this.opacity = 0.15;
-                }
-                if( this.opacity >= 1 ) {
-                    this.opacity = 1;
-                }
-                // console.log(scrollHeight);
-                // console.log(maxHeight);
-                if( scrollHeight >= (maxHeight-200) ) {
-                    //this.getPosts();
-                }
-            }
-        },
+        // handleScroll() {
+        //     if( process.client ) {
+        //         let scrollHeight = window.scrollY;
+        //         let maxHeight = window.document.body.scrollHeight - window.document.documentElement.clientHeight;
+        //         this.opacity = scrollHeight/100;
+        //         if( this.opacity <= 0.15 ) {
+        //             this.opacity = 0.15;
+        //         }
+        //         if( this.opacity >= 1 ) {
+        //             this.opacity = 1;
+        //         }
+        //         // console.log(scrollHeight);
+        //         // console.log(maxHeight);
+        //         if( scrollHeight >= (maxHeight-200) ) {
+        //             //this.getPosts();
+        //         }
+        //     }
+        // },
     },
-    created() {
-        if( process.client ) {
-            window.addEventListener('scroll', this.handleScroll);
-            // this.getPosts();
-        }
-    },
+    // created() {
+    //     if( process.client ) {
+    //         window.addEventListener('scroll', this.handleScroll);
+    //         // this.getPosts();
+    //     }
+    // },
     mounted() {
         document.getElementById('search-input').focus();
     },
@@ -158,6 +147,9 @@ export default {
 </script>
 
 <style scoped>
+#topbar {
+    /* border: 1px solid #f00; */
+}
 .mobilemenu-icon {
     left: 10px;
     position: absolute;

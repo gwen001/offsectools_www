@@ -26,7 +26,7 @@
             </div> -->
         </template>
         <template v-else>
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col text-center">
                     Nothing there, but feel free to
                     <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
@@ -54,13 +54,15 @@ export default {
             return this.$store.getters['getToolsFeatured'];
         },
     },
-    // beforeRouteLeave(to, from, next) {
-    //     // console.log(window.event.type);
-    //     console.log(from);
-    //     console.log(to);
-    //     console.log(next);
-    //     this.$refs.toolslisting.beforeRouteLeave( to, from, next );
-    // },
+    beforeRouteLeave(to, from, next) {
+        // console.log(window.event.type);
+        // console.log(from);
+        // console.log(to);
+        // console.log(next);
+        // this.$refs.toolslisting.beforeRouteLeave( to, from, next );
+        this.$store.commit( 'resetHighlightedTool' );
+        next();
+    },
     mounted() {
         // this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/background/home.jpg'] );
         this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/vidz/code.mp4'] );

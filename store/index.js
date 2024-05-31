@@ -10,10 +10,12 @@ const getDefaultState = () => {
         search_term: '',
         search_page: 0,
         current_tool: null,
+        highlighted_tool: null,
         navigation_history: [],
         tool_null: null,
         limit_results: 200,
         search_results: [],
+        tag_tools: [],
         tags_sort_by: 'name', // name, categories
         tools_sort_by: 'date_desc', // name_asc, name_desc, date_Asc, date_desc, rand, ratings
         tags_display: 'top', // all, top, categories
@@ -104,7 +106,7 @@ export const getters = {
         }
 
         if( options['limit'] !== undefined ) {
-           t_tags = t_tags.slice(0,options['limit']);
+           t_tags = t_tags.slice( 0, options['limit'] );
         }
 
         return t_tags;
@@ -143,6 +145,14 @@ export const getters = {
         }
         return null;
     },
+    getTagTools: (state,getters) => {
+        var t_tools = [...state.tag_tools];
+
+        t_tools = getters.sortTools(t_tools);
+
+        return t_tools;
+        // return state.tag_tools;
+    },
     getTools( state ) {
         return state.db.tools;
     },
@@ -172,8 +182,8 @@ export const getters = {
         if( sort_by === undefined ) {
             sort_by = state.tools_sort_by;
         }
-        // console.log('sortTools');
-        // console.log(sort_by);
+        console.log('sortTools');
+        console.log(sort_by);
         if( sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.accepted_at > b.accepted_at ? -1 : 1)
@@ -251,69 +261,141 @@ export const getters = {
         t_tools = getters.sortSponsored( t_tools );
         return t_tools;
     },
-    searchTools: (state,getters) => (slug,options) => {
-        // console.log('searchTools');
-        // console.log(slug);
-        // console.log(options);
+    getLast7days: (state,getters,setters) => (limit) => {
         var t_tools = [];
-        var t_tmp = [];
-        slug = slug.toLowerCase();
-
-        switch(slug)
-        {
-            case '':
-            case 'all':
-                t_tmp = [...state.db.tools];
-                break;
-            case 'last7days':
-                var d_current = new Date();
-                var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-                for( var i=0 ; i<state.db.tools.length ; i++ ) {
-                    var td = new Date(state.db.tools[i].accepted_at);
-                    if( td > d7 ) {
-                        t_tmp.push(state.db.tools[i]);
-                    }
-                }
-                break;
-            default:
-                for( var i=0 ; i<state.db.tools.length ; i++ ) {
-                    if( state.db.tools[i].tags.includes(slug) ) {
-                        t_tmp.push(state.db.tools[i]);
-                    }
-                }
-                break;
-        }
-
-        if( state.search_term.length == 0 )
-        {
-            t_tools = [...t_tmp];
-        }
-        else
-        {
-            var r = new RegExp(state.search_term,'i');
-            for( var i=0 ; i<t_tmp.length ; i++ ) {
-                if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
-                    t_tools.push(t_tmp[i]);
-                }
+        var d_current = new Date();
+        var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
+            var td = new Date(state.db.tools[i].accepted_at);
+            if( td > d7 ) {
+                t_tools.push(state.db.tools[i]);
             }
         }
 
-        if( options && options['sort_by'] ) {
-            t_tools = getters.sortTools(t_tools,options['sort_by']);
-        } else {
-            t_tools = getters.sortTools(t_tools);
-        }
-
-        if( options && options['limit'] ) {
-            return t_tools.slice(0,options['limit']);
-        }
-
-        // var start_index = 0;
-        // var end_index = (state.search_page+1) * state.limit_results;
-        // t_tools = t_tools.slice(start_index,end_index);
-
+        // var t_tools = [...state.db.tools];
+        // t_tools = t_tools.sort(() => Math.random() - 0.5)
+        // t_tools = t_tools.slice(0,limit);
+        // t_tools = getters.sortFeatured( t_tools );
+        // if( state.user_agent.toLowerCase().includes('firefox',0) ) {
+        //     t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
+        // }
+        t_tools = getters.sortTools(t_tools,'date_desc');
+        t_tools = getters.sortSponsored( t_tools );
         return t_tools;
     },
+    // searchTools: (state,getters) => (slug,options) => {
+    //     // console.log('searchTools');
+    //     // console.log(slug);
+    //     // console.log(options);
+    //     var t_tools = [];
+    //     var t_tmp = [];
+    //     slug = slug.toLowerCase();
+
+    //     switch(slug)
+    //     {
+    //         case '':
+    //         case 'all':
+    //             t_tmp = [...state.db.tools];
+    //             break;
+    //         case 'last7days':
+    //             var d_current = new Date();
+    //             var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+    //             for( var i=0 ; i<state.db.tools.length ; i++ ) {
+    //                 var td = new Date(state.db.tools[i].accepted_at);
+    //                 if( td > d7 ) {
+    //                     t_tmp.push(state.db.tools[i]);
+    //                 }
+    //             }
+    //             break;
+    //         default:
+    //             for( var i=0 ; i<state.db.tools.length ; i++ ) {
+    //                 if( state.db.tools[i].tags.includes(slug) ) {
+    //                     t_tmp.push(state.db.tools[i]);
+    //                 }
+    //             }
+    //             break;
+    //     }
+
+    //     if( state.search_term.length == 0 )
+    //     {
+    //         t_tools = [...t_tmp];
+    //     }
+    //     else
+    //     {
+    //         var r = new RegExp(state.search_term,'i');
+    //         for( var i=0 ; i<t_tmp.length ; i++ ) {
+    //             if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+    //                 t_tools.push(t_tmp[i]);
+    //             }
+    //         }
+    //     }
+
+    //     if( options && options['sort_by'] ) {
+    //         t_tools = getters.sortTools(t_tools,options['sort_by']);
+    //     } else {
+    //         t_tools = getters.sortTools(t_tools);
+    //     }
+
+    //     if( options && options['limit'] ) {
+    //         return t_tools.slice(0,options['limit']);
+    //     }
+
+    //     // var start_index = 0;
+    //     // var end_index = (state.search_page+1) * state.limit_results;
+    //     // t_tools = t_tools.slice(start_index,end_index);
+
+    //     return t_tools;
+    // },
+    // getCalculatedHighlightedTool( state ) {
+    //     return state.highlighted_tool;
+    // },
+    getHighlightedTool( state ) {
+        return state.highlighted_tool;
+    },
+    // getHighlightedTool2: (state,getters) => (t_search,options) => {
+    //     var t_tools = t_search;
+    //     // console.log('n t_tools: '+t_tools.length);
+
+    //     var t_tools_sponsor = [];
+    //     var t_tools_not_sponsor = [];
+
+    //     for( var i=0 ; i<t_tools.length ; i++ ) {
+    //         if( t_tools[i].sponsored ) {
+    //             t_tools_sponsor.push(t_search[i]);
+    //         } else {
+    //             t_tools_not_sponsor.push(t_search[i]);
+    //         }
+    //     }
+    //     // console.log('n t_tools_sponsor: '+t_tools_sponsor.length);
+    //     // console.log('n t_tools_not_sponsor: '+t_tools_not_sponsor.length);
+
+    //     var sponsor_chance = 90;
+    //     var r = Math.floor(Math.random() * 100);
+    //     var is_sponsor_tool = (r >= (100-sponsor_chance)) ? 1 : 0;
+    //     // console.log('sponsor_chance: '+sponsor_chance);
+    //     // console.log('is_sponsor_tool: '+is_sponsor_tool);
+
+    //     var filtered_tools = [];
+    //     if( t_tools_sponsor.length && is_sponsor_tool ) {
+    //         filtered_tools = [...t_tools_sponsor];
+    //     } else {
+    //         var not_sponsor_chance = 50;
+    //         var r = Math.floor(Math.random() * 100);
+    //         if( r >= (100-not_sponsor_chance) ) {
+    //             filtered_tools = [...t_tools_not_sponsor];
+    //         } else {
+    //             return null;
+    //         }
+    //     }
+
+    //     var ht_tool = Math.floor(Math.random() * filtered_tools.length);
+    //     // console.log('ht_tool: '+ht_tool);
+
+    //     // return state.db.tools[0];
+    //     // console.log(filtered_tools[ht_tool]);
+    //     return filtered_tools[ht_tool];
+    //     return state.highlighted_tool;
+    // },
     getNewsletterStatus( state ) {
         // console.log('getNewsletterStatus '+state.newsletter_status);
         return state.newsletter_status;
@@ -326,6 +408,19 @@ export const mutations = {
     },
     setUserAgent( state, user_agent ) {
         return state.user_agent = user_agent;
+    },
+    resetHighlightedTool( state ) {
+        console.log('resetHighlightedTool');
+        state.highlighted_tool = null;
+    },
+    setHighlightedTool( state, data ) {
+        console.log('setHighlightedTool');
+        state.highlighted_tool = data[0];
+    },
+    setCalculatedHighlightedTool( state, data ) {
+        console.log('setCalculatedHighlightedTool');
+        // console.log(data[0]);
+        state.highlighted_tool = data[0];
     },
     setAwesomeBackground( state, data ) {
         state.awesome_background = [];
@@ -344,10 +439,13 @@ export const mutations = {
         // console.log(state.awesome_background);
         return;
     },
+    setTagTools( state, data ) {
+        state.tag_tools = data;
+    },
     setCurrentTool( state, data ) {
         state.current_tool = data[0];
         state.navigation_history[data[1]] = data[0];
-        console.log(state.navigation_history);
+        // console.log(state.navigation_history);
     },
     resetCurrentTool( state ) {
         // if( state.navigation_history.hasOwnProperty(state.current_tool) ) {
@@ -355,7 +453,7 @@ export const mutations = {
         // };
         state.navigation_history[state.current_tool] = null;
         state.current_tool = null;
-        console.log(state.navigation_history);
+        // console.log(state.navigation_history);
     },
     setToolModal( state, data ) {
         state.tool_modal = data;
@@ -462,45 +560,47 @@ export const actions = {
             context.commit('addRating',data);
         });
     },
-    searchTools( context, data ) {
-        // console.log('searchTools');
+    searchTools20240530( context, data) {
+        console.log('searchTools20240530');
+
+        var slug = data[0].toLowerCase();
+        var db_tools = this.getters['getTools'];
         var t_tools = [];
         var t_tmp = [];
-        var slug = data[0];
-        slug = slug.toLowerCase();
 
         switch(slug)
         {
             case '':
             case 'all':
-                t_tmp = [...this.state.db.tools];
+                t_tmp = [...db_tools];
                 break;
             case 'last7days':
                 var d_current = new Date();
                 var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
-                for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
-                    var td = new Date(this.state.db.tools[i].accepted_at);
+                for( var i=0 ; i<db_tools.length ; i++ ) {
+                    var td = new Date(db_tools[i].accepted_at);
                     if( td > d7 ) {
-                        t_tmp.push(this.state.db.tools[i]);
+                        t_tmp.push(db_tools[i]);
                     }
                 }
                 break;
             default:
-                for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
-                    if( this.state.db.tools[i].tags.includes(slug) ) {
-                        t_tmp.push(this.state.db.tools[i]);
+                for( var i=0 ; i<db_tools.length ; i++ ) {
+                    if( db_tools[i].tags.includes(slug) ) {
+                        t_tmp.push(db_tools[i]);
                     }
                 }
                 break;
         }
 
-        if( this.state.search_term.length == 0 )
+        var search_term = this.getters['getSearchTerm'];
+        if( search_term.length == 0 )
         {
             t_tools = [...t_tmp];
         }
         else
         {
-            var r = new RegExp(this.state.search_term,'i');
+            var r = new RegExp(search_term,'i');
             for( var i=0 ; i<t_tmp.length ; i++ ) {
                 if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
                     t_tools.push(t_tmp[i]);
@@ -508,8 +608,107 @@ export const actions = {
             }
         }
 
-        context.commit('setSearchResults',t_tools);
+        // var options = (data.length > 1) ? data[1] : [];
+        // if( options && options['sort_by'] ) {
+        //     t_tools = this.getters['sortTools']( t_tools,options['sort_by'] );
+        // } else {
+        //     t_tools = this.getters['sortTools']( t_tools );
+        // }
+
+        // if( options && options['limit'] ) {
+        //     t_tools = t_tools.slice( 0, options['limit'] );
+        // }
+
+        // console.log('n t_tools: '+t_tools.length);
+        context.commit('setTagTools',t_tools);
+
+        // calculate the highlighted tool
+        var t_tools_sponsor = [];
+        var t_tools_not_sponsor = [];
+
+        for( var i=0 ; i<t_tools.length ; i++ ) {
+            if( t_tools[i].sponsored ) {
+                t_tools_sponsor.push(t_tools[i]);
+            } else {
+                t_tools_not_sponsor.push(t_tools[i]);
+            }
+        }
+        // console.log('n t_tools_sponsor: '+t_tools_sponsor.length);
+        // console.log('n t_tools_not_sponsor: '+t_tools_not_sponsor.length);
+
+        var sponsor_chance = 80; // chance to display a sponsor tool
+        var r = Math.floor(Math.random() * 100);
+        var is_sponsor_tool = (r >= (100-sponsor_chance)) ? 1 : 0;
+        // console.log('sponsor_chance: '+sponsor_chance);
+        // console.log('is_sponsor_tool: '+is_sponsor_tool);
+
+        var filtered_tools = [];
+        if( t_tools_sponsor.length && is_sponsor_tool ) {
+            filtered_tools = t_tools_sponsor;
+        } else {
+            var not_sponsor_chance = 30; // chance to display a NOT sponsor tool
+            var r = Math.floor(Math.random() * 100);
+            if( r >= (100-not_sponsor_chance) ) {
+                filtered_tools = t_tools_not_sponsor;
+            } else {
+                context.commit('setHighlightedTool',[null]);
+            }
+        }
+
+        var ht_tool = Math.floor(Math.random() * filtered_tools.length);
+        // console.log('ht_tool: '+ht_tool);
+
+        // context.commit('setHighlightedTool',[null]);
+        context.commit('setHighlightedTool',[filtered_tools[ht_tool]]);
     },
+    // searchTools( context, data ) {
+    //     // console.log('searchTools');
+    //     var t_tools = [];
+    //     var t_tmp = [];
+    //     var slug = data[0];
+    //     slug = slug.toLowerCase();
+
+    //     switch(slug)
+    //     {
+    //         case '':
+    //         case 'all':
+    //             t_tmp = [...this.state.db.tools];
+    //             break;
+    //         case 'last7days':
+    //             var d_current = new Date();
+    //             var d7 = new Date( d_current.getFullYear(), d_current.getMonth(), d_current.getDate()-7);
+    //             for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+    //                 var td = new Date(this.state.db.tools[i].accepted_at);
+    //                 if( td > d7 ) {
+    //                     t_tmp.push(this.state.db.tools[i]);
+    //                 }
+    //             }
+    //             break;
+    //         default:
+    //             for( var i=0 ; i<this.state.db.tools.length ; i++ ) {
+    //                 if( this.state.db.tools[i].tags.includes(slug) ) {
+    //                     t_tmp.push(this.state.db.tools[i]);
+    //                 }
+    //             }
+    //             break;
+    //     }
+
+    //     if( this.state.search_term.length == 0 )
+    //     {
+    //         t_tools = [...t_tmp];
+    //     }
+    //     else
+    //     {
+    //         var r = new RegExp(this.state.search_term,'i');
+    //         for( var i=0 ; i<t_tmp.length ; i++ ) {
+    //             if( t_tmp[i].slug.search(r) >= 0 || t_tmp[i].nicename.search(r) >= 0 || t_tmp[i].short_descr.search(r) >= 0 || (t_tmp[i].descr && t_tmp[i].descr.search(r) >= 0) ) {
+    //                 t_tools.push(t_tmp[i]);
+    //             }
+    //         }
+    //     }
+
+    //     context.commit('setSearchResults',t_tools);
+    // },
     createToolContextualisation( context, data ) {
         // console.log('createToolContextualisation');
         var n_context = data[0];

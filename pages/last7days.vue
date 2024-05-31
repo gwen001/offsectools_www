@@ -1,9 +1,9 @@
 <template>
-    <div id="surprise" class="w-100 h-100">
+    <div id="last7days" class="w-100 h-100">
         <!-- <Logo></Logo> -->
         <div class="row tagname">
             <div class="col text-center">
-                <h1>Take it like a gift</h1>
+                <h1>Added last 7 days</h1>
             </div>
         </div>
         <!-- <div class="row">
@@ -12,7 +12,7 @@
             </div>
         </div> -->
         <template v-if="tools.length > 0">
-            <ToolsListing ref="toolslisting" from="surprise" :tools="tools"></ToolsListing>
+            <ToolsListing ref="toolslisting" from="last7days" :tools="tools"></ToolsListing>
             <!--  <div class="d-flex justify-content-left" v-if="tools.length > 1">
                 <ToolsSorter :tools="tools.length"></ToolsSorter>
             </div> -->
@@ -26,7 +26,7 @@
         </template>
         <template v-else>
             <div class="row">
-                <div class="col text-center">
+                <div class="col text-center mb-4">
                     Nothing there, but feel free to
                     <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
                     if you think something is missing :)
@@ -49,7 +49,7 @@ export default {
     },
     computed: {
         tools() {
-            return this.$store.getters['getSurprise'](15);
+            return this.$store.getters['getLast7days']();
         },
     },
     // beforeRouteLeave(to, from, next) {
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-#surprise h1 {
+#last7days h1 {
     font-size: 5em;
     margin-bottom: 2em;
     margin-top: 2.5em;
