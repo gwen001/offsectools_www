@@ -1,13 +1,13 @@
 <template>
     <div id="browse-categories" class="container h-100 p-3">
         <div class="row mb-5">
-            <div class="col-2">
+            <div class="col">
                 <TagsSorter></TagsSorter>
             </div>
         </div>
-        <div class="row categories">
+        <div class="row categories" style="border:1px solid #00f;">
             <template v-for="cat,index in categories">
-                <div class="column col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="column col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-5 col-12" style="border:1px solid #f00;">
                     <div class="title">{{ cat.nicename }}</div>
                     <template v-for="tag,index in cat.tags">
                         <nuxt-link :to="'/tag/'+tag.slug" v-on:click.native="resetSearch()" class="">

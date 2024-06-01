@@ -107,7 +107,8 @@ svg.fa-house {
     border: 1px solid #162033;
     position: absolute;
     top: 40px !important;
-    width: 100%;
+    /* width: 100%; */
+    width: 204px !important;
 }
 .dropdown ul a {
     background-color: #232536;

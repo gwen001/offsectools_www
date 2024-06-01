@@ -53,7 +53,7 @@
                         <div class="card" style="">
                             <div class="card-body p-4 align-content-center text-center highlight1">
                                 <p class="pay">Select your payment, generate immediate interest for your project.</p>
-                                <a href="https://github.com/sponsors/gwen001" target="_blank" class="btn btn-custom1 mt-3">Promote your tool</a>
+                                <a id="call-to-action" href="https://github.com/sponsors/gwen001" target="_blank" class="btn btn-custom1 mt-3">Promote your tool</a>
                             </div>
                         </div>
                     </div>
@@ -248,6 +248,9 @@ export default {
 </script>
 
 <style scoped>
+#advertise #call-to-action {
+    font-size: 1.2em;
+}
 #advertise .card {
     background-color: #141729;
 }
