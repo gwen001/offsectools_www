@@ -33,6 +33,9 @@ export const getters = {
     getUserAgent( state ) {
         return state.user_agent;
     },
+    getSiteStats( state ) {
+        return state.db.site_stats;
+    },
     getAwesomeBackground( state ) {
         // console.log(state.awesome_background);
         return state.awesome_background;

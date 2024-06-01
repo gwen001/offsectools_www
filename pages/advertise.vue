@@ -31,7 +31,7 @@
                             <div class="col-6">
                                 <div class="card" style="">
                                     <div class="card-body p-1 stats text-center">
-                                        <span class="number">16,709</span>
+                                        <span class="number">{{ total_users }}</span>
                                         <br><span class="">Visitors</span>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                             <div class="col-6">
                                 <div class="card" style="">
                                     <div class="card-body p-1 stats text-center">
-                                        <span class="number">58,387</span>
+                                        <span class="number">{{ total_views }}</span>
                                         <br><span class="">Page views</span>
                                     </div>
                                 </div>
@@ -234,6 +234,22 @@
 export default {
     name: 'about',
     computed: {
+        total_views() {
+            var site_stats = this.$store.getters['getSiteStats'];
+            if( site_stats['total_views'] ) {
+                return site_stats['total_views'];
+            } else {
+                return '?';
+            }
+        },
+        total_users() {
+            var site_stats = this.$store.getters['getSiteStats'];
+            if( site_stats['total_users'] ) {
+                return site_stats['total_users'];
+            } else {
+                return '?';
+            }
+        },
         sponsors() {
             return this.$store.getters['getSponsors'];
         }
