@@ -5,9 +5,9 @@
                 <TagsSorter></TagsSorter>
             </div>
         </div>
-        <div class="row categories" style="border:1px solid #00f;">
+        <div class="row categories" style="border:0px solid #00f;">
             <template v-for="cat,index in categories">
-                <div class="column col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-5 col-12" style="border:1px solid #f00;">
+                <div class="column col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-5 col-12" style="border:0px solid #f00;">
                     <div class="title">{{ cat.nicename }}</div>
                     <template v-for="tag,index in cat.tags">
                         <nuxt-link :to="'/tag/'+tag.slug" v-on:click.native="resetSearch()" class="">
