@@ -279,11 +279,11 @@ export const getters = {
         // t_tools = t_tools.sort(() => Math.random() - 0.5)
         // t_tools = t_tools.slice(0,limit);
         // t_tools = getters.sortFeatured( t_tools );
-        // if( state.user_agent.toLowerCase().includes('firefox',0) ) {
-        //     t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
-        // }
         t_tools = getters.sortTools(t_tools,'date_desc');
         t_tools = getters.sortSponsored( t_tools );
+        if( state.user_agent.toLowerCase().includes('firefox',0) ) {
+            t_tools = t_tools.reverse(); // firefox and chrome don't sort the same way, yeah it sucks...
+        }
         return t_tools;
     },
     // searchTools: (state,getters) => (slug,options) => {
