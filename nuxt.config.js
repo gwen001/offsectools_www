@@ -131,10 +131,10 @@ export default {
     // https://nuxtjs.org/docs/concepts/server-side-rendering
     ssr: true,
 
-    // Target: https://go.nuxtjs.dev/config-target
+    // Target: https://v2.nuxt.com/docs/configuration-glossary/configuration-target/
     target: 'server',
 
-    // Global page headers: https://go.nuxtjs.dev/config-head
+    // Global page headers: https://v2.nuxt.com/docs/configuration-glossary/configuration-head/
     head: {
         title: process.env.APP_TITLE,
         htmlAttrs: {
@@ -180,7 +180,7 @@ export default {
 
     basePath: '/',
 
-    // Global CSS: https://go.nuxtjs.dev/config-css
+    // Global CSS: https://nuxt.com/docs/getting-started/styling
     css: [
         '@/assets/css/bootstrap.min.css',
         '@fortawesome/fontawesome-svg-core/styles.css',
@@ -193,14 +193,14 @@ export default {
         height: '2px'
     },
 
-    // Auto import components: https://go.nuxtjs.dev/config-components
+    // Auto import components: https://nuxt.com/docs/guide/directory-structure/components
     components: true,
 
-    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    // Modules for dev and build (recommended): https://v2.nuxt.com/docs/directory-structure/modules/
     buildModules: [
     ],
 
-    // Modules: https://go.nuxtjs.dev/config-modules
+    // Modules: https://v2.nuxt.com/docs/directory-structure/modules/
     modules: [
         '@nuxtjs/axios',
         '@nuxtjs/feed',
@@ -233,7 +233,7 @@ export default {
         hostname: process.env.APP_URL,
     },
 
-    // Axios module configuration (https://go.nuxtjs.dev/config-axios)
+    // Axios module configuration (https://axios-http.com/docs/req_config)
     axios: {
         baseURL: process.env.API_URL,
     },
@@ -252,7 +252,7 @@ export default {
         ASSETS_URL: process.env.ASSETS_URL
     },
 
-    // Build Configuration: https://go.nuxtjs.dev/config-build
+    // Build Configuration: https://v2.nuxt.com/docs/configuration-glossary/configuration-build/
     build: {
         extractCSS: true
     },
