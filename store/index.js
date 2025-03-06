@@ -185,8 +185,8 @@ export const getters = {
         if( sort_by === undefined ) {
             sort_by = state.tools_sort_by;
         }
-        console.log('sortTools');
-        console.log(sort_by);
+        // console.log('sortTools');
+        // console.log(sort_by);
         if( sort_by == 'date_desc' ) {
             t_tools = t_tools.sort(
                 (a, b) => (a.accepted_at > b.accepted_at ? -1 : 1)
