@@ -24,7 +24,7 @@
                     <div class="mt-5 col">
                         <div class="row mb-3">
                             <div class="col">
-                                <h4>STATISTICS - 2024</h4>
+                                <h4>STATISTICS - {{ current_year }}</h4>
                             </div>
                         </div>
                         <div class="row">
@@ -234,6 +234,11 @@
 export default {
     name: 'about',
     computed: {
+        current_year() {
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            return currentYear;
+        },
         total_views() {
             var site_stats = this.$store.getters['getSiteStats'];
             if( site_stats['total_views'] ) {
