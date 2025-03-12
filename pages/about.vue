@@ -50,7 +50,7 @@
                 <div class="row mt-3 sponsors">
                     <div class="col">
                         <template v-for="sponsor,index in sponsors">
-                            <a :href="'https://github.com/'+sponsor.name" target="_blank"><img :src="'https://github.com/'+sponsor.name+'.png?size=48'" width="48" class="rounded-circle" :alt="sponsor.name" /></a>
+                            <a :href="'https://github.com/'+sponsor.name" target="_blank" :title="sponsor.name"><img :src="'https://github.com/'+sponsor.name+'.png?size=48'" width="48" class="rounded-circle" :alt="sponsor.name" /></a>
                         </template>
                     </div>
                 </div>
