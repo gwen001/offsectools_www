@@ -249,7 +249,8 @@ export default {
         GITHUB_URL: process.env.GITHUB_URL,
         ANALYTICS_URL: process.env.ANALYTICS_URL,
         NEWSLETTER_SUBSCRIBE_URL: process.env.NEWSLETTER_SUBSCRIBE_URL,
-        ASSETS_URL: process.env.ASSETS_URL
+        ASSETS_URL: process.env.ASSETS_URL,
+        NEWSLETTER_ENABLE: process.env.NEWSLETTER_ENABLE
     },
 
     // Build Configuration: https://v2.nuxt.com/docs/configuration-glossary/configuration-build/

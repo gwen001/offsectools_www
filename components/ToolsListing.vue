@@ -14,9 +14,11 @@
             <div class="col-11 ps-1">
                 <div class="d-flex flex-row flex-wrap mt-1">
                     <template v-for="tool,index in tools">
-                        <div class="toolcard-loop align-self-stretch p-3" v-if="index == 6 && from!='home'">
-                            <NewsletterCard from="tagpage"></NewsletterCard>
-                        </div>
+                        <template v-if="$config.NEWSLETTER_ENABLE">
+                            <div class="toolcard-loop align-self-stretch p-3" v-if="index == 6 && from!='home'">
+                                <NewsletterCard from="tagpage"></NewsletterCard>
+                            </div>
+                        </template>
                         <div class="toolcard-loop align-self-stretch p-3 ps-0">
                             <ToolCard :tool="tool" from="index"></ToolCard>
                         </div>

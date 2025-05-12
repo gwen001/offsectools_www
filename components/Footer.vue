@@ -7,13 +7,15 @@
                         <div class="d-none d-sm-block d-md-none d-lg-none d-xl-none d-xxl-none">sm</div>
                         <div class="d-block d-sm-none d-md-none d-lg-none d-xl-none d-xxl-none">xs</div> -->
         <div class="row justify-content-center">
-            <div class="text-left mb-5 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 col-xxl-4">
-                <div class="row justify-content-center">
-                    <div class="col-11">
-                        <Newsletter></Newsletter>
+            <template v-if="$config.NEWSLETTER_ENABLE">
+                <div class="text-left mb-5 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 col-xxl-4">
+                    <div class="row justify-content-center">
+                        <div class="col-11">
+                            <Newsletter></Newsletter>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </template>
             <div class="break d-block d-sm-block d-md-block d-lg-block d-xl-none d-xxl-none"></div>
             <div class="mb-5 col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2">
                 <div class="row justify-content-center">
