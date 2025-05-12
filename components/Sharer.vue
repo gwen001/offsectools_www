@@ -40,10 +40,19 @@ export default {
 <style scoped>
 #sharer {
     border: 0px solid #ff0000;
-    /* position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%; */
+}
+@media all and (max-width: 572px) {
+    #sharer {
+        position: absolute;
+        height: 100%;
+        left: 35px;
+        top: -30px;
+        width: 100%;
+    }
+    #sharer a {
+        float: left;
+        margin-right: 7px;
+    }
 }
 #sharer .sharer-buttons {
     border: 0px solid #0000ff;

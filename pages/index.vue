@@ -1,31 +1,60 @@
 <template>
     <div id="home" class="w-100 h-100">
-        <!-- <Logo></Logo> -->
-        <!-- <ToolModal ref="toolmodal"></ToolModal> -->
-        <div class="row tagname" ref="toollisting">
-            <div class="col text-center">
-                <h1>Featured this week</h1>
+        <HighlightedTool :highlighted_tool="highlighted_tool" ></HighlightedTool>
+        <!-- <template v-if="highlighted_tool"> -->
+            <!-- <HighlightedTool :highlighted_tool="highlighted_tool" ></HighlightedTool> -->
+        <!-- </template>
+        <template v-else>
+            <div class="mt-5"></div>
+        </template> -->
+        <template v-if="tools_featured.length > 0">
+            <div class="row mt-5">
+                <div class="col-1"></div>
+                <div class="col-11">
+                    <h2>&gt; Featured this week</h2>
+                </div>
             </div>
-        </div>
-        <!-- <div class="row">
-            <div class="col text-center">
-                {{ tools.length }} tool<span v-if="tools.length > 1">s</span> found
-            </div>
-        </div> -->
-        <template v-if="tools.length > 0">
-            <ToolsListing ref="toolslisting" from="home" :tools="tools"></ToolsListing>
-            <!--  <div class="d-flex justify-content-left" v-if="tools.length > 1">
-                <ToolsSorter :tools="tools.length"></ToolsSorter>
-            </div> -->
-            <!-- <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
+            <ToolsListing ref="toolslisting" from="home" :tools="tools_featured"></ToolsListing>
+            <!-- <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
                 <template v-for="tool,index in tools">
+                    <div class="toolcard-loop p-3 align-self-stretch" v-if="index == 6">
+                        <NewsletterCard from="tagpage"></NewsletterCard>
+                    </div>
                     <div class="toolcard-loop p-3 align-self-stretch">
-                        <ToolCard :tool="tool" from="index"></ToolCard>
+                        <ToolCard :tool="tool" from="tagpage"></ToolCard>
                     </div>
                 </template>
             </div> -->
         </template>
-        <template v-else>
+        <!-- <template v-else>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    Nothing there, but feel free to
+                    <nuxt-link to="/addtool" class="highlight1">contribute</nuxt-link>
+                    if you think something is missing :)
+                </div>
+            </div>
+        </template> -->
+        <template v-if="tools_featured.length > 0">
+            <div class="row mt-5">
+                <div class="col-1"></div>
+                <div class="col-11">
+                    <h2>&gt; Last added</h2>
+                </div>
+            </div>
+            <ToolsListing ref="toolslisting" from="home" :tools="tools_lastadded"></ToolsListing>
+            <!-- <div class="d-flex flex-wrap flex-row justify-content-center mt-3">
+                <template v-for="tool,index in tools">
+                    <div class="toolcard-loop p-3 align-self-stretch" v-if="indesx == 6">
+                        <NewsletterCard from="tagpage"></NewsletterCard>
+                    </div>
+                    <div class="toolcard-loop p-3 align-self-stretch">
+                        <ToolCard :tool="tool" from="tagpage"></ToolCard>
+                    </div>
+                </template>
+            </div> -->
+        </template>
+        <!-- <template v-else>
             <div class="row">
                 <div class="col text-center">
                     Nothing there, but feel free to
@@ -33,25 +62,37 @@
                     if you think something is missing :)
                 </div>
             </div>
-        </template>
+        </template> -->
     </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import NotFound from '~/components/NotFound.vue';
 import ToolCard from '~/components/ToolCard.vue'
-import ToolModal from '~/components/ToolModal.vue';
 import ToolsSorter from '~/components/ToolsSorter.vue'
 import ToolsListing from '~/components/ToolsListing.vue'
+import NewsletterCard from '~/components/NewsletterCard.vue';
+import TagName from '~/components/TagName.vue';
+import HighlightedTool from '~/components/HighlightedTool.vue';
 
 export default {
-    name: 'Home',
+    name: 'TagPage',
     components: {
-        Logo, ToolModal, ToolCard, ToolsSorter, ToolsListing
+        Logo, NotFound, ToolCard, ToolsListing, NewsletterCard, HighlightedTool
     },
     computed: {
-        tools() {
+        highlighted_tool() {
+            var highlighted_tool = this.$store.getters['getHighlightedTool'];
+            // var highlighted_tool = this.$store.getters['getCalculatedHighlightedTool'];
+            return highlighted_tool;
+        },
+        tools_featured() {
             return this.$store.getters['getToolsFeatured'];
+        },
+        tools_lastadded() {
+            // return this.$store.getters['getLast7days']();
+            return this.$store.getters['getToolsLastAdded'](10);
         },
     },
     beforeRouteLeave(to, from, next) {
@@ -64,17 +105,14 @@ export default {
         next();
     },
     mounted() {
-        // this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/background/home.jpg'] );
+        this.$store.dispatch( 'searchTools20240530', ['all'] );
         this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/vidz/code.mp4'] );
+
+        // this.$store.dispatch( 'searchTools20240530', [this.$route.params.slug] );
+        // this.$store.commit( 'setAwesomeBackground', [this.$config.ASSETS_URL+'/tags/'+this.datag.background_filename,this.datag.background_author,this.datag.background_author_link] );
     }
 }
 </script>
 
 <style scoped>
-h1 {
-    font-size: 2.5em;
-}
-.flex-row {
-    /* border: 2px solid red; */
-}
 </style>

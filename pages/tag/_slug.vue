@@ -9,8 +9,12 @@
                 <div class="mt-5"></div>
             </template> -->
             <template v-if="tools.length > 0">
-                <div class="d-flex justify-content-center" v-if="tools.length > 1 && this.$route.params.slug != 'last7days'">
-                    <ToolsSorter :tools="tools.length"></ToolsSorter>
+                <!-- <div class="d-flex justify-content-center" v-if="tools.length > 1 && this.$route.params.slug != 'last7days'"> -->
+                <div class="row mt-5" v-if="tools.length > 1 && this.$route.params.slug != 'last7days'">
+                    <div class="col-1"></div>
+                    <div class="col-11">
+                        <ToolsSorter :tools="tools.length"></ToolsSorter>
+                    </div>
                 </div>
                 <ToolsListing ref="toolslisting" from="tagpage" :tools="tools"></ToolsListing>
                 <!-- <div class="d-flex flex-wrap flex-row justify-content-center mt-3">

@@ -13,7 +13,7 @@
                     </div>
                     <div class="d-inline ms-4" style="line-height:37px;">
                         <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'fw-bold': '']">Home</nuxt-link>
-                        <nuxt-link to="/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
+                        <!-- <nuxt-link to="/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link> -->
                         <nuxt-link to="/tag/learning" class="topbar-learning ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">Learn & Train</nuxt-link>
                         <nuxt-link to="/tag/resources" class="topbar-resources ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">Resources</nuxt-link>
                         <nuxt-link to="/contributors" class="topbar-contributors ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">Contributors</nuxt-link>

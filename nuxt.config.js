@@ -70,7 +70,7 @@ const createFeeds = async () => {
                 author: [{
                     name: "Gwendal Le Coguic",
                     email: "g@offsec.tools",
-                    link: "https://10degres.net"
+                    link: "https://glc.st"
                 }]
             }
 

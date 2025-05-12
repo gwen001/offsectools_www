@@ -19,7 +19,7 @@
                         </p>
                         <p>
                             Tools developped by sponsors are highlighted.
-                            <br/>And every week, 10 random tools are promoted on the homepage.
+                            <br/>And every week, random tools are promoted on the homepage.
                         </p>
                         <p>
                           Feel free to check the <a :href="$config.GITHUB_URL" class="highlight2" target="_blank">GitHub repository</a> and the <a :href="$config.ANALYTICS_URL" class="highlight2" target="_blank">public analytics page</a>.

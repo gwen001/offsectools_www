@@ -9,15 +9,20 @@
             <!--  <div class="d-flex justify-content-left" v-if="tools.length > 1">
                 <ToolsSorter :tools="tools.length"></ToolsSorter>
             </div> -->
-        <div class="d-flex flex-row flex-wrap justify-content-center mt-1">
-            <template v-for="tool,index in tools">
-                <div class="toolcard-loop p-3 align-self-stretch" v-if="index == 6 && from!='home'">
-                    <NewsletterCard from="tagpage"></NewsletterCard>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-11 ps-1">
+                <div class="d-flex flex-row flex-wrap mt-1">
+                    <template v-for="tool,index in tools">
+                        <div class="toolcard-loop align-self-stretch p-3" v-if="index == 6 && from!='home'">
+                            <NewsletterCard from="tagpage"></NewsletterCard>
+                        </div>
+                        <div class="toolcard-loop align-self-stretch p-3 ps-0">
+                            <ToolCard :tool="tool" from="index"></ToolCard>
+                        </div>
+                    </template>
                 </div>
-                <div class="toolcard-loop p-3 align-self-stretch">
-                    <ToolCard :tool="tool" from="index"></ToolCard>
-                </div>
-            </template>
+            </div>
         </div>
     </div>
 </template>
@@ -158,4 +163,12 @@ export default {
 </script>
 
 <style scoped>
+#tools-listing .d-flex {
+    justify-content: left;
+}
+/* @media screen and (max-width: 576px) {
+    #tools-listing .d-flex {
+        justify-content: center;
+    }
+} */
 </style>

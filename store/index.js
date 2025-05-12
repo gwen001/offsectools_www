@@ -253,6 +253,23 @@ export const getters = {
 
         return t_tools;
     },
+    getToolsLastAdded: (state,getters) => (limit) => {
+        var t_tools = [];
+        var t_tmp = [];
+
+        for( var i=0 ; i<state.db.tools.length ; i++ ) {
+            if( state.db.tools[i].sponsored == 0 && state.db.tools[i].featured == 0 ) {
+                t_tmp.push(state.db.tools[i]);
+            }
+        }
+
+        // t_tools = getters.sortTools(t_tools,'date_desc');
+        t_tools = t_tmp;
+        t_tools = getters.sortTools(t_tools,'date_desc');
+        t_tools = t_tools.slice(0,limit);
+
+        return t_tools;
+    },
     getSurprise: (state,getters) => (limit) => {
         var t_tools = [...state.db.tools];
         t_tools = t_tools.sort(() => Math.random() - 0.5)
@@ -413,15 +430,15 @@ export const mutations = {
         return state.user_agent = user_agent;
     },
     resetHighlightedTool( state ) {
-        console.log('resetHighlightedTool');
+        // console.log('resetHighlightedTool');
         state.highlighted_tool = null;
     },
     setHighlightedTool( state, data ) {
-        console.log('setHighlightedTool');
+        // console.log('setHighlightedTool');
         state.highlighted_tool = data[0];
     },
     setCalculatedHighlightedTool( state, data ) {
-        console.log('setCalculatedHighlightedTool');
+        // console.log('setCalculatedHighlightedTool');
         // console.log(data[0]);
         state.highlighted_tool = data[0];
     },
@@ -564,12 +581,13 @@ export const actions = {
         });
     },
     searchTools20240530( context, data) {
-        console.log('searchTools20240530');
+        // console.log('searchTools20240530');
 
         var slug = data[0].toLowerCase();
         var db_tools = this.getters['getTools'];
         var t_tools = [];
         var t_tmp = [];
+        // console.log(slug);
 
         switch(slug)
         {
@@ -595,6 +613,7 @@ export const actions = {
                 }
                 break;
         }
+        // console.log(t_tmp.length);
 
         var search_term = this.getters['getSearchTerm'];
         if( search_term.length == 0 )
