@@ -56,12 +56,12 @@ a.discret:hover {
     text-decoration: underline;
 }
 
-svg {
-    font-size: 1.3em;
+svg.svg-inline--fa {
+    font-size: 0.9em;
 }
-svg.fa-house {
+/* svg.fa-house {
     font-size: 1.1em;
-}
+} */
 
 .dropdown {
     /* margin-left: 3rem; */
@@ -352,6 +352,13 @@ a.text-custom3:hover {
     z-index: 10;
 
 }
+#topbar .menu svg {
+    opacity: 0.6;
+}
+#topbar .search-group svg {
+    opacity: 0.6;
+    font-size: 1.3em;
+}
 
 
 /* #topbar a.ms-3 {
@@ -538,10 +545,15 @@ xxl: 1400px
 }
 
 
+#mobile-menu .lnk-close {
+    font-size: 1.3em;
+}
 #mobile-menu .lnk-close:hover {
     color: #ddd;
 }
-
+#mobile-menu .menu svg {
+    opacity: 0.6;
+}
 .show {
     /* border: 5px solid #f00; */
     /* display: block; */
