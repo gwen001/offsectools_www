@@ -17,71 +17,71 @@
         <div class="menu">
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/" :class="[this.$route.path=='/' ? 'fw-bold': '']">
+                    <nuxt-link to="/" :class="[this.$route.path=='/' ? 'menu-current': '']">
                         <font-awesome-icon icon="fas fa-house-crack" /> Home
                     </nuxt-link>
                 </div>
             </div>
             <!-- <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/last7days" :class="[this.$route.path=='/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link>
+                    <nuxt-link to="/last7days" :class="[this.$route.path=='/last7days' ? 'menu-current': '']">Last 7 days</nuxt-link>
                 </div>
             </div> -->
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/tag/learning" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">
+                    <nuxt-link to="/tag/learning" :class="[this.$route.path=='/tag/learning' ? 'menu-current': '']">
                         <font-awesome-icon icon="fa fa-graduation-cap" /> Learn & Train
                     </nuxt-link>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/tag/resources" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">
+                    <nuxt-link to="/tag/resources" :class="[this.$route.path=='/tag/resources' ? 'menu-current': '']">
                         <font-awesome-icon icon="fa fa-database" /> Resources
                     </nuxt-link>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/contributors" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">
+                    <nuxt-link to="/contributors" :class="[this.$route.path=='/contributors' ? 'menu-current': '']">
                         <font-awesome-icon icon="fa fa-users" /> Contributors
                     </nuxt-link>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/newsletter" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">
+                    <nuxt-link to="/newsletter" :class="[this.$route.path=='/newsletter' ? 'menu-current': '']">
                         <font-awesome-icon icon="fas fa-envelope" /> Newsletter
                     </nuxt-link>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link :to="browseLink" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">
+                    <nuxt-link :to="browseLink" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'menu-current': '']">
                         <font-awesome-icon icon="fas fa-hashtag" /> Tags
                     </nuxt-link>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/advertise" :class="[this.$route.path=='/advertise' ? 'fw-bold': '']">
+                    <nuxt-link to="/advertise" :class="[this.$route.path=='/advertise' ? 'menu-current': '']">
                         <font-awesome-icon icon="fas fa-bullhorn" /> Advertise!
                     </nuxt-link>
                 </div>
             </div>
             <!-- <div class="row mt-3">
                 <div class="col text-center">
-                    <nuxt-link to="/surprise" :class="[this.$route.path=='/surprise' ? 'fw-bold': '']">Surprise me!</nuxt-link>
+                    <nuxt-link to="/surprise" :class="[this.$route.path=='/surprise' ? 'menu-current': '']">Surprise me!</nuxt-link>
                 </div>
             </div> -->
         </div>
         <div class="d-flex mt-3">
-            <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1 w-100" :class="[this.$route.path=='/addtool' ? 'fw-bold': '']">
+            <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1 w-100" :class="[this.$route.path=='/addtool' ? 'menu-current': '']">
                 <font-awesome-icon icon="fa fa-plus" /> Add tool
             </nuxt-link>
         </div>
         <div class="d-flex mt-3">
-            <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 w-100" :class="[this.$route.path=='/about' ? 'fw-bold': '']">
+            <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 w-100" :class="[this.$route.path=='/about' ? 'menu-current': '']">
                 <font-awesome-icon icon="fa fa-question" /> About
             </nuxt-link>
         </div>

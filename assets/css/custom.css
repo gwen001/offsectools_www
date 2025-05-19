@@ -352,6 +352,10 @@ a.text-custom3:hover {
     z-index: 10;
 
 }
+#topbar .menu-current, #mobile-menu .menu-current {
+    /* color: #22d3ee; */
+    font-weight: 100;
+}
 #topbar .menu svg {
     opacity: 0.6;
 }

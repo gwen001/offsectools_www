@@ -12,26 +12,26 @@
                         <Logo2></Logo2>
                     </div>
                     <div class="d-inline ms-4 menu" style="line-height:37px;">
-                        <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'fw-bold': '']">
+                        <nuxt-link to="/" class="topbar-home" :class="[ this.$route.path=='/' ? 'menu-current': '']">
                             <font-awesome-icon icon="fas fa-house-crack" /> Home
                         </nuxt-link>
-                        <!-- <nuxt-link to="/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/last7days' ? 'fw-bold': '']">Last 7 days</nuxt-link> -->
-                        <nuxt-link to="/tag/learning" class="topbar-learning ms-3" :class="[this.$route.path=='/tag/learning' ? 'fw-bold': '']">
+                        <!-- <nuxt-link to="/last7days" class="topbar-last7days ms-3" :class="[this.$route.path=='/last7days' ? 'menu-current': '']">Last 7 days</nuxt-link> -->
+                        <nuxt-link to="/tag/learning" class="topbar-learning ms-3" :class="[this.$route.path=='/tag/learning' ? 'menu-current': '']">
                             <font-awesome-icon icon="fa fa-graduation-cap" /> Learn & Train
                         </nuxt-link>
-                        <nuxt-link to="/tag/resources" class="topbar-resources ms-3" :class="[this.$route.path=='/tag/resources' ? 'fw-bold': '']">
+                        <nuxt-link to="/tag/resources" class="topbar-resources ms-3" :class="[this.$route.path=='/tag/resources' ? 'menu-current': '']">
                             <font-awesome-icon icon="fa fa-database" /> Resources
                         </nuxt-link>
-                        <nuxt-link to="/contributors" class="topbar-contributors ms-3" :class="[this.$route.path=='/contributors' ? 'fw-bold': '']">
+                        <nuxt-link to="/contributors" class="topbar-contributors ms-3" :class="[this.$route.path=='/contributors' ? 'menu-current': '']">
                             <font-awesome-icon icon="fa fa-users" /> Contributors
                         </nuxt-link>
-                        <nuxt-link to="/newsletter" class="topbar-newsletter ms-3" :class="[this.$route.path=='/newsletter' ? 'fw-bold': '']">
+                        <nuxt-link to="/newsletter" class="topbar-newsletter ms-3" :class="[this.$route.path=='/newsletter' ? 'menu-current': '']">
                             <font-awesome-icon icon="fas fa-envelope" /> Newsletter
                         </nuxt-link>
-                        <nuxt-link :to="browseLink" class="topbar-tags ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'fw-bold': '']">
+                        <nuxt-link :to="browseLink" class="topbar-tags ms-3" :class="[(this.$route.path=='/browse/alphabet'||this.$route.path=='/browse/categories') ? 'menu-current': '']">
                             <font-awesome-icon icon="fas fa-hashtag" /> Tags
                         </nuxt-link>
-                        <nuxt-link to="/advertise" class="topbar-advertise ms-3" :class="[this.$route.path=='/advertise' ? 'fw-bold': '']">
+                        <nuxt-link to="/advertise" class="topbar-advertise ms-3" :class="[this.$route.path=='/advertise' ? 'menu-current': '']">
                             <font-awesome-icon icon="fas fa-bullhorn" /> Advertise!
                         </nuxt-link>
                     </div>
@@ -50,10 +50,10 @@
                 <div class="topbar-buttons">
                     <!-- <nuxt-link to="/addtool" class="btn btn-outline-gradient btn-outline-gradient1">Add a tool</nuxt-link>
                     <nuxt-link to="/about" class="btn btn-outline-gradient btn-outline-gradient1 ms-1">About</nuxt-link> -->
-                    <nuxt-link to="/about"><div class="box-border-gradient float-end ms-3"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/about' ? 'fw-bold': '']">
+                    <nuxt-link to="/about"><div class="box-border-gradient float-end ms-3"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/about' ? 'menu-current': '']">
                         <font-awesome-icon icon="fa fa-question" /> About
                     </div></div></nuxt-link>
-                    <nuxt-link to="/addtool"><div class="box-border-gradient float-start"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/addtool' ? 'fw-bold': '']">
+                    <nuxt-link to="/addtool"><div class="box-border-gradient float-start"><div class="box-border-gradient-bg1" :class="[this.$route.path=='/addtool' ? 'menu-current': '']">
                         <font-awesome-icon icon="fa fa-plus" /> Add a tool
                     </div></div></nuxt-link>
                 </div>
