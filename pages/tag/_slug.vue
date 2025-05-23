@@ -81,45 +81,37 @@ export default {
             link = [
                 {
                     'property': 'canonical',
-                    'hid': 'canonical',
                     'content': url
                 },
             ];
 
             meta = [
                 {
-                    'property': 'keywords',
-                    'hid': 'keywords',
+                    'name': 'keywords',
                     'content': this.$config.APP_KEYWORDS+','+this.datag.slug
                 },
                 {
-                    'property': 'description',
-                    'hid': 'description',
+                    'name': 'description',
                     'content': descr
                 },
                 {
                     'property': 'og:url',
-                    'hid': 'og:url',
                     'content': url
                 },
                 {
                     'property': 'og:title',
-                    'hid': 'og:title',
                     'content': title
                 },
                 {
                     'property': 'og:description',
-                    'hid': 'og:description',
                     'content': descr
                 },
                 {
-                    'property': 'twitter:title',
-                    'hid': 'twitter:title',
+                    'name': 'twitter:title',
                     'content': title
                 },
                 {
-                    'property': 'twitter:description',
-                    'hid': 'twitter:description',
+                    'name': 'twitter:description',
                     'content': descr
                 },
             ];
