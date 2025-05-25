@@ -671,18 +671,6 @@ xxl: 1400px
 
 
 
-#tool-details .link-close svg {
-    font-size: 1.5em !important;
-}
-#tool-details .link-close:hover {
-    color: #ddd;
-}
-#tool-details .tool-link:hover {
-    text-decoration: underline;
-}
-
-
-
 .tool-card .card, .tool-card .card-body, .tool-card .list-group-item {
     background-color: #141729;
 }

@@ -16,7 +16,7 @@
 <div class="carousel-inner w-100 h-100">
 <template v-for="img,index in tool.images">
 <div class="carousel-item" :class="[index == 0 ? 'active' : '']" data-bs-interval="1000">
-<img :src="this.$config.ASSETS_URL+'/tools/'+tool.images[index]" class="rounded-top d-block w-100 h-100" :alt="tool.nicename+' on '+$config.APP_NAME">
+<img :src="$config.ASSETS_URL+'/tools/'+tool.images[index]" class="rounded-top d-block w-100 h-100" :alt="tool.nicename+' on '+$config.APP_NAME">
 </div>
 </template>
 </div>
@@ -31,7 +31,7 @@
 </button>
 </template>
 </div> -->
-                <img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded-top tool-picture img-fluid" :class="[from=='modal' ? 'w-100' : 'w-50']" />
+                <img :alt="tool.nicename+' on '+$config.APP_NAME" :src="$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded-top tool-picture img-fluid" :class="[from=='modal' ? 'w-100' : 'w-50']" />
             </div>
         </div>
         <div class="row p-3">

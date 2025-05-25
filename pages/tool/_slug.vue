@@ -12,12 +12,11 @@
 <script>
 import NotFound from '~/components/NotFound.vue';
 import ToolDetails from '~/components/ToolDetails.vue';
-import ToolDetails2 from '~/components/ToolDetails2.vue';
 
 export default {
     name: 'ToolPage',
     components: {
-        NotFound, ToolDetails2, ToolDetails
+        NotFound, ToolDetails
     },
     head() {
         var title = '';

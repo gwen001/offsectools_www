@@ -1,19 +1,19 @@
 <template>
     <div id="sharer">
         <div class="sharer-buttons">
-            <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img class="twitter" :src="this.$config.ASSETS_URL+'/share/twitter.svg'" alt="twitter"></a>
-            <a :href="'http://www.reddit.com/submit?url='+sharing_url+'&title='+sharing_text" target="_blank"><img class="reddit" :src="this.$config.ASSETS_URL+'/share/reddit.svg'" alt="reddit"></a>
-            <a :href="'https://news.ycombinator.com/submitlink?u='+sharing_url+'&amp;t='+sharing_text" target="_blank"><img class="hackernews" :src="this.$config.ASSETS_URL+'/share/hackernews.svg'" alt="hackernews"></a>
-            <a :href="'mailto:?subject='+sharing_text+'&body='+sharing_url" target="_blank"><img class="mail" :src="this.$config.ASSETS_URL+'/share/mail.svg'" alt="mail"></a>
-            <a :href="'https://wa.me/?text='+sharing_text+'%20'+sharing_url" target="_blank"><img class="whatsapp" :src="this.$config.ASSETS_URL+'/share/whatsapp.svg'" alt="facebook"></a>
-            <a :href="'https://t.me/share/url?url='+sharing_url+'&text='+sharing_text" target="_blank"><img class="telegram" :src="this.$config.ASSETS_URL+'/share/telegram.svg'" alt="facebook"></a>
-            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img class="linkedin" :src="this.$config.ASSETS_URL+'/share/linkedin.svg'" alt="linkedin"></a>
-            <a :href="'https://www.facebook.com/sharer/sharer.php?u='+sharing_url+'&t='+sharing_text" target="_blank"><img class="facebook" :src="this.$config.ASSETS_URL+'/share/facebook.svg'" alt="facebook"></a>
-            <!-- <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/twitter.png'" alt="twitter"></a>
-            <a :href="'http://www.reddit.com/submit?url='+sharing_url+'&title='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/reddit.png'" alt="reddit"></a>
-            <a :href="'https://news.ycombinator.com/submitlink?u='+sharing_url+'&amp;t='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/ycombinator.png'" alt="ycombinator"></a>
-            <a :href="'https://www.facebook.com/sharer/sharer.php?u='+sharing_url" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/facebook.png'" alt="facebook"></a>
-            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img :src="this.$config.ASSETS_URL+'/share/linkedin.png'" alt="linkedin"></a> -->
+            <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img class="twitter" :src="$config.ASSETS_URL+'/share/twitter.svg'" alt="twitter"></a>
+            <a :href="'http://www.reddit.com/submit?url='+sharing_url+'&title='+sharing_text" target="_blank"><img class="reddit" :src="$config.ASSETS_URL+'/share/reddit.svg'" alt="reddit"></a>
+            <a :href="'https://news.ycombinator.com/submitlink?u='+sharing_url+'&amp;t='+sharing_text" target="_blank"><img class="hackernews" :src="$config.ASSETS_URL+'/share/hackernews.svg'" alt="hackernews"></a>
+            <a :href="'mailto:?subject='+sharing_text+'&body='+sharing_url" target="_blank"><img class="mail" :src="$config.ASSETS_URL+'/share/mail.svg'" alt="mail"></a>
+            <a :href="'https://wa.me/?text='+sharing_text+'%20'+sharing_url" target="_blank"><img class="whatsapp" :src="$config.ASSETS_URL+'/share/whatsapp.svg'" alt="facebook"></a>
+            <a :href="'https://t.me/share/url?url='+sharing_url+'&text='+sharing_text" target="_blank"><img class="telegram" :src="$config.ASSETS_URL+'/share/telegram.svg'" alt="facebook"></a>
+            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img class="linkedin" :src="$config.ASSETS_URL+'/share/linkedin.svg'" alt="linkedin"></a>
+            <a :href="'https://www.facebook.com/sharer/sharer.php?u='+sharing_url+'&t='+sharing_text" target="_blank"><img class="facebook" :src="$config.ASSETS_URL+'/share/facebook.svg'" alt="facebook"></a>
+            <!-- <a :href="'https://twitter.com/intent/tweet?text='+sharing_text+'%20'+sharing_url" target="_blank"><img :src="$config.ASSETS_URL+'/share/twitter.png'" alt="twitter"></a>
+            <a :href="'http://www.reddit.com/submit?url='+sharing_url+'&title='+sharing_text" target="_blank"><img :src="$config.ASSETS_URL+'/share/reddit.png'" alt="reddit"></a>
+            <a :href="'https://news.ycombinator.com/submitlink?u='+sharing_url+'&amp;t='+sharing_text" target="_blank"><img :src="$config.ASSETS_URL+'/share/ycombinator.png'" alt="ycombinator"></a>
+            <a :href="'https://www.facebook.com/sharer/sharer.php?u='+sharing_url" target="_blank"><img :src="$config.ASSETS_URL+'/share/facebook.png'" alt="facebook"></a>
+            <a :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url='+sharing_url+'&amp;title='+sharing_text" target="_blank"><img :src="$config.ASSETS_URL+'/share/linkedin.png'" alt="linkedin"></a> -->
         </div>
     </div>
 </template>

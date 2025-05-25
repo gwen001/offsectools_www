@@ -1,7 +1,7 @@
 <template>
     <div id="awesome-background">
         <template v-if="highlighted_tool">
-            <div id="awesome-background-image" class="highlighted-tool" :style="'background-position:top center;background-image:url('+this.$config.ASSETS_URL+'/tools/'+highlighted_tool.images[0]+');'"></div>
+            <div id="awesome-background-image" class="highlighted-tool" :style="'background-position:top center;background-image:url('+$config.ASSETS_URL+'/tools/'+highlighted_tool.images[0]+');'"></div>
             <div id="awesome-background-gradient"></div>
             <div id="awesome-background-gradient-highlighted-tool"></div>
         </template>

@@ -1,7 +1,7 @@
 <template>
     <div class="tool-card h-100" :class="[(from=='tagpage'||from=='index') ? 'ms-2 me-2' : '']">
         <div class="card h-100">
-            <img :alt="tool.nicename" :title="tool.nicename" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="card-img-top tool-picture" />
+            <img :alt="tool.nicename" :title="tool.nicename" :src="$config.ASSETS_URL+'/tools/'+tool.images[0]" class="card-img-top tool-picture" />
             <div class="card-body">
                 <template v-if="tool.featured">
                     <Ribbon rstyle="warning" rtext="featured"></Ribbon>

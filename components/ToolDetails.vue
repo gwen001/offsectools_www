@@ -13,10 +13,17 @@
                         <template v-if="tool.sponsored">
                             <Ribbon rstyle="danger" rtext="sponsor"></Ribbon>
                         </template>
-                        <img :alt="tool.nicename" :title="tool.nicename" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" class="rounded tool-picture img-fluid w-100" />
-                        <!-- <nuxt-img :alt="tool.nicename+' on '+this.$config.APP_NAME" :src="this.$config.ASSETS_URL+'/tools/'+tool.images[0]" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" /> -->
+                        <img :alt="tool.nicename" :title="tool.nicename" :src="$config.ASSETS_URL+'/tools/'+tool.images[0]" id="tool-picture" />
+                        <!-- <nuxt-img :alt="tool.nicename+' on '+$config.APP_NAME" :src="$config.ASSETS_URL+'/tools/'+tool.images[0]" placeholder="/img/default-tool.png" class="rounded tool-picture img-fluid" /> -->
                     </div>
                 </div>
+                <template v-if="tool.images.length > 1">
+                    <div class="row mt-3">
+                        <div class="col">
+                            <img @mouseover="setToolImage(img)" @click="setToolImage(img)" :alt="tool.nicename" :title="tool.nicename" :src="$config.ASSETS_URL+'/tools/'+img"  class="tool-thumbnail" v-for="img of tool.images" />
+                        </div>
+                    </div>
+                </template>
                 <div class="row mt-3">
                     <div class="tool-name col">
                         <h1>{{ tool.nicename }}</h1>
@@ -81,6 +88,11 @@ export default {
         ToolContextualisation, Sharer
     },
     methods: {
+        setToolImage(i) {
+            // alert(this.$config.ASSETS_URL+'/tools/'+i);
+            document.getElementById('tool-picture').src = this.$config.ASSETS_URL+'/tools/'+i;
+
+        },
         resetSearch: function () {
             // this.$store.commit( 'resetSearch', 1 );
             // this.$router.push( '/' );
@@ -91,9 +103,47 @@ export default {
     },
     mounted() {
         this.$store.dispatch( 'createToolContextualisation', [5,this.tool.tags,this.tool.slug] );
-    },
+    }
 }
 </script>
 
 <style scoped>
+#tool-details .link-close svg {
+    font-size: 1.5em !important;
+}
+#tool-details .link-close:hover {
+    color: #ddd;
+}
+#tool-details .tool-link:hover {
+    text-decoration: underline;
+}
+
+#tool-details #tool-picture {
+    aspect-ratio: 16 / 9;
+    border-radius: 0.4em;
+    /* height: 25em; */
+    width: 100%;
+}
+/* @media all and (max-width: 572px) {
+    #tool-details #tool-picture {
+        height: 15em;
+    }
+}
+@media all and (max-width: 768px) {
+    #tool-details #tool-picture {
+        height: 20em;
+    }
+} */
+#tool-details .tool-thumbnail-container {
+    /* display: block;
+    float: left; */
+    width: 120px !important;
+}
+#tool-details .tool-thumbnail {
+    border-radius: 0.4em;
+    height: 75px;
+    margin-bottom: 1em;
+    margin-right: 1.2em;
+    width: 100px;
+}
 </style>
