@@ -85,6 +85,7 @@ export default {
     mounted() {
         document.getElementById('main-content').scrollTo(0,0);
         this.$store.commit( 'resetAwesomeBackground' );
+        // this.$store.commit( 'setAwesomeBackground', ['https://assets.offsec.tools/tools/lookyloo-5028.png'] );
     },
     async asyncData( { store, params, error } ) {
         var t = await store.getters['getToolFromSlug'](params.slug);

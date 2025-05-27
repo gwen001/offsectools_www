@@ -23,6 +23,9 @@
                 <div id="awesome-background-gradient"></div>
                 <div id="awesome-background-gradient-highlighted-tool"></div>
             </template>
+            <!-- <template v-else>
+                <div id="awesome-background-gradient-strong">AAAA</div>
+            </template> -->
         </template>
     </div>
 </template>
@@ -101,6 +104,24 @@ export default {
     position: absolute;
     top: 0px;
     width: 100%;
+    z-index: -1;
+}
+#awesome-background-gradient-strong {
+    background: radial-gradient(circle,
+        rgba(255,0,0,1) 0%, rgba(255,0,0,1) 10%,
+        rgba(200,0,0,1) 11%, rgba(200,0,0,1) 20%,
+        rgba(150,0,0,1) 21%, rgba(150,0,0,1) 30%,
+        rgba(100,0,0,1) 31%, rgba(100,0,0,1) 40%,
+        rgba(50,0,0,1) 41%, rgba(50,0,0,1) 50%,
+        rgba(0,0,0,1) 51%, rgba(23,25,36,1) 60%
+    );
+
+    border: 1px solid #f00;
+    height: 200%;
+    left: -50%;
+    position: absolute;
+    top: -50%;
+    width: 200%;
     z-index: -1;
 }
 #awesome-background-gradient-highlighted-tool {

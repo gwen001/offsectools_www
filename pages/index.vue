@@ -11,7 +11,7 @@
             <div class="row mt-5">
                 <div class="col-1"></div>
                 <div class="col-11">
-                    <h2>&gt; Featured this week</h2>
+                    <h2><font-awesome-icon icon="fas fa-chevron-right" class="me-1" /> Featured this week</h2>
                 </div>
             </div>
             <ToolsListing ref="toolslisting" from="home" :tools="tools_featured"></ToolsListing>
@@ -39,7 +39,7 @@
             <div class="row mt-5">
                 <div class="col-1"></div>
                 <div class="col-11">
-                    <h2>&gt; Last added</h2>
+                    <h2><font-awesome-icon icon="fas fa-chevron-right" class="me-1" /> Last added</h2>
                 </div>
             </div>
             <ToolsListing ref="toolslisting" from="home" :tools="tools_lastadded"></ToolsListing>
